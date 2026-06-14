@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dk452q57ua7sm"]
+
+[ext_resource type="Script" uid="uid://byxnxq8n5e4py" path="res://CameraFollower.cs" id="1_qj1bo"]
+
+[node name="CameraFollower" type="CharacterBody3D" unique_id=956313856]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_qj1bo")
+
+[node name="CameraPivot" type="Marker3D" parent="." unique_id=1448894027]
+transform = Transform3D(1, 0, 0, 0, -0.17364818, 0.98480767, 0, -0.98480767, -0.17364818, 0, 0, 0)
+
+[node name="Camera" type="Camera3D" parent="CameraPivot" unique_id=303490404]
+transform = Transform3D(-1, 8.742277e-08, 0, -8.742277e-08, -1, 0, 0, 0, 1, 0, 0, 18)
+current = true

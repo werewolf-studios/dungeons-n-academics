@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cuo0a4ri70bwj"]
+
+[ext_resource type="Script" uid="uid://cf28joa5vvwel" path="res://Player.cs" id="1_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://ds53f4331g314" path="res://Models/Male-Character.glb" id="2_hqtel"]
+[ext_resource type="PackedScene" uid="uid://pj2x1psdylwt" path="res://Models/Female-Character.glb" id="3_sweqy"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i3pqv"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1667134440]
+script = ExtResource("1_i3pqv")
+
+[node name="Pivot" type="Node3D" parent="." unique_id=1498624738]
+
+[node name="Male-Character" parent="Pivot" unique_id=787788361 instance=ExtResource("2_hqtel")]
+
+[node name="Female-Character" parent="Pivot" unique_id=733471895 instance=ExtResource("3_sweqy")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=805874879]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_i3pqv")
