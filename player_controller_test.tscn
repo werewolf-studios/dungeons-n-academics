@@ -24,13 +24,13 @@ maxCameraDistance = 10.0
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CameraFollower" unique_id=1561509581]
 mesh = SubResource("SphereMesh_gu0sv")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=556897208]
+[node name="Floor" type="StaticBody3D" parent="." unique_id=556897208]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=428828702]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=428828702]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 1, -1, 0)
 mesh = SubResource("BoxMesh_gu0sv")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=563974252]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=563974252]
 transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0)
 shape = SubResource("BoxShape3D_4ayu3")
 
