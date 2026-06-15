@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dk452q57ua7sm"]
 
-[ext_resource type="Script" uid="uid://byxnxq8n5e4py" path="res://CameraFollower.cs" id="1_qj1bo"]
+[ext_resource type="Script" uid="uid://byxnxq8n5e4py" path="res://Scripts/CameraFollower.cs" id="1_qj1bo"]
 
 [node name="CameraFollower" type="CharacterBody3D" unique_id=956313856]
 collision_layer = 0
