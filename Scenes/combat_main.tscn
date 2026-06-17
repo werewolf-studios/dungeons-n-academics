@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cwdd3rvi5k3ht"]
+
+[ext_resource type="PackedScene" uid="uid://ds53f4331g314" path="res://Models/Male-Character.glb" id="1_phkcs"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k5tp8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m6hub"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ngsrv"]
+
+[node name="CombatMain" type="Node" unique_id=2054122581]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=762101080]
+physics_material_override = SubResource("PhysicsMaterial_k5tp8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=640390195]
+shape = SubResource("BoxShape3D_m6hub")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D" unique_id=2075741761]
+transform = Transform3D(16.841759, 0, 0, 0, 0.27999997, 0, 0, 0, 16.783913, 0, 0, 0)
+mesh = SubResource("BoxMesh_ngsrv")
+
+[node name="Male-Character" parent="." unique_id=1619603551 instance=ExtResource("1_phkcs")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.75674844, 0, 3.1565027)
+
+[node name="Male-Character2" parent="." unique_id=1102762101 instance=ExtResource("1_phkcs")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0.757, 0, -3.1309414)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2141222278]
+transform = Transform3D(0.88983005, -0.09061412, 0.44720414, 0, 0.9800831, 0.19858797, -0.45629206, -0.17670955, 0.8721074, 2.5290456, 1.6354648, 3.991631)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=780092791]
+transform = Transform3D(1, 0, 0, 0, 0.22569923, 0.97419703, 0, -0.97419703, 0.22569923, 0, 14.558374, 0)
+shadow_enabled = true
