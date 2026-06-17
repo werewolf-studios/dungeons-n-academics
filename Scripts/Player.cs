@@ -1,4 +1,4 @@
-using Godot;
+    using Godot;
 using System;
 
 public partial class Player : CharacterBody3D
@@ -32,6 +32,9 @@ public partial class Player : CharacterBody3D
     */
 
     private Vector3 _targetVelocity = Vector3.Zero;
+
+    private bool isCharacterMale = true;
+    private bool singlePress;
 
     public override void _PhysicsProcess(double delta)
     {
@@ -118,12 +121,35 @@ public partial class Player : CharacterBody3D
         var pivot = GetNode<Node3D>("Pivot");
         pivot.Rotation = new Vector3(0, pivot.Rotation.Y, pivot.Rotation.Z);
         // pivot.Rotation = new Vector3(Mathf.Pi / 6.0f * Velocity.Y / JumpImpulse, pivot.Rotation.Y, pivot.Rotation.Z);
+
+        // Remove this when settings are implemented
+        SwapCharacter();
     }
 
     // This can be changed later to reflect settings
     // Currently used to test model rendering
     public void SwapCharacter()
     {
-        
+        if (Input.IsActionPressed("(Temporary) Swap Character") && !singlePress)
+        {
+            singlePress = true;
+
+            if (isCharacterMale)
+            {
+                GD.Print("Swap to Female");
+                isCharacterMale = false;
+                GetNode<Node3D>("Pivot/Male-Character").Visible = false;
+                GetNode<Node3D>("Pivot/Female-Character").Visible = true;
+            }
+            else
+            {
+                GD.Print("Swap to Male");
+                isCharacterMale = true;
+                GetNode<Node3D>("Pivot/Female-Character").Visible = false;
+                GetNode<Node3D>("Pivot/Male-Character").Visible = true;
+            }
+        }
+
+        if (!Input.IsActionPressed("(Temporary) Swap Character")) { singlePress = false; }
     }
 }

@@ -33,7 +33,7 @@ public partial class CameraFollower : CharacterBody3D
             MoveAndSlide();
 
             // Check collision with camera blockers ((Still working on))
-            GD.Print(GetSlideCollisionCount());
+            // GD.Print(GetSlideCollisionCount());
             if (GetSlideCollisionCount() > 0)
             {
                 // Return to previous position in blocked

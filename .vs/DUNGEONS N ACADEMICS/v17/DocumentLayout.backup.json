@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\CameraFollower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CameraFollower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|c:\\users\\minemaster429\\onedrive\\desktop\\dungeons-n-academics\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CameraFollower.cs",
+              "DocumentMoniker": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\CameraFollower.cs",
+              "RelativeDocumentMoniker": "CameraFollower.cs",
+              "ToolTip": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\CameraFollower.cs",
+              "RelativeToolTip": "CameraFollower.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-13T21:16:32.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Player.cs",
+              "RelativeDocumentMoniker": "Player.cs",
+              "ToolTip": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Player.cs",
+              "RelativeToolTip": "Player.cs",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAwwCsAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-13T03:44:00.733Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
