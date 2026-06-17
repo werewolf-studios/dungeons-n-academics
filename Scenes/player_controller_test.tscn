@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cuo0a4ri70bwj" path="res://Scenes/player.tscn" id="1_rvipy"]
 [ext_resource type="PackedScene" uid="uid://dk452q57ua7sm" path="res://Scenes/camera_follower.tscn" id="2_8ljoi"]
+[ext_resource type="PackedScene" uid="uid://1bvlmjdrlpv0" path="res://Scenes/coin.tscn" id="3_8ljoi"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_gu0sv"]
 
@@ -18,8 +19,8 @@
 [node name="Player" parent="." unique_id=1667134440 instance=ExtResource("1_rvipy")]
 
 [node name="CameraFollower" parent="." unique_id=956313856 node_paths=PackedStringArray("player") instance=ExtResource("2_8ljoi")]
-maxCameraDistance = 10.0
 player = NodePath("../Player")
+maxCameraDistance = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CameraFollower" unique_id=1561509581]
 mesh = SubResource("SphereMesh_gu0sv")
@@ -54,3 +55,27 @@ mesh = SubResource("BoxMesh_4ayu3")
 [node name="TestCube2" type="MeshInstance3D" parent="." unique_id=1401004893]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -13)
 mesh = SubResource("BoxMesh_4ayu3")
+
+[node name="Coin" parent="." unique_id=159342668 instance=ExtResource("3_8ljoi")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0.23487145, 0.98605317, 4.0560575)
+metadata/_edit_group_ = true
+
+[node name="Coin2" parent="." unique_id=244304179 instance=ExtResource("3_8ljoi")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 10.234872, 0.98605317, 4.0560575)
+metadata/_edit_group_ = true
+
+[node name="Coin3" parent="." unique_id=44573999 instance=ExtResource("3_8ljoi")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 5.234872, 0.98605317, 14.056057)
+metadata/_edit_group_ = true
+
+[node name="Coin4" parent="." unique_id=1042699751 instance=ExtResource("3_8ljoi")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 5.234872, 0.98605317, -9.943943)
+metadata/_edit_group_ = true
+
+[node name="Coin5" parent="." unique_id=1994110772 instance=ExtResource("3_8ljoi")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, -6.765128, 0.98605317, -9.943943)
+metadata/_edit_group_ = true
+
+[node name="Coin6" parent="." unique_id=2002521749 instance=ExtResource("3_8ljoi")]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, -12.765128, 0.98605317, 13.056057)
+metadata/_edit_group_ = true
