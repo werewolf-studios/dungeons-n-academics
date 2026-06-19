@@ -1,5 +1,7 @@
     using Godot;
+using Microsoft.VisualBasic;
 using System;
+using System.Diagnostics;
 
 public partial class Player : CharacterBody3D
 {
@@ -34,7 +36,9 @@ public partial class Player : CharacterBody3D
     private Vector3 _targetVelocity = Vector3.Zero;
 
     private bool isCharacterMale = true;
-    private bool singlePress;
+
+    private bool singlePressInteract;
+    private bool singlePressCharacter;
 
     public override void _PhysicsProcess(double delta)
     {
@@ -122,17 +126,41 @@ public partial class Player : CharacterBody3D
         pivot.Rotation = new Vector3(0, pivot.Rotation.Y, pivot.Rotation.Z);
         // pivot.Rotation = new Vector3(Mathf.Pi / 6.0f * Velocity.Y / JumpImpulse, pivot.Rotation.Y, pivot.Rotation.Z);
 
+        // Check for object/enemy interactions
+        CheckInteraction();
+
         // Remove this when settings are implemented
         SwapCharacter();
+    }
+
+    // Interactions with puzzles and enemies
+    public void CheckInteraction()
+    {
+        if (Input.IsActionPressed("AttackInteract") && !singlePressInteract)
+        {
+            singlePressInteract = true;
+
+            foreach (Area3D body in GetNode<Area3D>("InteractionCollider").GetOverlappingAreas())
+            {
+                GD.Print("Object Found");
+                if (body.IsInGroup("Interactable"))
+                {
+                    GD.Print("Attempting Call");
+                    body.Call("Interaction");
+                }
+            }
+        }
+
+        if (!Input.IsActionPressed("AttackInteract")) { singlePressInteract = false; }
     }
 
     // This can be changed later to reflect settings
     // Currently used to test model rendering
     public void SwapCharacter()
     {
-        if (Input.IsActionPressed("(Temporary) Swap Character") && !singlePress)
+        if (Input.IsActionPressed("(Temporary) Swap Character") && !singlePressCharacter)
         {
-            singlePress = true;
+            singlePressCharacter = true;
 
             if (isCharacterMale)
             {
@@ -150,6 +178,6 @@ public partial class Player : CharacterBody3D
             }
         }
 
-        if (!Input.IsActionPressed("(Temporary) Swap Character")) { singlePress = false; }
+        if (!Input.IsActionPressed("(Temporary) Swap Character")) { singlePressCharacter = false; }
     }
 }

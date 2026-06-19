@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b2rvaphfuxwrh"]
 
-[ext_resource type="Script" uid="uid://cwryb3xfbsf8h" path="res://Door.cs" id="1_ba8gm"]
+[ext_resource type="Script" uid="uid://cwryb3xfbsf8h" path="res://Scripts/Door.cs" id="1_ba8gm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v6xrn"]
 
