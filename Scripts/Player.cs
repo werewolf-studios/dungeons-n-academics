@@ -35,8 +35,13 @@ public partial class Player : CharacterBody3D
 
     private Vector3 _targetVelocity = Vector3.Zero;
 
+    // Held Items
+    public TilePickUp HeldPuzzlePart { get; set; }
+
+    // Character swapping
     private bool isCharacterMale = true;
 
+    // Prevent input spam
     private bool singlePressInteract;
     private bool singlePressCharacter;
 
@@ -146,7 +151,7 @@ public partial class Player : CharacterBody3D
                 if (body.IsInGroup("Interactable"))
                 {
                     GD.Print("Attempting Call");
-                    body.Call("Interaction");
+                    body.Call("Interaction", this);
                 }
             }
         }

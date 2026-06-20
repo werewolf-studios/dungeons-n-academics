@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://ciibhi1nxkyv" path="res://Scenes/interaction_test.tscn" id="5_gmutt"]
 [ext_resource type="Material" uid="uid://bar85gvgqs1dt" path="res://Materials/test_material_1.tres" id="6_0acy8"]
 [ext_resource type="Material" uid="uid://dbtx8k4hcc272" path="res://Materials/test_material_2.tres" id="7_pc80o"]
+[ext_resource type="PackedScene" uid="uid://ycejpc0oyrk3" path="res://Scenes/tile_plate.tscn" id="8_pc80o"]
+[ext_resource type="PackedScene" uid="uid://bvri3pmtitfyd" path="res://Scenes/tile_pick_up.tscn" id="9_bv58s"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_gu0sv"]
 
@@ -201,3 +203,13 @@ newCameraLocation = Vector3(0, 1, 26)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
 materialA = ExtResource("6_0acy8")
 materialB = ExtResource("7_pc80o")
+
+[node name="TilePlate" parent="." unique_id=448469179 instance=ExtResource("8_pc80o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 35)
+
+[node name="TilePlate2" parent="." unique_id=45605253 node_paths=PackedStringArray("heldTile") instance=ExtResource("8_pc80o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 35)
+heldTile = NodePath("../TilePickUp")
+
+[node name="TilePickUp" parent="." unique_id=2125581863 instance=ExtResource("9_bv58s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4, 35)

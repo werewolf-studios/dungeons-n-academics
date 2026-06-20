@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 
 project/assembly_name="Dungeons N Academics"
 
+[global_group]
+
+Interactable=""
+
 [input]
 
 "(Overworld) Move Up"={
