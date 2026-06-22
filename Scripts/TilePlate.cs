@@ -8,6 +8,7 @@ public partial class TilePlate : InteractionTest
     private TilePickUp heldTile;
 
     // Called when the node enters the scene tree for the first time.
+    //Makes sure any objects on tile are placed above it
     public override void _Ready()
 	{
         if (heldTile != null)

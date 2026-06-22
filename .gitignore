@@ -1,3 +1,16 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+.vs/DUNGEONS N ACADEMICS/DesignTimeBuild/.dtbcache.v2
+.vs/DUNGEONS N ACADEMICS/FileContentIndex/02c5c2aa-ac31-445b-9d03-5b05e5df762b.vsidx
+.vs/DUNGEONS N ACADEMICS/FileContentIndex/0e34b2be-5df2-4f15-864a-ebf3c11605cd.vsidx
+.vs/DUNGEONS N ACADEMICS/FileContentIndex/1059fbcf-c05f-4d80-8c04-81a7400cb3f9.vsidx
+.vs/DUNGEONS N ACADEMICS/FileContentIndex/3bec526d-6e9b-454f-af92-53ced22503c3.vsidx
+.vs/DUNGEONS N ACADEMICS/FileContentIndex/5e60be73-86af-486c-a87c-372d55cac00f.vsidx
+.vs/DUNGEONS N ACADEMICS/FileContentIndex/c36522e6-a02c-44b8-b65d-d9ae6896ce6e.vsidx
+.vs/DUNGEONS N ACADEMICS/FileContentIndex/e7b85c3f-c095-4afd-970e-ffaf5050131c.vsidx
+.vs/DUNGEONS N ACADEMICS/FileContentIndex/fb9e8d1b-ba84-4f4e-9518-491aee748568.vsidx
+.vs/DUNGEONS N ACADEMICS/v18/.suo
+.vs/ProjectEvaluation/dungeons n academics.metadata.v9.bin
+.vs/ProjectEvaluation/dungeons n academics.projects.v9.bin
+.vs/ProjectEvaluation/dungeons n academics.strings.v9.bin

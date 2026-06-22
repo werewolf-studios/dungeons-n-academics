@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ycejpc0oyrk3"]
 
-[ext_resource type="Script" uid="uid://c56rw05ncntx8" path="res://Scenes/TilePlate.cs" id="1_m0fv6"]
+[ext_resource type="Script" uid="uid://c56rw05ncntx8" path="res://Scripts/TilePlate.cs" id="1_m0fv6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_anej1"]
 

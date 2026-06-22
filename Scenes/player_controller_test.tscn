@@ -9,6 +9,7 @@
 [ext_resource type="Material" uid="uid://dbtx8k4hcc272" path="res://Materials/test_material_2.tres" id="7_pc80o"]
 [ext_resource type="PackedScene" uid="uid://ycejpc0oyrk3" path="res://Scenes/tile_plate.tscn" id="8_pc80o"]
 [ext_resource type="PackedScene" uid="uid://bvri3pmtitfyd" path="res://Scenes/tile_pick_up.tscn" id="9_bv58s"]
+[ext_resource type="PackedScene" uid="uid://d4hfgpi2u34uo" path="res://Scenes/push_block.tscn" id="10_f3xit"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_gu0sv"]
 
@@ -161,29 +162,32 @@ shape = SubResource("BoxShape3D_gu0sv")
 transform = Transform3D(-4.371139e-07, 0, 1, 0, 5, 0, -10, 0, -4.371139e-08, -2, 1, 0)
 shape = SubResource("BoxShape3D_gu0sv")
 
-[node name="Coin" parent="." unique_id=159342668 instance=ExtResource("3_4ayu3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -4)
+[node name="Coins" type="Node3D" parent="." unique_id=1966466745]
+transform = Transform3D(-19.999998, 0, -1.7484554e-06, 0, 1, 0, 1.7484554e-06, 0, -19.999998, -0.28571403, -1, -5.285713)
 
-[node name="Coin2" parent="." unique_id=1943818161 instance=ExtResource("3_4ayu3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -7)
+[node name="Coin" parent="Coins" unique_id=159342668 instance=ExtResource("3_4ayu3")]
+transform = Transform3D(-0.050000004, 0, 4.371139e-09, 0, 1, 0, -4.371139e-09, 0, -0.050000004, -0.26428574, 1, -0.06428568)
 
-[node name="Coin3" parent="." unique_id=310621413 instance=ExtResource("3_4ayu3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -6)
+[node name="Coin2" parent="Coins" unique_id=1943818161 instance=ExtResource("3_4ayu3")]
+transform = Transform3D(-0.050000004, 0, 4.371139e-09, 0, 1, 0, -4.371139e-09, 0, -0.050000004, -0.26428574, 1, 0.08571431)
 
-[node name="Coin4" parent="." unique_id=1638627927 instance=ExtResource("3_4ayu3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -5)
+[node name="Coin3" parent="Coins" unique_id=310621413 instance=ExtResource("3_4ayu3")]
+transform = Transform3D(-0.050000004, 0, 4.371139e-09, 0, 1, 0, -4.371139e-09, 0, -0.050000004, -0.26428574, 1, 0.0357143)
 
-[node name="Coin5" parent="." unique_id=2072220971 instance=ExtResource("3_4ayu3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
+[node name="Coin4" parent="Coins" unique_id=1638627927 instance=ExtResource("3_4ayu3")]
+transform = Transform3D(-0.050000004, 0, 4.371139e-09, 0, 1, 0, -4.371139e-09, 0, -0.050000004, -0.26428574, 1, -0.014285684)
 
-[node name="Coin6" parent="." unique_id=1019750015 instance=ExtResource("3_4ayu3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -7)
+[node name="Coin5" parent="Coins" unique_id=2072220971 instance=ExtResource("3_4ayu3")]
+transform = Transform3D(-0.050000004, 0, 4.371139e-09, 0, 1, 0, -4.371139e-09, 0, -0.050000004, 0.18571432, 1, -0.06428565)
 
-[node name="Coin7" parent="." unique_id=1264761892 instance=ExtResource("3_4ayu3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -6)
+[node name="Coin6" parent="Coins" unique_id=1019750015 instance=ExtResource("3_4ayu3")]
+transform = Transform3D(-0.050000004, 0, 4.371139e-09, 0, 1, 0, -4.371139e-09, 0, -0.050000004, 0.1857143, 1, 0.08571437)
 
-[node name="Coin8" parent="." unique_id=52352743 instance=ExtResource("3_4ayu3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -5)
+[node name="Coin7" parent="Coins" unique_id=1264761892 instance=ExtResource("3_4ayu3")]
+transform = Transform3D(-0.050000004, 0, 4.371139e-09, 0, 1, 0, -4.371139e-09, 0, -0.050000004, 0.1857143, 1, 0.035714358)
+
+[node name="Coin8" parent="Coins" unique_id=52352743 instance=ExtResource("3_4ayu3")]
+transform = Transform3D(-0.050000004, 0, 4.371139e-09, 0, 1, 0, -4.371139e-09, 0, -0.050000004, 0.18571432, 1, -0.014285624)
 
 [node name="Door" parent="." unique_id=486056227 node_paths=PackedStringArray("playerRef", "cameraRef") instance=ExtResource("4_oxgd0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.74, 1, 20.725)
@@ -213,3 +217,6 @@ heldTile = NodePath("../TilePickUp")
 
 [node name="TilePickUp" parent="." unique_id=2125581863 instance=ExtResource("9_bv58s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4, 35)
+
+[node name="RigidBody3D" parent="." unique_id=896397949 instance=ExtResource("10_f3xit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 25)
