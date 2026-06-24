@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="Dungeons N Academics"
-config/features=PackedStringArray("4.6", "Forward Plus")
+run/main_scene="uid://c7na4426cw7ug"
+config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SaveManager="*uid://dg01nscxj24ax"
+FileHandler="*uid://bmfbpv63goaod"
 
 [dotnet]
 

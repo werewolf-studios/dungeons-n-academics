@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c7na4426cw7ug"]
+
+[ext_resource type="Script" uid="uid://d14cj4k5mijtn" path="res://Scripts/ButtonScript.cs" id="1_jjgbg"]
+
+[node name="Main" type="Node3D" unique_id=1895040970]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1887183558]
+
+[node name="Control" type="Control" parent="UI" unique_id=1070579788]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="UI/Control" unique_id=572809056]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 256.0
+offset_right = 704.0
+offset_bottom = 448.0
+theme_override_font_sizes/font_size = 40
+text = "BUTTON"
+script = ExtResource("1_jjgbg")
+
+[connection signal="pressed" from="UI/Control/Button" to="UI/Control/Button" method="OnButtonPress"]
