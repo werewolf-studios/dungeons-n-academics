@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ycejpc0oyrk3" path="res://Scenes/tile_plate.tscn" id="8_pc80o"]
 [ext_resource type="PackedScene" uid="uid://bvri3pmtitfyd" path="res://Scenes/tile_pick_up.tscn" id="9_bv58s"]
 [ext_resource type="PackedScene" uid="uid://d4hfgpi2u34uo" path="res://Scenes/push_block.tscn" id="10_f3xit"]
+[ext_resource type="PackedScene" uid="uid://fb73xdocqbxi" path="res://push_button.tscn" id="11_pnl26"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_gu0sv"]
 
@@ -218,5 +219,8 @@ heldTile = NodePath("../TilePickUp")
 [node name="TilePickUp" parent="." unique_id=2125581863 instance=ExtResource("9_bv58s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4, 35)
 
-[node name="RigidBody3D" parent="." unique_id=896397949 instance=ExtResource("10_f3xit")]
+[node name="Push Block" parent="." unique_id=896397949 instance=ExtResource("10_f3xit")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 25)
+
+[node name="Push Button" parent="." unique_id=1456645407 instance=ExtResource("11_pnl26")]
+transform = Transform3D(1, 0, 0, 0, 0.05450669, 0, 0, 0, 1, 6, 0, 28)

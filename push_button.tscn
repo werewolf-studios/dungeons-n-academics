@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://fb73xdocqbxi"]
+
+[ext_resource type="Script" uid="uid://bxm2vqwhrbwrr" path="res://PushButton.cs" id="1_1eo16"]
+[ext_resource type="Material" uid="uid://dbtx8k4hcc272" path="res://Materials/test_material_2.tres" id="2_bcob0"]
+[ext_resource type="Material" uid="uid://bar85gvgqs1dt" path="res://Materials/test_material_1.tres" id="3_bcob0"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_n4tde"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_vxja4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lt4la"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Area3D" type="Area3D" unique_id=1456645407]
+transform = Transform3D(1, 0, 0, 0, 0.05450669, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_1eo16")
+materialA = ExtResource("2_bcob0")
+materialB = ExtResource("3_bcob0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=370828113]
+shape = SubResource("CylinderShape3D_n4tde")
+
+[node name="ButtonBase" type="MeshInstance3D" parent="." unique_id=54597819]
+mesh = SubResource("CylinderMesh_vxja4")
+surface_material_override/0 = SubResource("StandardMaterial3D_lt4la")
+
+[node name="ButtonTop" type="MeshInstance3D" parent="." unique_id=884757983]
+transform = Transform3D(0.8661536, 0, 0, 0, 1.996563, 0, 0, 0, 0.8782628, 0, 0, 0)
+mesh = SubResource("CylinderMesh_vxja4")
+surface_material_override/0 = ExtResource("2_bcob0")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]

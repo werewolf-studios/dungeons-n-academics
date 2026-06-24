@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://ciibhi1nxkyv"]
 
 [ext_resource type="Script" uid="uid://owsu0prifkfa" path="res://Scripts/InteractionTest.cs" id="1_jaox4"]
+[ext_resource type="Material" uid="uid://dbtx8k4hcc272" path="res://Materials/test_material_2.tres" id="2_3g2aj"]
+[ext_resource type="Material" uid="uid://bar85gvgqs1dt" path="res://Materials/test_material_1.tres" id="3_0wg47"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u8qkv"]
 
@@ -8,6 +10,8 @@
 
 [node name="InteractionTest" type="Area3D" unique_id=726771163 groups=["Interactable"]]
 script = ExtResource("1_jaox4")
+materialA = ExtResource("2_3g2aj")
+materialB = ExtResource("3_0wg47")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=988623800]
 shape = SubResource("BoxShape3D_u8qkv")

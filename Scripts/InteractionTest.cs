@@ -17,7 +17,7 @@ public partial class InteractionTest : Area3D
     }
 
 	// On Interaction
-	public virtual void Interaction(Player origin)
+	public virtual void Interaction()
 	{
         GD.Print("Interaction Started");
 

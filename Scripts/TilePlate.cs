@@ -17,10 +17,12 @@ public partial class TilePlate : InteractionTest
         }
 	}
 
-    public override void Interaction(Player origin)
+    public void Interaction(Player origin)
     {
+        //Checks to see if player is holding something and if tile is empty
         if (origin.HeldPuzzlePart != null && heldTile == null)
         {
+            //Take pickup from player and place it on tile
             heldTile = origin.HeldPuzzlePart;
             origin.HeldPuzzlePart = null;
 
@@ -28,8 +30,10 @@ public partial class TilePlate : InteractionTest
             heldTile.Position = new Vector3(0, 1, 0);
             heldTile.Scale = new Vector3(1, 1, 1);
         }
+        //Checks to see if tile is holding something and player isn't holding anything
         else if (origin.HeldPuzzlePart == null && heldTile != null)
         {
+            //Gives pickup to player and removes it from tile
             origin.HeldPuzzlePart = heldTile;
             heldTile = null;
 
