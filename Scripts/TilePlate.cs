@@ -17,7 +17,7 @@ public partial class TilePlate : InteractionTest
         }
 	}
 
-    public void Interaction(Player origin)
+    public override void Interaction(Player origin)
     {
         //Checks to see if player is holding something and if tile is empty
         if (origin.HeldPuzzlePart != null && heldTile == null)

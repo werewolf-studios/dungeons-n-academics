@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://d4hfgpi2u34uo"]
 
+[ext_resource type="Script" uid="uid://8b1bq6jx3ef4" path="res://Scripts/PushBlock.cs" id="1_n0h5u"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_s17xb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abov3"]
@@ -7,8 +9,8 @@ albedo_color = Color(1, 0.3529412, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5pwlv"]
 
-[node name="RigidBody3D" type="RigidBody3D" unique_id=896397949]
-center_of_mass_mode = 1
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=47364855]
+script = ExtResource("1_n0h5u")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1813855529]
 mesh = SubResource("BoxMesh_s17xb")
