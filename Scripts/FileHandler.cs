@@ -1,6 +1,9 @@
 using Godot;
 using Godot.Collections;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 public partial class FileHandler : Node
 {
@@ -64,6 +67,62 @@ public partial class FileHandler : Node
 
         // Ovewrite the save data dictionary
         outData.Merge((Dictionary)jsonData, true);
+        return Error.Ok;
+    }
+    
+    public static Error OpenJsonQuestionFile(string filePath, System.Collections.Generic.Dictionary<string, List<Question>> outData)
+    {
+        outData.Clear();
+        (Error, FileAccess) result = OpenFileForRead(filePath);
+        Error error = result.Item1;
+        FileAccess file = result.Item2;
+
+        if (error != Error.Ok)
+            return error;
+
+        // Get the json as a string and close the file
+        String jsonString = file.GetAsText();
+        file.Close();
+
+        // Parse the string into a json object and check for errors
+        Json json = new Json();
+        error = json.Parse(jsonString);
+        if (error != Error.Ok)
+            return error;
+
+        // Get the dictionary data from the json object
+        Variant jsonData = json.GetData();
+        if (jsonData.VariantType != Variant.Type.Dictionary)
+            return Error.InvalidData;
+
+        var jsonDict = jsonData.AsGodotDictionary();
+
+        // Loop through the dictionary
+        foreach(KeyValuePair<Variant, Variant> entry in jsonDict)
+        {
+            string key = entry.Key.AsString();
+            var arr = entry.Value.AsGodotArray();
+
+            List<Question> questions = new List<Question>();
+
+            foreach(Variant item in arr)
+            {
+                var qDict = item.AsGodotDictionary();
+
+                var q = new Question
+                {
+                    Id = qDict["id"].AsInt32(),
+                    Inquiry = qDict["inquiry"].ToString(),
+                    Correct = qDict["correct"].ToString(),
+                    Wrong = qDict["wrong"].AsStringArray(),
+                };
+
+                questions.Add(q);
+            }
+
+            outData.Add(key, questions);
+        }
+
         return Error.Ok;
     }
 

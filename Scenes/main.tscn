@@ -14,7 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="UI/Control" unique_id=572809056]
+[node name="Button" type="Button" parent="UI/Control" unique_id=572809056 node_paths=PackedStringArray("Label", "QuestionLabel")]
 layout_mode = 0
 offset_left = 448.0
 offset_top = 256.0
@@ -23,5 +23,26 @@ offset_bottom = 448.0
 theme_override_font_sizes/font_size = 40
 text = "BUTTON"
 script = ExtResource("1_jjgbg")
+Label = NodePath("../ButtonClickLabel")
+QuestionLabel = NodePath("../QuestionTestLabel")
+
+[node name="ButtonClickLabel" type="Label" parent="UI/Control" unique_id=1271362554]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 64.0
+offset_right = 864.0
+offset_bottom = 192.0
+theme_override_font_sizes/font_size = 50
+text = "Total Button Clicks: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuestionTestLabel" type="Label" parent="UI/Control" unique_id=1268053791]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 512.0
+offset_right = 960.0
+offset_bottom = 624.0
+text = "Questions:"
 
 [connection signal="pressed" from="UI/Control/Button" to="UI/Control/Button" method="OnButtonPress"]
