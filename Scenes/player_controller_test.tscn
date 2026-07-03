@@ -292,5 +292,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4, 35)
 [node name="Push Button" parent="." unique_id=1456645407 instance=ExtResource("11_pnl26")]
 transform = Transform3D(1, 0, 0, 0, 0.05450669, 0, 0, 0, 1, 6, 0, 28)
 
-[node name="GridMap" parent="." unique_id=240971848 instance=ExtResource("12_dwc1d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 0, 31)
+[node name="GridwMap" parent="." unique_id=240971848 instance=ExtResource("12_dwc1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 32)

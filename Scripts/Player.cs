@@ -136,6 +136,9 @@ public partial class Player : CharacterBody3D
 
         // Remove this when settings are implemented
         SwapCharacter();
+
+        //Push Block Check
+        CheckBoxCollision(direction);
     }
 
     // Interactions with puzzles and enemies
@@ -184,5 +187,27 @@ public partial class Player : CharacterBody3D
         }
 
         if (!Input.IsActionPressed("(Temporary) Swap Character")) { singlePressCharacter = false; }
+    }
+
+    /// <summary>
+    /// Checks all Player collisions for a PushBlock and 
+    /// calls the push method on the block
+    /// </summary>
+    /// <param name="motion"></param>
+    public void CheckBoxCollision(Vector3 motion)
+    {
+        if (Math.Abs(motion.X) + Math.Abs(motion.Z) > 1)
+        {
+            return;
+        }
+
+        for (int i = 0; i < GetSlideCollisionCount(); i++)
+        {
+            if (GetSlideCollision(i).GetCollider() is PushBlock box)
+            {
+                _ = box.Push(motion); // see note below
+                break;
+            }
+        }
     }
 }

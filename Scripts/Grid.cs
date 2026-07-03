@@ -3,15 +3,13 @@ using System;
 
 public partial class Grid : GridMap
 {
-    public void Ready()
+    public override void _Ready()
     {
-        GD.Print("buh");
-
-        foreach (PushBlock child in GetChildren())
+        foreach (Node child in GetChildren())
         {
-            if (child is PushBlock)
+            if (child is PushBlock box)
             {
-                child.Initialize(this);
+                box.Initialize(this);
             }
         }
         
