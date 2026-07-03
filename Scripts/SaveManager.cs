@@ -1,5 +1,5 @@
 using Godot;
-using Godot.Collections;
+//using Godot.Collections;
 using System.Collections.Generic;
 
 public partial class SaveManager : Node
@@ -11,19 +11,24 @@ public partial class SaveManager : Node
     private int totalButtonClicks = 0;
     public int TotalButtonClicks { get => totalButtonClicks; set => totalButtonClicks = value; }
 
-    private System.Collections.Generic.Dictionary<string, List<Question>> questions = new System.Collections.Generic.Dictionary<string, List<Question>>();
+    // Subject Dictionaries
+    private Dictionary<string, List<List<Question>>> mathQuestions = new Dictionary<string, List<List<Question>>>();
 
-    public System.Collections.Generic.Dictionary<string, List<Question>> Questions { get => questions; set => questions = value; }
+    public Dictionary<string, List<List<Question>>> MathQuestions { get => mathQuestions; set => mathQuestions = value; }
 
+    // Save file locations
     string SavePathJson = "user://save_files/savegame.json";
     string SavePathBinary = "user://save_files/savegame.save"; // can be any extension for binary
-    string LoadQuestionPathJson = "user://save_files/questions.json";
+
+    // Question file locations
+    string mathQuestionsPathJson = "user://save_files/math_questions.json";
+    string historyQuestionsPathJson = "user://save_files/history_questions.json"; // to be implemented
 
     // Saving
 
     public void SavePlayerDataJson()
     {
-        Dictionary saveData = new()
+        Godot.Collections.Dictionary saveData = new()
         {
             { KEY_BUTTON_CLICKS, totalButtonClicks }
         };
@@ -36,7 +41,7 @@ public partial class SaveManager : Node
 
     public void SavePlayerDataBinary()
     {
-        Dictionary saveData = new()
+        Godot.Collections.Dictionary saveData = new()
         {
             { KEY_BUTTON_CLICKS, totalButtonClicks }
         };
@@ -50,7 +55,7 @@ public partial class SaveManager : Node
 
     public void LoadPlayerDataJson()
     {
-        Dictionary saveData = new() { };
+        Godot.Collections.Dictionary saveData = new() { };
         Error error = FileHandler.OpenJsonFile(SavePathJson, saveData);
         if (error != Error.Ok)
         {
@@ -70,7 +75,7 @@ public partial class SaveManager : Node
 
     public void LoadPlayerDataBinary()
     {
-        Dictionary saveData = new() { };
+        Godot.Collections.Dictionary saveData = new() { };
         Error error = FileHandler.OpenBinaryFile(SavePathBinary, saveData);
         if (error != Error.Ok)
         {
@@ -88,35 +93,42 @@ public partial class SaveManager : Node
         totalButtonClicks = (int)saveData[KEY_BUTTON_CLICKS];
     }
 
-    public void LoadQuestionDataJson()
+    private Dictionary<string, List<List<Question>>> LoadQuestionDataFromFile(string filePath)
     {
-        System.Collections.Generic.Dictionary<string, List<Question>> questionData = new() { };
-        Error error = FileHandler.OpenJsonQuestionFile(LoadQuestionPathJson, questionData);
+        Dictionary<string, List<List<Question>>> questionData = new() { };
+        Error error = FileHandler.OpenJsonQuestionFile(filePath, questionData);
         if (error != Error.Ok)
         {
             GD.PushError("Failed to load player data from JSON file: " + error);
-            return;
+            return null;
         }
 
         //error = VerifySaveDataJson(questionData);
         if (error != Error.Ok)
         {
             GD.PushError("Invalid save file structure");
-            return;
+            return null;
         }
 
-        Questions = questionData;
+        return questionData;
+    }
+
+    // Loading the question data
+    public void LoadQuestionDataJson()
+    {
+        mathQuestions = LoadQuestionDataFromFile(mathQuestionsPathJson);
+        // historyQuestions = LoadQuestionDataFromFile(historyQuestionsPathJson); // to be implemented
     }
 
     // Verification
-    private Error VerifySaveDataJson(Dictionary saveData)
+    private Error VerifySaveDataJson(Godot.Collections.Dictionary saveData)
     {
         if (!saveData.ContainsKey(KEY_BUTTON_CLICKS))
             return Error.DoesNotExist;
         return Error.Ok;
     }
 
-    private Error VerifySaveDataBinary(Dictionary saveData)
+    private Error VerifySaveDataBinary(Godot.Collections.Dictionary saveData)
     {
         if (!saveData.ContainsKey(KEY_BUTTON_CLICKS))
             return Error.DoesNotExist;

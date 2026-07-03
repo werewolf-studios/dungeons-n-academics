@@ -14,7 +14,7 @@ public partial class ButtonScript : Node
         Label.Text = "Total Button Clicks: " + SaveManager.Instance.TotalButtonClicks;
 
         SaveManager.Instance.LoadQuestionDataJson();
-        QuestionLabel.Text = SaveManager.Instance.Questions["math"][0].ToString();
+        QuestionLabel.Text = SaveManager.Instance.MathQuestions["geometry"][1][0].ToString();
     }
     public void OnButtonPress()
 	{

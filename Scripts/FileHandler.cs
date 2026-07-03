@@ -70,7 +70,7 @@ public partial class FileHandler : Node
         return Error.Ok;
     }
     
-    public static Error OpenJsonQuestionFile(string filePath, System.Collections.Generic.Dictionary<string, List<Question>> outData)
+    public static Error OpenJsonQuestionFile(string filePath, System.Collections.Generic.Dictionary<string, List<List<Question>>> outData)
     {
         outData.Clear();
         (Error, FileAccess) result = OpenFileForRead(filePath);
@@ -97,30 +97,37 @@ public partial class FileHandler : Node
 
         var jsonDict = jsonData.AsGodotDictionary();
 
-        // Loop through the dictionary
+        // Loop through categories
         foreach(KeyValuePair<Variant, Variant> entry in jsonDict)
         {
-            string key = entry.Key.AsString();
-            var arr = entry.Value.AsGodotArray();
+            string category = entry.Key.AsString();
+            var tierArray = entry.Value.AsGodotArray();
 
-            List<Question> questions = new List<Question>();
+            List<List<Question>> questions = new List<List<Question>>();
 
-            foreach(Variant item in arr)
+            // Loop through tiers
+            for (int i = 0; i < tierArray.Count; i++)
             {
-                var qDict = item.AsGodotDictionary();
+                List<Question> tierQuestions = new List<Question>();
+                 var questionArray = tierArray[i].AsGodotArray();
 
-                var q = new Question
+                // Loop through questions
+                foreach (Variant item in questionArray)
                 {
-                    Id = qDict["id"].AsInt32(),
-                    Inquiry = qDict["inquiry"].ToString(),
-                    Correct = qDict["correct"].ToString(),
-                    Wrong = qDict["wrong"].AsStringArray(),
-                };
+                    var qDict = item.AsGodotDictionary();
 
-                questions.Add(q);
+                    Question q = new Question
+                    {
+                        Poblem = qDict["problem"].ToString(),
+                        Answer = qDict["answer"].ToString(),
+                        Wrong = qDict["wrong_answers"].AsStringArray(),
+                    };
+
+                    tierQuestions.Add(q);
+                }
+                questions.Add(tierQuestions);
             }
-
-            outData.Add(key, questions);
+            outData.Add(category, questions);
         }
 
         return Error.Ok;

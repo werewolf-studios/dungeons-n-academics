@@ -3,14 +3,13 @@ using System;
 
 public class Question
 {
-	public int Id { get; set; }
-	public string Inquiry { get; set; }
-	public string Correct { get; set; }
+	public string Poblem { get; set; }
+	public string Answer { get; set; }
 	public string[] Wrong { get; set; }
 
     public override string ToString()
     {
-        string testString = "Question Number: " + Id + "\nQuestion: " + Inquiry + "\nCorrect answer: " + Correct + "\nWrong choices: ";
+        string testString = "Question: " + Poblem + "\nCorrect answer: " + Answer + "\nWrong choices: ";
         foreach(string item in Wrong)
         {
             testString += item + " ";
