@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://df7lqrm5ai3ma"]
+
+[ext_resource type="FontFile" uid="uid://bjl4ttra3a6wb" path="res://Menu Assets/Terra Ignota Font.ttf" id="1_lti8b"]
+[ext_resource type="PackedScene" uid="uid://mbseh5th1rku" path="res://male___character.tscn" id="1_ouk20"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mae5d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4hy44"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ytr4m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l48gv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ecwwl"]
+
+[node name="Menu" type="CanvasLayer" unique_id=1712853273]
+
+[node name="Background" type="Node3D" parent="." unique_id=358169908]
+
+[node name="Male - Character" parent="Background" unique_id=66504351 instance=ExtResource("1_ouk20")]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Background" unique_id=794580350]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Background/SubViewportContainer" unique_id=1841719963]
+handle_input_locally = false
+size = Vector2i(1280, 720)
+render_target_update_mode = 4
+
+[node name="Camera3D2" type="Camera3D" parent="Background/SubViewportContainer/SubViewport" unique_id=130048472]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.5627017)
+
+[node name="Control" type="Control" parent="." unique_id=1791278159]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1965714894]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=1203678148]
+layout_mode = 2
+
+[node name="Game Title" type="Label" parent="Control/MarginContainer/VBoxContainer" unique_id=1011779092]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_font_sizes/font_size = 62
+text = "Dungeons N Academics"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=542639864]
+custom_minimum_size = Vector2(0, 80.04)
+layout_mode = 2
+
+[node name="Start Button" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=1703851083]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_focus_color = Color(0.82247823, 0.29866156, 0.3742573, 1)
+theme_override_colors/font_pressed_color = Color(0.9948632, 0, 0.13248974, 1)
+theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mae5d")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4hy44")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ytr4m")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_l48gv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ecwwl")
+text = "Start Game"
+
+[node name="Settings Button" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=1908333538]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_focus_color = Color(0.82247823, 0.29866156, 0.3742573, 1)
+theme_override_colors/font_pressed_color = Color(0.9948632, 0, 0.13248974, 1)
+theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mae5d")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4hy44")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ytr4m")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_l48gv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ecwwl")
+text = "Settings"
+
+[node name="Quit Button" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=920069194]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_focus_color = Color(0.82247823, 0.29866156, 0.3742573, 1)
+theme_override_colors/font_pressed_color = Color(0.9948632, 0, 0.13248974, 1)
+theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mae5d")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4hy44")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ytr4m")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_l48gv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ecwwl")
+text = "Quit"
