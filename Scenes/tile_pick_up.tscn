@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bvri3pmtitfyd"]
+
+[ext_resource type="Script" uid="uid://4ldvt7s78ghk" path="res://Scripts/TilePickUp.cs" id="1_u22ku"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wsdb"]
+albedo_color = Color(0, 0.75686276, 1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7wsdb"]
+material = SubResource("StandardMaterial3D_7wsdb")
+
+[node name="TilePickUp" type="Area3D" unique_id=2125581863 groups=["Interactable"]]
+script = ExtResource("1_u22ku")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=227811035]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0, 0)
+mesh = SubResource("CylinderMesh_7wsdb")

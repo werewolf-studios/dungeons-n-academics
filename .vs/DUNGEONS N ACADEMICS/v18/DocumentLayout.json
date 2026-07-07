@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\binet\\source\\repos\\dungeons-n-academics\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|c:\\users\\binet\\source\\repos\\dungeons-n-academics\\scripts\\pushblock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|solutionrelative:scripts\\pushblock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|c:\\users\\binet\\source\\repos\\dungeons-n-academics\\scripts\\grid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|solutionrelative:scripts\\grid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Grid.cs",
+              "DocumentMoniker": "C:\\Users\\binet\\source\\repos\\dungeons-n-academics\\Scripts\\Grid.cs",
+              "RelativeDocumentMoniker": "Scripts\\Grid.cs",
+              "ToolTip": "C:\\Users\\binet\\source\\repos\\dungeons-n-academics\\Scripts\\Grid.cs",
+              "RelativeToolTip": "Scripts\\Grid.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T21:12:25.5Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PushBlock.cs",
+              "DocumentMoniker": "C:\\Users\\binet\\source\\repos\\dungeons-n-academics\\Scripts\\PushBlock.cs",
+              "RelativeDocumentMoniker": "Scripts\\PushBlock.cs",
+              "ToolTip": "C:\\Users\\binet\\source\\repos\\dungeons-n-academics\\Scripts\\PushBlock.cs",
+              "RelativeToolTip": "Scripts\\PushBlock.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-29T20:11:51.969Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

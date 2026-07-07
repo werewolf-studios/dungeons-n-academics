@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ci256tn1vache"]
+
+[ext_resource type="Script" uid="uid://c8vbrj1g0fyjt" path="res://Scripts/Grid.cs" id="1_gc0wv"]
+[ext_resource type="PackedScene" uid="uid://d4hfgpi2u34uo" path="res://Scenes/push_block.tscn" id="2_sxjfa"]
+
+[node name="GridMap" type="GridMap" unique_id=240971848]
+script = ExtResource("1_gc0wv")
+
+[node name="CharacterBody3D" parent="." unique_id=47364855 instance=ExtResource("2_sxjfa")]
