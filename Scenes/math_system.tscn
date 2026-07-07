@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://y60aq3njby07"]
+
+[ext_resource type="Script" uid="uid://cra6vqp5r0hdv" path="res://Scripts/MathSystem.cs" id="1_fiygi"]
+
+[node name="MathSystem" type="Node" unique_id=1256670147]
+script = ExtResource("1_fiygi")

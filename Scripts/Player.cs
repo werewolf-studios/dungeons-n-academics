@@ -205,7 +205,7 @@ public partial class Player : CharacterBody3D
         {
             if (GetSlideCollision(i).GetCollider() is PushBlock box)
             {
-                _ = box.Push(motion); // see note below
+                _ = box.Push(motion, false); // see note below
                 break;
             }
         }

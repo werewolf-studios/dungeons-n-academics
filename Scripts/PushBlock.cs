@@ -4,12 +4,23 @@ using System.Threading.Tasks;
 [GlobalClass]
 public partial class PushBlock : CharacterBody3D
 {
+    [Export]
+    string value;
+
     GridMap grid;
     bool isMoving = false;
     Tween tween;
 
     [Export]
     float slidingTime = 0.3f;
+
+    [Export]
+    private bool interactRequired;
+
+    public string GetValue()
+    {
+        return value;
+    } 
 
     /// <summary>
     /// Initializes the grid 
@@ -20,14 +31,20 @@ public partial class PushBlock : CharacterBody3D
         grid = _grid;
     }
 
+    public void InteractPush()
+    {
+        Push(new Vector3(1, 1, 1), true);
+    }
+
     /// <summary>
     /// Checks if the box isn't moving and moves it based on the players collision
     /// </summary>
     /// <param name="velocity"></param>
     /// <returns></returns>
-    public async Task Push(Vector3 velocity)
+    public async Task Push(Vector3 velocity, bool interactSwitch)
     {
-        if(isMoving)
+        GD.Print(velocity);
+        if (isMoving || (interactRequired !& interactSwitch))
         {
             return;
         }

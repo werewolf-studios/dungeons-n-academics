@@ -1,11 +1,13 @@
 using Godot;
 using System;
 
-public partial class TilePlate : InteractionTest
+public partial class TilePlate : InteractionTest, MathSignal
 {
     // Current tile on the plate
     [Export]
     private TilePickUp heldTile;
+
+    public string GetValue() { return heldTile.GetValue(); }
 
     // Called when the node enters the scene tree for the first time.
     //Makes sure any objects on tile are placed above it

@@ -9,7 +9,7 @@
 [ext_resource type="Material" uid="uid://dbtx8k4hcc272" path="res://Materials/test_material_2.tres" id="7_pc80o"]
 [ext_resource type="PackedScene" uid="uid://ycejpc0oyrk3" path="res://Scenes/tile_plate.tscn" id="8_pc80o"]
 [ext_resource type="PackedScene" uid="uid://bvri3pmtitfyd" path="res://Scenes/tile_pick_up.tscn" id="9_bv58s"]
-[ext_resource type="PackedScene" uid="uid://fb73xdocqbxi" path="res://push_button.tscn" id="11_pnl26"]
+[ext_resource type="PackedScene" uid="uid://fb73xdocqbxi" path="res://Scenes/push_button.tscn" id="11_pnl26"]
 [ext_resource type="PackedScene" uid="uid://ci256tn1vache" path="res://Scenes/grid_map.tscn" id="12_dwc1d"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_gu0sv"]
