@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cwdd3rvi5k3ht"]
 
-[ext_resource type="PackedScene" uid="uid://ds53f4331g314" path="res://Models/Male-Character.glb" id="1_phkcs"]
+[ext_resource type="PackedScene" uid="uid://cucq3hasj5wab" path="res://Scenes/player.tscn" id="1_k5tp8"]
+[ext_resource type="PackedScene" uid="uid://da6r4rnwd6at7" path="res://Scenes/enemy.tscn" id="2_k5tp8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k5tp8"]
 
@@ -20,14 +21,15 @@ shape = SubResource("BoxShape3D_m6hub")
 transform = Transform3D(16.841759, 0, 0, 0, 0.27999997, 0, 0, 0, 16.783913, 0, 0, 0)
 mesh = SubResource("BoxMesh_ngsrv")
 
-[node name="Male-Character" parent="." unique_id=1619603551 instance=ExtResource("1_phkcs")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.75674844, 0, 3.1565027)
+[node name="Player" parent="." unique_id=630546665 instance=ExtResource("1_k5tp8")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.757, 0, 3.157)
 
-[node name="Male-Character2" parent="." unique_id=1102762101 instance=ExtResource("1_phkcs")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0.757, 0, -3.1309414)
+[node name="Enemy" parent="." unique_id=526297058 instance=ExtResource("2_k5tp8")]
+transform = Transform3D(1, 0, 3.496911e-07, 0, 1, 0, -3.496911e-07, 0, 1, 0.757, 0, -3.1309414)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2141222278]
-transform = Transform3D(0.88983005, -0.09061412, 0.44720414, 0, 0.9800831, 0.19858797, -0.45629206, -0.17670955, 0.8721074, 2.5290456, 1.6354648, 3.991631)
+transform = Transform3D(0.7255653, -0.13665897, 0.6744474, 2.0487535e-08, 0.98008305, 0.19858795, -0.6881532, -0.14408852, 0.7111143, 2.5290456, 1.6354648, 3.7411456)
+fov = 58.4
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=780092791]
 transform = Transform3D(1, 0, 0, 0, 0.22569923, 0.97419703, 0, -0.97419703, 0.22569923, 0, 14.558374, 0)
