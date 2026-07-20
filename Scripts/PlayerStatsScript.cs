@@ -1,6 +1,9 @@
 using Godot;
 using System;
 
+/// <summary>
+/// For updating UI
+/// </summary>
 public partial class PlayerStatsScript : Node
 {
 	// player stat labels that will be updated
