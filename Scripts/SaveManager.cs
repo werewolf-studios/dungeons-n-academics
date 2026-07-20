@@ -4,12 +4,13 @@ using System.Collections.Generic;
 
 public partial class SaveManager : Node
 {
+    // A static instance of the save manager that can be used anywhere
     public static SaveManager Instance => (SaveManager)((SceneTree)Engine.GetMainLoop()).Root.GetNode("SaveManager");
 
-    const string KEY_BUTTON_CLICKS = "Total_Button_Clicks";
-
-    private int totalButtonClicks = 0;
-    public int TotalButtonClicks { get => totalButtonClicks; set => totalButtonClicks = value; }
+    // The player data that will be saved/loaded and used for displaying information
+    private static PlayerSaveData playerData = new PlayerSaveData();
+    
+    public PlayerSaveData PlayerData { get => playerData; set => playerData = value; }
 
     // Subject Dictionaries
     private Dictionary<string, List<List<Question>>> mathQuestions = new Dictionary<string, List<List<Question>>>();
@@ -26,73 +27,73 @@ public partial class SaveManager : Node
 
     // Saving
 
+    /// <summary>
+    /// Saves the Player Data into a json format with the help of the FileHandler
+    /// </summary>
     public void SavePlayerDataJson()
     {
-        Godot.Collections.Dictionary saveData = new()
-        {
-            { KEY_BUTTON_CLICKS, totalButtonClicks }
-        };
 
-        Error Error = FileHandler.StoreJsonFile(saveData, SavePathJson, true);
+        Error Error = FileHandler.StoreJsonFile(playerData.Model, SavePathJson, true);
         if (Error != Error.Ok)
             GD.PushError("Failed to save player data to JSON file: " + Error);
 
     }
 
+    /// <summary>
+    /// Saves the Player Data into a binary format with the help of the FileHandler
+    /// </summary>
     public void SavePlayerDataBinary()
     {
-        Godot.Collections.Dictionary saveData = new()
-        {
-            { KEY_BUTTON_CLICKS, totalButtonClicks }
-        };
-
-        Error Error = FileHandler.StoreBinaryFile(saveData, SavePathBinary, true);
+        
+        Error Error = FileHandler.StoreBinaryFile(playerData.Model, SavePathBinary, true);
         if (Error != Error.Ok)
             GD.PushError("Failed to save player data to BINARY file: " + Error);
     }
 
     // Loading
 
+    /// <summary>
+    /// Loads the player data
+    /// Not used because we are only loading using Binary
+    /// </summary>
     public void LoadPlayerDataJson()
     {
-        Godot.Collections.Dictionary saveData = new() { };
-        Error error = FileHandler.OpenJsonFile(SavePathJson, saveData);
+        (Error, PlayerSaveDataModel) result = FileHandler.OpenBinaryFile(SavePathJson);
+        Error error = result.Item1;
+        PlayerSaveDataModel data = result.Item2;
+
         if (error != Error.Ok)
         {
             GD.PushError("Failed to load player data from JSON file: " + error);
             return;
         }
 
-        error = VerifySaveDataJson(saveData);
-        if (error != Error.Ok)
-        {
-            GD.PushError("Invalid save file structure");
-            return;
-        }
-
-        totalButtonClicks = (int)saveData[KEY_BUTTON_CLICKS];
+        playerData.SetModel(data);
     }
 
+    /// <summary>
+    /// Loads the player data from a binary file
+    /// </summary>
     public void LoadPlayerDataBinary()
     {
-        Godot.Collections.Dictionary saveData = new() { };
-        Error error = FileHandler.OpenBinaryFile(SavePathBinary, saveData);
+        (Error, PlayerSaveDataModel) result = FileHandler.OpenBinaryFile(SavePathBinary);
+        Error error = result.Item1;
+        PlayerSaveDataModel data = result.Item2;
+
         if (error != Error.Ok)
         {
             GD.PushError("Failed to load player data from Binary file: " + error);
             return;
         }
-
-        error = VerifySaveDataBinary(saveData);
-        if (error != Error.Ok)
-        {
-            GD.PushError("Invalid save file structure");
-            return;
-        }
-
-        totalButtonClicks = (int)saveData[KEY_BUTTON_CLICKS];
+        
+        playerData.SetModel(data);
     }
 
+    /// <summary>
+    /// A helper method that loads the questions from the specified filepath.
+    /// </summary>
+    /// <param name="filePath">The path of the question file</param>
+    /// <returns>A complex dictionary of questions</returns>
     private Dictionary<string, List<List<Question>>> LoadQuestionDataFromFile(string filePath)
     {
         Dictionary<string, List<List<Question>>> questionData = new() { };
@@ -103,35 +104,17 @@ public partial class SaveManager : Node
             return null;
         }
 
-        //error = VerifySaveDataJson(questionData);
-        if (error != Error.Ok)
-        {
-            GD.PushError("Invalid save file structure");
-            return null;
-        }
-
         return questionData;
     }
 
     // Loading the question data
+
+    /// <summary>
+    /// Loads all of the questions from the specified files
+    /// </summary>
     public void LoadQuestionDataJson()
     {
         mathQuestions = LoadQuestionDataFromFile(mathQuestionsPathJson);
         // historyQuestions = LoadQuestionDataFromFile(historyQuestionsPathJson); // to be implemented
-    }
-
-    // Verification
-    private Error VerifySaveDataJson(Godot.Collections.Dictionary saveData)
-    {
-        if (!saveData.ContainsKey(KEY_BUTTON_CLICKS))
-            return Error.DoesNotExist;
-        return Error.Ok;
-    }
-
-    private Error VerifySaveDataBinary(Godot.Collections.Dictionary saveData)
-    {
-        if (!saveData.ContainsKey(KEY_BUTTON_CLICKS))
-            return Error.DoesNotExist;
-        return Error.Ok;
     }
 }
