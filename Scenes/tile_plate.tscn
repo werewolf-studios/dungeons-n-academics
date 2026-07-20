@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://ycejpc0oyrk3"]
+
+[ext_resource type="Script" uid="uid://c56rw05ncntx8" path="res://Scripts/TilePlate.cs" id="1_m0fv6"]
+[ext_resource type="Material" uid="uid://dbtx8k4hcc272" path="res://Materials/test_material_2.tres" id="2_jtb8k"]
+[ext_resource type="Material" uid="uid://bar85gvgqs1dt" path="res://Materials/test_material_1.tres" id="3_75d6v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_anej1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0fv6"]
+albedo_color = Color(0.2901961, 0.30980393, 0.7647059, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_164m3"]
+material = SubResource("StandardMaterial3D_m0fv6")
+
+[node name="TilePlate" type="Area3D" unique_id=448469179 groups=["Interactable"]]
+collision_mask = 0
+script = ExtResource("1_m0fv6")
+materialA = ExtResource("2_jtb8k")
+materialB = ExtResource("3_75d6v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=946809713]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+shape = SubResource("BoxShape3D_anej1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=196620302]
+transform = Transform3D(2, 0, 0, 0, 0.4, 0, 0, 0, 2, 0, 0.2, 0)
+mesh = SubResource("BoxMesh_164m3")

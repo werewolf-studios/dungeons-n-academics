@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b2rvaphfuxwrh"]
+
+[ext_resource type="Script" uid="uid://cwryb3xfbsf8h" path="res://Scripts/Door.cs" id="1_ba8gm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v6xrn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0phs7"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_50cdl"]
+material = SubResource("StandardMaterial3D_0phs7")
+
+[node name="Door" type="Area3D" unique_id=486056227]
+script = ExtResource("1_ba8gm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=995752652]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 1)
+shape = SubResource("BoxShape3D_v6xrn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1464561088]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_50cdl")
+
+[connection signal="body_entered" from="." to="." method="ChangeRoom"]
