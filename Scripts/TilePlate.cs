@@ -31,6 +31,8 @@ public partial class TilePlate : InteractionTest, MathSignal
             heldTile.Reparent(this);
             heldTile.Position = new Vector3(0, 1, 0);
             heldTile.Scale = new Vector3(1, 1, 1);
+
+            if (GetParent() is MathSystem) { GetParent<MathSystem>().ChangeDetected(); }
         }
         //Checks to see if tile is holding something and player isn't holding anything
         else if (origin.HeldPuzzlePart == null && heldTile != null)

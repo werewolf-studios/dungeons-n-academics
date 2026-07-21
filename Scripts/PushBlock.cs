@@ -2,7 +2,7 @@ using Godot;
 using System.Threading.Tasks;
 
 [GlobalClass]
-public partial class PushBlock : CharacterBody3D
+public partial class PushBlock : InteractionTest
 {
     [Export]
     string value;
@@ -31,9 +31,9 @@ public partial class PushBlock : CharacterBody3D
         grid = _grid;
     }
 
-    public void InteractPush()
+    public override void Interaction(Player origin)
     {
-        Push(new Vector3(1, 1, 1), true);
+        Push(origin.Velocity, true);
     }
 
     /// <summary>

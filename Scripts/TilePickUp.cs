@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class TilePickUp : Area3D
+public partial class TilePickUp : InteractionTest
 {
     [Export]
     string value;

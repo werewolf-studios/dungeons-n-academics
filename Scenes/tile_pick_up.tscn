@@ -8,7 +8,7 @@ albedo_color = Color(0, 0.75686276, 1, 1)
 [sub_resource type="CylinderMesh" id="CylinderMesh_7wsdb"]
 material = SubResource("StandardMaterial3D_7wsdb")
 
-[node name="TilePickUp" type="Area3D" unique_id=2125581863 groups=["Interactable"]]
+[node name="TilePickUp" type="CharacterBody3D" unique_id=1728698675]
 script = ExtResource("1_u22ku")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=227811035]

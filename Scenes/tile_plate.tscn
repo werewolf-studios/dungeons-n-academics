@@ -12,7 +12,7 @@ albedo_color = Color(0.2901961, 0.30980393, 0.7647059, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_164m3"]
 material = SubResource("StandardMaterial3D_m0fv6")
 
-[node name="TilePlate" type="Area3D" unique_id=448469179 groups=["Interactable"]]
+[node name="TilePlate" type="CharacterBody3D" unique_id=562736670 groups=["Interactable"]]
 collision_mask = 0
 script = ExtResource("1_m0fv6")
 materialA = ExtResource("2_jtb8k")

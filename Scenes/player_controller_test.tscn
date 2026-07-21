@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bvri3pmtitfyd" path="res://Scenes/tile_pick_up.tscn" id="9_bv58s"]
 [ext_resource type="PackedScene" uid="uid://fb73xdocqbxi" path="res://Scenes/push_button.tscn" id="11_pnl26"]
 [ext_resource type="PackedScene" uid="uid://ci256tn1vache" path="res://Scenes/grid_map.tscn" id="12_dwc1d"]
+[ext_resource type="PackedScene" uid="uid://y60aq3njby07" path="res://Scenes/math_system.tscn" id="12_omupu"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_gu0sv"]
 
@@ -294,3 +295,35 @@ transform = Transform3D(1, 0, 0, 0, 0.05450669, 0, 0, 0, 1, 6, 0, 28)
 
 [node name="GridwMap" parent="." unique_id=240971848 instance=ExtResource("12_dwc1d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 32)
+
+[node name="MathSystemTest" parent="." unique_id=1256670147 node_paths=PackedStringArray("recievers", "puzzleParts") instance=ExtResource("12_omupu")]
+answers = PackedFloat32Array(2)
+recievers = []
+puzzleParts = [NodePath("TilePlate"), NodePath("TilePlate2"), NodePath("TilePlate3")]
+
+[node name="TilePlate" parent="MathSystemTest" unique_id=562736670 node_paths=PackedStringArray("heldTile") instance=ExtResource("8_pc80o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 1)
+heldTile = NodePath("../TilePickUp3")
+
+[node name="TilePlate2" parent="MathSystemTest" unique_id=255826210 instance=ExtResource("8_pc80o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 4)
+
+[node name="TilePlate3" parent="MathSystemTest" unique_id=1957869134 node_paths=PackedStringArray("heldTile") instance=ExtResource("8_pc80o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 7)
+heldTile = NodePath("../TilePickUp2")
+
+[node name="TilePlate4" parent="MathSystemTest" unique_id=144289737 node_paths=PackedStringArray("heldTile") instance=ExtResource("8_pc80o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -7)
+heldTile = NodePath("../TilePickUp")
+
+[node name="TilePickUp" parent="MathSystemTest" unique_id=1728698675 instance=ExtResource("9_bv58s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 4, 0)
+value = "5"
+
+[node name="TilePickUp2" parent="MathSystemTest" unique_id=1790490032 instance=ExtResource("9_bv58s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 4, 0)
+value = "-"
+
+[node name="TilePickUp3" parent="MathSystemTest" unique_id=2121851371 instance=ExtResource("9_bv58s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 4, 0)
+value = "3"

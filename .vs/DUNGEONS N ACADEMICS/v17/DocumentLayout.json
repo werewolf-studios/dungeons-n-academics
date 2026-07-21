@@ -3,20 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Scripts\\MathSystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Scripts\\MathSystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|c:\\users\\minemaster429\\onedrive\\desktop\\dungeons-n-academics\\scripts\\mathsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|solutionrelative:scripts\\mathsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Scripts\\MathSignal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Scripts\\MathSignal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|c:\\users\\minemaster429\\onedrive\\desktop\\dungeons-n-academics\\scripts\\grid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|solutionrelative:scripts\\grid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|c:\\users\\minemaster429\\onedrive\\desktop\\dungeons-n-academics\\scripts\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|solutionrelative:scripts\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|c:\\users\\minemaster429\\onedrive\\desktop\\dungeons-n-academics\\scripts\\pushbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|solutionrelative:scripts\\pushbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|c:\\users\\minemaster429\\onedrive\\desktop\\dungeons-n-academics\\scripts\\tileplate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|solutionrelative:scripts\\tileplate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|c:\\users\\minemaster429\\onedrive\\desktop\\dungeons-n-academics\\scripts\\pushbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|solutionrelative:scripts\\pushbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|c:\\users\\minemaster429\\onedrive\\desktop\\dungeons-n-academics\\scripts\\interactiontest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|solutionrelative:scripts\\interactiontest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|c:\\users\\minemaster429\\onedrive\\desktop\\dungeons-n-academics\\scripts\\tilepickup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,24 +35,20 @@
       "RelativeMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|solutionrelative:scripts\\pushblock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|c:\\users\\minemaster429\\onedrive\\desktop\\dungeons-n-academics\\scripts\\coin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|solutionrelative:scripts\\coin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|c:\\users\\minemaster429\\onedrive\\desktop\\dungeons-n-academics\\scripts\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|solutionrelative:scripts\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|c:\\users\\minemaster429\\onedrive\\desktop\\dungeons-n-academics\\scripts\\camerafollower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|solutionrelative:scripts\\camerafollower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|c:\\users\\minemaster429\\onedrive\\desktop\\dungeons-n-academics\\scripts\\interactiontest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|solutionrelative:scripts\\interactiontest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|c:\\users\\minemaster429\\onedrive\\desktop\\dungeons-n-academics\\scripts\\mathsignal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|solutionrelative:scripts\\mathsignal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|c:\\users\\minemaster429\\onedrive\\desktop\\dungeons-n-academics\\scripts\\door.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|solutionrelative:scripts\\door.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|c:\\users\\minemaster429\\onedrive\\desktop\\dungeons-n-academics\\scripts\\coin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|solutionrelative:scripts\\coin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|c:\\users\\minemaster429\\onedrive\\desktop\\dungeons-n-academics\\scripts\\camerafollower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B369B2D8-88D9-465F-9400-CE94EE3F1C20}|Dungeons N Academics.csproj|solutionrelative:scripts\\camerafollower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,11 +58,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "Door.cs",
               "DocumentMoniker": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Scripts\\Door.cs",
               "RelativeDocumentMoniker": "Scripts\\Door.cs",
@@ -71,33 +75,44 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Grid.cs",
+              "DocumentMoniker": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Scripts\\Grid.cs",
+              "RelativeDocumentMoniker": "Scripts\\Grid.cs",
+              "ToolTip": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Scripts\\Grid.cs",
+              "RelativeToolTip": "Scripts\\Grid.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-21T19:06:28.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
               "Title": "PushButton.cs",
               "DocumentMoniker": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Scripts\\PushButton.cs",
               "RelativeDocumentMoniker": "Scripts\\PushButton.cs",
               "ToolTip": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Scripts\\PushButton.cs",
               "RelativeToolTip": "Scripts\\PushButton.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-05T02:10:54.846Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-05T02:10:54.846Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "TilePlate.cs",
               "DocumentMoniker": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Scripts\\TilePlate.cs",
               "RelativeDocumentMoniker": "Scripts\\TilePlate.cs",
               "ToolTip": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Scripts\\TilePlate.cs",
               "RelativeToolTip": "Scripts\\TilePlate.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwCIAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-05T02:10:53.049Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-05T02:10:53.049Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "MathSignal.cs",
               "DocumentMoniker": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Scripts\\MathSignal.cs",
               "RelativeDocumentMoniker": "Scripts\\MathSignal.cs",
@@ -105,8 +120,7 @@
               "RelativeToolTip": "Scripts\\MathSignal.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-05T02:04:26.769Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-05T02:04:26.769Z"
             },
             {
               "$type": "Document",
@@ -116,53 +130,50 @@
               "RelativeDocumentMoniker": "Scripts\\MathSystem.cs",
               "ToolTip": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Scripts\\MathSystem.cs",
               "RelativeToolTip": "Scripts\\MathSystem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-05T01:38:31.141Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "TilePickUp.cs",
               "DocumentMoniker": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Scripts\\TilePickUp.cs",
               "RelativeDocumentMoniker": "Scripts\\TilePickUp.cs",
               "ToolTip": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Scripts\\TilePickUp.cs",
               "RelativeToolTip": "Scripts\\TilePickUp.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-04T02:15:44.325Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-04T02:15:44.325Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "PushBlock.cs",
               "DocumentMoniker": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Scripts\\PushBlock.cs",
               "RelativeDocumentMoniker": "Scripts\\PushBlock.cs",
               "ToolTip": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Scripts\\PushBlock.cs",
               "RelativeToolTip": "Scripts\\PushBlock.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-04T02:14:37.738Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-04T02:14:37.738Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Scripts\\Player.cs",
               "RelativeDocumentMoniker": "Scripts\\Player.cs",
               "ToolTip": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Scripts\\Player.cs",
               "RelativeToolTip": "Scripts\\Player.cs",
-              "ViewState": "AgIAAKsAAAAAAAAAAAAmwM8AAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAcwJoAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-17T19:32:41.267Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-17T19:32:41.267Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "CameraFollower.cs",
               "DocumentMoniker": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Scripts\\CameraFollower.cs",
               "RelativeDocumentMoniker": "Scripts\\CameraFollower.cs",
@@ -174,19 +185,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 5,
               "Title": "InteractionTest.cs",
               "DocumentMoniker": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Scripts\\InteractionTest.cs",
               "RelativeDocumentMoniker": "Scripts\\InteractionTest.cs",
               "ToolTip": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Scripts\\InteractionTest.cs",
               "RelativeToolTip": "Scripts\\InteractionTest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-19T19:39:03.6Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "Coin.cs",
               "DocumentMoniker": "C:\\Users\\Minemaster429\\OneDrive\\Desktop\\dungeons-n-academics\\Scripts\\Coin.cs",
               "RelativeDocumentMoniker": "Scripts\\Coin.cs",
@@ -194,8 +205,7 @@
               "RelativeToolTip": "Scripts\\Coin.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-17T19:24:37.436Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-17T19:24:37.436Z"
             }
           ]
         }
