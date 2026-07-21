@@ -8,7 +8,7 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_3g2aj"]
 
-[node name="InteractionTest" type="Area3D" unique_id=726771163 groups=["Interactable"]]
+[node name="InteractionTest" type="CharacterBody3D" unique_id=1715196749 groups=["Interactable"]]
 script = ExtResource("1_jaox4")
 materialA = ExtResource("2_3g2aj")
 materialB = ExtResource("3_0wg47")

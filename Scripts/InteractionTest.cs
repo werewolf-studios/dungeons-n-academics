@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class InteractionTest : Area3D
+public partial class InteractionTest : CharacterBody3D
 {
     // Test with toggle
     [Export]
