@@ -5,13 +5,10 @@ using System.Collections.Generic;
 public partial class MathSystem : Node
 {
     [Export]
-    List<Object> puzzleParts = new List<Object>();
+    float[] answers;
 
     [Export]
-	List<float> answers = new List<float>();
-
-    [Export]
-    List<Object> recievers = new List<Object>();
+    CharacterBody3D[] recievers, puzzleParts;
 
     private Expression _expression = new Expression();
 
@@ -20,11 +17,15 @@ public partial class MathSystem : Node
         string equation = "";
         Variant result;
 
+        GD.Print("Calculating");
+
         foreach (var symbol in puzzleParts)
         {
+            GD.Print("Checking");
             if (symbol is MathSignal transmitter)
             {
                 equation += transmitter.GetValue();
+                GD.Print(equation);
             }
         }
 

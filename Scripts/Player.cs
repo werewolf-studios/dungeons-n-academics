@@ -148,12 +148,11 @@ public partial class Player : CharacterBody3D
         {
             singlePressInteract = true;
 
-            foreach (Area3D body in GetNode<Area3D>("InteractionCollider").GetOverlappingAreas())
+            foreach (CharacterBody3D body in GetNode<Area3D>("Pivot/InteractionCollider").GetOverlappingBodies())
             {
-                GD.Print("Object Found");
                 if (body.IsInGroup("Interactable"))
                 {
-                    GD.Print("Attempting Call");
+                    GD.Print("Object Found");
                     body.Call("Interaction", this);
                 }
             }
