@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://mbseh5th1rku"]
+
+[ext_resource type="PackedScene" uid="uid://ds53f4331g314" path="res://Models/Male-Character.glb" id="1_ubo6q"]
+
+[node name="Male - Character" type="Node3D" unique_id=66504351]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1521415151]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.5627017)
+
+[node name="Male-Character" parent="." unique_id=1445441491 instance=ExtResource("1_ubo6q")]
