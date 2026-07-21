@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c7na4426cw7ug"]
 
-[ext_resource type="Script" uid="uid://b23l1rnxcqd03" path="res://Scripts/PlayerStatsScript.cs" id="1_8gbba"]
-[ext_resource type="Script" uid="uid://cv3c2gubtu4ng" path="res://Scripts/QuestionManager.cs" id="1_bo1nx"]
-[ext_resource type="Script" uid="uid://c0xak6dnhg1b6" path="res://Scripts/ExampleButtonScript.cs" id="3_8gbba"]
+[ext_resource type="Script" uid="uid://b23l1rnxcqd03" path="res://Scripts/PlayerStatsScript.cs" id="1_nxhvv"]
+[ext_resource type="Script" uid="uid://c0xak6dnhg1b6" path="res://Scripts/ExampleButtonScript.cs" id="2_6wlje"]
+[ext_resource type="Script" uid="uid://cv3c2gubtu4ng" path="res://Scripts/QuestionManager.cs" id="3_8prod"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bo1nx"]
 bg_color = Color(0, 0, 1, 1)
@@ -41,7 +41,7 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_jjgbg")
 [node name="Main" type="Node3D" unique_id=1895040970]
 
 [node name="PlayerStatsUI" type="CanvasLayer" parent="." unique_id=839078456 node_paths=PackedStringArray("coinsLabel", "xpLabel")]
-script = ExtResource("1_8gbba")
+script = ExtResource("1_nxhvv")
 coinsLabel = NodePath("Control/CoinLabel")
 xpLabel = NodePath("Control/XPLabel")
 
@@ -87,12 +87,12 @@ pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_font_sizes/font_size = 43
 text = "TEST BUTTON"
 autowrap_mode = 3
-script = ExtResource("3_8gbba")
+script = ExtResource("2_6wlje")
 questionManager = NodePath("../../../QuestionsUI")
 
 [node name="QuestionsUI" type="CanvasLayer" parent="." unique_id=1887183558 node_paths=PackedStringArray("timer", "progressBar", "questionLabel", "buttonContainer", "blocker")]
 visible = false
-script = ExtResource("1_bo1nx")
+script = ExtResource("3_8prod")
 timer = NodePath("Control/Timer")
 progressBar = NodePath("Control/ProgressBar")
 questionLabel = NodePath("Control/QuestionLabel")

@@ -15,16 +15,16 @@ run/main_scene="uid://df7lqrm5ai3ma"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SaveManager="*uid://dg01nscxj24ax"
+FileHandler="*uid://bmfbpv63goaod"
+
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
-
-[autoload]
-
-SaveManager="*uid://dg01nscxj24ax"
-FileHandler="*uid://bmfbpv63goaod"
 
 [dotnet]
 
