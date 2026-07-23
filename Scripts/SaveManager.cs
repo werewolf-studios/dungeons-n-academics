@@ -18,12 +18,12 @@ public partial class SaveManager : Node
     public Dictionary<string, List<List<Question>>> MathQuestions { get => mathQuestions; set => mathQuestions = value; }
 
     // Save file locations
-    string SavePathJson = "user://save_files/savegame.json";
-    string SavePathBinary = "user://save_files/savegame.save"; // can be any extension for binary
+    string SavePathJson = "user://savegame.json";
+    string SavePathBinary = "user://savegame.save"; // can be any extension for binary
 
     // Question file locations
-    string mathQuestionsPathJson = "user://save_files/math_questions.json";
-    string historyQuestionsPathJson = "user://save_files/history_questions.json"; // to be implemented
+    string mathQuestionsPathJson = "res://QuestionsFolder/math_questions.json";
+    string historyQuestionsPathJson = "res://QuestionsFolder/history_questions.json"; // to be implemented
 
     // Saving
 
