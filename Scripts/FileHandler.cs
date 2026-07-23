@@ -3,11 +3,20 @@ using Godot.Collections;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
 public partial class FileHandler : Node
 {
+    // Encryption Key
+    private static readonly byte[] key = Encoding.UTF8.GetBytes("QSKFODPXLSDTNJBIKOWUQMXPASKEITCX");
+
+    // Initialization Vector
+    private static readonly byte[] iv = Encoding.UTF8.GetBytes("PDOFIMJGKZXWQUTR");
+
     /// <summary>
     /// Stores the PlayerSaveData object as a JSON file at the specified file path.
     /// </summary>
@@ -17,11 +26,11 @@ public partial class FileHandler : Node
     /// <returns>An Error describing the outcome</returns>
     public static Error StoreJsonFile(PlayerSaveDataModel data, string filePath, bool createDir)
     {
-        (Error, FileAccess) result = OpenFileForWrite(filePath, createDir);
+        (Error, Godot.FileAccess) result = OpenFileForWrite(filePath, createDir);
 
         // result will return an array with an error code and a file access object
         Error error = result.Item1;
-        FileAccess file = result.Item2;
+        Godot.FileAccess file = result.Item2;
 
         if (error != Error.Ok)
             return error;
@@ -42,11 +51,11 @@ public partial class FileHandler : Node
     /// <returns>An Error describing the outcome</returns>
     public static Error StoreBinaryFile(PlayerSaveDataModel data, string filePath, bool createDir)
     {
-        (Error, FileAccess) result = OpenFileForWrite(filePath, createDir);
+        (Error, Godot.FileAccess) result = OpenFileForWrite(filePath, createDir);
 
         // result will return an array with an error code and a file access object
         Error error = result.Item1;
-        FileAccess file = result.Item2;
+        Godot.FileAccess file = result.Item2;
 
         if (error != Error.Ok)
             return error;
@@ -55,10 +64,13 @@ public partial class FileHandler : Node
         string json = JsonSerializer.Serialize(data);
 
         // Converting the JSON into bytes
-        byte[] bytes = System.Text.Encoding.UTF8.GetBytes(json);
+        byte[] bytes = Encoding.UTF8.GetBytes(json);
+
+        // Encrypting
+        byte[] encrypted = Encrypt(bytes, key, iv);
 
         // Storing the bytes
-        bool success = file.StoreBuffer(bytes);
+        bool success = file.StoreBuffer(encrypted);
 
         if (!success)
         {
@@ -82,9 +94,9 @@ public partial class FileHandler : Node
         
         //outData.Clear();
 
-        (Error, FileAccess) result = OpenFileForRead(filePath);
+        (Error, Godot.FileAccess) result = OpenFileForRead(filePath);
         Error error = result.Item1;
-        FileAccess file = result.Item2;
+        Godot.FileAccess file = result.Item2;
 
         if (error != Error.Ok)
             return (error, null);
@@ -106,16 +118,20 @@ public partial class FileHandler : Node
     /// <returns>An Error describing the outcome</returns>
     public static (Error, PlayerSaveDataModel) OpenBinaryFile(string filePath)
     {
-        (Error, FileAccess) result = OpenFileForRead(filePath);
+        (Error, Godot.FileAccess) result = OpenFileForRead(filePath);
         Error error = result.Item1;
-        FileAccess file = result.Item2;
+        Godot.FileAccess file = result.Item2;
 
         if (error != Error.Ok)
             return (error, null);
 
-        byte[] bytes = file.GetBuffer((long)file.GetLength());
+        // Getting encrypted data
+        byte[] encryptedBytes = file.GetBuffer((long)file.GetLength());
 
-        string json = System.Text.Encoding.UTF8.GetString(bytes);
+        // Decrypting data
+        byte[] decryptedBytes = Decrypt(encryptedBytes, key, iv);
+
+        string json = System.Text.Encoding.UTF8.GetString(decryptedBytes);
 
         PlayerSaveDataModel outData = JsonSerializer.Deserialize<PlayerSaveDataModel>(json);
 
@@ -133,9 +149,9 @@ public partial class FileHandler : Node
     public static Error OpenJsonQuestionFile(string filePath, System.Collections.Generic.Dictionary<string, List<List<Question>>> outData)
     {
         outData.Clear();
-        (Error, FileAccess) result = OpenFileForRead(filePath);
+        (Error, Godot.FileAccess) result = OpenFileForRead(filePath);
         Error error = result.Item1;
-        FileAccess file = result.Item2;
+        Godot.FileAccess file = result.Item2;
 
         if (error != Error.Ok)
             return error;
@@ -193,29 +209,29 @@ public partial class FileHandler : Node
         return Error.Ok;
     }
 
-    static (Error err, FileAccess file) OpenFileForWrite(string filePath, bool createDir)
+    static (Error err, Godot.FileAccess file) OpenFileForWrite(string filePath, bool createDir)
     {
         Error error = CheckAndCreateDirectory(filePath, createDir);
 
         if (error != Error.Ok)
             return (error, null);
 
-        FileAccess file = FileAccess.Open(filePath, FileAccess.ModeFlags.Write);
+        Godot.FileAccess file = Godot.FileAccess.Open(filePath, Godot.FileAccess.ModeFlags.Write);
 
         if (file == null)
-            return new(FileAccess.GetOpenError(), null);
+            return new(Godot.FileAccess.GetOpenError(), null);
 
         return new(Error.Ok, file);
     }
 
-    static (Error err, FileAccess file) OpenFileForRead(string filePath)
+    static (Error err, Godot.FileAccess file) OpenFileForRead(string filePath)
     {
-        if (!FileAccess.FileExists(filePath))
+        if (!Godot.FileAccess.FileExists(filePath))
             return new(Error.FileNotFound, null);
 
-        FileAccess file = FileAccess.Open(filePath, FileAccess.ModeFlags.Read);
+        Godot.FileAccess file = Godot.FileAccess.Open(filePath, Godot.FileAccess.ModeFlags.Read);
         if (file == null)
-            return new(FileAccess.GetOpenError(), null);
+            return new(Godot.FileAccess.GetOpenError(), null);
 
         return new(Error.Ok, file);
     }
@@ -233,5 +249,52 @@ public partial class FileHandler : Node
 
         // Make the directory if it doesnt yet exist
         return DirAccess.MakeDirRecursiveAbsolute(dirPath);
+    }
+
+
+    /// <summary>
+    /// Encrypts Data
+    /// </summary>
+    /// <param name="data">Data to be encrypted</param>
+    /// <param name="key">Encryption Key</param>
+    /// <param name="iv">Initialization Vector for randomness</param>
+    /// <returns>Encryped Data</returns>
+    static byte[] Encrypt(byte[] data, byte[] key, byte[] iv)
+    {
+        using var aes = Aes.Create();
+        aes.Key = key;
+        aes.IV = iv;
+
+        using var encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
+        using var ms = new MemoryStream();
+        using var cs = new CryptoStream(ms, encryptor, CryptoStreamMode.Write);
+
+        cs.Write(data, 0, data.Length);
+        cs.FlushFinalBlock();   
+
+        return ms.ToArray();
+    }
+
+    /// <summary>
+    /// Decrypts Data
+    /// </summary>
+    /// <param name="data">Data to be decrypted</param>
+    /// <param name="key">Encryption Key</param>
+    /// <param name="iv">Initialization Vector for randomness</param>
+    /// <returns>Decrypted Data</returns>
+    static byte[] Decrypt(byte[] data, byte[] key, byte[] iv)
+    {
+        using var aes = Aes.Create();
+        aes.Key = key;
+        aes.IV = iv;
+
+        using var decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+        using var ms = new MemoryStream(data);
+        using var cs = new CryptoStream(ms, decryptor, CryptoStreamMode.Read);
+        using var result = new MemoryStream();
+
+        cs.CopyTo(result);
+
+        return result.ToArray();
     }
 }
