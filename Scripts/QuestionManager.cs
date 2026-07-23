@@ -30,6 +30,22 @@ public partial class QuestionManager : CanvasLayer
     [Signal]
     public delegate void QuestionSequenceEndedEventHandler();
 
+    // Signal for when the Question is prompted
+    [Signal]
+    public delegate void QuestionStartedEventHandler();
+
+    // Signal for when the Answer is Displayed
+    [Signal]
+    public delegate void AnswerDisplayedEventHandler();
+
+    // Signal for when the player answers the question wrong
+    [Signal]
+    public delegate void WrongAnswerEventHandler();
+
+    // Signal for when the player answers the question right
+    [Signal]
+    public delegate void CorrectAnswerEventHandler();
+
     // Question UI Variables
     [Export]
     private Timer timer;
@@ -146,10 +162,12 @@ public partial class QuestionManager : CanvasLayer
         if (button.Text == correctAnswer)
         {
             // Award the player if they got the correct answer
+            EmitSignal(SignalName.CorrectAnswer);
             SaveManager.Instance.PlayerData.Coins += 10; // Award 10 coins for correct answer
         }
         else
         {
+            EmitSignal(SignalName.WrongAnswer);
             // Handle incorrect answer
             SaveManager.Instance.PlayerData.Coins -= 10;
         }
@@ -174,6 +192,7 @@ public partial class QuestionManager : CanvasLayer
     /// <returns>Time to display the answer</returns>
     private async Task DisplayCorrectAnswer()
     {
+        EmitSignal(SignalName.AnswerDisplayed);
         blocker.Visible = true;
         foreach(Button b in buttonContainer.GetChildren())
         {
@@ -222,6 +241,8 @@ public partial class QuestionManager : CanvasLayer
             EmitSignal(SignalName.QuestionSequenceEnded);
             return;
         }
+
+        EmitSignal(SignalName.QuestionStarted);
         
         Question question = currentQuestionQueue.Dequeue();
         questionLabel.Text = question.Problem;

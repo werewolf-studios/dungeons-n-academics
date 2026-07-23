@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\nickf\\Local Desktop\\Documents\\Godot\\dungeons-n-academics\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|c:\\users\\nickf\\local desktop\\documents\\godot\\dungeons-n-academics\\scripts\\examplebuttonscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|solutionrelative:scripts\\examplebuttonscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|c:\\users\\nickf\\local desktop\\documents\\godot\\dungeons-n-academics\\scripts\\questionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|solutionrelative:scripts\\questionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|c:\\users\\nickf\\local desktop\\documents\\godot\\dungeons-n-academics\\scripts\\filehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|solutionrelative:scripts\\filehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,10 +23,6 @@
       "RelativeMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|solutionrelative:scripts\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|c:\\users\\nickf\\local desktop\\documents\\godot\\dungeons-n-academics\\scripts\\questionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|solutionrelative:scripts\\questionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|c:\\users\\nickf\\local desktop\\documents\\godot\\dungeons-n-academics\\scripts\\playerstatsscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|solutionrelative:scripts\\playerstatsscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -29,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|c:\\users\\nickf\\local desktop\\documents\\godot\\dungeons-n-academics\\scripts\\playersavedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|solutionrelative:scripts\\playersavedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|c:\\users\\nickf\\local desktop\\documents\\godot\\dungeons-n-academics\\scripts\\examplebuttonscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|solutionrelative:scripts\\examplebuttonscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -54,7 +54,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "PlayerSaveDataModel.cs",
               "DocumentMoniker": "C:\\Users\\nickf\\Local Desktop\\Documents\\Godot\\dungeons-n-academics\\Scripts\\PlayerSaveDataModel.cs",
               "RelativeDocumentMoniker": "Scripts\\PlayerSaveDataModel.cs",
@@ -62,12 +62,11 @@
               "RelativeToolTip": "Scripts\\PlayerSaveDataModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-20T07:21:55.633Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-20T07:21:55.633Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "PlayerStatsScript.cs",
               "DocumentMoniker": "C:\\Users\\nickf\\Local Desktop\\Documents\\Godot\\dungeons-n-academics\\Scripts\\PlayerStatsScript.cs",
               "RelativeDocumentMoniker": "Scripts\\PlayerStatsScript.cs",
@@ -75,12 +74,11 @@
               "RelativeToolTip": "Scripts\\PlayerStatsScript.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-20T06:26:56.952Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-20T06:26:56.952Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "FileHandler.cs",
               "DocumentMoniker": "C:\\Users\\nickf\\Local Desktop\\Documents\\Godot\\dungeons-n-academics\\Scripts\\FileHandler.cs",
               "RelativeDocumentMoniker": "Scripts\\FileHandler.cs",
@@ -93,7 +91,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "PlayerSaveData.cs",
               "DocumentMoniker": "C:\\Users\\nickf\\Local Desktop\\Documents\\Godot\\dungeons-n-academics\\Scripts\\PlayerSaveData.cs",
               "RelativeDocumentMoniker": "Scripts\\PlayerSaveData.cs",
@@ -101,37 +99,37 @@
               "RelativeToolTip": "Scripts\\PlayerSaveData.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-19T15:58:35.006Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-19T15:58:35.006Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "QuestionManager.cs",
               "DocumentMoniker": "C:\\Users\\nickf\\Local Desktop\\Documents\\Godot\\dungeons-n-academics\\Scripts\\QuestionManager.cs",
               "RelativeDocumentMoniker": "Scripts\\QuestionManager.cs",
               "ToolTip": "C:\\Users\\nickf\\Local Desktop\\Documents\\Godot\\dungeons-n-academics\\Scripts\\QuestionManager.cs",
               "RelativeToolTip": "Scripts\\QuestionManager.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAHcAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAL4AAAAAAAAAAADwv8IAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-07-20T01:20:33.973Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "ExampleButtonScript.cs",
               "DocumentMoniker": "C:\\Users\\nickf\\Local Desktop\\Documents\\Godot\\dungeons-n-academics\\Scripts\\ExampleButtonScript.cs",
               "RelativeDocumentMoniker": "Scripts\\ExampleButtonScript.cs",
               "ToolTip": "C:\\Users\\nickf\\Local Desktop\\Documents\\Godot\\dungeons-n-academics\\Scripts\\ExampleButtonScript.cs",
               "RelativeToolTip": "Scripts\\ExampleButtonScript.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABqAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwCcAAABhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-20T06:05:08.056Z"
+              "WhenOpened": "2026-07-20T06:05:08.056Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "SaveManager.cs",
               "DocumentMoniker": "C:\\Users\\nickf\\Local Desktop\\Documents\\Godot\\dungeons-n-academics\\Scripts\\SaveManager.cs",
               "RelativeDocumentMoniker": "Scripts\\SaveManager.cs",
@@ -139,12 +137,11 @@
               "RelativeToolTip": "Scripts\\SaveManager.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAYwC8AAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-24T18:43:49.893Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-24T18:43:49.893Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Question.cs",
               "DocumentMoniker": "C:\\Users\\nickf\\Local Desktop\\Documents\\Godot\\dungeons-n-academics\\Scripts\\Question.cs",
               "RelativeDocumentMoniker": "Scripts\\Question.cs",
@@ -152,8 +149,7 @@
               "RelativeToolTip": "Scripts\\Question.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-29T19:42:28.081Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-29T19:42:28.081Z"
             }
           ]
         }

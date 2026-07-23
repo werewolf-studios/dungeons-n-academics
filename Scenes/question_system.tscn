@@ -68,8 +68,8 @@ vertical_alignment = 1
 [node name="XPLabel" type="Label" parent="PlayerStatsUI/Control" unique_id=1290809822]
 process_mode = 3
 layout_mode = 0
-offset_left = 768.0
-offset_right = 1152.0
+offset_left = 896.0
+offset_right = 1280.0
 offset_bottom = 69.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0, 1, 0, 1)
@@ -77,18 +77,33 @@ theme_override_font_sizes/font_size = 50
 text = "XP: 0"
 vertical_alignment = 1
 
-[node name="ExampleButton" type="Button" parent="PlayerStatsUI/Control" unique_id=460907232 node_paths=PackedStringArray("questionManager")]
+[node name="ExampleButton" type="Button" parent="PlayerStatsUI/Control" unique_id=460907232 node_paths=PackedStringArray("answerLabel", "questionManager")]
 layout_mode = 0
-offset_left = 472.0
+offset_left = 544.0
 offset_top = 192.0
-offset_right = 664.0
+offset_right = 736.0
 offset_bottom = 384.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_font_sizes/font_size = 43
 text = "TEST BUTTON"
 autowrap_mode = 3
 script = ExtResource("2_6wlje")
+answerLabel = NodePath("../ExampleLabel")
 questionManager = NodePath("../../../QuestionsUI")
+
+[node name="ExampleLabel" type="Label" parent="PlayerStatsUI/Control" unique_id=1336528193]
+visible = false
+layout_mode = 0
+offset_left = 72.0
+offset_top = 416.0
+offset_right = 640.0
+offset_bottom = 578.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 118
+text = "TEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="QuestionsUI" type="CanvasLayer" parent="." unique_id=1887183558 node_paths=PackedStringArray("timer", "progressBar", "questionLabel", "buttonContainer", "blocker")]
 visible = false
@@ -160,7 +175,7 @@ text = "4)"
 [node name="ProgressBar" type="ProgressBar" parent="QuestionsUI/Control" unique_id=679775112]
 layout_mode = 0
 offset_top = 64.0
-offset_right = 1152.0
+offset_right = 1280.0
 offset_bottom = 128.0
 pivot_offset_ratio = Vector2(0.5, 0.5)
 theme = SubResource("Theme_bo1nx")
@@ -179,7 +194,11 @@ offset_right = 1232.0
 offset_bottom = 696.0
 
 [connection signal="pressed" from="PlayerStatsUI/Control/ExampleButton" to="PlayerStatsUI/Control/ExampleButton" method="OnPressed"]
+[connection signal="AnswerDisplayed" from="QuestionsUI" to="PlayerStatsUI/Control/ExampleButton" method="OnAnswerDisplayed"]
+[connection signal="CorrectAnswer" from="QuestionsUI" to="PlayerStatsUI/Control/ExampleButton" method="OnCorrectAnswer"]
 [connection signal="QuestionSequenceEnded" from="QuestionsUI" to="PlayerStatsUI/Control/ExampleButton" method="OnQuestionSequenceEnded"]
+[connection signal="QuestionStarted" from="QuestionsUI" to="PlayerStatsUI/Control/ExampleButton" method="OnQuestionStarted"]
+[connection signal="WrongAnswer" from="QuestionsUI" to="PlayerStatsUI/Control/ExampleButton" method="OnWrongAnswer"]
 [connection signal="pressed" from="QuestionsUI/Control/VBoxContainer/First" to="QuestionsUI" method="OnButtonPressed" flags=18]
 [connection signal="pressed" from="QuestionsUI/Control/VBoxContainer/Second" to="QuestionsUI" method="OnButtonPressed" flags=18]
 [connection signal="pressed" from="QuestionsUI/Control/VBoxContainer/Third" to="QuestionsUI" method="OnButtonPressed" flags=18]
