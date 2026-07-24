@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cwdd3rvi5k3ht"]
 
-[ext_resource type="PackedScene" uid="uid://ds53f4331g314" path="res://Models/Male-Character.glb" id="1_phkcs"]
+[ext_resource type="PackedScene" uid="uid://b3qff5jhxpi58" path="res://Scenes/combat_player.tscn" id="1_k5tp8"]
+[ext_resource type="PackedScene" uid="uid://cow858qw2lptn" path="res://Scenes/combat_enemy.tscn" id="2_m6hub"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k5tp8"]
 
@@ -18,6 +19,29 @@ border_color = Color(0.38045204, 0.27944052, 0.18836206, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5tp8"]
 bg_color = Color(0.5057749, 0.37876475, 0.26462448, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fpfme"]
+content_margin_left = 10.0
+bg_color = Color(0.45882353, 0.34117648, 0.23529412, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(0.38039216, 0.2784314, 0.1882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n3wdt"]
+content_margin_left = 10.0
+bg_color = Color(0.45882353, 0.34117648, 0.23529412, 1)
+border_width_left = 2
+border_width_right = 2
+border_color = Color(0.38039216, 0.2784314, 0.1882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsxqa"]
+content_margin_left = 10.0
+bg_color = Color(0.45882353, 0.34117648, 0.23529412, 1)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.38039216, 0.2784314, 0.1882353, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6hub"]
 bg_color = Color(3.6098064e-07, 0.54618376, 0, 1)
@@ -37,11 +61,11 @@ shape = SubResource("BoxShape3D_m6hub")
 transform = Transform3D(16.841759, 0, 0, 0, 0.27999997, 0, 0, 0, 16.783913, 0, 0, 0)
 mesh = SubResource("BoxMesh_ngsrv")
 
-[node name="Male-Character" parent="." unique_id=1619603551 instance=ExtResource("1_phkcs")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.75674844, 0, 3.1565027)
+[node name="CombatPlayer" parent="." unique_id=849479885 instance=ExtResource("1_k5tp8")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.757, 0, 3.157)
 
-[node name="Male-Character2" parent="." unique_id=1102762101 instance=ExtResource("1_phkcs")]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0.757, 0, -3.1309414)
+[node name="CombatEnemy" parent="." unique_id=545224293 instance=ExtResource("2_m6hub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.757, 0, -3.131)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2141222278]
 transform = Transform3D(0.7836912, -0.17334133, 0.5964737, 0, 0.96027225, 0.2790649, -0.6211506, -0.2187007, 0.7525569, 4.0712943, 2.180417, 5.21705)
@@ -64,8 +88,8 @@ layout_mode = 0
 offset_left = 736.0
 offset_top = 464.0
 offset_right = 912.0
-offset_bottom = 536.0
-theme_override_font_sizes/font_size = 50
+offset_bottom = 528.0
+theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
 text = "Attack"
@@ -73,20 +97,20 @@ text = "Attack"
 [node name="PlchldrButton" type="Button" parent="CombatUI" unique_id=808082463]
 layout_mode = 0
 offset_left = 736.0
-offset_top = 536.0
+offset_top = 528.0
 offset_right = 912.0
-offset_bottom = 609.0
-theme_override_font_sizes/font_size = 50
+offset_bottom = 592.0
+theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
 
 [node name="PlchldrButton2" type="Button" parent="CombatUI" unique_id=1088781498]
 layout_mode = 0
 offset_left = 912.0
-offset_top = 536.0
+offset_top = 528.0
 offset_right = 1088.0
-offset_bottom = 609.0
-theme_override_font_sizes/font_size = 50
+offset_bottom = 592.0
+theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
 
@@ -95,11 +119,56 @@ layout_mode = 0
 offset_left = 912.0
 offset_top = 464.0
 offset_right = 1088.0
-offset_bottom = 536.0
-theme_override_font_sizes/font_size = 50
+offset_bottom = 528.0
+theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
 text = "Items"
+
+[node name="Attack1" type="Button" parent="CombatUI" unique_id=187627513]
+visible = false
+layout_mode = 0
+offset_left = 736.0
+offset_top = 464.0
+offset_right = 936.0
+offset_bottom = 496.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_fpfme")
+text = "Slash"
+alignment = 0
+
+[node name="Attack2" type="Button" parent="CombatUI" unique_id=974452193]
+visible = false
+layout_mode = 0
+offset_left = 736.0
+offset_top = 496.0
+offset_right = 936.0
+offset_bottom = 528.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3wdt")
+alignment = 0
+
+[node name="Attack3" type="Button" parent="CombatUI" unique_id=151412176]
+visible = false
+layout_mode = 0
+offset_left = 736.0
+offset_top = 528.0
+offset_right = 936.0
+offset_bottom = 560.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3wdt")
+alignment = 0
+
+[node name="Attack4" type="Button" parent="CombatUI" unique_id=1960461974]
+visible = false
+layout_mode = 0
+offset_left = 736.0
+offset_top = 560.0
+offset_right = 936.0
+offset_bottom = 592.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_fsxqa")
+alignment = 0
 
 [node name="QuestionUI" type="Control" parent="." unique_id=1706086032]
 visible = false

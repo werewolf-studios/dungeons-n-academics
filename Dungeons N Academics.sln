@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dungeons N Academics", "Dungeons N Academics.csproj", "{EACABD49-E7F1-4DC8-BB56-B8A60A01139D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EACABD49-E7F1-4DC8-BB56-B8A60A01139D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EACABD49-E7F1-4DC8-BB56-B8A60A01139D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EACABD49-E7F1-4DC8-BB56-B8A60A01139D}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{EACABD49-E7F1-4DC8-BB56-B8A60A01139D}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{EACABD49-E7F1-4DC8-BB56-B8A60A01139D}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{EACABD49-E7F1-4DC8-BB56-B8A60A01139D}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal
