@@ -8,6 +8,17 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_ngsrv"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phkcs"]
+bg_color = Color(0.45882353, 0.34117648, 0.23529412, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.38045204, 0.27944052, 0.18836206, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5tp8"]
+bg_color = Color(0.5057749, 0.37876475, 0.26462448, 1)
+
 [node name="CombatMain" type="Node" unique_id=2054122581]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=762101080]
@@ -33,3 +44,51 @@ fov = 45.9
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=780092791]
 transform = Transform3D(1, 0, 0, 0, 0.22569923, 0.97419703, 0, -0.97419703, 0.22569923, 0, 14.558374, 0)
 shadow_enabled = true
+
+[node name="CombatUI" type="Control" parent="." unique_id=2039811101]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AttackButton" type="Button" parent="CombatUI" unique_id=1806849163]
+layout_mode = 0
+offset_left = 736.0
+offset_top = 464.0
+offset_right = 912.0
+offset_bottom = 536.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
+text = "Attack"
+
+[node name="PlchldrButton" type="Button" parent="CombatUI" unique_id=808082463]
+layout_mode = 0
+offset_left = 736.0
+offset_top = 536.0
+offset_right = 912.0
+offset_bottom = 609.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
+
+[node name="PlchldrButton2" type="Button" parent="CombatUI" unique_id=1088781498]
+layout_mode = 0
+offset_left = 912.0
+offset_top = 536.0
+offset_right = 1088.0
+offset_bottom = 609.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
+
+[node name="ItemsButton" type="Button" parent="CombatUI" unique_id=1614576005]
+layout_mode = 0
+offset_left = 912.0
+offset_top = 464.0
+offset_right = 1088.0
+offset_bottom = 536.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
+text = "Items"
