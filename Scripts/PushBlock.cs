@@ -25,10 +25,11 @@ public partial class PushBlock : InteractionTest
     /// <summary>
     /// Initializes the grid 
     /// </summary>
-    /// <param name="_grid"></param>
+    /// <param name="_grid"></param>    
     public void Initialize(GridMap _grid)
     {
         grid = _grid;
+        Position = Vector3.Zero;
     }
 
     public override void Interaction(Player origin)
@@ -51,12 +52,9 @@ public partial class PushBlock : InteractionTest
 
         Vector3 moveTo = CalculateDestination(velocity.Normalized());
 
-        GD.Print(moveTo);
-        GD.Print(GlobalPosition);
-
-
         if (CanMove(moveTo))
         {
+            //Start tween for smooth box movement 
             tween = GetTree().CreateTween();
             isMoving = true;
             tween.TweenProperty(this, "global_position", moveTo, slidingTime)
@@ -82,6 +80,8 @@ public partial class PushBlock : InteractionTest
         Vector3 localPos = grid.ToLocal(GlobalPosition);
         Vector3I gridMapPos = grid.LocalToMap(localPos) + (Vector3I)dir.Round();
         Vector3 localDestination = grid.MapToLocal(gridMapPos);
+        //Locks Y axis movement
+        localDestination.Y = 0.0f;
         return grid.ToGlobal(localDestination);
     }
 
