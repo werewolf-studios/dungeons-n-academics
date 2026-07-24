@@ -19,6 +19,12 @@ border_color = Color(0.38045204, 0.27944052, 0.18836206, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5tp8"]
 bg_color = Color(0.5057749, 0.37876475, 0.26462448, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6hub"]
+bg_color = Color(3.6098064e-07, 0.54618376, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngsrv"]
+bg_color = Color(0.8274293, 3.946722e-06, 8.663535e-07, 1)
+
 [node name="CombatMain" type="Node" unique_id=2054122581]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=762101080]
@@ -47,9 +53,11 @@ shadow_enabled = true
 
 [node name="CombatUI" type="Control" parent="." unique_id=2039811101]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="AttackButton" type="Button" parent="CombatUI" unique_id=1806849163]
 layout_mode = 0
@@ -92,3 +100,44 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
 text = "Items"
+
+[node name="QuestionUI" type="Control" parent="." unique_id=1706086032]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="QuestionUI" unique_id=136292072]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -275.5
+offset_right = 275.5
+offset_bottom = 72.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 52
+text = "Answer the Question?"
+
+[node name="YesButton" type="Button" parent="QuestionUI" unique_id=1724538565]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 344.0
+offset_right = 532.0
+offset_bottom = 410.0
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_m6hub")
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="QuestionUI" unique_id=602408105]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 344.0
+offset_right = 804.0
+offset_bottom = 410.0
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_ngsrv")
+text = "No"
