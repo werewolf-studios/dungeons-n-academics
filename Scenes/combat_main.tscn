@@ -2,8 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://b3qff5jhxpi58" path="res://Scenes/combat_player.tscn" id="1_k5tp8"]
 [ext_resource type="Script" uid="uid://bmwa235ar8c5v" path="res://Scenes/CombatMain.cs" id="1_m6hub"]
+[ext_resource type="Script" uid="uid://bw3y4d0guwtie" path="res://CombatStateMachine.cs" id="2_fpfme"]
 [ext_resource type="PackedScene" uid="uid://cow858qw2lptn" path="res://Scenes/combat_enemy.tscn" id="2_m6hub"]
-[ext_resource type="Script" uid="uid://csixk28q8s2un" path="res://Scenes/CombatStateMachine.cs" id="2_ngsrv"]
+[ext_resource type="Script" uid="uid://cbjqrcitcxl1h" path="res://Scenes/CombatState.cs" id="2_ngsrv"]
+[ext_resource type="Script" uid="uid://dypot533y0gx8" path="res://PlayerTurnState.cs" id="4_n3wdt"]
+[ext_resource type="Script" uid="uid://bncae8au578y7" path="res://QuestionState.cs" id="5_fsxqa"]
+[ext_resource type="Script" uid="uid://dcclrqruxv42v" path="res://PlayerAttackState.cs" id="6_kmofc"]
+[ext_resource type="Script" uid="uid://cd5qys37gd87b" path="res://EnemyAttackState.cs" id="7_lpvq3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k5tp8"]
 
@@ -54,8 +59,34 @@ bg_color = Color(0.8274293, 3.946722e-06, 8.663535e-07, 1)
 [node name="CombatMain" type="Node" unique_id=2054122581]
 script = ExtResource("1_m6hub")
 
-[node name="CombatStateMachine" type="Node" parent="." unique_id=1285535956]
+[node name="CombatState" type="Node" parent="." unique_id=1285535956]
 script = ExtResource("2_ngsrv")
+
+[node name="CombatStateMachine" type="Node" parent="." unique_id=980917272 node_paths=PackedStringArray("initialState")]
+script = ExtResource("2_fpfme")
+initialState = NodePath("PlayerTurnState")
+
+[node name="PlayerTurnState" type="Node" parent="CombatStateMachine" unique_id=496265634]
+script = ExtResource("4_n3wdt")
+
+[node name="QuestionState" type="Node" parent="CombatStateMachine" unique_id=399550750]
+script = ExtResource("5_fsxqa")
+
+[node name="PlayerAttackState" type="Node" parent="CombatStateMachine" unique_id=118247676]
+script = ExtResource("6_kmofc")
+
+[node name="PAttkStartTimer" type="Timer" parent="CombatStateMachine/PlayerAttackState" unique_id=1690371911]
+wait_time = 2.0
+one_shot = true
+
+[node name="PAttkEndTimer" type="Timer" parent="CombatStateMachine/PlayerAttackState" unique_id=1158799479]
+
+[node name="EnemyAttackState" type="Node" parent="CombatStateMachine" unique_id=342074136]
+script = ExtResource("7_lpvq3")
+
+[node name="EAttkStartTimer" type="Timer" parent="CombatStateMachine/EnemyAttackState" unique_id=926602337]
+
+[node name="EAttkEndTimer" type="Timer" parent="CombatStateMachine/EnemyAttackState" unique_id=2042409877]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=762101080]
 physics_material_override = SubResource("PhysicsMaterial_k5tp8")
@@ -68,9 +99,11 @@ transform = Transform3D(16.841759, 0, 0, 0, 0.27999997, 0, 0, 0, 16.783913, 0, 0
 mesh = SubResource("BoxMesh_ngsrv")
 
 [node name="CombatPlayer" parent="." unique_id=849479885 instance=ExtResource("1_k5tp8")]
+unique_name_in_owner = true
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.757, 0, 3.157)
 
 [node name="CombatEnemy" parent="." unique_id=545224293 instance=ExtResource("2_m6hub")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.757, 0, -3.131)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2141222278]
@@ -90,6 +123,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="AttackButton" type="Button" parent="CombatUI" unique_id=1806849163]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 736.0
 offset_top = 464.0
@@ -101,6 +135,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
 text = "Attack"
 
 [node name="PlchldrButton" type="Button" parent="CombatUI" unique_id=808082463]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 736.0
 offset_top = 528.0
@@ -111,6 +146,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
 
 [node name="PlchldrButton2" type="Button" parent="CombatUI" unique_id=1088781498]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 912.0
 offset_top = 528.0
@@ -121,6 +157,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
 
 [node name="ItemsButton" type="Button" parent="CombatUI" unique_id=1614576005]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 912.0
 offset_top = 464.0
@@ -132,6 +169,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
 text = "Items"
 
 [node name="Attack1" type="Button" parent="CombatUI" unique_id=187627513]
+unique_name_in_owner = true
 visible = false
 layout_mode = 0
 offset_left = 736.0
@@ -144,6 +182,7 @@ text = "Slash"
 alignment = 0
 
 [node name="Attack2" type="Button" parent="CombatUI" unique_id=974452193]
+unique_name_in_owner = true
 visible = false
 layout_mode = 0
 offset_left = 736.0
@@ -155,6 +194,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_n3wdt")
 alignment = 0
 
 [node name="Attack3" type="Button" parent="CombatUI" unique_id=151412176]
+unique_name_in_owner = true
 visible = false
 layout_mode = 0
 offset_left = 736.0
@@ -166,6 +206,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_n3wdt")
 alignment = 0
 
 [node name="Attack4" type="Button" parent="CombatUI" unique_id=1960461974]
+unique_name_in_owner = true
 visible = false
 layout_mode = 0
 offset_left = 736.0
@@ -177,6 +218,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_fsxqa")
 alignment = 0
 
 [node name="QuestionUI" type="Control" parent="." unique_id=1706086032]
+unique_name_in_owner = true
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -195,7 +237,7 @@ offset_right = 275.5
 offset_bottom = 72.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 52
-text = "Answer the Question?"
+text = "Answer the question successfully?"
 
 [node name="YesButton" type="Button" parent="QuestionUI" unique_id=1724538565]
 layout_mode = 0
@@ -217,7 +259,11 @@ theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_ngsrv")
 text = "No"
 
-[connection signal="pressed" from="CombatUI/AttackButton" to="." method="OnAttackButtonPressed"]
-[connection signal="pressed" from="CombatUI/Attack1" to="." method="OnAttack1Pressed"]
-[connection signal="pressed" from="QuestionUI/YesButton" to="." method="OnYesButtonPressed"]
-[connection signal="pressed" from="QuestionUI/NoButton" to="." method="OnNoButtonPressed"]
+[connection signal="timeout" from="CombatStateMachine/PlayerAttackState/PAttkStartTimer" to="CombatStateMachine/PlayerAttackState" method="OnPAttkStartTimerTimeout"]
+[connection signal="timeout" from="CombatStateMachine/PlayerAttackState/PAttkEndTimer" to="CombatStateMachine/PlayerAttackState" method="OnPAttkEndTimerTimeout"]
+[connection signal="timeout" from="CombatStateMachine/EnemyAttackState/EAttkStartTimer" to="CombatStateMachine/EnemyAttackState" method="OnEAttakStartTimer"]
+[connection signal="timeout" from="CombatStateMachine/EnemyAttackState/EAttkEndTimer" to="CombatStateMachine/EnemyAttackState" method="OnEAttkEndTimer"]
+[connection signal="pressed" from="CombatUI/AttackButton" to="CombatStateMachine/PlayerTurnState" method="OnAttackButtonPressed"]
+[connection signal="pressed" from="CombatUI/Attack1" to="CombatStateMachine/PlayerTurnState" method="OnAttack1Pressed"]
+[connection signal="pressed" from="QuestionUI/YesButton" to="CombatStateMachine/QuestionState" method="OnYesButtonPressed"]
+[connection signal="pressed" from="QuestionUI/NoButton" to="CombatStateMachine" method="OnNoButtonPressed"]
