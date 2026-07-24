@@ -1,6 +1,6 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dungeons N Academics", "Dungeons N Academics.csproj", "{EE617C04-92FF-4BFF-BFDE-6731FF706144}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dungeons N Academics", "Dungeons N Academics.csproj", "{F619BF23-66D3-4E96-933E-96F195D786B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,11 +9,11 @@ Global
 	ExportRelease|Any CPU = ExportRelease|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EE617C04-92FF-4BFF-BFDE-6731FF706144}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE617C04-92FF-4BFF-BFDE-6731FF706144}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE617C04-92FF-4BFF-BFDE-6731FF706144}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
-		{EE617C04-92FF-4BFF-BFDE-6731FF706144}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
-		{EE617C04-92FF-4BFF-BFDE-6731FF706144}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
-		{EE617C04-92FF-4BFF-BFDE-6731FF706144}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+		{F619BF23-66D3-4E96-933E-96F195D786B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F619BF23-66D3-4E96-933E-96F195D786B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F619BF23-66D3-4E96-933E-96F195D786B3}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{F619BF23-66D3-4E96-933E-96F195D786B3}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{F619BF23-66D3-4E96-933E-96F195D786B3}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{F619BF23-66D3-4E96-933E-96F195D786B3}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
 	EndGlobalSection
 EndGlobal

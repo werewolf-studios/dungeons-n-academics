@@ -1,12 +1,71 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EE617C04-92FF-4BFF-BFDE-6731FF706144}|Dungeons N Academics.csproj|c:\\users\\dolph\\documents\\github\\dungeons-n-academics\\scenes\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE617C04-92FF-4BFF-BFDE-6731FF706144}|Dungeons N Academics.csproj|solutionrelative:scenes\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE617C04-92FF-4BFF-BFDE-6731FF706144}|Dungeons N Academics.csproj|c:\\users\\dolph\\documents\\github\\dungeons-n-academics\\scenes\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EE617C04-92FF-4BFF-BFDE-6731FF706144}|Dungeons N Academics.csproj|solutionrelative:scenes\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EE617C04-92FF-4BFF-BFDE-6731FF706144}|Dungeons N Academics.csproj|c:\\users\\dolph\\documents\\github\\dungeons-n-academics\\dungeons n academics.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{EE617C04-92FF-4BFF-BFDE-6731FF706144}|Dungeons N Academics.csproj|solutionrelative:dungeons n academics.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\Scenes\\Player.cs",
+              "RelativeDocumentMoniker": "Scenes\\Player.cs",
+              "ToolTip": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\Scenes\\Player.cs",
+              "RelativeToolTip": "Scenes\\Player.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-24T13:03:35.223Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Enemy.cs",
+              "DocumentMoniker": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\Scenes\\Enemy.cs",
+              "RelativeDocumentMoniker": "Scenes\\Enemy.cs",
+              "ToolTip": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\Scenes\\Enemy.cs",
+              "RelativeToolTip": "Scenes\\Enemy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-24T13:03:29.786Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Dungeons N Academics",
+              "DocumentMoniker": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\Dungeons N Academics.csproj",
+              "RelativeDocumentMoniker": "Dungeons N Academics.csproj",
+              "ToolTip": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\Dungeons N Academics.csproj",
+              "RelativeToolTip": "Dungeons N Academics.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-07-24T13:03:08.916Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -1,3 +1,29 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+.vs/DUNGEONS N ACADEMICS/DesignTimeBuild/.dtbcache.v2
+.vs/DUNGEONS N ACADEMICS/FileContentIndex/02c5c2aa-ac31-445b-9d03-5b05e5df762b.vsidx
+.vs/DUNGEONS N ACADEMICS/FileContentIndex/0e34b2be-5df2-4f15-864a-ebf3c11605cd.vsidx
+.vs/DUNGEONS N ACADEMICS/FileContentIndex/1059fbcf-c05f-4d80-8c04-81a7400cb3f9.vsidx
+.vs/DUNGEONS N ACADEMICS/FileContentIndex/3bec526d-6e9b-454f-af92-53ced22503c3.vsidx
+.vs/DUNGEONS N ACADEMICS/FileContentIndex/5e60be73-86af-486c-a87c-372d55cac00f.vsidx
+.vs/DUNGEONS N ACADEMICS/FileContentIndex/c36522e6-a02c-44b8-b65d-d9ae6896ce6e.vsidx
+.vs/DUNGEONS N ACADEMICS/FileContentIndex/e7b85c3f-c095-4afd-970e-ffaf5050131c.vsidx
+.vs/DUNGEONS N ACADEMICS/FileContentIndex/fb9e8d1b-ba84-4f4e-9518-491aee748568.vsidx
+.vs/DUNGEONS N ACADEMICS/v18/.suo
+.vs/ProjectEvaluation/dungeons n academics.metadata.v9.bin
+.vs/ProjectEvaluation/dungeons n academics.projects.v9.bin
+.vs/ProjectEvaluation/dungeons n academics.strings.v9.bin
+.vs/ProjectEvaluation/dungeons n academics.strings.v10.bin
+.vs/ProjectEvaluation/dungeons n academics.projects.v10.bin
+.vs/ProjectEvaluation/dungeons n academics.metadata.v10.bin
+.vs/DUNGEONS N ACADEMICS/v18/DocumentLayout.json
+.vs/DUNGEONS N ACADEMICS/v18/DocumentLayout.backup.json
+.vs/DUNGEONS N ACADEMICS/v18/.futdcache.v2
+.vs/DUNGEONS N ACADEMICS/FileContentIndex/e9ee91fe-a11c-459e-afe3-677210d6e084.vsidx
+.vs/DUNGEONS N ACADEMICS/FileContentIndex/a442d48f-37e7-4062-80a7-326780011825.vsidx
+.vs/DUNGEONS N ACADEMICS/FileContentIndex/602402f9-ede0-4565-a853-bc1dee014418.vsidx
+.vs/DUNGEONS N ACADEMICS/FileContentIndex/2e9f4dae-1567-4e68-83d9-4f2fb6ec2153.vsidx
+.vs/DUNGEONS N ACADEMICS/FileContentIndex/1a3e14d0-6462-4871-a85d-12d7e5aa6e8a.vsidx
+.vs/DUNGEONS N ACADEMICS/v18/.futdcache.v2
+.vs/DUNGEONS N ACADEMICS/v18/DocumentLayout.json
