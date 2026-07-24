@@ -1,6 +1,6 @@
-[gd_scene format=4 uid="uid://da6r4rnwd6at7"]
+[gd_scene format=4 uid="uid://16qog5hdty0b"]
 
-[ext_resource type="Script" uid="uid://b3aubycaxs70a" path="res://Scripts/Enemy.cs" id="1_hghv2"]
+[ext_resource type="Script" uid="uid://b3aubycaxs70a" path="res://Scripts/Enemy.cs" id="1_0shjb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_550wc"]
 resource_name = "Material.001"
@@ -43,9 +43,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rg6pl")
 
-[node name="Enemy" type="Node3D" unique_id=630546665]
+[node name="Player" type="Node3D" unique_id=630546665]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, 0)
-script = ExtResource("1_hghv2")
+script = ExtResource("1_0shjb")
 
 [node name="ELFEBEN 2024  MALE" type="MeshInstance3D" parent="." unique_id=823179554]
 transform = Transform3D(0.20275298, 0, 0, 0, 0.23688793, 0, 0, 0, 0.17019695, 0, 1.4413418, 0)

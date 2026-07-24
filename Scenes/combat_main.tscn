@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cwdd3rvi5k3ht"]
 
-[ext_resource type="PackedScene" uid="uid://cucq3hasj5wab" path="res://Scenes/player.tscn" id="1_k5tp8"]
+[ext_resource type="PackedScene" uid="uid://16qog5hdty0b" path="res://Scenes/combat_player.tscn" id="1_m6hub"]
 [ext_resource type="PackedScene" uid="uid://da6r4rnwd6at7" path="res://Scenes/enemy.tscn" id="2_k5tp8"]
+[ext_resource type="PackedScene" uid="uid://c7na4426cw7ug" path="res://Scenes/question_system.tscn" id="3_m6hub"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k5tp8"]
 
@@ -21,8 +22,8 @@ shape = SubResource("BoxShape3D_m6hub")
 transform = Transform3D(16.841759, 0, 0, 0, 0.27999997, 0, 0, 0, 16.783913, 0, 0, 0)
 mesh = SubResource("BoxMesh_ngsrv")
 
-[node name="Player" parent="." unique_id=630546665 instance=ExtResource("1_k5tp8")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.757, 0, 3.157)
+[node name="Player" parent="." unique_id=630546665 instance=ExtResource("1_m6hub")]
+transform = Transform3D(-1, 0, -2.6226832e-07, 0, 1, 0, 2.6226832e-07, 0, -1, 0.757, 0, 3.157)
 
 [node name="Enemy" parent="." unique_id=526297058 instance=ExtResource("2_k5tp8")]
 transform = Transform3D(1, 0, 3.496911e-07, 0, 1, 0, -3.496911e-07, 0, 1, 0.757, 0, -3.1309414)
@@ -34,3 +35,5 @@ fov = 58.4
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=780092791]
 transform = Transform3D(1, 0, 0, 0, 0.22569923, 0.97419703, 0, -0.97419703, 0.22569923, 0, 14.558374, 0)
 shadow_enabled = true
+
+[node name="Question" parent="." unique_id=1895040970 instance=ExtResource("3_m6hub")]
