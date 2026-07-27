@@ -80,13 +80,19 @@ wait_time = 2.0
 one_shot = true
 
 [node name="PAttkEndTimer" type="Timer" parent="CombatStateMachine/PlayerAttackState" unique_id=1158799479]
+wait_time = 2.0
+one_shot = true
 
 [node name="EnemyAttackState" type="Node" parent="CombatStateMachine" unique_id=342074136]
 script = ExtResource("7_lpvq3")
 
 [node name="EAttkStartTimer" type="Timer" parent="CombatStateMachine/EnemyAttackState" unique_id=926602337]
+wait_time = 2.0
+one_shot = true
 
 [node name="EAttkEndTimer" type="Timer" parent="CombatStateMachine/EnemyAttackState" unique_id=2042409877]
+wait_time = 2.0
+one_shot = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=762101080]
 physics_material_override = SubResource("PhysicsMaterial_k5tp8")
@@ -261,8 +267,8 @@ text = "No"
 
 [connection signal="timeout" from="CombatStateMachine/PlayerAttackState/PAttkStartTimer" to="CombatStateMachine/PlayerAttackState" method="OnPAttkStartTimerTimeout"]
 [connection signal="timeout" from="CombatStateMachine/PlayerAttackState/PAttkEndTimer" to="CombatStateMachine/PlayerAttackState" method="OnPAttkEndTimerTimeout"]
-[connection signal="timeout" from="CombatStateMachine/EnemyAttackState/EAttkStartTimer" to="CombatStateMachine/EnemyAttackState" method="OnEAttakStartTimer"]
-[connection signal="timeout" from="CombatStateMachine/EnemyAttackState/EAttkEndTimer" to="CombatStateMachine/EnemyAttackState" method="OnEAttkEndTimer"]
+[connection signal="timeout" from="CombatStateMachine/EnemyAttackState/EAttkStartTimer" to="CombatStateMachine/EnemyAttackState" method="OnEAttkStartTimerTimeout"]
+[connection signal="timeout" from="CombatStateMachine/EnemyAttackState/EAttkEndTimer" to="CombatStateMachine/EnemyAttackState" method="OnEAttkEndTimerTimeout"]
 [connection signal="pressed" from="CombatUI/AttackButton" to="CombatStateMachine/PlayerTurnState" method="OnAttackButtonPressed"]
 [connection signal="pressed" from="CombatUI/Attack1" to="CombatStateMachine/PlayerTurnState" method="OnAttack1Pressed"]
 [connection signal="pressed" from="QuestionUI/YesButton" to="CombatStateMachine/QuestionState" method="OnYesButtonPressed"]

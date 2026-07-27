@@ -9,6 +9,7 @@ public partial class EnemyAttackState : CombatState
     {
 		GD.Print("Entered EnemyAttackState");
         GetNode<Timer>("EAttkStartTimer").Start();
+		GD.Print("EAttkStartTimer started");
 		enemy = GetNodeOrNull<CombatEnemy>("%CombatEnemy");
 		player = GetNode<CombatPlayer>("%CombatPlayer");
 
@@ -26,13 +27,16 @@ public partial class EnemyAttackState : CombatState
 
 	private void OnEAttkStartTimerTimeout()
 	{
+		GD.Print("EAttkStartTimer timedout");
 		player.TakeDamage(enemy.Damage);
 
 		GetNode<Timer>("EAttkEndTimer").Start();
+		GD.Print("EAttkEndTimer started");
 	}
 
 	private void OnEAttkEndTimerTimeout()
 	{
+		GD.Print("EAttkEndTimer timedout");
 		csm.TransitionTo("PlayerTurnState");
 	}
 }

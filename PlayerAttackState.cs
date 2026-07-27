@@ -9,6 +9,7 @@ public partial class PlayerAttackState : CombatState
     {
 		GD.Print("Entered PlayerAttackState");
         GetNode<Timer>("PAttkStartTimer").Start();
+		GD.Print("PAttkStartTimer started");
 		enemy = GetNode<CombatEnemy>("%CombatEnemy");
 		player = GetNodeOrNull<CombatPlayer>("%CombatPlayer");
 
@@ -26,19 +27,22 @@ public partial class PlayerAttackState : CombatState
 
 	private void OnPAttkStartTimerTimeout()
 	{
+		GD.Print("PAttkStartTimer timedout");
 		enemy.TakeDamage(player.Damage);
 
 		if (enemy.health <= 0)
 		{
-			MeshInstance3D currentEnemy = GetNode<MeshInstance3D>("CombatEnemy");
+			MeshInstance3D currentEnemy = GetNode<MeshInstance3D>("%CombatEnemy");
 			currentEnemy.QueueFree();
 		}
 
 		GetNode<Timer>("PAttkEndTimer").Start();
+		GD.Print("PAttkEndTimer started");
 	}
 
 	private void OnPAttkEndTimerTimeout()
 	{
+		GD.Print("PAttkEndTimer timedout");
 		csm.TransitionTo("EnemyAttackState");
 	}
 }
