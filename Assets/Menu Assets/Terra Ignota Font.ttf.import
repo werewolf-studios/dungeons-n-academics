@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bjl4ttra3a6wb"
-path="res://.godot/imported/Terra Ignota Font.ttf-84ed3af3459ed0379d68f1c47db9267a.fontdata"
+path="res://.godot/imported/Terra Ignota Font.ttf-7ab3b509e8bb36d7259ac99b6e96f685.fontdata"
 
 [deps]
 
-source_file="res://Menu Assets/Terra Ignota Font.ttf"
-dest_files=["res://.godot/imported/Terra Ignota Font.ttf-84ed3af3459ed0379d68f1c47db9267a.fontdata"]
+source_file="res://Assets/Menu Assets/Terra Ignota Font.ttf"
+dest_files=["res://.godot/imported/Terra Ignota Font.ttf-7ab3b509e8bb36d7259ac99b6e96f685.fontdata"]
 
 [params]
 
