@@ -1,5 +1,8 @@
 [gd_scene format=4 uid="uid://wxovbdt7lbjj"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1n3eg"]
+size = Vector3(0.50341797, 2.986023, 20.353943)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ngoup"]
 resource_name = "standardSurface1.001"
 vertex_color_use_as_albedo = true
@@ -39,6 +42,13 @@ shadow_mesh = SubResource("ArrayMesh_sgbdk")
 
 [node name="Left Wall" type="Node3D" unique_id=1429365271]
 transform = Transform3D(1, 0, 0, 0, 1, 7.5497894e-08, 0, -7.5497894e-08, 1, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=354948406]
+disable_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=504691018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.928955, 2.4808042, 18.676971)
+shape = SubResource("BoxShape3D_1n3eg")
 
 [node name="Cube_003" type="MeshInstance3D" parent="." unique_id=1167928293]
 transform = Transform3D(2, 0, 0, 0, 2, 1.5099579e-07, 0, -1.5099579e-07, 2, 5.7740393, 2.4494393, 9.938818)

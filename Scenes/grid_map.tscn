@@ -12,4 +12,3 @@ script = ExtResource("1_gc0wv")
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="CharacterBody3D" parent="." unique_id=47364855 instance=ExtResource("2_sxjfa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6261779, 0, 0.58087254)

@@ -29,7 +29,9 @@ public partial class PushBlock : InteractionTest
     public void Initialize(GridMap _grid)
     {
         grid = _grid;
-        Position = Vector3.Zero;
+        //Prevents diagonal movement on first push by ensuring push block is alligned with grid
+        GlobalPosition = CalculateDestination(Vector3.Zero);
+        
     }
 
     public override void Interaction(Player origin)
@@ -82,6 +84,7 @@ public partial class PushBlock : InteractionTest
         Vector3 localDestination = grid.MapToLocal(gridMapPos);
         //Locks Y axis movement
         localDestination.Y = 0.0f;
+
         return grid.ToGlobal(localDestination);
     }
 

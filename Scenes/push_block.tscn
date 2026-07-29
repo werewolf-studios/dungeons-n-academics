@@ -10,6 +10,8 @@ albedo_color = Color(1, 0.3529412, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_5pwlv"]
 
 [node name="PushBlock" type="CharacterBody3D" unique_id=47364855 groups=["Interactable"]]
+collision_layer = 5
+collision_mask = 5
 script = ExtResource("1_n0h5u")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1813855529]
