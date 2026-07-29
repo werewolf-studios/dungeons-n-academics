@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n607hvxd0u1f"
-path="res://.godot/imported/Blackboard.png-672fb557d9b2eed892bab7a2c4a2706e.ctex"
+uid="uid://lm3bdh4ktkmr"
+path="res://.godot/imported/Questions - Empty Blackboard.png-66c3b4c890b54d7805baba9e45865555.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Menu Assets/Blackboard.png"
-dest_files=["res://.godot/imported/Blackboard.png-672fb557d9b2eed892bab7a2c4a2706e.ctex"]
+source_file="res://Assets/Question Assets/Questions - Empty Blackboard.png"
+dest_files=["res://.godot/imported/Questions - Empty Blackboard.png-66c3b4c890b54d7805baba9e45865555.ctex"]
 
 [params]
 
