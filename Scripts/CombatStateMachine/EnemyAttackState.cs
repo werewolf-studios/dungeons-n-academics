@@ -30,6 +30,13 @@ public partial class EnemyAttackState : CombatState
 		GD.Print("EAttkStartTimer timedout");
 		player.TakeDamage(enemy.Damage);
 
+		if (player.health <= 0)
+		{
+			MeshInstance3D thePlayer = GetNode<MeshInstance3D>("%CombatPlayer");
+			thePlayer.QueueFree();
+
+		}
+
 		GetNode<Timer>("EAttkEndTimer").Start();
 		GD.Print("EAttkEndTimer started");
 	}
@@ -37,6 +44,13 @@ public partial class EnemyAttackState : CombatState
 	private void OnEAttkEndTimerTimeout()
 	{
 		GD.Print("EAttkEndTimer timedout");
+
+		if (player.health <= 0)
+		{
+			csm.TransitionTo("DefeatedState");
+			return;
+		}
+
 		csm.TransitionTo("PlayerTurnState");
 	}
 }

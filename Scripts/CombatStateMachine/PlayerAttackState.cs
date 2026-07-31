@@ -43,6 +43,13 @@ public partial class PlayerAttackState : CombatState
 	private void OnPAttkEndTimerTimeout()
 	{
 		GD.Print("PAttkEndTimer timedout");
+
+		if (enemy.health <= 0)
+		{
+			csm.TransitionTo("VictoryState");
+			return;
+		}
+
 		csm.TransitionTo("EnemyAttackState");
 	}
 }

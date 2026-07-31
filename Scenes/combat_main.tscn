@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://bncae8au578y7" path="res://Scripts/CombatStateMachine/QuestionState.cs" id="5_fsxqa"]
 [ext_resource type="Script" uid="uid://dcclrqruxv42v" path="res://Scripts/CombatStateMachine/PlayerAttackState.cs" id="6_kmofc"]
 [ext_resource type="Script" uid="uid://cd5qys37gd87b" path="res://Scripts/CombatStateMachine/EnemyAttackState.cs" id="7_lpvq3"]
+[ext_resource type="Script" uid="uid://bb42175myn3do" path="res://Scenes/VictoryState.cs" id="8_lpvq3"]
+[ext_resource type="Script" uid="uid://ck0s7bsc5uikf" path="res://Scenes/DefeatedState.cs" id="9_lhrf8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k5tp8"]
 
@@ -74,6 +76,14 @@ one_shot = true
 [node name="EAttkEndTimer" type="Timer" parent="CombatStateMachine/EnemyAttackState" unique_id=2042409877]
 wait_time = 2.0
 one_shot = true
+
+[node name="VictoryState" type="Node" parent="CombatStateMachine" unique_id=1105563629 node_paths=PackedStringArray("VictoryText")]
+script = ExtResource("8_lpvq3")
+VictoryText = NodePath("../../CombatUI/VictoryText")
+
+[node name="DefeatedState" type="Node" parent="CombatStateMachine" unique_id=195838736 node_paths=PackedStringArray("DefeatedText")]
+script = ExtResource("9_lhrf8")
+DefeatedText = NodePath("../../CombatUI/DefeatedText")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=762101080]
 physics_material_override = SubResource("PhysicsMaterial_k5tp8")
@@ -233,4 +243,4 @@ text = "No"
 [connection signal="timeout" from="CombatStateMachine/EnemyAttackState/EAttkEndTimer" to="CombatStateMachine/EnemyAttackState" method="OnEAttkEndTimerTimeout"]
 [connection signal="pressed" from="CombatUI/AttackButton" to="CombatStateMachine/PlayerTurnState" method="OnAttackButtonPressed"]
 [connection signal="pressed" from="QuestionUI/YesButton" to="CombatStateMachine/QuestionState" method="OnYesButtonPressed"]
-[connection signal="pressed" from="QuestionUI/NoButton" to="CombatStateMachine" method="OnNoButtonPressed"]
+[connection signal="pressed" from="QuestionUI/NoButton" to="CombatStateMachine/QuestionState" method="OnNoButtonPressed"]
