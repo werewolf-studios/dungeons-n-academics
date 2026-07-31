@@ -14,7 +14,7 @@ public enum QuestionType
 
 public enum Topic
 {
-    Geometry
+    AdditionAndSubtraction
     // Add more subjects as needed
 }
 
@@ -98,17 +98,15 @@ public partial class QuestionManager : CanvasLayer
     public void StartQuestionSequence(QuestionType questionsType, Topic topic, Difficulty difficulty, int numOfQuestions, int time)
     {
         
+        /*
         List<Question> currentQuestionList = null;
+
+        // Ppulate the current question list with Questions
 
         if (questionsType == QuestionType.Math)
         {
-            currentQuestionList = SaveManager.Instance.MathQuestions[topic.ToString().ToLower()][(int)difficulty];
+            currentQuestionList = SaveManager.Instance.MathQuestionsThirdGrade[topic.ToString().ToLower()][(int)difficulty];
         }
-        /*  TO BE IMPLEMENTED LATER
-        else if(questionsType == QuestionType.History)
-        {
-            currentQuestionList = SaveManager.Instance.HistoryQuestions[topic.ToString().ToLower()][(int)difficulty];
-        }*/
 
         // Check if the questions even exist
         if (currentQuestionList == null)
@@ -123,6 +121,14 @@ public partial class QuestionManager : CanvasLayer
             GD.PushError("Not enough questions to meet the requested number: " + Error.DoesNotExist);
             return;
         }
+        */
+
+        List<QuestionFormat> currentQuestionFormatList = SaveManager.Instance.MathQuestionsThirdGrade[topic.ToString().ToLower()][(int)difficulty];
+        if (currentQuestionFormatList == null)
+        {
+            GD.PushError("Questions requested do not exist: " + Error.DoesNotExist);
+            return;
+        }
 
         timer.WaitTime = time;
 
@@ -130,11 +136,8 @@ public partial class QuestionManager : CanvasLayer
         for(int i = 0; i < numOfQuestions; i++)
         {
             // Add the question to the queue
-            Question randomQuestion = currentQuestionList[random.Next(currentQuestionList.Count)];
+            Question randomQuestion = QuestionConversionHandler.AdditionSubtractionConverter(currentQuestionFormatList[random.Next(currentQuestionFormatList.Count)]);
             currentQuestionQueue.Enqueue(randomQuestion);
-
-            // Remove the question from the list so it doesn't get picked again
-            currentQuestionList.Remove(randomQuestion);
         }
 
         DisplayNextQuestion();
@@ -182,6 +185,7 @@ public partial class QuestionManager : CanvasLayer
     {
         if (didPlayerAnswer) return;
         didPlayerAnswer = true;
+        EmitSignal(SignalName.WrongAnswer);
         SaveManager.Instance.PlayerData.Coins -= 10;
         DisplayCorrectAnswer();
     }
@@ -254,7 +258,7 @@ public partial class QuestionManager : CanvasLayer
             correctAnswer,
             question.Wrong[0],
             question.Wrong[1],
-            question.Wrong[2],
+            question.Wrong[2]
         };
 
         // Shuffle the possible answers

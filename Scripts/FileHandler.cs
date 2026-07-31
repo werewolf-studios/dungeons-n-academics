@@ -146,7 +146,7 @@ public partial class FileHandler : Node
     /// <param name="filePath">The path of the JSON file</param>
     /// <param name="outData">The dictionary to populate with questions</param>
     /// <returns>An Error describing the outcome</returns>
-    public static Error OpenJsonQuestionFile(string filePath, System.Collections.Generic.Dictionary<string, List<List<Question>>> outData)
+    public static Error OpenJsonQuestionFile(string filePath, System.Collections.Generic.Dictionary<string, List<List<QuestionFormat>>> outData)
     {
         outData.Clear();
         (Error, Godot.FileAccess) result = OpenFileForRead(filePath);
@@ -179,12 +179,12 @@ public partial class FileHandler : Node
             string category = entry.Key.AsString();
             var tierArray = entry.Value.AsGodotArray();
 
-            List<List<Question>> questions = new List<List<Question>>();
+            List<List<QuestionFormat>> questions = new List<List<QuestionFormat>>();
 
             // Loop through tiers
             for (int i = 0; i < tierArray.Count; i++)
             {
-                List<Question> tierQuestions = new List<Question>();
+                List<QuestionFormat> tierQuestions = new List<QuestionFormat>();
                  var questionArray = tierArray[i].AsGodotArray();
 
                 // Loop through questions
@@ -192,18 +192,18 @@ public partial class FileHandler : Node
                 {
                     var qDict = item.AsGodotDictionary();
 
-                    Question q = new Question
-                    {
-                        Problem = qDict["problem"].ToString(),
-                        Answer = qDict["answer"].ToString(),
-                        Wrong = qDict["wrong_answers"].AsStringArray(),
-                    };
+                    QuestionFormat q = new QuestionFormat
+                    (
+                        qDict["problem"].ToString(),
+                        qDict["min"].ToString(),
+                        qDict["max"].ToString()
+                    );
 
                     tierQuestions.Add(q);
                 }
                 questions.Add(tierQuestions);
             }
-            outData.Add(category, questions);
+            outData.Add(category.ToLower(), questions);
         }
 
         return Error.Ok;

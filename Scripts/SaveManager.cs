@@ -13,16 +13,16 @@ public partial class SaveManager : Node
     public PlayerSaveData PlayerData { get => playerData; set => playerData = value; }
 
     // Subject Dictionaries
-    private Dictionary<string, List<List<Question>>> mathQuestions = new Dictionary<string, List<List<Question>>>();
+    private Dictionary<string, List<List<QuestionFormat>>> mathQuestionsThirdGrade = new Dictionary<string, List<List<QuestionFormat>>>();
 
-    public Dictionary<string, List<List<Question>>> MathQuestions { get => mathQuestions; set => mathQuestions = value; }
+    public Dictionary<string, List<List<QuestionFormat>>> MathQuestionsThirdGrade { get => mathQuestionsThirdGrade; set => mathQuestionsThirdGrade = value; }
 
     // Save file locations
     string SavePathJson = "user://savegame.json";
     string SavePathBinary = "user://savegame.save"; // can be any extension for binary
 
     // Question file locations
-    string mathQuestionsPathJson = "res://QuestionsFolder/math_questions.json";
+    string mathQuestionsThirdGradePathJson = "res://QuestionsFolder/ThirdGrade/math_questions.json";
     string historyQuestionsPathJson = "res://QuestionsFolder/history_questions.json"; // to be implemented
 
     // Saving
@@ -94,9 +94,9 @@ public partial class SaveManager : Node
     /// </summary>
     /// <param name="filePath">The path of the question file</param>
     /// <returns>A complex dictionary of questions</returns>
-    private Dictionary<string, List<List<Question>>> LoadQuestionDataFromFile(string filePath)
+    private Dictionary<string, List<List<QuestionFormat>>> LoadQuestionDataFromFile(string filePath)
     {
-        Dictionary<string, List<List<Question>>> questionData = new() { };
+        Dictionary<string, List<List<QuestionFormat>>> questionData = new() { };
         Error error = FileHandler.OpenJsonQuestionFile(filePath, questionData);
         if (error != Error.Ok)
         {
@@ -114,7 +114,7 @@ public partial class SaveManager : Node
     /// </summary>
     public void LoadQuestionDataJson()
     {
-        mathQuestions = LoadQuestionDataFromFile(mathQuestionsPathJson);
+        mathQuestionsThirdGrade = LoadQuestionDataFromFile(mathQuestionsThirdGradePathJson);
         // historyQuestions = LoadQuestionDataFromFile(historyQuestionsPathJson); // to be implemented
     }
 }

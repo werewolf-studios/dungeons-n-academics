@@ -7,6 +7,12 @@ public class Question
 	public string Answer { get; set; }
 	public string[] Wrong { get; set; }
 
+    public Question(string problem, string answer, string[] wrong)
+    {
+        Problem = problem;
+        Answer = answer;
+        Wrong = wrong;
+    }
     public override string ToString()
     {
         string testString = "Question: " + Problem + "\nCorrect answer: " + Answer + "\nWrong choices: ";
