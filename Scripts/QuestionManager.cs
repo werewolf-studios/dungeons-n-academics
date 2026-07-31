@@ -57,7 +57,7 @@ public partial class QuestionManager : CanvasLayer
     private Label questionLabel;
 
     [Export]
-    private VBoxContainer buttonContainer;
+    private Control buttonContainer;
 
     [Export]
     private Control blocker;

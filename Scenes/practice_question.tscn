@@ -96,7 +96,7 @@ script = ExtResource("3_nci0t")
 timer = NodePath("Control/Timer")
 progressBar = NodePath("Control/ProgressBar")
 questionLabel = NodePath("Control/QuestionLabel")
-buttonContainer = NodePath("")
+buttonContainer = NodePath("Control/Control")
 blocker = NodePath("Control/TransparentBlocker")
 
 [node name="Control" type="Control" parent="QuestionsUI" unique_id=1070579788]
@@ -156,7 +156,12 @@ offset_right = 801.0
 offset_bottom = 651.0
 scale = Vector2(1.491536, 1.1095825)
 
-[node name="First" type="Button" parent="QuestionsUI/Control" unique_id=1483393181]
+[node name="Control" type="Control" parent="QuestionsUI/Control" unique_id=1730587527]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="First" type="Button" parent="QuestionsUI/Control/Control" unique_id=1483393181]
 texture_filter = 1
 layout_mode = 0
 offset_left = 186.00002
@@ -169,7 +174,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
 theme_override_font_sizes/font_size = 33
 text = "1)"
 
-[node name="Second" type="Button" parent="QuestionsUI/Control" unique_id=1346778065]
+[node name="Second" type="Button" parent="QuestionsUI/Control/Control" unique_id=1346778065]
 layout_mode = 0
 offset_left = 700.0
 offset_top = 298.0
@@ -180,7 +185,7 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 27
 text = "2)"
 
-[node name="Third" type="Button" parent="QuestionsUI/Control" unique_id=1182116623]
+[node name="Third" type="Button" parent="QuestionsUI/Control/Control" unique_id=1182116623]
 layout_mode = 0
 offset_left = 181.0
 offset_top = 487.0
@@ -191,7 +196,7 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 27
 text = "3)"
 
-[node name="Fourth" type="Button" parent="QuestionsUI/Control" unique_id=788005481]
+[node name="Fourth" type="Button" parent="QuestionsUI/Control/Control" unique_id=788005481]
 layout_mode = 0
 offset_left = 701.0
 offset_top = 491.0
@@ -209,7 +214,7 @@ text = "4)"
 [connection signal="QuestionStarted" from="QuestionsUI" to="PlayerStatsUI/Control/ExampleButton" method="OnQuestionStarted"]
 [connection signal="WrongAnswer" from="QuestionsUI" to="PlayerStatsUI/Control/ExampleButton" method="OnWrongAnswer"]
 [connection signal="timeout" from="QuestionsUI/Control/Timer" to="QuestionsUI" method="OnTimeout"]
-[connection signal="pressed" from="QuestionsUI/Control/First" to="QuestionsUI" method="OnButtonPressed" flags=18]
-[connection signal="pressed" from="QuestionsUI/Control/Second" to="QuestionsUI" method="OnButtonPressed" flags=18]
-[connection signal="pressed" from="QuestionsUI/Control/Third" to="QuestionsUI" method="OnButtonPressed" flags=18]
-[connection signal="pressed" from="QuestionsUI/Control/Fourth" to="QuestionsUI" method="OnButtonPressed" flags=18]
+[connection signal="pressed" from="QuestionsUI/Control/Control/First" to="QuestionsUI" method="OnButtonPressed" flags=18]
+[connection signal="pressed" from="QuestionsUI/Control/Control/Second" to="QuestionsUI" method="OnButtonPressed" flags=18]
+[connection signal="pressed" from="QuestionsUI/Control/Control/Third" to="QuestionsUI" method="OnButtonPressed" flags=18]
+[connection signal="pressed" from="QuestionsUI/Control/Control/Fourth" to="QuestionsUI" method="OnButtonPressed" flags=18]
