@@ -1,8 +1,14 @@
 [gd_scene format=3 uid="uid://cwdd3rvi5k3ht"]
 
-[ext_resource type="PackedScene" uid="uid://16qog5hdty0b" path="res://Scenes/combat_player.tscn" id="1_m6hub"]
-[ext_resource type="PackedScene" uid="uid://da6r4rnwd6at7" path="res://Scenes/enemy.tscn" id="2_k5tp8"]
-[ext_resource type="PackedScene" uid="uid://c7na4426cw7ug" path="res://Scenes/question_system.tscn" id="3_m6hub"]
+[ext_resource type="PackedScene" uid="uid://b3qff5jhxpi58" path="res://Scenes/combat_player.tscn" id="1_k5tp8"]
+[ext_resource type="Script" uid="uid://bmwa235ar8c5v" path="res://Scenes/CombatMain.cs" id="1_m6hub"]
+[ext_resource type="Script" uid="uid://bw3y4d0guwtie" path="res://CombatStateMachine.cs" id="2_fpfme"]
+[ext_resource type="PackedScene" uid="uid://cow858qw2lptn" path="res://Scenes/combat_enemy.tscn" id="2_m6hub"]
+[ext_resource type="Script" uid="uid://cbjqrcitcxl1h" path="res://Scenes/CombatState.cs" id="2_ngsrv"]
+[ext_resource type="Script" uid="uid://dypot533y0gx8" path="res://PlayerTurnState.cs" id="4_n3wdt"]
+[ext_resource type="Script" uid="uid://bncae8au578y7" path="res://QuestionState.cs" id="5_fsxqa"]
+[ext_resource type="Script" uid="uid://dcclrqruxv42v" path="res://PlayerAttackState.cs" id="6_kmofc"]
+[ext_resource type="Script" uid="uid://cd5qys37gd87b" path="res://EnemyAttackState.cs" id="7_lpvq3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k5tp8"]
 
@@ -10,7 +16,83 @@
 
 [sub_resource type="BoxMesh" id="BoxMesh_ngsrv"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phkcs"]
+bg_color = Color(0.45882353, 0.34117648, 0.23529412, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.38045204, 0.27944052, 0.18836206, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5tp8"]
+bg_color = Color(0.5057749, 0.37876475, 0.26462448, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fpfme"]
+content_margin_left = 10.0
+bg_color = Color(0.45882353, 0.34117648, 0.23529412, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(0.38039216, 0.2784314, 0.1882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n3wdt"]
+content_margin_left = 10.0
+bg_color = Color(0.45882353, 0.34117648, 0.23529412, 1)
+border_width_left = 2
+border_width_right = 2
+border_color = Color(0.38039216, 0.2784314, 0.1882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsxqa"]
+content_margin_left = 10.0
+bg_color = Color(0.45882353, 0.34117648, 0.23529412, 1)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.38039216, 0.2784314, 0.1882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6hub"]
+bg_color = Color(3.6098064e-07, 0.54618376, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngsrv"]
+bg_color = Color(0.8274293, 3.946722e-06, 8.663535e-07, 1)
+
 [node name="CombatMain" type="Node" unique_id=2054122581]
+script = ExtResource("1_m6hub")
+
+[node name="CombatState" type="Node" parent="." unique_id=1285535956]
+script = ExtResource("2_ngsrv")
+
+[node name="CombatStateMachine" type="Node" parent="." unique_id=980917272 node_paths=PackedStringArray("initialState")]
+script = ExtResource("2_fpfme")
+initialState = NodePath("PlayerTurnState")
+
+[node name="PlayerTurnState" type="Node" parent="CombatStateMachine" unique_id=496265634]
+script = ExtResource("4_n3wdt")
+
+[node name="QuestionState" type="Node" parent="CombatStateMachine" unique_id=399550750]
+script = ExtResource("5_fsxqa")
+
+[node name="PlayerAttackState" type="Node" parent="CombatStateMachine" unique_id=118247676]
+script = ExtResource("6_kmofc")
+
+[node name="PAttkStartTimer" type="Timer" parent="CombatStateMachine/PlayerAttackState" unique_id=1690371911]
+wait_time = 2.0
+one_shot = true
+
+[node name="PAttkEndTimer" type="Timer" parent="CombatStateMachine/PlayerAttackState" unique_id=1158799479]
+wait_time = 2.0
+one_shot = true
+
+[node name="EnemyAttackState" type="Node" parent="CombatStateMachine" unique_id=342074136]
+script = ExtResource("7_lpvq3")
+
+[node name="EAttkStartTimer" type="Timer" parent="CombatStateMachine/EnemyAttackState" unique_id=926602337]
+wait_time = 2.0
+one_shot = true
+
+[node name="EAttkEndTimer" type="Timer" parent="CombatStateMachine/EnemyAttackState" unique_id=2042409877]
+wait_time = 2.0
+one_shot = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=762101080]
 physics_material_override = SubResource("PhysicsMaterial_k5tp8")
@@ -22,18 +104,172 @@ shape = SubResource("BoxShape3D_m6hub")
 transform = Transform3D(16.841759, 0, 0, 0, 0.27999997, 0, 0, 0, 16.783913, 0, 0, 0)
 mesh = SubResource("BoxMesh_ngsrv")
 
-[node name="Player" parent="." unique_id=630546665 instance=ExtResource("1_m6hub")]
-transform = Transform3D(-1, 0, -2.6226832e-07, 0, 1, 0, 2.6226832e-07, 0, -1, 0.757, 0, 3.157)
+[node name="CombatPlayer" parent="." unique_id=849479885 instance=ExtResource("1_k5tp8")]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.757, 0, 3.157)
 
-[node name="Enemy" parent="." unique_id=526297058 instance=ExtResource("2_k5tp8")]
-transform = Transform3D(1, 0, 3.496911e-07, 0, 1, 0, -3.496911e-07, 0, 1, 0.757, 0, -3.1309414)
+[node name="CombatEnemy" parent="." unique_id=545224293 instance=ExtResource("2_m6hub")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.757, 0, -3.131)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2141222278]
-transform = Transform3D(0.7255653, -0.13665897, 0.6744474, 2.0487535e-08, 0.98008305, 0.19858795, -0.6881532, -0.14408852, 0.7111143, 2.5290456, 1.6354648, 3.7411456)
-fov = 58.4
+transform = Transform3D(0.7836912, -0.17334133, 0.5964737, 0, 0.96027225, 0.2790649, -0.6211506, -0.2187007, 0.7525569, 4.0712943, 2.180417, 5.21705)
+fov = 45.9
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=780092791]
 transform = Transform3D(1, 0, 0, 0, 0.22569923, 0.97419703, 0, -0.97419703, 0.22569923, 0, 14.558374, 0)
 shadow_enabled = true
 
-[node name="Question" parent="." unique_id=1895040970 instance=ExtResource("3_m6hub")]
+[node name="CombatUI" type="Control" parent="." unique_id=2039811101]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AttackButton" type="Button" parent="CombatUI" unique_id=1806849163]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 736.0
+offset_top = 464.0
+offset_right = 912.0
+offset_bottom = 528.0
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
+text = "Attack"
+
+[node name="PlchldrButton" type="Button" parent="CombatUI" unique_id=808082463]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 736.0
+offset_top = 528.0
+offset_right = 912.0
+offset_bottom = 592.0
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
+
+[node name="PlchldrButton2" type="Button" parent="CombatUI" unique_id=1088781498]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 912.0
+offset_top = 528.0
+offset_right = 1088.0
+offset_bottom = 592.0
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
+
+[node name="ItemsButton" type="Button" parent="CombatUI" unique_id=1614576005]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 912.0
+offset_top = 464.0
+offset_right = 1088.0
+offset_bottom = 528.0
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
+text = "Items"
+
+[node name="Attack1" type="Button" parent="CombatUI" unique_id=187627513]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 736.0
+offset_top = 464.0
+offset_right = 936.0
+offset_bottom = 496.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_fpfme")
+text = "Slash"
+alignment = 0
+
+[node name="Attack2" type="Button" parent="CombatUI" unique_id=974452193]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 736.0
+offset_top = 496.0
+offset_right = 936.0
+offset_bottom = 528.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3wdt")
+alignment = 0
+
+[node name="Attack3" type="Button" parent="CombatUI" unique_id=151412176]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 736.0
+offset_top = 528.0
+offset_right = 936.0
+offset_bottom = 560.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3wdt")
+alignment = 0
+
+[node name="Attack4" type="Button" parent="CombatUI" unique_id=1960461974]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 736.0
+offset_top = 560.0
+offset_right = 936.0
+offset_bottom = 592.0
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_fsxqa")
+alignment = 0
+
+[node name="QuestionUI" type="Control" parent="." unique_id=1706086032]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="QuestionUI" unique_id=136292072]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -275.5
+offset_right = 275.5
+offset_bottom = 72.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 52
+text = "Answer the question successfully?"
+
+[node name="YesButton" type="Button" parent="QuestionUI" unique_id=1724538565]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 344.0
+offset_right = 532.0
+offset_bottom = 410.0
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_m6hub")
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="QuestionUI" unique_id=602408105]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 344.0
+offset_right = 804.0
+offset_bottom = 410.0
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_ngsrv")
+text = "No"
+
+[connection signal="timeout" from="CombatStateMachine/PlayerAttackState/PAttkStartTimer" to="CombatStateMachine/PlayerAttackState" method="OnPAttkStartTimerTimeout"]
+[connection signal="timeout" from="CombatStateMachine/PlayerAttackState/PAttkEndTimer" to="CombatStateMachine/PlayerAttackState" method="OnPAttkEndTimerTimeout"]
+[connection signal="timeout" from="CombatStateMachine/EnemyAttackState/EAttkStartTimer" to="CombatStateMachine/EnemyAttackState" method="OnEAttkStartTimerTimeout"]
+[connection signal="timeout" from="CombatStateMachine/EnemyAttackState/EAttkEndTimer" to="CombatStateMachine/EnemyAttackState" method="OnEAttkEndTimerTimeout"]
+[connection signal="pressed" from="CombatUI/AttackButton" to="CombatStateMachine/PlayerTurnState" method="OnAttackButtonPressed"]
+[connection signal="pressed" from="CombatUI/Attack1" to="CombatStateMachine/PlayerTurnState" method="OnAttack1Pressed"]
+[connection signal="pressed" from="QuestionUI/YesButton" to="CombatStateMachine/QuestionState" method="OnYesButtonPressed"]
+[connection signal="pressed" from="QuestionUI/NoButton" to="CombatStateMachine" method="OnNoButtonPressed"]
