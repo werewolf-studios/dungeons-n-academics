@@ -15,7 +15,7 @@ public partial class ExampleButtonScript : Button
 	[Export]
 	private QuestionManager questionManager;
 
-	private Difficulty currentDifficulty = Difficulty.Easy;
+	private Difficulty currentDifficulty = Difficulty.Hard;
 	public void OnPressed()
 	{
 		this.Visible = false;
@@ -23,18 +23,19 @@ public partial class ExampleButtonScript : Button
 		answerLabel.Visible = true;
 
 		// This is how to start a question sequence
-        questionManager.StartQuestionSequence(QuestionType.Math, Topic.AdditionAndSubtraction, currentDifficulty, 3, 5);
+        questionManager.StartQuestionSequence(QuestionType.Math, Topic.AdditionAndSubtraction, currentDifficulty, 10, 5);
     }
 
 	// You can also use the sequence ended Signal from the QuestionsUI node
 	//  if you want something to occur when the sequence has ended
 	public void OnQuestionSequenceEnded()
 	{
-		if (currentDifficulty == Difficulty.Hard) return;
-
-		currentDifficulty++;
-		this.Visible = true;
 		answerLabel.Visible = false;
+		currentDifficulty++;
+
+		if (currentDifficulty > Difficulty.Hard) return;
+		this.Visible = true;
+		
 	}
 
 	// These are all other possible ways to implement the other Signals that the QuestionManager has

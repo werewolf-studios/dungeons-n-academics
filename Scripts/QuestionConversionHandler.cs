@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public partial class QuestionConversionHandler : Node
 {	
@@ -24,7 +25,7 @@ public partial class QuestionConversionHandler : Node
 			int randomNumber = rand.Next(min,max);
 			randomNumbers.Add(randomNumber);
 
-            // while we do this, update the problem string
+            // While we do this, update the problem string
             problem = problem.Remove(currentIndex, 1);
             problem = problem.Insert(currentIndex, randomNumber.ToString());
 
@@ -56,6 +57,16 @@ public partial class QuestionConversionHandler : Node
 				answer = (randomNumbers[0] + randomNumbers[1] + randomNumbers[2]);
 				break;
 			case "--=X":
+                // This is a special case because it almost always results in a negative number
+                // So we will recalculate the random numbers right here
+
+                // This will always result in a non negative number because the first number is always larger than the other two numbers combined
+                randomNumbers[0] = rand.Next(500, 700);
+				randomNumbers[1] = rand.Next(100, 250);
+				randomNumbers[2] = rand.Next(100, 250);
+
+				problem = $"{randomNumbers[0]} - {randomNumbers[1]} - {randomNumbers[2]} = X";
+
                 answer = (randomNumbers[0] - randomNumbers[1] - randomNumbers[2]);
                 break;
 			case "+-=X":
@@ -68,23 +79,34 @@ public partial class QuestionConversionHandler : Node
 				throw new Exception("SYMBOL CODE NOT FOUND");
 		}
 
+		if(answer < 0)
+		{
+			GD.Print("REROLLING ANSWER CUZ IT WAS NEGATIVE");
+			return AdditionSubtractionConverter(questionFormat);
+        }
+
 		// Now generate the wrong answers
 		int rangeOfWrongAnswers = 10;
+		int[] existingOptions = new int[3];
+		existingOptions[0] = answer;
 
-		wrong[0] = GenerateWrongAnswer(rangeOfWrongAnswers, answer).ToString();
-        wrong[1] = GenerateWrongAnswer(rangeOfWrongAnswers, answer).ToString();
-        wrong[2] = GenerateWrongAnswer(rangeOfWrongAnswers, answer).ToString();
+        wrong[0] = GenerateWrongAnswer(rangeOfWrongAnswers, answer, existingOptions).ToString();
+		existingOptions[1] = int.Parse(wrong[0]);
+        wrong[1] = GenerateWrongAnswer(rangeOfWrongAnswers, answer, existingOptions).ToString();
+		existingOptions[2] = int.Parse(wrong[1]);
+        wrong[2] = GenerateWrongAnswer(rangeOfWrongAnswers, answer, existingOptions).ToString();
 
         return new Question(problem, answer.ToString(), wrong);
 	}
 
-	private static int GenerateWrongAnswer(int rangeOfWrongAnswers, int answer)
+	private static int GenerateWrongAnswer(int rangeOfWrongAnswers, int answer, int[] existingOptions)
 	{
 		int randomNumber = 0;
 		do
 		{
 			randomNumber = rand.Next(answer - rangeOfWrongAnswers / 2, answer + rangeOfWrongAnswers / 2);
-		} while (randomNumber == answer);
+			// Make sure its not one of the other options and is not negative
+		} while (existingOptions.Contains<int>(randomNumber) || randomNumber < 0);
 
 		return randomNumber;
 	}
