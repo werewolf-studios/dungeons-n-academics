@@ -85,6 +85,10 @@ public partial class PushBlock : InteractionTest
         //Locks Y axis movement
         localDestination.Y = 0.0f;
 
+        //check for collision with collision shape)
+      
+
+
         return grid.ToGlobal(localDestination);
     }
 
@@ -97,7 +101,14 @@ public partial class PushBlock : InteractionTest
     {
         Transform3D currentTransform = GlobalTransform;
         Vector3 motion = moveTo - GlobalPosition;
-        return !TestMove(currentTransform, motion);
+        //return !TestMove(currentTransform, motion);
+
+        bool hit = TestMove(currentTransform, motion);
+
+        GD.Print($"Motion: {motion}");
+        GD.Print($"Hit: {hit}");
+
+        return !hit;
     }
 
 }
