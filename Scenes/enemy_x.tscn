@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://0l41fxib1ugi"]
 
 [ext_resource type="PackedScene" uid="uid://c838yjaxnawjr" path="res://Models/Enemy_XBody.fbx" id="1_c3b3a"]
+[ext_resource type="Script" uid="uid://c7fvv3e1ho7ku" path="res://Scenes/EnemyWander.cs" id="1_p2kfq"]
 [ext_resource type="PackedScene" uid="uid://durfqsp74ygui" path="res://Models/Enemy_XGear.fbx" id="2_n0xsv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n0xsv"]
@@ -186,6 +187,7 @@ _data = {
 }
 
 [node name="EnemyX" type="CharacterBody3D" unique_id=94392762]
+script = ExtResource("1_p2kfq")
 
 [node name="Pivot" type="Node3D" parent="." unique_id=705436247]
 
@@ -201,3 +203,5 @@ shape = SubResource("BoxShape3D_n0xsv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1293713281]
 libraries/ = SubResource("AnimationLibrary_o4b28")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=480946888]
