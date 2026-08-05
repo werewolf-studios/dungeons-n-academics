@@ -14,7 +14,9 @@ public enum QuestionType
 
 public enum Topic
 {
-    AdditionAndSubtraction
+    AdditionAndSubtraction,
+    Multiplication,
+    Division
     // Add more subjects as needed
 }
 
@@ -97,31 +99,6 @@ public partial class QuestionManager : CanvasLayer
     /// <param name="time">The time allocated for each question to be answered</param>
     public void StartQuestionSequence(QuestionType questionsType, Topic topic, Difficulty difficulty, int numOfQuestions, int time)
     {
-        
-        /*
-        List<Question> currentQuestionList = null;
-
-        // Ppulate the current question list with Questions
-
-        if (questionsType == QuestionType.Math)
-        {
-            currentQuestionList = SaveManager.Instance.MathQuestionsThirdGrade[topic.ToString().ToLower()][(int)difficulty];
-        }
-
-        // Check if the questions even exist
-        if (currentQuestionList == null)
-        {
-            GD.PushError("Questions requested do not exist: "+Error.DoesNotExist);
-            return;
-        }
-
-        // Check if there is enough questions to meet the requested number
-        if(currentQuestionList.Count < numOfQuestions)
-        {
-            GD.PushError("Not enough questions to meet the requested number: " + Error.DoesNotExist);
-            return;
-        }
-        */
 
         List<QuestionFormat> currentQuestionFormatList = SaveManager.Instance.MathQuestionsThirdGrade[topic.ToString().ToLower()][(int)difficulty];
         if (currentQuestionFormatList == null)
@@ -136,7 +113,7 @@ public partial class QuestionManager : CanvasLayer
         for(int i = 0; i < numOfQuestions; i++)
         {
             // Add the question to the queue
-            Question randomQuestion = QuestionConversionHandler.AdditionSubtractionConverter(currentQuestionFormatList[random.Next(currentQuestionFormatList.Count)]);
+            Question randomQuestion = QuestionConversionHandler.ConvertIntoQuestion(currentQuestionFormatList[random.Next(currentQuestionFormatList.Count)], topic);
             currentQuestionQueue.Enqueue(randomQuestion);
         }
 

@@ -23,7 +23,7 @@ public partial class ExampleButtonScript : Button
 		answerLabel.Visible = true;
 
 		// This is how to start a question sequence
-        questionManager.StartQuestionSequence(QuestionType.Math, Topic.AdditionAndSubtraction, currentDifficulty, 10, 5);
+        questionManager.StartQuestionSequence(QuestionType.Math, Topic.Division, currentDifficulty, 10, 5);
     }
 
 	// You can also use the sequence ended Signal from the QuestionsUI node
