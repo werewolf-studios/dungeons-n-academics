@@ -12,11 +12,18 @@ public enum QuestionType
     // Add more question types as needed
 }
 
+public enum Grade
+{
+    Third,
+    Eighth
+}
+
 public enum Topic
 {
     AdditionAndSubtraction,
     Multiplication,
-    Division
+    Division,
+    Geometry
     // Add more subjects as needed
 }
 
@@ -92,15 +99,31 @@ public partial class QuestionManager : CanvasLayer
     /// <summary>
     /// Starts a series of multiple choice questions.
     /// </summary>
+    /// <param name="gradeLevel">The grade level of the question</param>
     /// <param name="questionsType">The type of question</param>
     /// <param name="topic">The topic</param>
     /// <param name="difficulty">The difficulty of the question</param>
     /// <param name="numOfQuestions">The number of questions</param>
     /// <param name="time">The time allocated for each question to be answered</param>
-    public void StartQuestionSequence(QuestionType questionsType, Topic topic, Difficulty difficulty, int numOfQuestions, int time)
+    public void StartQuestionSequence(Grade gradeLevel, QuestionType questionsType, Topic topic, Difficulty difficulty, int numOfQuestions, int time)
     {
+        Dictionary<string, List<List<QuestionFormat>>> currentQuestionsFolder;
+        
+        if(gradeLevel == Grade.Third && questionsType == QuestionType.Math)
+        {
+            currentQuestionsFolder = SaveManager.Instance.MathQuestionsThirdGrade;
+        }
+        else if(gradeLevel == Grade.Eighth && questionsType == QuestionType.Math)
+        {
+            currentQuestionsFolder = SaveManager.Instance.MathQuestionsEighthGrade;
+        }
+        else
+        {
+            GD.PushError("Question Folder requested does not exist: " + Error.DoesNotExist);
+            return;
+        }
 
-        List<QuestionFormat> currentQuestionFormatList = SaveManager.Instance.MathQuestionsThirdGrade[topic.ToString().ToLower()][(int)difficulty];
+        List<QuestionFormat> currentQuestionFormatList = currentQuestionsFolder[topic.ToString().ToLower()][(int)difficulty];
         if (currentQuestionFormatList == null)
         {
             GD.PushError("Questions requested do not exist: " + Error.DoesNotExist);

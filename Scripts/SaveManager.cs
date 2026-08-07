@@ -12,10 +12,14 @@ public partial class SaveManager : Node
     
     public PlayerSaveData PlayerData { get => playerData; set => playerData = value; }
 
-    // Subject Dictionaries
+    // Topic Dictionaries
     private Dictionary<string, List<List<QuestionFormat>>> mathQuestionsThirdGrade = new Dictionary<string, List<List<QuestionFormat>>>();
 
     public Dictionary<string, List<List<QuestionFormat>>> MathQuestionsThirdGrade { get => mathQuestionsThirdGrade; set => mathQuestionsThirdGrade = value; }
+
+    private Dictionary<string, List<List<QuestionFormat>>> mathQuestionsEighthGrade = new Dictionary<string, List<List<QuestionFormat>>>();
+
+    public Dictionary<string, List<List<QuestionFormat>>> MathQuestionsEighthGrade { get => mathQuestionsEighthGrade; set => mathQuestionsEighthGrade = value; }
 
     // Save file locations
     string SavePathJson = "user://savegame.json";
@@ -23,6 +27,7 @@ public partial class SaveManager : Node
 
     // Question file locations
     string mathQuestionsThirdGradePathJson = "res://QuestionsFolder/ThirdGrade/math_questions.json";
+    string mathQuestionsEighthGradePathJson = "res://QuestionsFolder/EighthGrade/math_questions.json";
     string historyQuestionsPathJson = "res://QuestionsFolder/history_questions.json"; // to be implemented
 
     // Saving
@@ -115,6 +120,7 @@ public partial class SaveManager : Node
     public void LoadQuestionDataJson()
     {
         mathQuestionsThirdGrade = LoadQuestionDataFromFile(mathQuestionsThirdGradePathJson);
+        MathQuestionsEighthGrade = LoadQuestionDataFromFile(mathQuestionsEighthGradePathJson);
         // historyQuestions = LoadQuestionDataFromFile(historyQuestionsPathJson); // to be implemented
     }
 }

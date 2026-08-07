@@ -1,0 +1,43 @@
+{
+	"geometry":
+	[
+		[
+			{
+				"problem" : "aFind the area of a triangle with base _ and height _",
+				"min": "1",
+				"max": "11"
+			},
+			{
+				"problem" : "bFind the circumference of a circle with radius _",
+				"min": "1",
+				"max": "11"
+			},
+			{
+				"problem" : "cFind the area of a rectangle with length _ and width _",
+				"min": "1",
+				"max": "11"
+			}
+		],
+		[
+			{
+				"problem" : "eFind the hypotenuse of a right triangle with sides of length _ and _",
+				"min": "1",
+				"max": "11"
+			},
+			{
+				"problem" : "dFind area of a circle with diameter _",
+				"min": "1",
+				"max": "11"
+			},
+			{
+				"problem" : "fFind the perimeter of a square with side length _",
+				"min": "1",
+				"max": "11"
+			}
+		],
+		[
+			
+		]
+	]
+	
+}
