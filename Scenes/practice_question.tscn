@@ -1,0 +1,220 @@
+[gd_scene format=3 uid="uid://bbnhyr72fqi82"]
+
+[ext_resource type="Script" uid="uid://b23l1rnxcqd03" path="res://Scripts/PlayerStatsScript.cs" id="1_obn0g"]
+[ext_resource type="Script" uid="uid://c0xak6dnhg1b6" path="res://Scripts/ExampleButtonScript.cs" id="2_alk21"]
+[ext_resource type="Script" uid="uid://cv3c2gubtu4ng" path="res://Scripts/QuestionManager.cs" id="3_nci0t"]
+[ext_resource type="Texture2D" uid="uid://kk75o3ecrn1n" path="res://Assets/Question Assets/Chalk Progress bar background.png" id="4_vu5bx"]
+[ext_resource type="Texture2D" uid="uid://blf7v8anle13j" path="res://Assets/Question Assets/Chalk Progress bar.png" id="5_81aar"]
+[ext_resource type="Texture2D" uid="uid://o5orny2c85lt" path="res://Assets/Question Assets/Question_Blackboard.png" id="6_s2lf2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjgbg"]
+bg_color = Color(0.22542277, 0.71733445, 0, 1)
+
+[sub_resource type="Theme" id="Theme_bo1nx"]
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_jjgbg")
+
+[node name="Main" type="Node3D" unique_id=1895040970]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=493895820]
+z_index = -4096
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_s2lf2")
+expand_mode = 1
+
+[node name="PlayerStatsUI" type="CanvasLayer" parent="." unique_id=839078456 node_paths=PackedStringArray("coinsLabel", "xpLabel")]
+script = ExtResource("1_obn0g")
+coinsLabel = NodePath("Control/CoinLabel")
+xpLabel = NodePath("Control/XPLabel")
+
+[node name="Control" type="Control" parent="PlayerStatsUI" unique_id=890047294]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CoinLabel" type="Label" parent="PlayerStatsUI/Control" unique_id=1620448934]
+process_mode = 3
+layout_mode = 0
+offset_left = 17.0
+offset_right = 401.0
+offset_bottom = 69.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Coins: 0"
+vertical_alignment = 1
+
+[node name="XPLabel" type="Label" parent="PlayerStatsUI/Control" unique_id=1290809822]
+process_mode = 3
+layout_mode = 0
+offset_left = 882.0
+offset_right = 1266.0
+offset_bottom = 69.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "XP: 0"
+vertical_alignment = 1
+
+[node name="ExampleButton" type="Button" parent="PlayerStatsUI/Control" unique_id=460907232 node_paths=PackedStringArray("answerLabel", "questionManager")]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 192.0
+offset_right = 736.0
+offset_bottom = 384.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 43
+text = "TEST BUTTON"
+autowrap_mode = 3
+script = ExtResource("2_alk21")
+answerLabel = NodePath("../ExampleLabel")
+questionManager = NodePath("../../../QuestionsUI")
+
+[node name="ExampleLabel" type="Label" parent="PlayerStatsUI/Control" unique_id=1336528193]
+visible = false
+layout_mode = 0
+offset_left = 72.0
+offset_top = 416.0
+offset_right = 640.0
+offset_bottom = 578.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 118
+text = "TEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="QuestionsUI" type="CanvasLayer" parent="." unique_id=1887183558 node_paths=PackedStringArray("timer", "progressBar", "questionLabel", "buttonContainer", "blocker")]
+visible = false
+script = ExtResource("3_nci0t")
+timer = NodePath("Control/Timer")
+progressBar = NodePath("Control/ProgressBar")
+questionLabel = NodePath("Control/QuestionLabel")
+buttonContainer = NodePath("Control/Control")
+blocker = NodePath("Control/TransparentBlocker")
+
+[node name="Control" type="Control" parent="QuestionsUI" unique_id=1070579788]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuestionLabel" type="Label" parent="QuestionsUI/Control" unique_id=1268053791]
+layout_mode = 0
+offset_left = 306.0
+offset_top = 81.0
+offset_right = 978.0
+offset_bottom = 193.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 45
+text = "Question:"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="QuestionsUI/Control" unique_id=679775112]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 183.0
+offset_right = 1281.0
+offset_bottom = 247.0
+scale = Vector2(0.8715596, 0.8181818)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme = SubResource("Theme_bo1nx")
+value = 50.0
+show_percentage = false
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="QuestionsUI/Control" unique_id=1330587173]
+visible = false
+layout_mode = 0
+offset_left = 85.0
+offset_top = 190.0
+offset_right = 1190.0
+offset_bottom = 240.0
+value = 100.0
+texture_under = ExtResource("4_vu5bx")
+texture_progress = ExtResource("5_81aar")
+
+[node name="Timer" type="Timer" parent="QuestionsUI/Control" unique_id=1674864785]
+wait_time = 10.0
+one_shot = true
+
+[node name="TransparentBlocker" type="Control" parent="QuestionsUI/Control" unique_id=1763194820]
+visible = false
+anchors_preset = 0
+offset_left = 169.0
+offset_top = 283.0
+offset_right = 801.0
+offset_bottom = 651.0
+scale = Vector2(1.491536, 1.1095825)
+
+[node name="Control" type="Control" parent="QuestionsUI/Control" unique_id=1730587527]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="First" type="Button" parent="QuestionsUI/Control/Control" unique_id=1483393181]
+texture_filter = 1
+layout_mode = 0
+offset_left = 186.00002
+offset_top = 294.0
+offset_right = 702.0
+offset_bottom = 384.0
+scale = Vector2(0.72, 1.72)
+size_flags_vertical = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_font_sizes/font_size = 33
+text = "1)"
+
+[node name="Second" type="Button" parent="QuestionsUI/Control/Control" unique_id=1346778065]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 298.0
+offset_right = 1216.0
+offset_bottom = 388.0
+scale = Vector2(0.72, 1.72)
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 27
+text = "2)"
+
+[node name="Third" type="Button" parent="QuestionsUI/Control/Control" unique_id=1182116623]
+layout_mode = 0
+offset_left = 181.0
+offset_top = 487.0
+offset_right = 697.0
+offset_bottom = 577.0
+scale = Vector2(0.72, 1.72)
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 27
+text = "3)"
+
+[node name="Fourth" type="Button" parent="QuestionsUI/Control/Control" unique_id=788005481]
+layout_mode = 0
+offset_left = 701.0
+offset_top = 491.0
+offset_right = 1217.0
+offset_bottom = 581.0
+scale = Vector2(0.72, 1.72)
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 27
+text = "4)"
+
+[connection signal="pressed" from="PlayerStatsUI/Control/ExampleButton" to="PlayerStatsUI/Control/ExampleButton" method="OnPressed"]
+[connection signal="AnswerDisplayed" from="QuestionsUI" to="PlayerStatsUI/Control/ExampleButton" method="OnAnswerDisplayed"]
+[connection signal="CorrectAnswer" from="QuestionsUI" to="PlayerStatsUI/Control/ExampleButton" method="OnCorrectAnswer"]
+[connection signal="QuestionSequenceEnded" from="QuestionsUI" to="PlayerStatsUI/Control/ExampleButton" method="OnQuestionSequenceEnded"]
+[connection signal="QuestionStarted" from="QuestionsUI" to="PlayerStatsUI/Control/ExampleButton" method="OnQuestionStarted"]
+[connection signal="WrongAnswer" from="QuestionsUI" to="PlayerStatsUI/Control/ExampleButton" method="OnWrongAnswer"]
+[connection signal="timeout" from="QuestionsUI/Control/Timer" to="QuestionsUI" method="OnTimeout"]
+[connection signal="pressed" from="QuestionsUI/Control/Control/First" to="QuestionsUI" method="OnButtonPressed" flags=18]
+[connection signal="pressed" from="QuestionsUI/Control/Control/Second" to="QuestionsUI" method="OnButtonPressed" flags=18]
+[connection signal="pressed" from="QuestionsUI/Control/Control/Third" to="QuestionsUI" method="OnButtonPressed" flags=18]
+[connection signal="pressed" from="QuestionsUI/Control/Control/Fourth" to="QuestionsUI" method="OnButtonPressed" flags=18]
