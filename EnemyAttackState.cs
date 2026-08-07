@@ -18,6 +18,8 @@ public partial class EnemyAttackState : CombatState
 			csm.TransitionTo("PlayerTurnState");
 			GetNode<Timer>("EAttkStartTimer").Stop();
 		}
+
+		enemy.PlayAnim("Shoot");
     }
 
     public override void Exit()
@@ -32,6 +34,7 @@ public partial class EnemyAttackState : CombatState
 
 		GetNode<Timer>("EAttkEndTimer").Start();
 		GD.Print("EAttkEndTimer started");
+		enemy.PlayAnim("Idle_Float");
 	}
 
 	private void OnEAttkEndTimerTimeout()

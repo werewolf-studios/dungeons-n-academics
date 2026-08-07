@@ -18,6 +18,8 @@ public partial class PlayerAttackState : CombatState
 			csm.TransitionTo("PlayerTurnState");
 			GetNode<Timer>("PAttkStartTimer").Stop();
 		}
+
+		enemy.GetNode<CharacterBody3D>("EnemyX").GetNode<AnimationPlayer>("AnimationPlayer").AnimationFinished += OnAnimationFinished;
     }
 
     public override void Exit()
@@ -32,15 +34,24 @@ public partial class PlayerAttackState : CombatState
 
 		if (enemy.health <= 0)
 		{
-			MeshInstance3D currentEnemy = GetNode<MeshInstance3D>("%CombatEnemy");
-			currentEnemy.QueueFree();
+			enemy.StopAnim();
+			enemy.PlayAnim("Death");
 		}
 
 		GetNode<Timer>("PAttkEndTimer").Start();
 		GD.Print("PAttkEndTimer started");
 	}
 
-	private void OnPAttkEndTimerTimeout()
+    private void OnAnimationFinished(StringName animName)
+	{
+		if (animName == "Death")
+		{
+			MeshInstance3D currentEnemy = GetNode<MeshInstance3D>("%CombatEnemy");
+			currentEnemy.QueueFree();
+		}
+    }
+
+    private void OnPAttkEndTimerTimeout()
 	{
 		GD.Print("PAttkEndTimer timedout");
 		csm.TransitionTo("EnemyAttackState");

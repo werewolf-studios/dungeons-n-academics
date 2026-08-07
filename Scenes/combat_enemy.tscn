@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://cow858qw2lptn"]
 
 [ext_resource type="Script" uid="uid://dn4er6s6ui4s0" path="res://Scenes/CombatEnemy.cs" id="1_2l20i"]
-[ext_resource type="PackedScene" uid="uid://ds53f4331g314" path="res://Models/Male-Character.glb" id="1_uomc4"]
+[ext_resource type="PackedScene" uid="uid://0l41fxib1ugi" path="res://Scenes/enemy_x.tscn" id="2_2l20i"]
 
 [node name="CombatEnemy" type="MeshInstance3D" unique_id=545224293]
 script = ExtResource("1_2l20i")
 
-[node name="Male-Character" parent="." unique_id=1619603551 instance=ExtResource("1_uomc4")]
+[node name="EnemyX" parent="." unique_id=94392762 instance=ExtResource("2_2l20i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

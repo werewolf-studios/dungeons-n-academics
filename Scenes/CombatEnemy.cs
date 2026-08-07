@@ -26,4 +26,14 @@ public partial class CombatEnemy : MeshInstance3D
 	{
 		health -= damage;
 	}
+
+	public void PlayAnim(string animName)
+	{
+		GetNode<CharacterBody3D>("EnemyX").GetNode<AnimationPlayer>("AnimationPlayer").Play(animName);
+    }
+
+	public void StopAnim()
+	{
+        GetNode<CharacterBody3D>("EnemyX").GetNode<AnimationPlayer>("AnimationPlayer").Stop();
+    }
 }
