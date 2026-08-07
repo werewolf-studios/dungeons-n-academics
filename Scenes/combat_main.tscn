@@ -45,11 +45,11 @@ script = ExtResource("2_ngsrv")
 script = ExtResource("2_fpfme")
 initialState = NodePath("PlayerTurnState")
 
-[node name="PlayerTurnState" type="Node" parent="CombatStateMachine" unique_id=496265634 node_paths=PackedStringArray("AttackButton", "ItemsButton", "PlchldrButton", "PlchldrButton2")]
+[node name="PlayerTurnState" type="Node" parent="CombatStateMachine" unique_id=496265634 node_paths=PackedStringArray("AttackButton", "SpecialButton", "ItemsButton", "PlchldrButton2")]
 script = ExtResource("4_n3wdt")
 AttackButton = NodePath("../../CombatUI/AttackButton")
+SpecialButton = NodePath("../../CombatUI/SpecialButton")
 ItemsButton = NodePath("../../CombatUI/ItemsButton")
-PlchldrButton = NodePath("../../CombatUI/PlchldrButton")
 PlchldrButton2 = NodePath("../../CombatUI/PlchldrButton2")
 
 [node name="QuestionState" type="Node" parent="CombatStateMachine" unique_id=399550750]
@@ -131,7 +131,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
 text = "Attack"
 
-[node name="ItemsButton" type="Button" parent="CombatUI" unique_id=1614576005]
+[node name="SpecialButton" type="Button" parent="CombatUI" unique_id=1614576005]
 visible = false
 layout_mode = 0
 offset_left = 912.0
@@ -141,9 +141,9 @@ offset_bottom = 528.0
 theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
-text = "Items"
+text = "Special"
 
-[node name="PlchldrButton" type="Button" parent="CombatUI" unique_id=808082463]
+[node name="ItemsButton" type="Button" parent="CombatUI" unique_id=808082463]
 visible = false
 layout_mode = 0
 offset_left = 736.0
@@ -153,6 +153,7 @@ offset_bottom = 592.0
 theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
+text = "Items"
 
 [node name="PlchldrButton2" type="Button" parent="CombatUI" unique_id=1088781498]
 visible = false

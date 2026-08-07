@@ -10,6 +10,9 @@ public partial class PlayerAttackState : CombatState
 		GD.Print("Entered PlayerAttackState");
         GetNode<Timer>("PAttkStartTimer").Start();
 		GD.Print("PAttkStartTimer started");
+
+		GetNode<Timer>("PAttkEndTimer").WaitTime = 2.0;
+
 		enemy = GetNode<CombatEnemy>("%CombatEnemy");
 		player = GetNodeOrNull<CombatPlayer>("%CombatPlayer");
 
@@ -36,6 +39,7 @@ public partial class PlayerAttackState : CombatState
 		{
 			enemy.StopAnim();
 			enemy.PlayAnim("Death");
+			GetNode<Timer>("PAttkEndTimer").WaitTime = 4.0;
 		}
 
 		GetNode<Timer>("PAttkEndTimer").Start();
