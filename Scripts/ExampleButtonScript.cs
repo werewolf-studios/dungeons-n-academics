@@ -15,7 +15,7 @@ public partial class ExampleButtonScript : Button
 	[Export]
 	private QuestionManager questionManager;
 
-	private Difficulty currentDifficulty = Difficulty.Medium;
+	private Difficulty currentDifficulty = Difficulty.Easy;
 	public void OnPressed()
 	{
 		this.Visible = false;

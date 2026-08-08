@@ -20,12 +20,12 @@
 		],
 		[
 			{
-				"problem" : "eFind the hypotenuse of a right triangle with sides of length _ and _",
+				"problem" : "dFind area of a circle with diameter _",
 				"min": "1",
 				"max": "11"
 			},
 			{
-				"problem" : "dFind area of a circle with diameter _",
+				"problem" : "eFind the hypotenuse of a right triangle with sides of length _ and _",
 				"min": "1",
 				"max": "11"
 			},
@@ -36,7 +36,21 @@
 			}
 		],
 		[
-			
+			{
+				"problem" : "gFind the arc length of a circle sector with central angle _ degrees and radius _",
+				"min": "1",
+				"max": "11"
+			},
+			{
+				"problem" : "hIn a trapezoid with bases _ and _, and height _, find the area",
+				"min": "1",
+				"max": "11"
+			},
+			{
+				"problem" : "iFind the surface area of a rectangular prism with length _, width _, height _",
+				"min": "1",
+				"max": "11"
+			}
 		]
 	]
 	

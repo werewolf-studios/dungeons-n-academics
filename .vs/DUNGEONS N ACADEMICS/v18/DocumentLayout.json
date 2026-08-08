@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|solutionrelative:scripts\\questionconversionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|c:\\users\\nickf\\local desktop\\documents\\godot\\dungeons-n-academics\\scripts\\questionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|solutionrelative:scripts\\questionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|c:\\users\\nickf\\local desktop\\documents\\godot\\dungeons-n-academics\\scripts\\examplebuttonscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|solutionrelative:scripts\\examplebuttonscript.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|c:\\users\\nickf\\local desktop\\documents\\godot\\dungeons-n-academics\\scripts\\savemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|solutionrelative:scripts\\savemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|c:\\users\\nickf\\local desktop\\documents\\godot\\dungeons-n-academics\\scripts\\questionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F619BF23-66D3-4E96-933E-96F195D786B3}|Dungeons N Academics.csproj|solutionrelative:scripts\\questionmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,26 +38,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SaveManager.cs",
-              "DocumentMoniker": "C:\\Users\\nickf\\Local Desktop\\Documents\\Godot\\dungeons-n-academics\\Scripts\\SaveManager.cs",
-              "RelativeDocumentMoniker": "Scripts\\SaveManager.cs",
-              "ToolTip": "C:\\Users\\nickf\\Local Desktop\\Documents\\Godot\\dungeons-n-academics\\Scripts\\SaveManager.cs",
-              "RelativeToolTip": "Scripts\\SaveManager.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAwwBMAAABHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-07T16:05:38.109Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "ExampleButtonScript.cs",
               "DocumentMoniker": "C:\\Users\\nickf\\Local Desktop\\Documents\\Godot\\dungeons-n-academics\\Scripts\\ExampleButtonScript.cs",
               "RelativeDocumentMoniker": "Scripts\\ExampleButtonScript.cs",
               "ToolTip": "C:\\Users\\nickf\\Local Desktop\\Documents\\Godot\\dungeons-n-academics\\Scripts\\ExampleButtonScript.cs",
               "RelativeToolTip": "Scripts\\ExampleButtonScript.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAB4AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-07T16:00:52.087Z",
               "EditorCaption": ""
@@ -70,22 +57,35 @@
               "RelativeDocumentMoniker": "Scripts\\QuestionConversionHandler.cs",
               "ToolTip": "C:\\Users\\nickf\\Local Desktop\\Documents\\Godot\\dungeons-n-academics\\Scripts\\QuestionConversionHandler.cs",
               "RelativeToolTip": "Scripts\\QuestionConversionHandler.cs",
-              "ViewState": "AgIAALYBAAAAAAAAAAAgwMsBAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAN8AAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-07T15:35:58.535Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "QuestionManager.cs",
               "DocumentMoniker": "C:\\Users\\nickf\\Local Desktop\\Documents\\Godot\\dungeons-n-academics\\Scripts\\QuestionManager.cs",
               "RelativeDocumentMoniker": "Scripts\\QuestionManager.cs",
               "ToolTip": "C:\\Users\\nickf\\Local Desktop\\Documents\\Godot\\dungeons-n-academics\\Scripts\\QuestionManager.cs",
               "RelativeToolTip": "Scripts\\QuestionManager.cs",
-              "ViewState": "AgIAAFwAAAAAAAAAAAAswHsAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAswGsAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-07T15:35:10.559Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SaveManager.cs",
+              "DocumentMoniker": "C:\\Users\\nickf\\Local Desktop\\Documents\\Godot\\dungeons-n-academics\\Scripts\\SaveManager.cs",
+              "RelativeDocumentMoniker": "Scripts\\SaveManager.cs",
+              "ToolTip": "C:\\Users\\nickf\\Local Desktop\\Documents\\Godot\\dungeons-n-academics\\Scripts\\SaveManager.cs",
+              "RelativeToolTip": "Scripts\\SaveManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-07T16:05:38.109Z",
               "EditorCaption": ""
             }
           ]

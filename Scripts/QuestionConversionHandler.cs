@@ -228,7 +228,7 @@ public partial class QuestionConversionHandler : Node
         string problemFormat = questionFormat.ProblemFormat;
         int min = int.Parse(questionFormat.Min);
         int max = int.Parse(questionFormat.Max);
-        float answer = 0;
+        int answer = 0;
         string[] wrong = new string[3];
 
         // Some error checks here
@@ -239,32 +239,30 @@ public partial class QuestionConversionHandler : Node
 
         problem = GetUnderscores(randomNumbers, problem, min, max);
 
-        // Change the random numbers to floats for geometry problems
-        List<float> randomNumbersFloat = randomNumbers.ConvertAll(x => (float)x);
-
         // Now we move on to figuring out the answer
         // Each question has a unique char in the front, which helps identify the question
 
         bool includesPi = false;
         (int, int) rootAnswer = (0, 0);
+        (int, int) fractionAnswer = (0, 0);
 
         switch (problemFormat[0])
         {
             // Easy
             case 'a':
-                answer = (randomNumbersFloat[0] * randomNumbersFloat[1])/2;
+                fractionAnswer = SimplifyFraction((randomNumbers[0] * randomNumbers[1], 2));
                 break;
             case 'b':
                 includesPi = true;
-                answer = (randomNumbersFloat[0] * 2);
+                answer = (randomNumbers[0] * 2);
                 break;
             case 'c':
-                answer = (randomNumbersFloat[0] * randomNumbersFloat[1]);
+                answer = (randomNumbers[0] * randomNumbers[1]);
                 break;
             // Medium
             case 'd':
                 includesPi = true;
-                answer = (randomNumbersFloat[0] * randomNumbersFloat[0])/4;
+                fractionAnswer = SimplifyFraction((randomNumbers[0] * randomNumbers[0], 4));    
                 break;
                 // Special case where we deal with roots
             case 'e':
@@ -273,12 +271,65 @@ public partial class QuestionConversionHandler : Node
                 rootAnswer = SimplifyRoot((int)answer);
                 break;
             case 'f':
-                answer = randomNumbersFloat[0] * 4;
+                answer = randomNumbers[0] * 4;
+                break;
+            // Hard
+            case 'g':
+                includesPi = true;
+                randomNumbers[0] = rand.Next(1, 360);
+                problem = $"Find the arc length of a circle sector with central angle {randomNumbers[0]} degrees and radius {randomNumbers[1]}";
+                fractionAnswer = SimplifyFraction((randomNumbers[0] * randomNumbers[1] * 2, 360));
+                break;
+            case 'h':
+                // (l+w)*h/2
+                fractionAnswer = SimplifyFraction(((randomNumbers[0] + randomNumbers[1]) * randomNumbers[2], 2));
+                break;
+            case 'i':
+                // 2(lw + lh + wh)
+                answer = 2 * (randomNumbers[0] * randomNumbers[1] + randomNumbers[0] * randomNumbers[2] + randomNumbers[1] * randomNumbers[2]);
                 break;
             default:
                 throw new Exception("SYMBOL CODE NOT FOUND");
         }
 
+        // Now generate the wrong answers
+        
+        // In the case of a fraction answer
+        if(fractionAnswer != (0,0))
+        {
+            // We have to generate special wrong answers for fractions
+            int rangeOfWrongNumerators = 4;
+            int rangeOfWrongDenominators = 4;
+            (int, int)[] existingFractionOptions = new (int, int)[3];
+            existingFractionOptions[0] = fractionAnswer;
+
+            (int, int) currentWrongOption = GenerateWrongFractionAnswer(rangeOfWrongNumerators, rangeOfWrongDenominators, fractionAnswer, existingFractionOptions);
+            wrong[0] = FormatFractionAnswer(currentWrongOption);
+            existingFractionOptions[1] = currentWrongOption;
+
+            currentWrongOption = GenerateWrongFractionAnswer(rangeOfWrongNumerators, rangeOfWrongDenominators, fractionAnswer, existingFractionOptions);
+            wrong[1] = FormatFractionAnswer(currentWrongOption);
+            existingFractionOptions[2] = currentWrongOption;
+
+            currentWrongOption = GenerateWrongFractionAnswer(rangeOfWrongNumerators, rangeOfWrongDenominators, fractionAnswer, existingFractionOptions);
+            wrong[2] = FormatFractionAnswer(currentWrongOption);
+
+            if (includesPi)
+            {
+                for(int i = 0; i < wrong.Length; i++)
+                {
+                    if (wrong[i] == "1")
+                        wrong[i] = "π";
+                    else
+                        wrong[i] = $"({wrong[i]})π";
+                }
+                return new Question(problem, $"({FormatFractionAnswer(fractionAnswer)})π", wrong);
+            }
+
+            return new Question(problem, FormatFractionAnswer(fractionAnswer), wrong);
+        }
+
+        // In the case of a root answer
         if (rootAnswer != (0, 0))
         {
             // We have to generate special wrong answers for roots
@@ -287,34 +338,38 @@ public partial class QuestionConversionHandler : Node
             (int, int)[] existingRootOptions = new (int, int)[3];
             existingRootOptions[0] = rootAnswer;
 
-            (int, int) currentWrongOption = GenerateWrongRootAnswer(rangeOfWrongInsides, (int)answer, existingRootOptions);
+            (int, int) currentWrongOption = GenerateWrongRootAnswer(rangeOfWrongInsides, answer, existingRootOptions);
             wrong[0] = FormatRootAnswer(currentWrongOption);
             existingRootOptions[1] = currentWrongOption;
             
 
-            currentWrongOption = GenerateWrongRootAnswer(rangeOfWrongInsides, (int)answer, existingRootOptions);
+            currentWrongOption = GenerateWrongRootAnswer(rangeOfWrongInsides, answer, existingRootOptions);
             wrong[1] = FormatRootAnswer(currentWrongOption);
             existingRootOptions[2] = currentWrongOption;
            
 
-            currentWrongOption = GenerateWrongRootAnswer(rangeOfWrongInsides, (int)answer, existingRootOptions);
+            currentWrongOption = GenerateWrongRootAnswer(rangeOfWrongInsides, answer, existingRootOptions);
             wrong[2] = FormatRootAnswer(currentWrongOption);
 
             return new Question(problem, FormatRootAnswer(rootAnswer), wrong);
         }
 
-        // Now generate the wrong answers
+        // In this case we are dealing with a normal integer answer
+
         int rangeOfWrongAnswers = 10;
-        float[] existingOptions = new float[3];
+        int[] existingOptions = new int[3];
         existingOptions[0] = answer;
 
-        wrong[0] = GenerateWrongAnswer(rangeOfWrongAnswers, answer, existingOptions, false).ToString("0.##");
-        existingOptions[1] = float.Parse(wrong[0]);
+        int currentWrongInt = GenerateWrongAnswer(rangeOfWrongAnswers, answer, existingOptions, false);
+        wrong[0] = currentWrongInt.ToString();
+        existingOptions[1] = currentWrongInt;
 
-        wrong[1] = GenerateWrongAnswer(rangeOfWrongAnswers, answer, existingOptions, false).ToString("0.##");
-        existingOptions[2] = float.Parse(wrong[1]);
+        currentWrongInt = GenerateWrongAnswer(rangeOfWrongAnswers, answer, existingOptions, false);
+        wrong[1] = currentWrongInt.ToString();
+        existingOptions[2] = currentWrongInt;
 
-        wrong[2] = GenerateWrongAnswer(rangeOfWrongAnswers, answer, existingOptions, false).ToString("0.##");
+        currentWrongInt = GenerateWrongAnswer(rangeOfWrongAnswers, answer, existingOptions, false);
+        wrong[2] = currentWrongInt.ToString();
 
         if (includesPi)
         { 
@@ -387,7 +442,7 @@ public partial class QuestionConversionHandler : Node
     }
 
     // Deals with generating wrong answers for questions that have remainders
-    private static (int, int) GenerateWrongRemainderAnswers(int rangeOfWrongQuotients, int rangeOfWrongRemainders, (int, int) answer, (int,int)[] existingOptions)
+    private static (int, int) GenerateWrongRemainderAnswers(int rangeOfQuotients, int rangeOfRemainders, (int, int) answer, (int,int)[] existingOptions)
     {
         (int, int) randomTuple = (0,0);
 
@@ -398,8 +453,8 @@ public partial class QuestionConversionHandler : Node
 
             randomTuple = 
             (
-                rand.Next(answer.Item1 - rangeOfWrongQuotients / 2, answer.Item1 + rangeOfWrongQuotients / 2), 
-                rand.Next(answer.Item2 - rangeOfWrongRemainders / 2, answer.Item2 + rangeOfWrongRemainders / 2)
+                rand.Next(answer.Item1 - rangeOfQuotients / 2, answer.Item1 + rangeOfQuotients / 2), 
+                rand.Next(answer.Item2 - rangeOfRemainders / 2, answer.Item2 + rangeOfRemainders / 2)
             );
 
             // Make sure its not one of the other options and the tuple is not negative
@@ -408,18 +463,27 @@ public partial class QuestionConversionHandler : Node
         return randomTuple;
     }
 
-    // Deals with generating wrong answers for floats
-    private static float GenerateWrongAnswer(int rangeOfWrongAnswers, float answer, float[] existingOptions, bool allowNegative)
+    private static (int, int) GenerateWrongFractionAnswer(int rangeOfWrongNumerators, int rangeOfWrongDenominators, (int, int) answer, (int, int)[] existingOptions)
     {
-        float randomNumber = 0;
+        (int, int) randomTuple = (0, 0);
+
         do
         {
-            // randomNumber = GD.Randf() * rangeOfWrongAnswers + (answer - rangeOfWrongAnswers / 2);
-            randomNumber = answer + (rand.Next(rangeOfWrongAnswers) - rangeOfWrongAnswers / 2);
-            // Make sure its not one of the other options and is not negative
-        } while (existingOptions.Contains<float>(randomNumber) || (!allowNegative && randomNumber < 0));
+            // Generate a random tuple
+            // The first being the numerator and the second being the denominator
 
-        return randomNumber;
+            randomTuple =
+            (
+                rand.Next(answer.Item1 - rangeOfWrongNumerators / 2, answer.Item1 + rangeOfWrongNumerators / 2),
+                rand.Next(answer.Item2 - rangeOfWrongDenominators / 2, answer.Item2 + rangeOfWrongDenominators / 2)
+            );
+
+            // We simplify the fraction to make sure we don't have duplicates cuz fractions can be simplified to the same fraction
+            randomTuple = SimplifyFraction(randomTuple);
+
+            // Make sure its not one of the other options and the tuple is not negative
+        } while (existingOptions.Contains<(int, int)>(randomTuple) || randomTuple.Item1 <= 0 || randomTuple.Item2 <= 0);
+        return randomTuple;
     }
 
     // Deals with generating wrong answers for integers
@@ -459,6 +523,25 @@ public partial class QuestionConversionHandler : Node
         return (outside, inside);
     }
 
+    private static (int, int) SimplifyFraction((int, int) unsimplifiedFraction)
+    {
+      
+        int a = unsimplifiedFraction.Item1;
+        int b = unsimplifiedFraction.Item2;
+        int temp = 0;
+
+        while(b != 0)
+        {
+            temp = b;
+            b = a % b;
+            a = temp;
+        }
+
+        int gcd = Math.Abs(a);
+        
+        return (unsimplifiedFraction.Item1 / gcd, unsimplifiedFraction.Item2 / gcd);
+    }
+
     private static string FormatRootAnswer((int, int) rootAnswer)
     {
         if(rootAnswer.Item1 == 1 && rootAnswer.Item2 == 1)
@@ -477,5 +560,14 @@ public partial class QuestionConversionHandler : Node
         }
 
         return $"{rootAnswer.Item1}√{rootAnswer.Item2}";
+    }
+
+    private static string FormatFractionAnswer((int, int) fractionAnswer)
+    {
+        if (fractionAnswer.Item2 == 1)
+        {
+            return $"{fractionAnswer.Item1}";
+        }
+        return $"{fractionAnswer.Item1}/{fractionAnswer.Item2}";
     }
 }
