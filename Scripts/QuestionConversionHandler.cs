@@ -540,7 +540,8 @@ public partial class QuestionConversionHandler : Node
 	// ============================================================
 	private static Question RationalNumbersConverter(QuestionFormat questionFormat)
 	{
-		string problem = questionFormat.ProblemFormat.Substring(1); // ignore the first character since its a symbol
+		// ignore the first character since its a symbol so there's no confusion
+		string problem = questionFormat.ProblemFormat.Substring(1); 
 		char type = questionFormat.ProblemFormat[0];
 		int min = int.Parse(questionFormat.Min);
 		int max = int.Parse(questionFormat.Max);
@@ -631,8 +632,7 @@ public partial class QuestionConversionHandler : Node
 
 			return new Question(problem, answerStr, wrong);
 		}
-
-		// Fraction-style answers reuse the exact same helpers as GeometryConverter
+		
 		int rangeOfWrongNumerators = 4;
 		int rangeOfWrongDenominators = 4;
 		(int, int)[] existingFractionOptions = new (int, int)[3];
@@ -801,9 +801,7 @@ public partial class QuestionConversionHandler : Node
 
 		do
 		{
-			// Generate a random Num
-			// The first being the quotient and the second being the remainder
-
+			// Generate a random num the first being the quotient and the second being the remainder
 			randomNum = 
 			(
 				rand.Next(answer.Item1 - rangeOfQuotients / 2, answer.Item1 + rangeOfQuotients / 2), 
@@ -884,7 +882,7 @@ public partial class QuestionConversionHandler : Node
 		return randomNum;
 	}
 
-	//Deals with generating wrong answers for decimal (rational -> decimal) questions
+	//Deals with generating wrong answers for decimal questions
 	private static double GenerateWrongDecimalAnswer(double answer, double[] existingOptions)
 	{
 		double candidate;
@@ -892,7 +890,7 @@ public partial class QuestionConversionHandler : Node
 		do
 		{
 			candidate = Math.Round(answer + (rand.NextDouble() * 2 - 1), 2);
-			// Make sure its not one of the other options and is not negative
+			// Make sure is not negative
 		} while (existingOptions.Contains(candidate) || candidate < 0);
 
 		return candidate;
@@ -970,7 +968,7 @@ public partial class QuestionConversionHandler : Node
 		return $"{fractionAnswer.Item1}/{fractionAnswer.Item2}";
 	}
 
-	// Formats a simplified root Num as an imaginary number
+	// Formats a simplified root as an imaginary number
 	private static string FormatImaginaryRoot((int, int) rootAnswer)
 	{
 		if (rootAnswer.Item2 == 1)
@@ -981,7 +979,6 @@ public partial class QuestionConversionHandler : Node
 		return rootAnswer.Item1 == 1 ? $"i√{rootAnswer.Item2}" : $"{rootAnswer.Item1}i√{rootAnswer.Item2}";
 	}
 
-	// Formats a complex number a+bi for display, handling the real-only, imaginary-only, +1i/-1i, and negative-imaginary cases
 	private static string FormatComplexAnswer(int real, int imaginary)
 	{
 		if (imaginary == 0)
