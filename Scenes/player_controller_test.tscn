@@ -299,7 +299,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, 32)
 [node name="MathSystemTest" parent="." unique_id=1256670147 node_paths=PackedStringArray("recievers", "puzzleParts") instance=ExtResource("12_omupu")]
 answers = PackedFloat32Array(2)
 recievers = []
-puzzleParts = [NodePath("TilePlate"), NodePath("TilePlate2"), NodePath("TilePlate3")]
+puzzleParts = []
 
 [node name="TilePlate" parent="MathSystemTest" unique_id=562736670 node_paths=PackedStringArray("heldTile") instance=ExtResource("8_pc80o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 1)
@@ -318,12 +318,9 @@ heldTile = NodePath("../TilePickUp")
 
 [node name="TilePickUp" parent="MathSystemTest" unique_id=1728698675 instance=ExtResource("9_bv58s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 4, 0)
-value = "5"
 
 [node name="TilePickUp2" parent="MathSystemTest" unique_id=1790490032 instance=ExtResource("9_bv58s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 4, 0)
-value = "-"
 
 [node name="TilePickUp3" parent="MathSystemTest" unique_id=2121851371 instance=ExtResource("9_bv58s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 4, 0)
-value = "3"
