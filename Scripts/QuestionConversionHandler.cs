@@ -410,12 +410,6 @@ public partial class QuestionConversionHandler : Node
 
 	// ============================================================
 	// Imaginary Numbers Prototype 1
-	//
-	// ProblemFormat convention (same style as Geometry): the FIRST
-	// character selects the sub-type, the rest of the string is the
-	// problem template with underscores standing in for random ints
-	// pulled from [Min, Max).
-	//
 	//   'a'  ->  "i^_"                       simplify i^n
 	//   'b'  ->  "√(-_)"                     simplify sqrt of a negative number
 	//   'c'  ->  "(_+_i)+(_+_i)"             add two complex numbers
@@ -423,7 +417,7 @@ public partial class QuestionConversionHandler : Node
 	// ============================================================
 	private static Question ImaginaryNumbersConverter(QuestionFormat questionFormat)
 	{
-		string problem = questionFormat.ProblemFormat.Substring(1); // ignore the first character since its a symbol
+		string problem = questionFormat.ProblemFormat.Substring(1); 
 		char type = questionFormat.ProblemFormat[0];
 		int min = int.Parse(questionFormat.Min);
 		int max = int.Parse(questionFormat.Max);
@@ -537,13 +531,6 @@ public partial class QuestionConversionHandler : Node
 
 	// ============================================================
 	// Rational Numbers Prototype 1
-	//
-	// ProblemFormat convention: the FIRST character selects the
-	// sub-type, the rest of the string is the problem template with
-	// underscores standing in for random ints pulled from [Min, Max).
-	// For fraction sub-types the underscores are read in the order
-	// numerator, denominator, numerator, denominator...
-	//
 	//   'a'  ->  "_/_+_/_"    add fractions
 	//   'b'  ->  "_/_-_/_"    subtract fractions (rerolls on negative result)
 	//   'c'  ->  "_/_x_/_"    multiply fractions
@@ -570,13 +557,15 @@ public partial class QuestionConversionHandler : Node
 
 		switch (type)
 		{
-			case 'a': // add: n1/d1 + n2/d2
+			// add: n1/d1 + n2/d2
+			case 'a': 
 			{
 				int n1 = randomNumbers[0], d1 = randomNumbers[1], n2 = randomNumbers[2], d2 = randomNumbers[3];
 				fractionAnswer = SimplifyFraction((n1 * d2 + n2 * d1, d1 * d2));
 				break;
 			}
-			case 'b': // subtract: n1/d1 - n2/d2
+			// subtract: n1/d1 - n2/d2
+			case 'b': 
 			{
 				int n1 = randomNumbers[0], d1 = randomNumbers[1], n2 = randomNumbers[2], d2 = randomNumbers[3];
 				fractionAnswer = SimplifyFraction((n1 * d2 - n2 * d1, d1 * d2));
@@ -588,26 +577,30 @@ public partial class QuestionConversionHandler : Node
 				}
 				break;
 			}
-			case 'c': // multiply: n1/d1 x n2/d2
+			// multiply: n1/d1 x n2/d2
+			case 'c': 
 			{
 				int n1 = randomNumbers[0], d1 = randomNumbers[1], n2 = randomNumbers[2], d2 = randomNumbers[3];
 				fractionAnswer = SimplifyFraction((n1 * n2, d1 * d2));
 				break;
 			}
-			case 'd': // divide: (n1/d1) / (n2/d2) = n1/d1 * d2/n2
+			// divide: (n1/d1) / (n2/d2) = n1/d1 * d2/n2
+			case 'd': 
 			{
 				int n1 = randomNumbers[0], d1 = randomNumbers[1], n2 = randomNumbers[2], d2 = randomNumbers[3];
 				fractionAnswer = SimplifyFraction((n1 * d2, d1 * n2));
 				break;
 			}
-			case 'e': // simplify an already-reducible fraction
+			// simplify an already-reducible fraction
+			case 'e': 
 			{
 				int n = randomNumbers[0] * randomNumbers[1];
 				int d = randomNumbers[1] * randomNumbers[2];
 				fractionAnswer = SimplifyFraction((n, d));
 				break;
 			}
-			case 'f': // convert a fraction to a decimal
+			// convert a fraction to a decimal
+			case 'f': 
 			{
 				isDecimal = true;
 				int n = randomNumbers[0], d = randomNumbers[1];
@@ -660,19 +653,14 @@ public partial class QuestionConversionHandler : Node
 	}
 
 	// ============================================================
-	// Slope-Intercept Prototype 1
-	//
-	// ProblemFormat convention: the FIRST character selects the
-	// sub-type, the rest of the string is the problem template with
-	// underscores standing in for random ints pulled from [Min, Max).
-	//
+	// Slope-Intercept Prototype
 	//   'a'  ->  "Find the slope through (_, _) and (_, _)"     x1,y1,x2,y2 -> slope
 	//   'b'  ->  "Slope _, point (_, _). Find the y-intercept."  m,x,y -> b
 	//   'c'  ->  "y = _x + _, find y when x = _"                m,b,x -> y   (order: m, x, b, matching template above)
 	// ============================================================
 	private static Question SlopeInterceptConverter(QuestionFormat questionFormat)
 	{
-		string problem = questionFormat.ProblemFormat.Substring(1); // ignore the first character since its a symbol
+		string problem = questionFormat.ProblemFormat.Substring(1);
 		char type = questionFormat.ProblemFormat[0];
 		int min = int.Parse(questionFormat.Min);
 		int max = int.Parse(questionFormat.Max);
@@ -834,7 +822,7 @@ public partial class QuestionConversionHandler : Node
 
 		do
 		{
-			// Generate a random tuple
+			// Generate a random fraction
 			// The first being the numerator and the second being the denominator
 
 			randomTuple =
@@ -846,12 +834,12 @@ public partial class QuestionConversionHandler : Node
 			// We simplify the fraction to make sure we don't have duplicates cuz fractions can be simplified to the same fraction
 			randomTuple = SimplifyFraction(randomTuple);
 
-			// Make sure its not one of the other options and the tuple is not negative
+			// Make sure its not one of the other options and the fraction is not negative
 		} while (existingOptions.Contains<(int, int)>(randomTuple) || randomTuple.Item1 <= 0 || randomTuple.Item2 <= 0);
 		return randomTuple;
 	}
 
-	// Deals with generating wrong answers for integers
+	// Deals with generating wrong answers
 	private static int GenerateWrongAnswer(int rangeOfWrongAnswers, int answer, int[] existingOptions, bool allowNegative)
 	{
 		int randomNumber = 0;
@@ -877,7 +865,7 @@ public partial class QuestionConversionHandler : Node
 		return candidate;
 	}
 
-	// Deals with generating wrong answers for complex numbers (a+bi)
+	// Deals with generating wrong answers for complex numbers
 	private static (int, int) GenerateWrongComplexAnswer(int range, (int, int) answer, (int, int)[] existingOptions)
 	{
 		(int, int) randomTuple;
@@ -896,14 +884,14 @@ public partial class QuestionConversionHandler : Node
 		return randomTuple;
 	}
 
-	// NEW: Deals with generating wrong answers for decimal (rational -> decimal) questions
+	//Deals with generating wrong answers for decimal (rational -> decimal) questions
 	private static double GenerateWrongDecimalAnswer(double answer, double[] existingOptions)
 	{
 		double candidate;
 
 		do
 		{
-			candidate = Math.Round(answer + (rand.NextDouble() * 2 - 1), 2); // answer +/- up to 1.00
+			candidate = Math.Round(answer + (rand.NextDouble() * 2 - 1), 2);
 			// Make sure its not one of the other options and is not negative
 		} while (existingOptions.Contains(candidate) || candidate < 0);
 
@@ -982,8 +970,7 @@ public partial class QuestionConversionHandler : Node
 		return $"{fractionAnswer.Item1}/{fractionAnswer.Item2}";
 	}
 
-	// Formats a simplified root tuple as an imaginary number, e.g.
-	// (1,1) -> "i", (3,1) -> "3i", (1,5) -> "i√5", (2,3) -> "2i√3"
+	// Formats a simplified root tuple as an imaginary number
 	private static string FormatImaginaryRoot((int, int) rootAnswer)
 	{
 		if (rootAnswer.Item2 == 1)
@@ -994,8 +981,7 @@ public partial class QuestionConversionHandler : Node
 		return rootAnswer.Item1 == 1 ? $"i√{rootAnswer.Item2}" : $"{rootAnswer.Item1}i√{rootAnswer.Item2}";
 	}
 
-	// Formats a complex number a+bi for display, handling the
-	// real-only, imaginary-only, +1i/-1i, and negative-imaginary cases
+	// Formats a complex number a+bi for display, handling the real-only, imaginary-only, +1i/-1i, and negative-imaginary cases
 	private static string FormatComplexAnswer(int real, int imaginary)
 	{
 		if (imaginary == 0)
