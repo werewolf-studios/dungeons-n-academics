@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://0l41fxib1ugi"]
 
-[ext_resource type="PackedScene" uid="uid://qs1cpley65yu" path="res://Models/Enemy_X_Body.fbx" id="1_c3b3a"]
-[ext_resource type="PackedScene" uid="uid://balmyx7vxdsm7" path="res://Models/Enemy_X_Gear.fbx" id="2_n0xsv"]
+[ext_resource type="PackedScene" uid="uid://c838yjaxnawjr" path="res://Models/Enemy_XBody.fbx" id="1_c3b3a"]
+[ext_resource type="Script" uid="uid://c7fvv3e1ho7ku" path="res://Scenes/EnemyWander.cs" id="1_p2kfq"]
+[ext_resource type="PackedScene" uid="uid://durfqsp74ygui" path="res://Models/Enemy_XGear.fbx" id="2_n0xsv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n0xsv"]
 
