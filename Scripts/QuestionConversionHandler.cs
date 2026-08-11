@@ -462,16 +462,16 @@ public partial class QuestionConversionHandler : Node
 				(int, int)[] existingOptions = new (int, int)[3];
 				existingOptions[0] = simplified;
 
-				(int, int) wrongTuple = GenerateWrongRootAnswer(rangeOfWrongInsides, n, existingOptions);
-				wrong[0] = FormatImaginaryRoot(wrongTuple);
-				existingOptions[1] = wrongTuple;
+				(int, int) wrongNum = GenerateWrongRootAnswer(rangeOfWrongInsides, n, existingOptions);
+				wrong[0] = FormatImaginaryRoot(wrongNum);
+				existingOptions[1] = wrongNum;
 
-				wrongTuple = GenerateWrongRootAnswer(rangeOfWrongInsides, n, existingOptions);
-				wrong[1] = FormatImaginaryRoot(wrongTuple);
-				existingOptions[2] = wrongTuple;
+				wrongNum = GenerateWrongRootAnswer(rangeOfWrongInsides, n, existingOptions);
+				wrong[1] = FormatImaginaryRoot(wrongNum);
+				existingOptions[2] = wrongNum;
 
-				wrongTuple = GenerateWrongRootAnswer(rangeOfWrongInsides, n, existingOptions);
-				wrong[2] = FormatImaginaryRoot(wrongTuple);
+				wrongNum = GenerateWrongRootAnswer(rangeOfWrongInsides, n, existingOptions);
+				wrong[2] = FormatImaginaryRoot(wrongNum);
 
 				return new Question(problem, answer, wrong);
 			}
@@ -486,16 +486,16 @@ public partial class QuestionConversionHandler : Node
 				(int, int)[] existingOptions = new (int, int)[3];
 				existingOptions[0] = (realPart, imagPart);
 
-				(int, int) wrongTuple = GenerateWrongComplexAnswer(range, (realPart, imagPart), existingOptions);
-				wrong[0] = FormatComplexAnswer(wrongTuple.Item1, wrongTuple.Item2);
-				existingOptions[1] = wrongTuple;
+				(int, int) wrongNum = GenerateWrongComplexAnswer(range, (realPart, imagPart), existingOptions);
+				wrong[0] = FormatComplexAnswer(wrongNum.Item1, wrongNum.Item2);
+				existingOptions[1] = wrongNum;
 
-				wrongTuple = GenerateWrongComplexAnswer(range, (realPart, imagPart), existingOptions);
-				wrong[1] = FormatComplexAnswer(wrongTuple.Item1, wrongTuple.Item2);
-				existingOptions[2] = wrongTuple;
+				wrongNum = GenerateWrongComplexAnswer(range, (realPart, imagPart), existingOptions);
+				wrong[1] = FormatComplexAnswer(wrongNum.Item1, wrongNum.Item2);
+				existingOptions[2] = wrongNum;
 
-				wrongTuple = GenerateWrongComplexAnswer(range, (realPart, imagPart), existingOptions);
-				wrong[2] = FormatComplexAnswer(wrongTuple.Item1, wrongTuple.Item2);
+				wrongNum = GenerateWrongComplexAnswer(range, (realPart, imagPart), existingOptions);
+				wrong[2] = FormatComplexAnswer(wrongNum.Item1, wrongNum.Item2);
 
 				return new Question(problem, answer, wrong);
 			}
@@ -511,16 +511,16 @@ public partial class QuestionConversionHandler : Node
 				(int, int)[] existingOptions = new (int, int)[3];
 				existingOptions[0] = (realPart, imagPart);
 
-				(int, int) wrongTuple = GenerateWrongComplexAnswer(range, (realPart, imagPart), existingOptions);
-				wrong[0] = FormatComplexAnswer(wrongTuple.Item1, wrongTuple.Item2);
-				existingOptions[1] = wrongTuple;
+				(int, int) wrongNum = GenerateWrongComplexAnswer(range, (realPart, imagPart), existingOptions);
+				wrong[0] = FormatComplexAnswer(wrongNum.Item1, wrongNum.Item2);
+				existingOptions[1] = wrongNum;
 
-				wrongTuple = GenerateWrongComplexAnswer(range, (realPart, imagPart), existingOptions);
-				wrong[1] = FormatComplexAnswer(wrongTuple.Item1, wrongTuple.Item2);
-				existingOptions[2] = wrongTuple;
+				wrongNum = GenerateWrongComplexAnswer(range, (realPart, imagPart), existingOptions);
+				wrong[1] = FormatComplexAnswer(wrongNum.Item1, wrongNum.Item2);
+				existingOptions[2] = wrongNum;
 
-				wrongTuple = GenerateWrongComplexAnswer(range, (realPart, imagPart), existingOptions);
-				wrong[2] = FormatComplexAnswer(wrongTuple.Item1, wrongTuple.Item2);
+				wrongNum = GenerateWrongComplexAnswer(range, (realPart, imagPart), existingOptions);
+				wrong[2] = FormatComplexAnswer(wrongNum.Item1, wrongNum.Item2);
 
 				return new Question(problem, answer, wrong);
 			}
@@ -781,62 +781,62 @@ public partial class QuestionConversionHandler : Node
 	// Deals with generating wrong answers for questions with roots
 	private static (int, int) GenerateWrongRootAnswer(int rangeOfUnsimplifiedInsides, int unsimplifiedAnswer, (int, int)[] existingOptions)
 	{
-		(int, int) randomTuple = (0, 0);
+		(int, int) randomNum = (0, 0);
 
 		do
 		{
-			// Genearate a random root tuple
-			randomTuple = SimplifyRoot(rand.Next(unsimplifiedAnswer - rangeOfUnsimplifiedInsides/2, unsimplifiedAnswer + rangeOfUnsimplifiedInsides/2));
+			// Genearate a random root Num
+			randomNum = SimplifyRoot(rand.Next(unsimplifiedAnswer - rangeOfUnsimplifiedInsides/2, unsimplifiedAnswer + rangeOfUnsimplifiedInsides/2));
 			
-			// Make sure its not one of the other options and the tuple is not negative
-		} while (existingOptions.Contains<(int, int)>(randomTuple) || randomTuple.Item1 <= 0 || randomTuple.Item2 <= 0);
+			// Make sure its not one of the other options and the Num is not negative
+		} while (existingOptions.Contains<(int, int)>(randomNum) || randomNum.Item1 <= 0 || randomNum.Item2 <= 0);
 
-		return randomTuple;
+		return randomNum;
 	}
 
 	// Deals with generating wrong answers for questions that have remainders
 	private static (int, int) GenerateWrongRemainderAnswers(int rangeOfQuotients, int rangeOfRemainders, (int, int) answer, (int,int)[] existingOptions)
 	{
-		(int, int) randomTuple = (0,0);
+		(int, int) randomNum = (0,0);
 
 		do
 		{
-			// Generate a random tuple
+			// Generate a random Num
 			// The first being the quotient and the second being the remainder
 
-			randomTuple = 
+			randomNum = 
 			(
 				rand.Next(answer.Item1 - rangeOfQuotients / 2, answer.Item1 + rangeOfQuotients / 2), 
 				rand.Next(answer.Item2 - rangeOfRemainders / 2, answer.Item2 + rangeOfRemainders / 2)
 			);
 
-			// Make sure its not one of the other options and the tuple is not negative
-		} while (existingOptions.Contains<(int,int)>(randomTuple) || randomTuple.Item1 <= 0 || randomTuple.Item2 <= 0);
+			// Make sure its not one of the other options and the Num is not negative
+		} while (existingOptions.Contains<(int,int)>(randomNum) || randomNum.Item1 <= 0 || randomNum.Item2 <= 0);
 
-		return randomTuple;
+		return randomNum;
 	}
 
 	private static (int, int) GenerateWrongFractionAnswer(int rangeOfWrongNumerators, int rangeOfWrongDenominators, (int, int) answer, (int, int)[] existingOptions)
 	{
-		(int, int) randomTuple = (0, 0);
+		(int, int) randomNum = (0, 0);
 
 		do
 		{
 			// Generate a random fraction
 			// The first being the numerator and the second being the denominator
 
-			randomTuple =
+			randomNum =
 			(
 				rand.Next(answer.Item1 - rangeOfWrongNumerators / 2, answer.Item1 + rangeOfWrongNumerators / 2),
 				rand.Next(answer.Item2 - rangeOfWrongDenominators / 2, answer.Item2 + rangeOfWrongDenominators / 2)
 			);
 
 			// We simplify the fraction to make sure we don't have duplicates cuz fractions can be simplified to the same fraction
-			randomTuple = SimplifyFraction(randomTuple);
+			randomNum = SimplifyFraction(randomNum);
 
 			// Make sure its not one of the other options and the fraction is not negative
-		} while (existingOptions.Contains<(int, int)>(randomTuple) || randomTuple.Item1 <= 0 || randomTuple.Item2 <= 0);
-		return randomTuple;
+		} while (existingOptions.Contains<(int, int)>(randomNum) || randomNum.Item1 <= 0 || randomNum.Item2 <= 0);
+		return randomNum;
 	}
 
 	// Deals with generating wrong answers
@@ -868,20 +868,20 @@ public partial class QuestionConversionHandler : Node
 	// Deals with generating wrong answers for complex numbers
 	private static (int, int) GenerateWrongComplexAnswer(int range, (int, int) answer, (int, int)[] existingOptions)
 	{
-		(int, int) randomTuple;
+		(int, int) randomNum;
 
 		do
 		{
-			randomTuple =
+			randomNum =
 			(
 				rand.Next(answer.Item1 - range / 2, answer.Item1 + range / 2 + 1),
 				rand.Next(answer.Item2 - range / 2, answer.Item2 + range / 2 + 1)
 			);
 
 			// Make sure its not one of the other options
-		} while (existingOptions.Contains<(int, int)>(randomTuple));
+		} while (existingOptions.Contains<(int, int)>(randomNum));
 
-		return randomTuple;
+		return randomNum;
 	}
 
 	//Deals with generating wrong answers for decimal (rational -> decimal) questions
@@ -970,7 +970,7 @@ public partial class QuestionConversionHandler : Node
 		return $"{fractionAnswer.Item1}/{fractionAnswer.Item2}";
 	}
 
-	// Formats a simplified root tuple as an imaginary number
+	// Formats a simplified root Num as an imaginary number
 	private static string FormatImaginaryRoot((int, int) rootAnswer)
 	{
 		if (rootAnswer.Item2 == 1)
