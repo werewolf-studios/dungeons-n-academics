@@ -7,277 +7,280 @@ using static Godot.OpenXRInterface;
 
 public enum QuestionType
 {
-    Math,
-    History
-    // Add more question types as needed
+	Math,
+	History
+	// Add more question types as needed
 }
 
 public enum Grade
 {
-    Third,
-    Eighth
+	Third,
+	Eighth
 }
 
 public enum Topic
 {
-    AdditionAndSubtraction,
-    Multiplication,
-    Division,
-    Geometry
-    // Add more subjects as needed
+	AdditionAndSubtraction,
+	Multiplication,
+	Division,
+	Geometry,
+	ImaginaryNumbers,
+	RationalNumbers,
+	SlopeIntercept
+	// Add more subjects as needed
 }
 
 public enum Difficulty
 {
-    Easy = 0,
-    Medium = 1,
-    Hard = 2
+	Easy = 0,
+	Medium = 1,
+	Hard = 2
 }
 public partial class QuestionManager : CanvasLayer
 {
-    // Signal for when the question sequence is over
-    [Signal]
-    public delegate void QuestionSequenceEndedEventHandler();
+	// Signal for when the question sequence is over
+	[Signal]
+	public delegate void QuestionSequenceEndedEventHandler();
 
-    // Signal for when the Question is prompted
-    [Signal]
-    public delegate void QuestionStartedEventHandler();
+	// Signal for when the Question is prompted
+	[Signal]
+	public delegate void QuestionStartedEventHandler();
 
-    // Signal for when the Answer is Displayed
-    [Signal]
-    public delegate void AnswerDisplayedEventHandler();
+	// Signal for when the Answer is Displayed
+	[Signal]
+	public delegate void AnswerDisplayedEventHandler();
 
-    // Signal for when the player answers the question wrong
-    [Signal]
-    public delegate void WrongAnswerEventHandler();
+	// Signal for when the player answers the question wrong
+	[Signal]
+	public delegate void WrongAnswerEventHandler();
 
-    // Signal for when the player answers the question right
-    [Signal]
-    public delegate void CorrectAnswerEventHandler();
+	// Signal for when the player answers the question right
+	[Signal]
+	public delegate void CorrectAnswerEventHandler();
 
-    // Question UI Variables
-    [Export]
-    private Timer timer;
+	// Question UI Variables
+	[Export]
+	private Timer timer;
 
-    [Export]
-    private ProgressBar progressBar;
+	[Export]
+	private ProgressBar progressBar;
 
-    [Export]
-    private Label questionLabel;
+	[Export]
+	private Label questionLabel;
 
-    [Export]
-    private VBoxContainer buttonContainer;
+	[Export]
+	private VBoxContainer buttonContainer;
 
-    [Export]
-    private Control blocker;
+	[Export]
+	private Control blocker;
 
-    private Button choice1;
-    private Button choice2;
-    private Button choice3;
-    private Button choice4;
+	private Button choice1;
+	private Button choice2;
+	private Button choice3;
+	private Button choice4;
 
-    private Random random = new Random();
+	private Random random = new Random();
 
-    public override void _Ready()
-    {
-        SaveManager.Instance.LoadPlayerDataBinary();
-        SaveManager.Instance.LoadQuestionDataJson();
-        choice1 = buttonContainer.GetChild<Button>(0);
-        choice2 = buttonContainer.GetChild<Button>(1);
-        choice3 = buttonContainer.GetChild<Button>(2);
-        choice4 = buttonContainer.GetChild<Button>(3);
-    }
+	public override void _Ready()
+	{
+		SaveManager.Instance.LoadPlayerDataBinary();
+		SaveManager.Instance.LoadQuestionDataJson();
+		choice1 = buttonContainer.GetChild<Button>(0);
+		choice2 = buttonContainer.GetChild<Button>(1);
+		choice3 = buttonContainer.GetChild<Button>(2);
+		choice4 = buttonContainer.GetChild<Button>(3);
+	}
 
-    public override void _Process(double delta)
-    {
-        // Update progress bar
-        progressBar.Value = 100.0 * (timer.TimeLeft / timer.WaitTime);
-    }
+	public override void _Process(double delta)
+	{
+		// Update progress bar
+		progressBar.Value = 100.0 * (timer.TimeLeft / timer.WaitTime);
+	}
 
-    private Queue<Question> currentQuestionQueue = new Queue<Question>();
+	private Queue<Question> currentQuestionQueue = new Queue<Question>();
 
-    /// <summary>
-    /// Starts a series of multiple choice questions.
-    /// </summary>
-    /// <param name="gradeLevel">The grade level of the question</param>
-    /// <param name="questionsType">The type of question</param>
-    /// <param name="topic">The topic</param>
-    /// <param name="difficulty">The difficulty of the question</param>
-    /// <param name="numOfQuestions">The number of questions</param>
-    /// <param name="time">The time allocated for each question to be answered</param>
-    public void StartQuestionSequence(Grade gradeLevel, QuestionType questionsType, Topic topic, Difficulty difficulty, int numOfQuestions, int time)
-    {
-        Dictionary<string, List<List<QuestionFormat>>> currentQuestionsFolder;
-        
-        if(gradeLevel == Grade.Third && questionsType == QuestionType.Math)
-        {
-            currentQuestionsFolder = SaveManager.Instance.MathQuestionsThirdGrade;
-        }
-        else if(gradeLevel == Grade.Eighth && questionsType == QuestionType.Math)
-        {
-            currentQuestionsFolder = SaveManager.Instance.MathQuestionsEighthGrade;
-        }
-        else
-        {
-            GD.PushError("Question Folder requested does not exist: " + Error.DoesNotExist);
-            return;
-        }
+	/// <summary>
+	/// Starts a series of multiple choice questions.
+	/// </summary>
+	/// <param name="gradeLevel">The grade level of the question</param>
+	/// <param name="questionsType">The type of question</param>
+	/// <param name="topic">The topic</param>
+	/// <param name="difficulty">The difficulty of the question</param>
+	/// <param name="numOfQuestions">The number of questions</param>
+	/// <param name="time">The time allocated for each question to be answered</param>
+	public void StartQuestionSequence(Grade gradeLevel, QuestionType questionsType, Topic topic, Difficulty difficulty, int numOfQuestions, int time)
+	{
+		Dictionary<string, List<List<QuestionFormat>>> currentQuestionsFolder;
+		
+		if(gradeLevel == Grade.Third && questionsType == QuestionType.Math)
+		{
+			currentQuestionsFolder = SaveManager.Instance.MathQuestionsThirdGrade;
+		}
+		else if(gradeLevel == Grade.Eighth && questionsType == QuestionType.Math)
+		{
+			currentQuestionsFolder = SaveManager.Instance.MathQuestionsEighthGrade;
+		}
+		else
+		{
+			GD.PushError("Question Folder requested does not exist: " + Error.DoesNotExist);
+			return;
+		}
 
-        List<QuestionFormat> currentQuestionFormatList = currentQuestionsFolder[topic.ToString().ToLower()][(int)difficulty];
-        if (currentQuestionFormatList == null)
-        {
-            GD.PushError("Questions requested do not exist: " + Error.DoesNotExist);
-            return;
-        }
+		List<QuestionFormat> currentQuestionFormatList = currentQuestionsFolder[topic.ToString().ToLower()][(int)difficulty];
+		if (currentQuestionFormatList == null)
+		{
+			GD.PushError("Questions requested do not exist: " + Error.DoesNotExist);
+			return;
+		}
 
-        timer.WaitTime = time;
+		timer.WaitTime = time;
 
-        // Get some random questions from the list
-        for(int i = 0; i < numOfQuestions; i++)
-        {
-            // Add the question to the queue
-            Question randomQuestion = QuestionConversionHandler.ConvertIntoQuestion(currentQuestionFormatList[random.Next(currentQuestionFormatList.Count)], topic);
-            currentQuestionQueue.Enqueue(randomQuestion);
-        }
+		// Get some random questions from the list
+		for(int i = 0; i < numOfQuestions; i++)
+		{
+			// Add the question to the queue
+			Question randomQuestion = QuestionConversionHandler.ConvertIntoQuestion(currentQuestionFormatList[random.Next(currentQuestionFormatList.Count)], topic);
+			currentQuestionQueue.Enqueue(randomQuestion);
+		}
 
-        DisplayNextQuestion();
+		DisplayNextQuestion();
 
-        this.Visible = true;
-    }
-    
-    private string correctAnswer;
-    private bool didPlayerAnswer;
+		this.Visible = true;
+	}
+	
+	private string correctAnswer;
+	private bool didPlayerAnswer;
 
-    /// <summary>
-    /// Handles the button press event for the answer choice buttons.
-    /// </summary>
-    /// <param name="button">The button that was pressed.</param>
-    public void OnButtonPressed(Button button)
-    {
-        if (didPlayerAnswer) return;
+	/// <summary>
+	/// Handles the button press event for the answer choice buttons.
+	/// </summary>
+	/// <param name="button">The button that was pressed.</param>
+	public void OnButtonPressed(Button button)
+	{
+		if (didPlayerAnswer) return;
 
-        blocker.Visible = true;
+		blocker.Visible = true;
 
-        didPlayerAnswer = true;
-        timer.Paused = true;
-        //timer.Stop();
+		didPlayerAnswer = true;
+		timer.Paused = true;
+		//timer.Stop();
 
-        if (button.Text == correctAnswer)
-        {
-            // Award the player if they got the correct answer
-            EmitSignal(SignalName.CorrectAnswer);
-            SaveManager.Instance.PlayerData.Coins += 10; // Award 10 coins for correct answer
-        }
-        else
-        {
-            EmitSignal(SignalName.WrongAnswer);
-            // Handle incorrect answer
-            SaveManager.Instance.PlayerData.Coins -= 10;
-        }
-        
-        DisplayCorrectAnswer();
-    }
+		if (button.Text == correctAnswer)
+		{
+			// Award the player if they got the correct answer
+			EmitSignal(SignalName.CorrectAnswer);
+			SaveManager.Instance.PlayerData.Coins += 10; // Award 10 coins for correct answer
+		}
+		else
+		{
+			EmitSignal(SignalName.WrongAnswer);
+			// Handle incorrect answer
+			SaveManager.Instance.PlayerData.Coins -= 10;
+		}
+		
+		DisplayCorrectAnswer();
+	}
 
-    /// <summary>
-    /// Handles when the timer runs out.
-    /// </summary>
-    public void OnTimeout()
-    {
-        if (didPlayerAnswer) return;
-        didPlayerAnswer = true;
-        EmitSignal(SignalName.WrongAnswer);
-        SaveManager.Instance.PlayerData.Coins -= 10;
-        DisplayCorrectAnswer();
-    }
+	/// <summary>
+	/// Handles when the timer runs out.
+	/// </summary>
+	public void OnTimeout()
+	{
+		if (didPlayerAnswer) return;
+		didPlayerAnswer = true;
+		EmitSignal(SignalName.WrongAnswer);
+		SaveManager.Instance.PlayerData.Coins -= 10;
+		DisplayCorrectAnswer();
+	}
 
-    /// <summary>
-    /// Displays the correct answer using colors.
-    /// </summary>
-    /// <returns>Time to display the answer</returns>
-    private async Task DisplayCorrectAnswer()
-    {
-        EmitSignal(SignalName.AnswerDisplayed);
-        blocker.Visible = true;
-        foreach(Button b in buttonContainer.GetChildren())
-        {
-            StyleBoxFlat styleBox = b.GetThemeStylebox("normal") as StyleBoxFlat;
-            if (b.Text == correctAnswer)
-            { 
-                styleBox.BgColor = new Color(0, 1, 0); // Green background for correct answer
-            }
-            else
-            {
-                styleBox.BgColor = new Color(1, 0, 0); // Red background for incorrect answer
-            }
-        }        
+	/// <summary>
+	/// Displays the correct answer using colors.
+	/// </summary>
+	/// <returns>Time to display the answer</returns>
+	private async Task DisplayCorrectAnswer()
+	{
+		EmitSignal(SignalName.AnswerDisplayed);
+		blocker.Visible = true;
+		foreach(Button b in buttonContainer.GetChildren())
+		{
+			StyleBoxFlat styleBox = b.GetThemeStylebox("normal") as StyleBoxFlat;
+			if (b.Text == correctAnswer)
+			{ 
+				styleBox.BgColor = new Color(0, 1, 0); // Green background for correct answer
+			}
+			else
+			{
+				styleBox.BgColor = new Color(1, 0, 0); // Red background for incorrect answer
+			}
+		}        
 
-        await ToSignal(GetTree().CreateTimer(5.0f), "timeout"); // Wait for 5 seconds before moving to the next question
+		await ToSignal(GetTree().CreateTimer(5.0f), "timeout"); // Wait for 5 seconds before moving to the next question
 
-        DisplayNextQuestion();
-    }
-    
-    /// <summary>
-    /// Sets up the next question.
-    /// </summary>
-    private void DisplayNextQuestion()
-    {
-        // Reset Button colors
-        didPlayerAnswer = false;
+		DisplayNextQuestion();
+	}
+	
+	/// <summary>
+	/// Sets up the next question.
+	/// </summary>
+	private void DisplayNextQuestion()
+	{
+		// Reset Button colors
+		didPlayerAnswer = false;
 
-        StyleBoxFlat styleBox = choice1.GetThemeStylebox("normal") as StyleBoxFlat;
-        styleBox.BgColor = new Color(0, 0, 1);
+		StyleBoxFlat styleBox = choice1.GetThemeStylebox("normal") as StyleBoxFlat;
+		styleBox.BgColor = new Color(0, 0, 1);
 
-        styleBox = choice2.GetThemeStylebox("normal") as StyleBoxFlat;
-        styleBox.BgColor = new Color(0, 0, 1);
+		styleBox = choice2.GetThemeStylebox("normal") as StyleBoxFlat;
+		styleBox.BgColor = new Color(0, 0, 1);
 
-        styleBox = choice3.GetThemeStylebox("normal") as StyleBoxFlat;
-        styleBox.BgColor = new Color(0, 0, 1);
+		styleBox = choice3.GetThemeStylebox("normal") as StyleBoxFlat;
+		styleBox.BgColor = new Color(0, 0, 1);
 
-        styleBox = choice4.GetThemeStylebox("normal") as StyleBoxFlat;
-        styleBox.BgColor = new Color(0, 0, 1);
+		styleBox = choice4.GetThemeStylebox("normal") as StyleBoxFlat;
+		styleBox.BgColor = new Color(0, 0, 1);
 
-        blocker.Visible = false;
+		blocker.Visible = false;
 
-        if (currentQuestionQueue.Count <= 0)
-        {
-            // All questions have been answered, end the sequence
-            this.Visible = false;
-            EmitSignal(SignalName.QuestionSequenceEnded);
-            return;
-        }
+		if (currentQuestionQueue.Count <= 0)
+		{
+			// All questions have been answered, end the sequence
+			this.Visible = false;
+			EmitSignal(SignalName.QuestionSequenceEnded);
+			return;
+		}
 
-        EmitSignal(SignalName.QuestionStarted);
-        
-        Question question = currentQuestionQueue.Dequeue();
-        questionLabel.Text = question.Problem;
-        correctAnswer = question.Answer;
+		EmitSignal(SignalName.QuestionStarted);
+		
+		Question question = currentQuestionQueue.Dequeue();
+		questionLabel.Text = question.Problem;
+		correctAnswer = question.Answer;
 
-        // Populate randomized answer choices
-        string[] possibleAnswers =
-        {
-            correctAnswer,
-            question.Wrong[0],
-            question.Wrong[1],
-            question.Wrong[2]
-        };
+		// Populate randomized answer choices
+		string[] possibleAnswers =
+		{
+			correctAnswer,
+			question.Wrong[0],
+			question.Wrong[1],
+			question.Wrong[2]
+		};
 
-        // Shuffle the possible answers
-        for (int i = possibleAnswers.Length - 1; i > 0; i--)
-        {
-            int j = random.Next(0, i + 1);
+		// Shuffle the possible answers
+		for (int i = possibleAnswers.Length - 1; i > 0; i--)
+		{
+			int j = random.Next(0, i + 1);
 
-            string temp = possibleAnswers[i];
-            possibleAnswers[i] = possibleAnswers[j];
-            possibleAnswers[j] = temp;
-        }
+			string temp = possibleAnswers[i];
+			possibleAnswers[i] = possibleAnswers[j];
+			possibleAnswers[j] = temp;
+		}
 
-        // Assign the shuffled answers to the buttons
-        choice1.Text = possibleAnswers[0];
-        choice2.Text = possibleAnswers[1];
-        choice3.Text = possibleAnswers[2];
-        choice4.Text = possibleAnswers[3];
+		// Assign the shuffled answers to the buttons
+		choice1.Text = possibleAnswers[0];
+		choice2.Text = possibleAnswers[1];
+		choice3.Text = possibleAnswers[2];
+		choice4.Text = possibleAnswers[3];
 
-        timer.Start();
-        timer.Paused = false;
-    }
+		timer.Start();
+		timer.Paused = false;
+	}
 }

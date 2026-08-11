@@ -1,57 +1,217 @@
 {
-	"geometry":
+  "geometry": [
 	[
-		[
-			{
-				"problem" : "aFind the area of a triangle with base _ and height _",
-				"min": "1",
-				"max": "11"
-			},
-			{
-				"problem" : "bFind the circumference of a circle with radius _",
-				"min": "1",
-				"max": "11"
-			},
-			{
-				"problem" : "cFind the area of a rectangle with length _ and width _",
-				"min": "1",
-				"max": "11"
-			}
-		],
-		[
-			{
-				"problem" : "dFind area of a circle with diameter _",
-				"min": "1",
-				"max": "11"
-			},
-			{
-				"problem" : "eFind the hypotenuse of a right triangle with sides of length _ and _",
-				"min": "1",
-				"max": "11"
-			},
-			{
-				"problem" : "fFind the perimeter of a square with side length _",
-				"min": "1",
-				"max": "11"
-			}
-		],
-		[
-			{
-				"problem" : "gFind the arc length of a circle sector with central angle _ degrees and radius _",
-				"min": "1",
-				"max": "11"
-			},
-			{
-				"problem" : "hIn a trapezoid with bases _ and _, and height _, find the area",
-				"min": "1",
-				"max": "11"
-			},
-			{
-				"problem" : "iFind the surface area of a rectangular prism with length _, width _, height _",
-				"min": "1",
-				"max": "11"
-			}
-		]
+	  {
+		"problem": "aFind the area of a triangle with base _ and height _",
+		"min": "1",
+		"max": "11"
+	  },
+	  {
+		"problem": "bFind the circumference of a circle with radius _",
+		"min": "1",
+		"max": "11"
+	  },
+	  {
+		"problem": "cFind the area of a rectangle with length _ and width _",
+		"min": "1",
+		"max": "11"
+	  }
+	],
+	[
+	  {
+		"problem": "dFind area of a circle with diameter _",
+		"min": "1",
+		"max": "11"
+	  },
+	  {
+		"problem": "eFind the hypotenuse of a right triangle with sides of length _ and _",
+		"min": "1",
+		"max": "11"
+	  },
+	  {
+		"problem": "fFind the perimeter of a square with side length _",
+		"min": "1",
+		"max": "11"
+	  }
+	],
+	[
+	  {
+		"problem": "gFind the arc length of a circle sector with central angle _ degrees and radius _",
+		"min": "1",
+		"max": "11"
+	  },
+	  {
+		"problem": "hIn a trapezoid with bases _ and _, and height _, find the area",
+		"min": "1",
+		"max": "11"
+	  },
+	  {
+		"problem": "iFind the surface area of a rectangular prism with length _, width _, height _",
+		"min": "1",
+		"max": "11"
+	  }
 	]
-	
+  ],
+
+  "imaginaryNumbers": [
+	[
+	  {
+		"problem": "(_ + _i)(_ - _i) = X",
+		"min": "1",
+		"max": "6"
+	  },
+	  {
+		"problem": "i^_ = X",
+		"min": "2",
+		"max": "8"
+	  },
+	  {
+		"problem": "_i + -_i = X",
+		"min": "1",
+		"max": "10"
+	  }
+	],
+	[
+	  {
+		"problem": "|_ + _i| = X",
+		"min": "1",
+		"max": "15"
+	  },
+	  {
+		"problem": "(_ + i)(_ - i) = X",
+		"min": "1",
+		"max": "10"
+	  },
+	  {
+		"problem": "z^2 = -_, z = X",
+		"min": "4",
+		"max": "100"
+	  }
+	],
+	[
+	  {
+		"problem": "z^2 = -_, z = X",
+		"min": "4",
+		"max": "100"
+	  },
+	  {
+		"problem": "|_ - _i| = X",
+		"min": "1",
+		"max": "15"
+	  },
+	  {
+		"problem": "(1 + i)^_ = X",
+		"min": "2",
+		"max": "6"
+	  }
+	]
+  ],
+
+  "rationalNumbers": [
+	[
+	  {
+		"problem": "_/_ + _/_ = X",
+		"min": "1",
+		"max": "9"
+	  },
+	  {
+		"problem": "_._ = X (as a fraction)",
+		"min": "0",
+		"max": "9"
+	  },
+	  {
+		"problem": "_/_ - _/_ = X",
+		"min": "1",
+		"max": "9"
+	  }
+	],
+	[
+	  {
+		"problem": "_/_ = X (as a mixed number)",
+		"min": "9",
+		"max": "40"
+	  },
+	  {
+		"problem": "_ / (_ - sqrt(_)) = X (rationalize)",
+		"min": "2",
+		"max": "10"
+	  },
+	  {
+		"problem": "-_/_ + _/_ = X",
+		"min": "1",
+		"max": "12"
+	  }
+	],
+	[
+	  {
+		"problem": "_ / (_ - sqrt(_)) = X (rationalize)",
+		"min": "2",
+		"max": "10"
+	  },
+	  {
+		"problem": "(sqrt(_) - _)(sqrt(_) + _) = X",
+		"min": "1",
+		"max": "7"
+	  },
+	  {
+		"problem": "_/sqrt(_) + _/sqrt(_) = X",
+		"min": "1",
+		"max": "7"
+	  }
+	]
+  ],
+
+  "slopeIntercept": [
+	[
+	  {
+		"problem": "m = _, b = _, x = _, y = X",
+		"min": "-10",
+		"max": "10"
+	  },
+	  {
+		"problem": "slope = _/_, point = (_, _), equation = X",
+		"min": "-10",
+		"max": "10"
+	  },
+	  {
+		"problem": "m = 0, b = _, graph = X",
+		"min": "-10",
+		"max": "10"
+	  }
+	],
+	[
+	  {
+		"problem": "slope = _, point = (_, _), equation = X",
+		"min": "-10",
+		"max": "10"
+	  },
+	  {
+		"problem": "y = _/_ x - _, y-intercept = X",
+		"min": "1",
+		"max": "10"
+	  },
+	  {
+		"problem": "parallel to y = _x + _, through (0, _), equation = X",
+		"min": "-10",
+		"max": "10"
+	  }
+	],
+	[
+	  {
+		"problem": "perpendicular to y = _x + _, point = (_, _), equation = X",
+		"min": "-10",
+		"max": "10"
+	  },
+	  {
+		"problem": "parallel to y = _x + _, through (0, _), equation = X",
+		"min": "-10",
+		"max": "10"
+	  },
+	  {
+		"problem": "m = 0, b = _, graph = X",
+		"min": "-10",
+		"max": "10"
+	  }
+	]
+  ]
 }
