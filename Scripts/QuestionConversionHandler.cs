@@ -850,8 +850,7 @@ public partial class QuestionConversionHandler : Node
 		return randomNumber;
 	}
 
-	// Deals with generating wrong answers that must land on a fixed
-	// cycle of values (e.g. the four possible simplifications of i^n)
+	// Deals with generating wrong answers that must land on a fixed cycle of values (e.g. the four possible simplifications of i^n)
 	private static string GenerateWrongCycleAnswer(string[] cycle, string[] existingOptions)
 	{
 		string candidate;
@@ -978,7 +977,7 @@ public partial class QuestionConversionHandler : Node
 
 		return rootAnswer.Item1 == 1 ? $"i√{rootAnswer.Item2}" : $"{rootAnswer.Item1}i√{rootAnswer.Item2}";
 	}
-
+	// tells you if the i is real or not (prints as a number)
 	private static string FormatComplexAnswer(int real, int imaginary)
 	{
 		if (imaginary == 0)
