@@ -36,7 +36,7 @@ public partial class PlayerAttackState : CombatState
 	{
 		GD.Print("PAttkStartTimer timedout");
 		// enemy.TakeDamage(player.Damage);
-		EnemyManager.DealDamage();
+		EnemyManager.DamageEnemies();
 
 		EnemyManager.CheckIfEnemiesDead();
 		// if (enemy.health <= 0)

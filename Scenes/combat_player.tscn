@@ -3,7 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://ds53f4331g314" path="res://Models/Male-Character.glb" id="1_0shjb"]
 [ext_resource type="Script" uid="uid://c3fbbdvh7bow1" path="res://Scenes/CombatPlayer.cs" id="1_avigq"]
 
-[node name="CombatPlayer" type="MeshInstance3D" unique_id=849479885]
+[node name="CombatPlayer" type="Node3D" unique_id=1590966282]
 script = ExtResource("1_avigq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=849479885]
 
 [node name="Male-Character" parent="." unique_id=1619603551 instance=ExtResource("1_0shjb")]

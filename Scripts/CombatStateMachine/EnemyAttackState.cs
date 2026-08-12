@@ -22,6 +22,7 @@ public partial class EnemyAttackState : CombatState
 		}
 
 		// enemy.PlayAnim("Shoot");
+		EnemyManager.PlayAttackAnim();
     }
 
     public override void Exit()
@@ -32,18 +33,18 @@ public partial class EnemyAttackState : CombatState
 	private void OnEAttkStartTimerTimeout()
 	{
 		GD.Print("EAttkStartTimer timedout");
-		player.TakeDamage(enemy.Damage);
+		// player.TakeDamage(enemy.Damage);
+		EnemyManager.DealDamage();
 
 		if (player.health <= 0)
 		{
-			MeshInstance3D thePlayer = GetNode<MeshInstance3D>("%CombatPlayer");
-			thePlayer.QueueFree();
-
+			player.RemoveSelf();
 		}
 
 		GetNode<Timer>("EAttkEndTimer").Start();
 		GD.Print("EAttkEndTimer started");
-		enemy.PlayAnim("Idle_Float");
+		// enemy.PlayAnim("Idle_Float");
+		EnemyManager.PlayIdleAnim();
 	}
 
 	private void OnEAttkEndTimerTimeout()

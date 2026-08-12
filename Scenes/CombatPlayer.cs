@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class CombatPlayer : MeshInstance3D
+public partial class CombatPlayer : Node3D
 {
 	public int health = 30;
 	private int damage = 10;
@@ -25,5 +25,10 @@ public partial class CombatPlayer : MeshInstance3D
 	public void TakeDamage(int damage)
 	{
 		health -= damage;
+	}
+
+	public void RemoveSelf()
+	{
+		QueueFree();
 	}
 }

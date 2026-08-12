@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class CombatEnemy : MeshInstance3D
+public partial class CombatEnemy : Node3D
 {
 	public int health = 20;
 	private int damage = 5;

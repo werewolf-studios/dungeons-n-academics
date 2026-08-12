@@ -2,6 +2,7 @@ using Godot;
 using System.Linq;
 using System.Collections.Generic;
 using System.Net.Mail;
+// READ THE COMMENT AT THE FUNCTIONS SECTION
 
 public partial class EnemyManager : Node
 {
@@ -14,21 +15,22 @@ public partial class EnemyManager : Node
 	public override void _Ready()
 	{
 		enemies = GetChildren().OfType<CombatEnemy>().ToList();
-
-		//Attach animation signal(s?) to enemies
-		foreach (MeshInstance3D enemy in enemies)
-		{
-			//Cast the MeshInstance into the CombatEnemy script it holds
-			CombatEnemy ce = enemy as CombatEnemy;
-		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		// Remove any null nodes from the enemies list.
+		enemies.RemoveAll(node => !GodotObject.IsInstanceValid(node));
 	}
 
-	public void DealDamage()
+	// Code will need to be refactored for when a battle has multiple enemies.
+	// The player will need to be able to select enemies and actions will be
+	// dealt only to that enemy. Enemies will also have to attack separately
+	// from each other. The code here was from a simple prototype to get the
+	// absolute basics done.
+
+	public void DamageEnemies()
 	{
 		if (enemies.Count == 1)
 		{
@@ -53,15 +55,32 @@ public partial class EnemyManager : Node
 		else return false;
 	}
 
+	public void DealDamage()
+	{
+		if (enemies.Count == 1)
+		{
+			player.TakeDamage(enemies[0].Damage);
+		}
+	}
+
 	// -------- Animation Managing --------
 
-	// WITH MULTIPLE ENEMIES, ANIMATION PLAYING WILL NEED TO BE
-	// REWORKED AS EACH ENEMY TAKES ITS TURN ATTACKING
+	// With multiple enemies, animation playing will need to be
+	// reworked as each enemy takes its turn attacking. Animation
+	// names will need to be renamed.
 	public void PlayAttackAnim()
 	{
-		if (enemies.Count == 0)
+		if (enemies.Count == 1)
 		{
 			enemies[0].PlayAnim("Shoot");
+		}
+	}
+
+	public void PlayIdleAnim()
+	{
+		if (enemies.Count == 1)
+		{
+			enemies[0].PlayAnim("Idle_Float");
 		}
 	}
 }

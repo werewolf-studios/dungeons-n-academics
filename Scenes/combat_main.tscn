@@ -46,20 +46,21 @@ script = ExtResource("2_ngsrv")
 script = ExtResource("2_fpfme")
 initialState = NodePath("PlayerTurnState")
 
-[node name="PlayerTurnState" type="Node" parent="CombatStateMachine" unique_id=496265634 node_paths=PackedStringArray("AttackButton", "ItemsButton", "PlchldrButton2")]
+[node name="PlayerTurnState" type="Node" parent="CombatStateMachine" unique_id=496265634 node_paths=PackedStringArray("AttackButton", "SpecialButton", "ItemsButton", "PlchldrButton2")]
 script = ExtResource("4_n3wdt")
 AttackButton = NodePath("../../CombatUI/AttackButton")
+SpecialButton = NodePath("../../CombatUI/SpecialButton")
 ItemsButton = NodePath("../../CombatUI/ItemsButton")
 PlchldrButton2 = NodePath("../../CombatUI/PlchldrButton2")
 
 [node name="QuestionState" type="Node" parent="CombatStateMachine" unique_id=399550750]
 script = ExtResource("5_fsxqa")
 
-[node name="PlayerAttackState" type="Node" parent="CombatStateMachine" unique_id=118247676]
+[node name="PlayerAttackState" type="Node" parent="CombatStateMachine" unique_id=118247676 node_paths=PackedStringArray("EnemyManager")]
 script = ExtResource("6_kmofc")
+EnemyManager = NodePath("../../EnemyManager")
 
 [node name="PAttkStartTimer" type="Timer" parent="CombatStateMachine/PlayerAttackState" unique_id=1690371911]
-unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
 
@@ -68,16 +69,15 @@ unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
 
-[node name="EnemyAttackState" type="Node" parent="CombatStateMachine" unique_id=342074136]
+[node name="EnemyAttackState" type="Node" parent="CombatStateMachine" unique_id=342074136 node_paths=PackedStringArray("EnemyManager")]
 script = ExtResource("7_lpvq3")
+EnemyManager = NodePath("../../EnemyManager")
 
 [node name="EAttkStartTimer" type="Timer" parent="CombatStateMachine/EnemyAttackState" unique_id=926602337]
-unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
 
 [node name="EAttkEndTimer" type="Timer" parent="CombatStateMachine/EnemyAttackState" unique_id=2042409877]
-unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
 
@@ -101,7 +101,7 @@ mesh = SubResource("BoxMesh_ngsrv")
 
 [node name="CombatPlayer" parent="." unique_id=849479885 instance=ExtResource("1_k5tp8")]
 unique_name_in_owner = true
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.757, 0, 3.157)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.757, 0.12, 3.157)
 
 [node name="EnemyManager" type="Node" parent="." unique_id=1693601362 node_paths=PackedStringArray("player")]
 script = ExtResource("11_6d8ab")
@@ -109,7 +109,7 @@ player = NodePath("../CombatPlayer")
 
 [node name="CombatEnemy" parent="EnemyManager" unique_id=545224293 instance=ExtResource("2_m6hub")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.757, 0, -3.131)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.757, 0.26, -3.131)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2141222278]
 transform = Transform3D(0.7836912, -0.17334133, 0.5964737, 0, 0.96027225, 0.2790649, -0.6211506, -0.2187007, 0.7525569, 4.0712943, 2.180417, 5.21705)
