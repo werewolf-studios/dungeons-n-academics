@@ -3,28 +3,24 @@ using System;
 
 public partial class PlayerAttackState : CombatState
 {
+	// READ ME!! Timers will need to be reworked and possibly moved elsewhere.
+	// As EnemyManager reads, this was a prototype to just get the absolute
+	// basics down. Yes the names are quite bad.
 	[Export]
 	public EnemyManager EnemyManager { get; set; }
-	private CombatEnemy enemy; 
-	private	CombatPlayer player;
+
+	[Export]
+	public Timer PAttkStartTimer { get; set; }
+
+	[Export]
+	public Timer PAttkEndTimer { get; set; }
     public override void Enter()
     {
 		GD.Print("Entered PlayerAttackState");
-        GetNode<Timer>("PAttkStartTimer").Start();
+        PAttkStartTimer.Start();
 		GD.Print("PAttkStartTimer started");
 
-		GetNode<Timer>("PAttkEndTimer").WaitTime = 2.0;
-
-		enemy = GetNode<CombatEnemy>("%CombatEnemy");
-		player = GetNodeOrNull<CombatPlayer>("%CombatPlayer");
-
-		if (player == null)
-		{
-			csm.TransitionTo("PlayerTurnState");
-			GetNode<Timer>("PAttkStartTimer").Stop();
-		}
-
-		//enemy.GetNode<CharacterBody3D>("EnemyX").GetNode<AnimationPlayer>("AnimationPlayer").AnimationFinished += OnAnimationFinished;
+		PAttkEndTimer.WaitTime = 2.0;
     }
 
     public override void Exit()
@@ -35,29 +31,13 @@ public partial class PlayerAttackState : CombatState
 	private void OnPAttkStartTimerTimeout()
 	{
 		GD.Print("PAttkStartTimer timedout");
-		// enemy.TakeDamage(player.Damage);
 		EnemyManager.DamageEnemies();
 
 		EnemyManager.CheckIfEnemiesDead();
-		// if (enemy.health <= 0)
-		// {
-		// 	enemy.StopAnim();
-		// 	enemy.PlayAnim("Death");
-		// 	GetNode<Timer>("PAttkEndTimer").WaitTime = 4.0;
-		// }
 
-		GetNode<Timer>("PAttkEndTimer").Start();
+		PAttkEndTimer.Start();
 		GD.Print("PAttkEndTimer started");
 	}
-
-    // private void OnAnimationFinished(StringName animName)
-	// {
-	// 	if (animName == "Death")
-	// 	{
-	// 		MeshInstance3D currentEnemy = GetNode<MeshInstance3D>("%CombatEnemy");
-	// 		currentEnemy.QueueFree();
-	// 	}
-    // }
 
     private void OnPAttkEndTimerTimeout()
 	{

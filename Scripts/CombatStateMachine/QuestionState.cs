@@ -3,15 +3,17 @@ using System;
 
 public partial class QuestionState : CombatState
 {
+	[Export]
+	public Control QuestionUI { get; set; }
     public override void Enter()
     {
 		GD.Print("Entered QuestionState");
-        GetNode<Control>("%QuestionUI").Show();
+        QuestionUI.Show();
     }
 
 	public override void Exit()
 	{
-		GetNode<Control>("%QuestionUI").Hide();
+		QuestionUI.Hide();
 	}
 
 	private void OnYesButtonPressed()

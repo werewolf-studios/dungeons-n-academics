@@ -3,23 +3,25 @@ using System;
 
 public partial class EnemyAttackState : CombatState
 {
+	// READ ME!! Timers will need to be reworked and possibly moved elsewhere.
+	// As EnemyManager reads, this was a prototype to just get the absolute
+	// basics down. Yes the names are quite bad.
 	[Export]
 	public EnemyManager EnemyManager { get; set; }
-	private CombatEnemy enemy; 
-	private	CombatPlayer player;
+
+	[Export]
+	public CombatPlayer player { get; set; }
+
+	[Export]
+	public Timer EAttkStartTimer { get; set; }
+
+	[Export]
+	public Timer EAttkEndTimer { get; set; }
     public override void Enter()
     {
 		GD.Print("Entered EnemyAttackState");
-        GetNode<Timer>("EAttkStartTimer").Start();
+        EAttkStartTimer.Start();
 		GD.Print("EAttkStartTimer started");
-		enemy = GetNodeOrNull<CombatEnemy>("%CombatEnemy");
-		player = GetNode<CombatPlayer>("%CombatPlayer");
-
-		if (enemy == null)
-		{
-			csm.TransitionTo("PlayerTurnState");
-			GetNode<Timer>("EAttkStartTimer").Stop();
-		}
 
 		// enemy.PlayAnim("Shoot");
 		EnemyManager.PlayAttackAnim();
@@ -41,7 +43,7 @@ public partial class EnemyAttackState : CombatState
 			player.RemoveSelf();
 		}
 
-		GetNode<Timer>("EAttkEndTimer").Start();
+		EAttkEndTimer.Start();
 		GD.Print("EAttkEndTimer started");
 		// enemy.PlayAnim("Idle_Float");
 		EnemyManager.PlayIdleAnim();
