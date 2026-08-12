@@ -15,7 +15,7 @@ public partial class TilePlate : InteractionTest, MathSignal
 	{
         if (heldTile != null)
         {
-            heldTile.Position = new Vector3(Position.X, Position.Y + 1, Position.Z);
+            heldTile.Position = new Vector3(Position.X, Position.Y, Position.Z);
         }
 	}
 
@@ -29,7 +29,7 @@ public partial class TilePlate : InteractionTest, MathSignal
             origin.HeldPuzzlePart = null;
 
             heldTile.Reparent(this);
-            heldTile.Position = new Vector3(0, 1, 0);
+            heldTile.Position = new Vector3(0, 0, 0);
             heldTile.Scale = new Vector3(1, 1, 1);
 
             if (GetParent() is MathSystem) { GetParent<MathSystem>().ChangeDetected(); }

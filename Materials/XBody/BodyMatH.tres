@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c03aftthqs6tq"]
+
+[ext_resource type="Texture2D" uid="uid://bp8acc1kps7rr" path="res://Textures/XBody/Enemy_X_Body_lambert12_lambert12BaseColor-2048x2048.png" id="1_nvthp"]
+[ext_resource type="Texture2D" uid="uid://bckknfqk80wy0" path="res://Textures/XBody/Enemy_X_Body_lambert12_lambert12Metalness-2048x2048.png" id="2_t5vad"]
+[ext_resource type="Texture2D" uid="uid://bdfvf32mo22lq" path="res://Textures/XBody/Enemy_X_Body_lambert12_lambert12Normal-2048x2048.png" id="3_22jee"]
+[ext_resource type="Texture2D" uid="uid://ng12c21x13nv" path="res://Textures/XBody/Enemy_X_Body_lambert12_lambert12Roughness-2048x2048.png" id="4_wdhxu"]
+
+[resource]
+albedo_texture = ExtResource("1_nvthp")
+metallic = 1.0
+metallic_texture = ExtResource("2_t5vad")
+roughness_texture = ExtResource("4_wdhxu")
+normal_enabled = true
+normal_texture = ExtResource("3_22jee")

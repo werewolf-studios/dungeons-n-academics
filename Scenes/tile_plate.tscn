@@ -3,14 +3,9 @@
 [ext_resource type="Script" uid="uid://c56rw05ncntx8" path="res://Scripts/TilePlate.cs" id="1_m0fv6"]
 [ext_resource type="Material" uid="uid://dbtx8k4hcc272" path="res://Materials/test_material_2.tres" id="2_jtb8k"]
 [ext_resource type="Material" uid="uid://bar85gvgqs1dt" path="res://Materials/test_material_1.tres" id="3_75d6v"]
+[ext_resource type="PackedScene" uid="uid://cqtve31pqsn8m" path="res://Models/TilePlate.fbx" id="4_75d6v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_anej1"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m0fv6"]
-albedo_color = Color(0.2901961, 0.30980393, 0.7647059, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_164m3"]
-material = SubResource("StandardMaterial3D_m0fv6")
 
 [node name="TilePlate" type="CharacterBody3D" unique_id=562736670 groups=["Interactable"]]
 collision_mask = 0
@@ -22,6 +17,5 @@ materialB = ExtResource("3_75d6v")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
 shape = SubResource("BoxShape3D_anej1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=196620302]
-transform = Transform3D(2, 0, 0, 0, 0.4, 0, 0, 0, 2, 0, 0.2, 0)
-mesh = SubResource("BoxMesh_164m3")
+[node name="TilePlate" parent="." unique_id=2007741104 instance=ExtResource("4_75d6v")]
+transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 0.5, 0)
