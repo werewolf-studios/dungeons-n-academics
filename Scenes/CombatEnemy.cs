@@ -15,6 +15,7 @@ public partial class CombatEnemy : MeshInstance3D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		GetNode<CharacterBody3D>("EnemyX").GetNode<AnimationPlayer>("AnimationPlayer").AnimationFinished += OnAnimationFinished;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,4 +37,17 @@ public partial class CombatEnemy : MeshInstance3D
 	{
         GetNode<CharacterBody3D>("EnemyX").GetNode<AnimationPlayer>("AnimationPlayer").Stop();
     }
+
+	private void OnAnimationFinished(StringName animName)
+	{
+		if (animName == "Death")
+		{
+			
+		}
+    }
+
+	public void RemoveSelf()
+	{
+		QueueFree();
+	}
 }

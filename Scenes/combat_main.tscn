@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://cd5qys37gd87b" path="res://Scripts/CombatStateMachine/EnemyAttackState.cs" id="7_lpvq3"]
 [ext_resource type="Script" uid="uid://bb42175myn3do" path="res://Scenes/VictoryState.cs" id="8_lpvq3"]
 [ext_resource type="Script" uid="uid://ck0s7bsc5uikf" path="res://Scenes/DefeatedState.cs" id="9_lhrf8"]
+[ext_resource type="Script" uid="uid://dttwcnsq4f4ti" path="res://Scripts/EnemyScripts/EnemyManager.cs" id="11_6d8ab"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k5tp8"]
 
@@ -45,10 +46,9 @@ script = ExtResource("2_ngsrv")
 script = ExtResource("2_fpfme")
 initialState = NodePath("PlayerTurnState")
 
-[node name="PlayerTurnState" type="Node" parent="CombatStateMachine" unique_id=496265634 node_paths=PackedStringArray("AttackButton", "SpecialButton", "ItemsButton", "PlchldrButton2")]
+[node name="PlayerTurnState" type="Node" parent="CombatStateMachine" unique_id=496265634 node_paths=PackedStringArray("AttackButton", "ItemsButton", "PlchldrButton2")]
 script = ExtResource("4_n3wdt")
 AttackButton = NodePath("../../CombatUI/AttackButton")
-SpecialButton = NodePath("../../CombatUI/SpecialButton")
 ItemsButton = NodePath("../../CombatUI/ItemsButton")
 PlchldrButton2 = NodePath("../../CombatUI/PlchldrButton2")
 
@@ -99,7 +99,11 @@ mesh = SubResource("BoxMesh_ngsrv")
 unique_name_in_owner = true
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.757, 0, 3.157)
 
-[node name="CombatEnemy" parent="." unique_id=545224293 instance=ExtResource("2_m6hub")]
+[node name="EnemyManager" type="Node" parent="." unique_id=1693601362 node_paths=PackedStringArray("player")]
+script = ExtResource("11_6d8ab")
+player = NodePath("../CombatPlayer")
+
+[node name="CombatEnemy" parent="EnemyManager" unique_id=545224293 instance=ExtResource("2_m6hub")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.757, 0, -3.131)
 
