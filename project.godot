@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SaveManager="*uid://dg01nscxj24ax"
 FileHandler="*uid://bmfbpv63goaod"
+QuestionConversionHandler="*uid://dviqb7bdolip2"
 
 [display]
 
