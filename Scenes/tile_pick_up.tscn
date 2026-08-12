@@ -1,16 +1,86 @@
 [gd_scene format=3 uid="uid://bvri3pmtitfyd"]
 
 [ext_resource type="Script" uid="uid://4ldvt7s78ghk" path="res://Scripts/TilePickUp.cs" id="1_u22ku"]
+[ext_resource type="PackedScene" uid="uid://3bo5lg1ixjhg" path="res://Models/Numbers/Part0.fbx" id="2_8ak04"]
+[ext_resource type="PackedScene" uid="uid://dbw1wpqi5ma3o" path="res://Models/Numbers/Part1.fbx" id="3_1r0ko"]
+[ext_resource type="PackedScene" uid="uid://b0cvpp2uu4x4g" path="res://Models/TilePickUp.fbx" id="3_npimq"]
+[ext_resource type="PackedScene" uid="uid://cy5k6d4xhuhtn" path="res://Models/Numbers/Part2.fbx" id="4_vcw1o"]
+[ext_resource type="PackedScene" uid="uid://cdv1nn06l4hvs" path="res://Models/Numbers/Part3.fbx" id="5_ev8fe"]
+[ext_resource type="PackedScene" uid="uid://dwl1au8so3fdi" path="res://Models/Numbers/Part4.fbx" id="6_es6km"]
+[ext_resource type="PackedScene" uid="uid://dlc25wp4ww0sp" path="res://Models/Numbers/Part5.fbx" id="7_0c6o6"]
+[ext_resource type="PackedScene" uid="uid://c3j5gg8h5eve3" path="res://Models/Numbers/Part6.fbx" id="8_kc4vo"]
+[ext_resource type="PackedScene" uid="uid://v2eehoctf8hn" path="res://Models/Numbers/Part7.fbx" id="9_p2ndo"]
+[ext_resource type="PackedScene" uid="uid://hagvp3jntq21" path="res://Models/Numbers/Part8.fbx" id="10_medi8"]
+[ext_resource type="PackedScene" uid="uid://y6i2cbvsu2mt" path="res://Models/Numbers/Part9.fbx" id="11_rfovh"]
+[ext_resource type="PackedScene" uid="uid://30mvnkfa8ynm" path="res://Models/Numbers/PartAdd.fbx" id="12_mlxol"]
+[ext_resource type="PackedScene" uid="uid://1ej2arg6cdu4" path="res://Models/Numbers/PartDiv.fbx" id="13_lxih2"]
+[ext_resource type="PackedScene" uid="uid://bp3ppkradgxhw" path="res://Models/Numbers/PartEqu.fbx" id="14_yneux"]
+[ext_resource type="PackedScene" uid="uid://d1s8ew5lc8xu5" path="res://Models/Numbers/PartMul.fbx" id="15_mguko"]
+[ext_resource type="PackedScene" uid="uid://ddohj12ou6j0s" path="res://Models/Numbers/PartSub.fbx" id="16_ibxmd"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7wsdb"]
-albedo_color = Color(0, 0.75686276, 1, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_7wsdb"]
-material = SubResource("StandardMaterial3D_7wsdb")
-
-[node name="TilePickUp" type="CharacterBody3D" unique_id=1728698675]
+[node name="TilePickUp" type="CharacterBody3D" unique_id=1728698675 node_paths=PackedStringArray("meshes")]
 script = ExtResource("1_u22ku")
+meshes = [null]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=227811035]
-transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0, 0)
-mesh = SubResource("CylinderMesh_7wsdb")
+[node name="Part0" parent="." unique_id=1348387665 instance=ExtResource("2_8ak04")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 1.1854558, 0)
+visible = false
+
+[node name="Part1" parent="." unique_id=1662153250 instance=ExtResource("3_1r0ko")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 1.1854558, 0)
+visible = false
+
+[node name="Part2" parent="." unique_id=1668629745 instance=ExtResource("4_vcw1o")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 1.1854558, 0)
+visible = false
+
+[node name="Part3" parent="." unique_id=961471751 instance=ExtResource("5_ev8fe")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 1.1854558, 0)
+visible = false
+
+[node name="Part4" parent="." unique_id=1108743144 instance=ExtResource("6_es6km")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 1.1854558, 0)
+visible = false
+
+[node name="Part5" parent="." unique_id=2052920274 instance=ExtResource("7_0c6o6")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 1.1854558, 0)
+visible = false
+
+[node name="Part6" parent="." unique_id=598363994 instance=ExtResource("8_kc4vo")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 1.1854558, 0)
+visible = false
+
+[node name="Part7" parent="." unique_id=2114236634 instance=ExtResource("9_p2ndo")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 1.1854558, 0.4457593)
+visible = false
+
+[node name="Part8" parent="." unique_id=1493092289 instance=ExtResource("10_medi8")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 1.1854558, 0)
+visible = false
+
+[node name="Part9" parent="." unique_id=1318038055 instance=ExtResource("11_rfovh")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 1.1854558, 0)
+visible = false
+
+[node name="PartAdd" parent="." unique_id=418528977 instance=ExtResource("12_mlxol")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 1.1854558, 0)
+visible = false
+
+[node name="PartDiv" parent="." unique_id=398112452 instance=ExtResource("13_lxih2")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 1.1854558, 0.5604768)
+visible = false
+
+[node name="PartEqu" parent="." unique_id=279357795 instance=ExtResource("14_yneux")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 1.1854558, 0)
+visible = false
+
+[node name="PartMul" parent="." unique_id=1995774566 instance=ExtResource("15_mguko")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 1.1854558, 0)
+visible = false
+
+[node name="PartSub" parent="." unique_id=167785909 instance=ExtResource("16_ibxmd")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 1.1854558, 0)
+visible = false
+
+[node name="TilePickUp" parent="." unique_id=1494549810 instance=ExtResource("3_npimq")]
+transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 1.65, 0)

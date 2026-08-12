@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ie266qqg3v6j"]
+
+[ext_resource type="Texture2D" uid="uid://dlt6ekatbd6d5" path="res://Textures/TilePlate/TilePick_lambert2_lambert2BaseColor-2048x2048.png" id="1_n3x5n"]
+[ext_resource type="Texture2D" uid="uid://dm41iil26e5ef" path="res://Textures/TilePlate/TilePick_lambert2_lambert2Metalness-2048x2048.png" id="2_lk4a5"]
+[ext_resource type="Texture2D" uid="uid://hy1kd2wdxnyk" path="res://Textures/TilePlate/TilePick_lambert2_lambert2Normal-2048x2048.png" id="3_07sck"]
+[ext_resource type="Texture2D" uid="uid://diciifx0s7s3" path="res://Textures/TilePlate/TilePick_lambert2_lambert2Roughness-2048x2048.png" id="4_7b4rs"]
+
+[resource]
+albedo_texture = ExtResource("1_n3x5n")
+metallic = 1.0
+metallic_texture = ExtResource("2_lk4a5")
+roughness_texture = ExtResource("4_7b4rs")
+normal_enabled = true
+normal_texture = ExtResource("3_07sck")

@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://dc26to0lcd3dg"]
+
+[ext_resource type="PackedScene" uid="uid://cupl2yi8jna1q" path="res://Scenes/player.tscn" id="1_mlbf6"]
+[ext_resource type="PackedScene" uid="uid://d4biohhvvxivx" path="res://Scenes/camera_follower.tscn" id="2_jnxbv"]
+[ext_resource type="PackedScene" uid="uid://y60aq3njby07" path="res://Scenes/math_system.tscn" id="3_ausk5"]
+[ext_resource type="PackedScene" uid="uid://dco0jtyv4uk2m" path="res://Scenes/growing_equation_manager.tscn" id="4_mlbf6"]
+[ext_resource type="PackedScene" uid="uid://4oc0epx5r1oq" path="res://Scenes/growing_equation_part.tscn" id="5_jnxbv"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_gu0sv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gu0sv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ayu3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gu0sv"]
+
+[node name="RoomGrowingEquation" type="Node" unique_id=1805647473]
+
+[node name="Player" parent="." unique_id=1667134440 instance=ExtResource("1_mlbf6")]
+Speed = 10
+
+[node name="CameraFollower" parent="." unique_id=956313856 node_paths=PackedStringArray("player") instance=ExtResource("2_jnxbv")]
+player = NodePath("../Player")
+maxCameraDistance = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CameraFollower" unique_id=1423326211]
+mesh = SubResource("SphereMesh_gu0sv")
+
+[node name="World" type="StaticBody3D" parent="." unique_id=556897208]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World" unique_id=428828702]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 1, -1, 0)
+mesh = SubResource("BoxMesh_gu0sv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World" unique_id=563974252]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, -1, 0)
+shape = SubResource("BoxShape3D_4ayu3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="World" unique_id=1311634238]
+transform = Transform3D(20, 0, 0, 0, 4, 0, 0, 0, 1, 1, 1, -10)
+mesh = SubResource("BoxMesh_gu0sv")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="World" unique_id=1213228833]
+transform = Transform3D(20, 0, 0, 0, 4, 0, 0, 0, 1, 0, 2, -10)
+shape = SubResource("BoxShape3D_4ayu3")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="World" unique_id=283500446]
+transform = Transform3D(8, 0, 0, 0, 4, 0, 0, 0, 1, 7, 1, 10)
+mesh = SubResource("BoxMesh_gu0sv")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="World" unique_id=1798316959]
+transform = Transform3D(8, 0, 0, 0, 4, 0, 0, 0, 1, 1, 1, 10)
+mesh = SubResource("BoxMesh_gu0sv")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="World" unique_id=106978568]
+transform = Transform3D(8, 0, 0, 0, 4, 0, 0, 0, 1, 7, 1, 10)
+shape = SubResource("BoxShape3D_4ayu3")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="World" unique_id=1093858888]
+transform = Transform3D(8, 0, 0, 0, 4, 0, 0, 0, 1, -5, 1, 10)
+mesh = SubResource("BoxMesh_gu0sv")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="World" unique_id=1771340858]
+transform = Transform3D(8, 0, 0, 0, 4, 0, 0, 0, 1, -5, 1, 10)
+shape = SubResource("BoxShape3D_4ayu3")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="World" unique_id=2129174885]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 1, 1, 1, 10)
+shape = SubResource("BoxShape3D_4ayu3")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="World" unique_id=385061148]
+transform = Transform3D(-8.742278e-07, 0, 1, 0, 4, 0, -20, 0, -4.371139e-08, -9, 1, 0)
+mesh = SubResource("BoxMesh_gu0sv")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="World" unique_id=1928393819]
+transform = Transform3D(-8.742278e-07, 0, 1, 0, 4, 0, -20, 0, -4.371139e-08, -9, 2, 0)
+shape = SubResource("BoxShape3D_4ayu3")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="World" unique_id=498256120]
+transform = Transform3D(-8.742278e-07, 0, 1, 0, 4, 0, -20, 0, -4.371139e-08, 11, 1, 0)
+mesh = SubResource("BoxMesh_gu0sv")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="World" unique_id=1573859899]
+transform = Transform3D(-8.742278e-07, 0, 1, 0, 4, 0, -20, 0, -4.371139e-08, 11, 2, 0)
+shape = SubResource("BoxShape3D_4ayu3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1632692811]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 14, 0)
+
+[node name="Node" type="Node" parent="." unique_id=2012448099]
+
+[node name="CameraBlocker" type="StaticBody3D" parent="Node" unique_id=330051763]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node/CameraBlocker" unique_id=1065640771]
+transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 1, 0, 1, -5)
+shape = SubResource("BoxShape3D_gu0sv")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node/CameraBlocker" unique_id=1095232082]
+transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 1, 0, 1, 5)
+shape = SubResource("BoxShape3D_gu0sv")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Node/CameraBlocker" unique_id=212738969]
+transform = Transform3D(-4.371139e-07, 0, 1, 0, 5, 0, -10, 0, -4.371139e-08, 3, 1, 0)
+shape = SubResource("BoxShape3D_gu0sv")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Node/CameraBlocker" unique_id=344989922]
+transform = Transform3D(-4.371139e-07, 0, 1, 0, 5, 0, -10, 0, -4.371139e-08, -2, 1, 0)
+shape = SubResource("BoxShape3D_gu0sv")
+
+[node name="MathSystemTest" parent="." unique_id=1256670147 node_paths=PackedStringArray("recievers", "puzzleParts") instance=ExtResource("3_ausk5")]
+answers = PackedFloat32Array(2)
+recievers = []
+puzzleParts = [null, null, null]
+
+[node name="GrowingEquationManager" parent="." unique_id=782073155 instance=ExtResource("4_mlbf6")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 5, 4)
+startNumber = 1
+resultNumber = 5
+equations = PackedStringArray("+1", "+3", "-2", "+2")
+
+[node name="GrowingEquationPart" parent="GrowingEquationManager" unique_id=1647051950 instance=ExtResource("5_jnxbv")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 6, -5, -2.0000005)
+answers = PackedFloat32Array(2, 7, 2, 8)
+
+[node name="GrowingEquationPart2" parent="GrowingEquationManager" unique_id=273775872 instance=ExtResource("5_jnxbv")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 2, -5, -2)
+answers = PackedFloat32Array(1, 2, 0, 5)
+
+[node name="GrowingEquationPart3" parent="GrowingEquationManager" unique_id=354215566 instance=ExtResource("5_jnxbv")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -2, -5, -2)
+answers = PackedFloat32Array(4, 6, 3, 2)
+
+[node name="GrowingEquationPart4" parent="GrowingEquationManager" unique_id=1513627705 instance=ExtResource("5_jnxbv")]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -6, -5, -1.9999995)
+answers = PackedFloat32Array(2, 5, 2, 5)

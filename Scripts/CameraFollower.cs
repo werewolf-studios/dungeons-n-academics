@@ -18,7 +18,7 @@ public partial class CameraFollower : CharacterBody3D
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
+    public override void _PhysicsProcess(double delta)
     {
         Vector3 previousPosition = Position;
         double distance = Position.DistanceTo(player.Position);
