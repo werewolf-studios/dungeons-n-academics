@@ -42,9 +42,19 @@ public partial class CombatEnemy : MeshInstance3D
 	{
 		if (animName == "Death")
 		{
-			
+			RemoveSelf();
 		}
     }
+
+	public void CheckIfDead()
+	{
+		if (health <= 0)
+		{
+			StopAnim();
+			PlayAnim("Death");
+			GetNode<Timer>("%PAttkEndTimer").WaitTime = 4.0;
+		}
+	}
 
 	public void RemoveSelf()
 	{

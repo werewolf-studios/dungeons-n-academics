@@ -3,6 +3,8 @@ using System;
 
 public partial class EnemyAttackState : CombatState
 {
+	[Export]
+	public EnemyManager EnemyManager { get; set; }
 	private CombatEnemy enemy; 
 	private	CombatPlayer player;
     public override void Enter()
@@ -19,7 +21,7 @@ public partial class EnemyAttackState : CombatState
 			GetNode<Timer>("EAttkStartTimer").Stop();
 		}
 
-		enemy.PlayAnim("Shoot");
+		// enemy.PlayAnim("Shoot");
     }
 
     public override void Exit()

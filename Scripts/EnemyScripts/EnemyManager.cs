@@ -5,7 +5,7 @@ using System.Net.Mail;
 
 public partial class EnemyManager : Node
 {
-	private List<MeshInstance3D> enemies;
+	private List<CombatEnemy> enemies = new List<CombatEnemy>();
 
 	[Export]
 	public CombatPlayer player { get; set; }
@@ -13,7 +13,7 @@ public partial class EnemyManager : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		enemies = GetChildren().OfType<MeshInstance3D>().ToList();
+		enemies = GetChildren().OfType<CombatEnemy>().ToList();
 
 		//Attach animation signal(s?) to enemies
 		foreach (MeshInstance3D enemy in enemies)
@@ -30,14 +30,38 @@ public partial class EnemyManager : Node
 
 	public void DealDamage()
 	{
-		enemies = GetChildren().OfType<MeshInstance3D>().ToList();
-
 		if (enemies.Count == 1)
 		{
-			//Cast the MeshInstance into the CombatEnemy script it holds
-			CombatEnemy ce = enemies[0] as CombatEnemy;
-			ce.TakeDamage(player.Damage);
+			enemies[0].TakeDamage(player.Damage);
 		}
 	}
 
+	public void CheckIfEnemiesDead()
+	{
+		if (enemies.Count == 1)
+		{
+			enemies[0].CheckIfDead();
+		}
+	}
+
+	public bool AllEnemiesDead()
+	{
+		if (enemies.Count == 0)
+		{
+			return true;
+		}
+		else return false;
+	}
+
+	// -------- Animation Managing --------
+
+	// WITH MULTIPLE ENEMIES, ANIMATION PLAYING WILL NEED TO BE
+	// REWORKED AS EACH ENEMY TAKES ITS TURN ATTACKING
+	public void PlayAttackAnim()
+	{
+		if (enemies.Count == 0)
+		{
+			enemies[0].PlayAnim("Shoot");
+		}
+	}
 }

@@ -59,10 +59,12 @@ script = ExtResource("5_fsxqa")
 script = ExtResource("6_kmofc")
 
 [node name="PAttkStartTimer" type="Timer" parent="CombatStateMachine/PlayerAttackState" unique_id=1690371911]
+unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
 
 [node name="PAttkEndTimer" type="Timer" parent="CombatStateMachine/PlayerAttackState" unique_id=1158799479]
+unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
 
@@ -70,10 +72,12 @@ one_shot = true
 script = ExtResource("7_lpvq3")
 
 [node name="EAttkStartTimer" type="Timer" parent="CombatStateMachine/EnemyAttackState" unique_id=926602337]
+unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
 
 [node name="EAttkEndTimer" type="Timer" parent="CombatStateMachine/EnemyAttackState" unique_id=2042409877]
+unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
 

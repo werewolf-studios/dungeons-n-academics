@@ -3,6 +3,8 @@ using System;
 
 public partial class PlayerAttackState : CombatState
 {
+	[Export]
+	public EnemyManager EnemyManager { get; set; }
 	private CombatEnemy enemy; 
 	private	CombatPlayer player;
     public override void Enter()
@@ -33,14 +35,16 @@ public partial class PlayerAttackState : CombatState
 	private void OnPAttkStartTimerTimeout()
 	{
 		GD.Print("PAttkStartTimer timedout");
-		enemy.TakeDamage(player.Damage);
+		// enemy.TakeDamage(player.Damage);
+		EnemyManager.DealDamage();
 
-		if (enemy.health <= 0)
-		{
-			enemy.StopAnim();
-			enemy.PlayAnim("Death");
-			GetNode<Timer>("PAttkEndTimer").WaitTime = 4.0;
-		}
+		EnemyManager.CheckIfEnemiesDead();
+		// if (enemy.health <= 0)
+		// {
+		// 	enemy.StopAnim();
+		// 	enemy.PlayAnim("Death");
+		// 	GetNode<Timer>("PAttkEndTimer").WaitTime = 4.0;
+		// }
 
 		GetNode<Timer>("PAttkEndTimer").Start();
 		GD.Print("PAttkEndTimer started");
@@ -59,7 +63,7 @@ public partial class PlayerAttackState : CombatState
 	{
 		GD.Print("PAttkEndTimer timedout");
 
-		if (enemy.health <= 0)
+		if (EnemyManager.AllEnemiesDead())
 		{
 			csm.TransitionTo("VictoryState");
 			return;
