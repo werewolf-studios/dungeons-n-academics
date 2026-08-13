@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bydeivn00di27"]
+
+[node name="healthBar" type="ProgressBar" unique_id=367515396]
+offset_right = 240.0
+offset_bottom = 27.0
+value = 60.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1786179588]
+layout_mode = 0
+offset_right = 241.0
+offset_bottom = 27.0
