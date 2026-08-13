@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bka4oj0nbe18e"]
+
+[ext_resource type="Texture2D" uid="uid://bb7ohy7rn75e8" path="res://Textures/Pedestal/BigPuzzle_lambert2_lambert2BaseColor-2048x2048.png" id="1_c5cry"]
+[ext_resource type="Texture2D" uid="uid://5obj7o7uk74b" path="res://Textures/Pedestal/BigPuzzle_lambert2_lambert2Metalness-2048x2048.png" id="2_xcljf"]
+[ext_resource type="Texture2D" uid="uid://dmd3ftmrumtdg" path="res://Textures/Pedestal/BigPuzzle_lambert2_lambert2Normal-2048x2048.png" id="3_yb0ks"]
+[ext_resource type="Texture2D" uid="uid://8kkroa4adx7y" path="res://Textures/Pedestal/BigPuzzle_lambert2_lambert2Roughness-2048x2048.png" id="4_fep5t"]
+
+[resource]
+albedo_texture = ExtResource("1_c5cry")
+metallic = 1.0
+metallic_texture = ExtResource("2_xcljf")
+roughness_texture = ExtResource("4_fep5t")
+normal_enabled = true
+normal_texture = ExtResource("3_yb0ks")

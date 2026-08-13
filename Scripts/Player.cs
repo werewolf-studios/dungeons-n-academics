@@ -147,9 +147,11 @@ public partial class Player : CharacterBody3D
         if (Input.IsActionPressed("AttackInteract") && !singlePressInteract)
         {
             singlePressInteract = true;
+            GD.Print("Checking");
 
             foreach (CharacterBody3D body in GetNode<Area3D>("Pivot/InteractionCollider").GetOverlappingBodies())
             {
+                GD.Print("Group Check");
                 if (body.IsInGroup("Interactable"))
                 {
                     GD.Print("Object Found");
