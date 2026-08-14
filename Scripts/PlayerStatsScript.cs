@@ -4,7 +4,7 @@ using System;
 /// <summary>
 /// For updating UI
 /// </summary>
-public partial class PlayerStatsScript : Node
+public partial class PlayerStatsScript : CanvasLayer
 {
 	// player stat labels that will be updated
 	[Export]

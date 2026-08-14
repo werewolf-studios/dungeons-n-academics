@@ -262,8 +262,19 @@ text = "No"
 
 [node name="Main" parent="." unique_id=1895040970 instance=ExtResource("14_kvfeh")]
 
+[node name="PlayerStatsUI" parent="Main" index="0" unique_id=839078456]
+visible = false
+
+[node name="ExampleButton" parent="Main/PlayerStatsUI/Control" parent_id_path=PackedInt32Array(1895040970, 890047294) index="2" unique_id=460907232]
+visible = false
+
 [connection signal="timeout" from="CombatStateMachine/PlayerAttackState/PAttkStartTimer" to="CombatStateMachine/PlayerAttackState" method="OnPAttkStartTimerTimeout"]
 [connection signal="timeout" from="CombatStateMachine/PlayerAttackState/PAttkEndTimer" to="CombatStateMachine/PlayerAttackState" method="OnPAttkEndTimerTimeout"]
 [connection signal="timeout" from="CombatStateMachine/EnemyAttackState/EAttkStartTimer" to="CombatStateMachine/EnemyAttackState" method="OnEAttkStartTimerTimeout"]
 [connection signal="timeout" from="CombatStateMachine/EnemyAttackState/EAttkEndTimer" to="CombatStateMachine/EnemyAttackState" method="OnEAttkEndTimerTimeout"]
 [connection signal="pressed" from="CombatUI/AttackButton" to="CombatStateMachine/PlayerTurnState" method="OnAttackButtonPressed"]
+[connection signal="CorrectAnswer" from="Main/QuestionsUI" to="CombatStateMachine/QuestionState" method="OnQuestionsUICorrectAnswer"]
+[connection signal="QuestionSequenceEnded" from="Main/QuestionsUI" to="CombatStateMachine/QuestionState" method="OnQuestionsUIQuestionSequenceEnded"]
+[connection signal="WrongAnswer" from="Main/QuestionsUI" to="CombatStateMachine/QuestionState" method="OnQuestionsUIWrongAnswer"]
+
+[editable path="Main"]

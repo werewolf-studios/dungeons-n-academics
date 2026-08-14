@@ -9,7 +9,7 @@ public partial class QuestionState : CombatState
 	//[Export]
 	//public NodePath QuestionManager { get; set; }
 
-	private CanvasLayer playerStatsUI;
+	private PlayerStatsScript playerStatsUI;
 	private QuestionManager questionManager;
 
 	// The enumeration is in the QuestionManager script
@@ -19,12 +19,24 @@ public partial class QuestionState : CombatState
 
     public override void _Ready()
     {
-        playerStatsUI = GetTree().Root.FindChild("PlayerStatsUI", true, false) as CanvasLayer;
+        playerStatsUI = GetTree().Root.FindChild("PlayerStatsUI", true, false) as PlayerStatsScript;
 		questionManager = GetTree().Root.FindChild("QuestionsUI", true, false) as QuestionManager;
 
 		if (playerStatsUI == null) GD.Print("PlayerStatsUI completely missing");
 		if (questionManager == null) GD.Print("QuestionManager completely missing");
+
+		GD.Print("--- RUNTIME SCENE TREE ROOT NODES ---");
+    	PrintTreeSubNodes(GetTree().Root);
     }
+
+	private void PrintTreeSubNodes(Node parent)
+	{
+    	foreach (Node child in parent.GetChildren())
+    	{
+        	GD.Print($"Node Name: {child.Name} | Type: {child.GetType().Name}");
+        	PrintTreeSubNodes(child); // Recursively search deep into the tree
+    	}
+	}
 
     public override void Enter()
     {
