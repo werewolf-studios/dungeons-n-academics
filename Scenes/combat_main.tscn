@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://bb42175myn3do" path="res://Scenes/VictoryState.cs" id="8_lpvq3"]
 [ext_resource type="Script" uid="uid://ck0s7bsc5uikf" path="res://Scenes/DefeatedState.cs" id="9_lhrf8"]
 [ext_resource type="Script" uid="uid://dttwcnsq4f4ti" path="res://Scripts/EnemyScripts/EnemyManager.cs" id="11_6d8ab"]
+[ext_resource type="PackedScene" uid="uid://bydeivn00di27" path="res://Scenes/healthBar.tscn" id="13_wn5wi"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k5tp8"]
 
@@ -72,10 +73,11 @@ unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
 
-[node name="EnemyAttackState" type="Node" parent="CombatStateMachine" unique_id=342074136 node_paths=PackedStringArray("EnemyManager", "player", "EAttkStartTimer", "EAttkEndTimer")]
+[node name="EnemyAttackState" type="Node" parent="CombatStateMachine" unique_id=342074136 node_paths=PackedStringArray("EnemyManager", "player", "healthBar", "EAttkStartTimer", "EAttkEndTimer")]
 script = ExtResource("7_lpvq3")
 EnemyManager = NodePath("../../EnemyManager")
 player = NodePath("../../CombatPlayer")
+healthBar = NodePath("../../CombatUI/healthBar")
 EAttkStartTimer = NodePath("EAttkStartTimer")
 EAttkEndTimer = NodePath("EAttkEndTimer")
 
@@ -209,6 +211,11 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 42
 text = "Defeated..."
 horizontal_alignment = 1
+
+[node name="healthBar" parent="CombatUI" unique_id=367515396 instance=ExtResource("13_wn5wi")]
+layout_mode = 0
+max_value = 30.0
+value = 30.0
 
 [node name="QuestionUI" type="Control" parent="." unique_id=1706086032]
 visible = false
