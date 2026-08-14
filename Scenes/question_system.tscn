@@ -194,11 +194,6 @@ offset_right = 1232.0
 offset_bottom = 696.0
 
 [connection signal="pressed" from="PlayerStatsUI/Control/ExampleButton" to="PlayerStatsUI/Control/ExampleButton" method="OnPressed"]
-[connection signal="AnswerDisplayed" from="QuestionsUI" to="PlayerStatsUI/Control/ExampleButton" method="OnAnswerDisplayed"]
-[connection signal="CorrectAnswer" from="QuestionsUI" to="PlayerStatsUI/Control/ExampleButton" method="OnCorrectAnswer"]
-[connection signal="QuestionSequenceEnded" from="QuestionsUI" to="PlayerStatsUI/Control/ExampleButton" method="OnQuestionSequenceEnded"]
-[connection signal="QuestionStarted" from="QuestionsUI" to="PlayerStatsUI/Control/ExampleButton" method="OnQuestionStarted"]
-[connection signal="WrongAnswer" from="QuestionsUI" to="PlayerStatsUI/Control/ExampleButton" method="OnWrongAnswer"]
 [connection signal="pressed" from="QuestionsUI/Control/VBoxContainer/First" to="QuestionsUI" method="OnButtonPressed" flags=18]
 [connection signal="pressed" from="QuestionsUI/Control/VBoxContainer/Second" to="QuestionsUI" method="OnButtonPressed" flags=18]
 [connection signal="pressed" from="QuestionsUI/Control/VBoxContainer/Third" to="QuestionsUI" method="OnButtonPressed" flags=18]
