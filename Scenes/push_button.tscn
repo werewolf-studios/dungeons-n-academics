@@ -15,11 +15,14 @@ albedo_color = Color(0, 0, 0, 1)
 
 [node name="Area3D" type="CharacterBody3D" unique_id=704564999]
 transform = Transform3D(1, 0, 0, 0, 0.05450669, 0, 0, 0, 1, 0, 0, 0)
+collision_layer = 8
+collision_mask = 8
 script = ExtResource("1_1eo16")
 materialA = ExtResource("2_bcob0")
 materialB = ExtResource("3_bcob0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=370828113]
+transform = Transform3D(0.7, 0, 0, 0, 10, 0, 0, 0, 0.8, 0, 4.032629, 0)
 shape = SubResource("BoxShape3D_bcob0")
 
 [node name="ButtonBase" type="MeshInstance3D" parent="." unique_id=54597819]
@@ -30,3 +33,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_lt4la")
 transform = Transform3D(0.8661536, 0, 0, 0, 1.996563, 0, 0, 0, 0.8782628, 0, 0, 0)
 mesh = SubResource("BoxMesh_dietu")
 surface_material_override/0 = ExtResource("2_bcob0")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=939395766]
+transform = Transform3D(100.275, 0, 0, 0, 200, 0, 0, 0, 100.275, 0, 5.427943, 0)
+collision_layer = 9
+collision_mask = 9

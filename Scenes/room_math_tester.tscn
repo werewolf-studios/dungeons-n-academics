@@ -1,0 +1,315 @@
+[gd_scene format=3 uid="uid://bs4bd5deo3ffg"]
+
+[ext_resource type="PackedScene" uid="uid://cupl2yi8jna1q" path="res://Scenes/player.tscn" id="1_a4fox"]
+[ext_resource type="PackedScene" uid="uid://d4biohhvvxivx" path="res://Scenes/camera_follower.tscn" id="2_ga2wj"]
+[ext_resource type="PackedScene" uid="uid://y60aq3njby07" path="res://Scenes/math_system.tscn" id="3_rv78f"]
+[ext_resource type="PackedScene" uid="uid://b2rvaphfuxwrh" path="res://Scenes/door.tscn" id="3_twbbp"]
+[ext_resource type="PackedScene" uid="uid://ycejpc0oyrk3" path="res://Scenes/tile_plate.tscn" id="5_mcfpr"]
+[ext_resource type="PackedScene" uid="uid://bvri3pmtitfyd" path="res://Scenes/tile_pick_up.tscn" id="6_b24h5"]
+[ext_resource type="PackedScene" uid="uid://fb73xdocqbxi" path="res://Scenes/push_button.tscn" id="7_u1eke"]
+[ext_resource type="PackedScene" uid="uid://ci256tn1vache" path="res://Scenes/grid_map.tscn" id="8_twbbp"]
+[ext_resource type="Material" uid="uid://bar85gvgqs1dt" path="res://Materials/test_material_1.tres" id="9_b24h5"]
+[ext_resource type="PackedScene" uid="uid://dlc25wp4ww0sp" path="res://Models/Numbers/Part5.fbx" id="10_u1eke"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_gu0sv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gu0sv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ayu3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gu0sv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_twbbp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mcfpr"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b24h5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4svcl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_twbbp"]
+
+[node name="RoomMathTester" type="Node" unique_id=1805647473]
+
+[node name="Player" parent="." unique_id=1667134440 instance=ExtResource("1_a4fox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+Speed = 10
+
+[node name="CameraFollower" parent="." unique_id=956313856 node_paths=PackedStringArray("player") instance=ExtResource("2_ga2wj")]
+player = NodePath("../Player")
+maxCameraDistance = 2.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CameraFollower" unique_id=1423326211]
+mesh = SubResource("SphereMesh_gu0sv")
+
+[node name="World" type="StaticBody3D" parent="." unique_id=556897208]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World" unique_id=428828702]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 1, -1, 0)
+mesh = SubResource("BoxMesh_gu0sv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World" unique_id=563974252]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, -1, 0)
+shape = SubResource("BoxShape3D_4ayu3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="World" unique_id=1311634238]
+transform = Transform3D(20, 0, 0, 0, 4, 0, 0, 0, 1, 1, 1, -10)
+mesh = SubResource("BoxMesh_gu0sv")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="World" unique_id=1213228833]
+transform = Transform3D(20, 0, 0, 0, 4, 0, 0, 0, 1, 0, 2, -10)
+shape = SubResource("BoxShape3D_4ayu3")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="World" unique_id=283500446]
+transform = Transform3D(8, 0, 0, 0, 4, 0, 0, 0, 1, 7, 1, 10)
+mesh = SubResource("BoxMesh_gu0sv")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="World" unique_id=1798316959]
+transform = Transform3D(8, 0, 0, 0, 4, 0, 0, 0, 1, 1, 1, 10)
+mesh = SubResource("BoxMesh_gu0sv")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="World" unique_id=106978568]
+transform = Transform3D(8, 0, 0, 0, 4, 0, 0, 0, 1, 7, 1, 10)
+shape = SubResource("BoxShape3D_4ayu3")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="World" unique_id=1093858888]
+transform = Transform3D(8, 0, 0, 0, 4, 0, 0, 0, 1, -5, 1, 10)
+mesh = SubResource("BoxMesh_gu0sv")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="World" unique_id=1771340858]
+transform = Transform3D(8, 0, 0, 0, 4, 0, 0, 0, 1, -5, 1, 10)
+shape = SubResource("BoxShape3D_4ayu3")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="World" unique_id=2129174885]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 1, 1, 1, 10)
+shape = SubResource("BoxShape3D_4ayu3")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="World" unique_id=385061148]
+transform = Transform3D(-8.742278e-07, 0, 1, 0, 4, 0, -20, 0, -4.371139e-08, -9, 1, 0)
+mesh = SubResource("BoxMesh_gu0sv")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="World" unique_id=1928393819]
+transform = Transform3D(-8.742278e-07, 0, 1, 0, 4, 0, -20, 0, -4.371139e-08, -9, 2, 0)
+shape = SubResource("BoxShape3D_4ayu3")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="World" unique_id=498256120]
+transform = Transform3D(-8.742278e-07, 0, 1, 0, 4, 0, -20, 0, -4.371139e-08, 11, 1, 0)
+mesh = SubResource("BoxMesh_gu0sv")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="World" unique_id=1573859899]
+transform = Transform3D(-8.742278e-07, 0, 1, 0, 4, 0, -20, 0, -4.371139e-08, 11, 2, 0)
+shape = SubResource("BoxShape3D_4ayu3")
+
+[node name="Door" parent="World" unique_id=486056227 instance=ExtResource("3_twbbp")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1, 17)
+AnswerMoveTo = Vector3(8, 1, 9)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1632692811]
+transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 14, 0)
+
+[node name="Node" type="Node" parent="." unique_id=2012448099]
+
+[node name="CameraBlocker" type="StaticBody3D" parent="Node" unique_id=330051763]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node/CameraBlocker" unique_id=1065640771]
+transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 1, 0, 1, -5)
+shape = SubResource("BoxShape3D_gu0sv")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Node/CameraBlocker" unique_id=1095232082]
+transform = Transform3D(10, 0, 0, 0, 5, 0, 0, 0, 1, 0, 1, 5)
+shape = SubResource("BoxShape3D_gu0sv")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Node/CameraBlocker" unique_id=212738969]
+transform = Transform3D(-4.371139e-07, 0, 1, 0, 5, 0, -10, 0, -4.371139e-08, 3, 1, 0)
+shape = SubResource("BoxShape3D_gu0sv")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Node/CameraBlocker" unique_id=344989922]
+transform = Transform3D(-4.371139e-07, 0, 1, 0, 5, 0, -10, 0, -4.371139e-08, -2, 1, 0)
+shape = SubResource("BoxShape3D_gu0sv")
+
+[node name="MathSystemTest" parent="." unique_id=1256670147 node_paths=PackedStringArray("puzzleParts") instance=ExtResource("3_rv78f")]
+answers = PackedFloat32Array(5)
+puzzleParts = [NodePath("TilePlate"), NodePath("TilePlate2"), NodePath("Area3D")]
+
+[node name="TilePlate" parent="MathSystemTest" unique_id=562736670 node_paths=PackedStringArray("heldTile") instance=ExtResource("5_mcfpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 7)
+heldTile = NodePath("../TilePickUp")
+
+[node name="TilePlate2" parent="MathSystemTest" unique_id=1386583407 instance=ExtResource("5_mcfpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 7)
+
+[node name="TilePlate3" parent="MathSystemTest" unique_id=1954915075 node_paths=PackedStringArray("heldTile") instance=ExtResource("5_mcfpr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -3)
+heldTile = NodePath("../TilePickUp2")
+
+[node name="TilePickUp" parent="MathSystemTest" unique_id=1728698675 instance=ExtResource("6_b24h5")]
+index = 10
+
+[node name="TilePickUp2" parent="MathSystemTest" unique_id=635914419 instance=ExtResource("6_b24h5")]
+index = 1
+
+[node name="Area3D" parent="MathSystemTest" unique_id=704564999 instance=ExtResource("7_u1eke")]
+transform = Transform3D(1, 0, 0, 0, 0.05450669, 0, 0, 0, 1, 1, 0, 7)
+
+[node name="Area3D2" parent="MathSystemTest" unique_id=330849875 instance=ExtResource("7_u1eke")]
+transform = Transform3D(1, 0, 0, 0, 0.05450669, 0, 0, 0, 1, -1, 0, 7)
+
+[node name="GridMap" parent="MathSystemTest" unique_id=240971848 instance=ExtResource("8_twbbp")]
+cell_octant_size = 2
+collision_layer = 5
+collision_mask = 5
+blockIndex = 12
+metadata/_editor_floor_ = Vector3(0, 5, 0)
+
+[node name="Push Block Walls" type="Node3D" parent="MathSystemTest/GridMap" unique_id=399914610]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="PuzzleWall1" type="StaticBody3D" parent="MathSystemTest/GridMap/Push Block Walls" unique_id=291926165]
+transform = Transform3D(9.6334, 0, 0, 0, 1.5, 0, 0, 0, 1, -2.0523043, 0.0119999945, 8.556792)
+disable_mode = 1
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MathSystemTest/GridMap/Push Block Walls/PuzzleWall1" unique_id=1794819751]
+mesh = SubResource("BoxMesh_twbbp")
+surface_material_override/0 = SubResource("StandardMaterial3D_mcfpr")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MathSystemTest/GridMap/Push Block Walls/PuzzleWall1" unique_id=361179511]
+shape = SubResource("BoxShape3D_b24h5")
+metadata/_edit_group_ = true
+
+[node name="PuzzleWall2" type="StaticBody3D" parent="MathSystemTest/GridMap/Push Block Walls" unique_id=975007513]
+transform = Transform3D(9.633549, 0, 0, 0, 1, 0, 0, 0, 1, -2.2963908, 0.011786282, -1.354245)
+disable_mode = 1
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MathSystemTest/GridMap/Push Block Walls/PuzzleWall2" unique_id=1224908589]
+mesh = SubResource("BoxMesh_twbbp")
+surface_material_override/0 = SubResource("StandardMaterial3D_mcfpr")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MathSystemTest/GridMap/Push Block Walls/PuzzleWall2" unique_id=1809814357]
+shape = SubResource("BoxShape3D_b24h5")
+metadata/_edit_group_ = true
+
+[node name="PuzzleWall3" type="StaticBody3D" parent="MathSystemTest/GridMap/Push Block Walls" unique_id=101139648]
+transform = Transform3D(-4.210958e-07, 0, 1, 0, 1, 0, -9.633549, 0, -4.371139e-08, -7.0902376, 0.011786282, 3.6457553)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MathSystemTest/GridMap/Push Block Walls/PuzzleWall3" unique_id=1779524721]
+mesh = SubResource("BoxMesh_twbbp")
+surface_material_override/0 = SubResource("StandardMaterial3D_mcfpr")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MathSystemTest/GridMap/Push Block Walls/PuzzleWall3" unique_id=1783653616]
+shape = SubResource("BoxShape3D_b24h5")
+metadata/_edit_group_ = true
+
+[node name="PuzzleWall4" type="StaticBody3D" parent="MathSystemTest/GridMap/Push Block Walls" unique_id=1399356505]
+transform = Transform3D(-4.210958e-07, 0, 1, 0, 1, 0, -9.633549, 0, -4.371139e-08, 2.9097624, 0.011786282, 3.6457553)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MathSystemTest/GridMap/Push Block Walls/PuzzleWall4" unique_id=810603452]
+mesh = SubResource("BoxMesh_twbbp")
+surface_material_override/0 = SubResource("StandardMaterial3D_mcfpr")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MathSystemTest/GridMap/Push Block Walls/PuzzleWall4" unique_id=896052617]
+shape = SubResource("BoxShape3D_b24h5")
+metadata/_edit_group_ = true
+
+[node name="GridMap2" parent="MathSystemTest" unique_id=852218729 instance=ExtResource("8_twbbp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+cell_octant_size = 2
+collision_layer = 5
+collision_mask = 5
+blockIndex = 3
+metadata/_editor_floor_ = Vector3(0, 5, 0)
+
+[node name="Push Block Walls" type="Node3D" parent="MathSystemTest/GridMap2" unique_id=2057725993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="PuzzleWall1" type="StaticBody3D" parent="MathSystemTest/GridMap2/Push Block Walls" unique_id=1778065750]
+transform = Transform3D(9.6334, 0, 0, 0, 1.5, 0, 0, 0, 1, -0.052304268, 0.0119999945, 8.556792)
+disable_mode = 1
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MathSystemTest/GridMap2/Push Block Walls/PuzzleWall1" unique_id=2054499231]
+mesh = SubResource("BoxMesh_twbbp")
+surface_material_override/0 = SubResource("StandardMaterial3D_mcfpr")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MathSystemTest/GridMap2/Push Block Walls/PuzzleWall1" unique_id=789248736]
+shape = SubResource("BoxShape3D_b24h5")
+metadata/_edit_group_ = true
+
+[node name="PuzzleWall2" type="StaticBody3D" parent="MathSystemTest/GridMap2/Push Block Walls" unique_id=1193307331]
+transform = Transform3D(9.633549, 0, 0, 0, 1, 0, 0, 0, 1, -0.29639053, 0.011786282, -1.354245)
+disable_mode = 1
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MathSystemTest/GridMap2/Push Block Walls/PuzzleWall2" unique_id=961186149]
+mesh = SubResource("BoxMesh_twbbp")
+surface_material_override/0 = SubResource("StandardMaterial3D_mcfpr")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MathSystemTest/GridMap2/Push Block Walls/PuzzleWall2" unique_id=320822970]
+shape = SubResource("BoxShape3D_b24h5")
+metadata/_edit_group_ = true
+
+[node name="PuzzleWall3" type="StaticBody3D" parent="MathSystemTest/GridMap2/Push Block Walls" unique_id=1755145133]
+transform = Transform3D(-4.210958e-07, 0, 1, 0, 1, 0, -9.633549, 0, -4.371139e-08, -5.0902376, 0.011786282, 3.6457553)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MathSystemTest/GridMap2/Push Block Walls/PuzzleWall3" unique_id=1075529982]
+mesh = SubResource("BoxMesh_twbbp")
+surface_material_override/0 = SubResource("StandardMaterial3D_mcfpr")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MathSystemTest/GridMap2/Push Block Walls/PuzzleWall3" unique_id=213651231]
+shape = SubResource("BoxShape3D_b24h5")
+metadata/_edit_group_ = true
+
+[node name="PuzzleWall4" type="StaticBody3D" parent="MathSystemTest/GridMap2/Push Block Walls" unique_id=1762670564]
+transform = Transform3D(-4.210958e-07, 0, 1, 0, 1, 0, -9.633549, 0, -4.371139e-08, 4.9097624, 0.011786282, 3.6457553)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MathSystemTest/GridMap2/Push Block Walls/PuzzleWall4" unique_id=838166674]
+mesh = SubResource("BoxMesh_twbbp")
+surface_material_override/0 = SubResource("StandardMaterial3D_mcfpr")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MathSystemTest/GridMap2/Push Block Walls/PuzzleWall4" unique_id=925209382]
+shape = SubResource("BoxShape3D_b24h5")
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MathSystemTest" unique_id=683251502]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3, 0, 7)
+material_override = ExtResource("9_b24h5")
+mesh = SubResource("BoxMesh_4svcl")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="MathSystemTest" unique_id=2067766476]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3, 0, 7)
+shape = SubResource("BoxShape3D_twbbp")
+
+[node name="Part5" parent="MathSystemTest" unique_id=2052920274 instance=ExtResource("10_u1eke")]
+transform = Transform3D(-200, 0, -1.7484555e-05, 0, 200, 0, 1.7484555e-05, 0, -200, -3, 1, 7)

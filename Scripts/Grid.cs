@@ -3,6 +3,8 @@ using System;
 
 public partial class Grid : GridMap
 {
+    [Export]
+    int blockIndex;
 
     public override void _Ready()
     {
@@ -10,6 +12,7 @@ public partial class Grid : GridMap
         {
             if (child is PushBlock box)
             {
+                box.SetValue(blockIndex);
                 box.Initialize(this);
             }
             else
@@ -19,7 +22,7 @@ public partial class Grid : GridMap
                 //Vector3I map = new Vector3I(0, -1, 0);
                 //var localPos = this.MapToLocal(Vector3I.Zero);
                 //child.GlobalPosition = this.ToGlobal(localPos);
-             }
+            }
         }
         
     }
