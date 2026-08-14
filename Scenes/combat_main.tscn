@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://ck0s7bsc5uikf" path="res://Scenes/DefeatedState.cs" id="9_lhrf8"]
 [ext_resource type="Script" uid="uid://dttwcnsq4f4ti" path="res://Scripts/EnemyScripts/EnemyManager.cs" id="11_6d8ab"]
 [ext_resource type="PackedScene" uid="uid://bydeivn00di27" path="res://Scenes/healthBar.tscn" id="13_wn5wi"]
+[ext_resource type="PackedScene" uid="uid://c7na4426cw7ug" path="res://Scenes/question_system.tscn" id="14_kvfeh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k5tp8"]
 
@@ -54,9 +55,8 @@ SpecialButton = NodePath("../../CombatUI/SpecialButton")
 ItemsButton = NodePath("../../CombatUI/ItemsButton")
 PlchldrButton2 = NodePath("../../CombatUI/PlchldrButton2")
 
-[node name="QuestionState" type="Node" parent="CombatStateMachine" unique_id=399550750 node_paths=PackedStringArray("QuestionUI")]
+[node name="QuestionState" type="Node" parent="CombatStateMachine" unique_id=399550750]
 script = ExtResource("5_fsxqa")
-QuestionUI = NodePath("../../QuestionUI")
 
 [node name="PlayerAttackState" type="Node" parent="CombatStateMachine" unique_id=118247676 node_paths=PackedStringArray("EnemyManager", "PAttkStartTimer", "PAttkEndTimer")]
 script = ExtResource("6_kmofc")
@@ -260,10 +260,10 @@ theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_ngsrv")
 text = "No"
 
+[node name="Main" parent="." unique_id=1895040970 instance=ExtResource("14_kvfeh")]
+
 [connection signal="timeout" from="CombatStateMachine/PlayerAttackState/PAttkStartTimer" to="CombatStateMachine/PlayerAttackState" method="OnPAttkStartTimerTimeout"]
 [connection signal="timeout" from="CombatStateMachine/PlayerAttackState/PAttkEndTimer" to="CombatStateMachine/PlayerAttackState" method="OnPAttkEndTimerTimeout"]
 [connection signal="timeout" from="CombatStateMachine/EnemyAttackState/EAttkStartTimer" to="CombatStateMachine/EnemyAttackState" method="OnEAttkStartTimerTimeout"]
 [connection signal="timeout" from="CombatStateMachine/EnemyAttackState/EAttkEndTimer" to="CombatStateMachine/EnemyAttackState" method="OnEAttkEndTimerTimeout"]
 [connection signal="pressed" from="CombatUI/AttackButton" to="CombatStateMachine/PlayerTurnState" method="OnAttackButtonPressed"]
-[connection signal="pressed" from="QuestionUI/YesButton" to="CombatStateMachine/QuestionState" method="OnYesButtonPressed"]
-[connection signal="pressed" from="QuestionUI/NoButton" to="CombatStateMachine/QuestionState" method="OnNoButtonPressed"]
