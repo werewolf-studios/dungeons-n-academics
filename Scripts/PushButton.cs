@@ -3,18 +3,16 @@ using System;
 
 public partial class PushButton : InteractionTest, MathSignal
 {
-    private PushBlock currentBlock;
+    private String setValue;
+
+    public string GetValue() { return setValue; }
 
     //Functionality when something touches the button
-    public void OnBodyEntered(Object pushBlock)
+    public void OnBodyEntered(string pushBlockValue)
     {
         GD.Print("Pressed");
-        if (pushBlock is PushBlock newBlock)
-        {
-            currentBlock = newBlock;
-            if (GetParent() is MathSystem) { GetParent<MathSystem>().ChangeDetected(); }
-        }
-    }
+        setValue = pushBlockValue;
 
-    public string GetValue() {  return currentBlock.GetValue(); }
+        if (GetParent() is MathSystem) { GetParent<MathSystem>().ChangeDetected(); }
+    }
 }

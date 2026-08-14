@@ -8,7 +8,8 @@ public partial class MathSystem : Node
     float[] answers;
 
     [Export]
-    CharacterBody3D[] recievers, puzzleParts;
+    CharacterBody3D[] puzzleParts;
+    Door[] recievers;
 
     private Expression _expression = new Expression();
 

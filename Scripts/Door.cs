@@ -19,6 +19,9 @@ public partial class Door : Area3D
     [Export]
     public Vector3 newCameraLocation;
 
+    [Export]
+    public Vector3 AnswerMoveTo;
+
     public void ChangeRoom(Node3D body)
     {
         if (body == playerRef)
@@ -26,5 +29,10 @@ public partial class Door : Area3D
             playerRef.Position = newPlayerLocation;
             cameraRef.Position = newCameraLocation;
         }
+    }
+
+    public void Answered()
+    {
+        Position = AnswerMoveTo;
     }
 }

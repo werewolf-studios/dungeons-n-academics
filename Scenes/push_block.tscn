@@ -1,6 +1,21 @@
 [gd_scene format=3 uid="uid://d4hfgpi2u34uo"]
 
 [ext_resource type="Script" uid="uid://8b1bq6jx3ef4" path="res://Scripts/PushBlock.cs" id="1_n0h5u"]
+[ext_resource type="PackedScene" uid="uid://3bo5lg1ixjhg" path="res://Models/Numbers/Part0.fbx" id="2_tvcfx"]
+[ext_resource type="PackedScene" uid="uid://dbw1wpqi5ma3o" path="res://Models/Numbers/Part1.fbx" id="3_vhans"]
+[ext_resource type="PackedScene" uid="uid://cy5k6d4xhuhtn" path="res://Models/Numbers/Part2.fbx" id="4_8p8xj"]
+[ext_resource type="PackedScene" uid="uid://cdv1nn06l4hvs" path="res://Models/Numbers/Part3.fbx" id="5_ni17l"]
+[ext_resource type="PackedScene" uid="uid://dwl1au8so3fdi" path="res://Models/Numbers/Part4.fbx" id="6_xgqe0"]
+[ext_resource type="PackedScene" uid="uid://dlc25wp4ww0sp" path="res://Models/Numbers/Part5.fbx" id="7_vcde2"]
+[ext_resource type="PackedScene" uid="uid://c3j5gg8h5eve3" path="res://Models/Numbers/Part6.fbx" id="8_bsymp"]
+[ext_resource type="PackedScene" uid="uid://v2eehoctf8hn" path="res://Models/Numbers/Part7.fbx" id="9_hjxad"]
+[ext_resource type="PackedScene" uid="uid://hagvp3jntq21" path="res://Models/Numbers/Part8.fbx" id="10_aca4n"]
+[ext_resource type="PackedScene" uid="uid://y6i2cbvsu2mt" path="res://Models/Numbers/Part9.fbx" id="11_onjr0"]
+[ext_resource type="PackedScene" uid="uid://30mvnkfa8ynm" path="res://Models/Numbers/PartAdd.fbx" id="12_yjn7u"]
+[ext_resource type="PackedScene" uid="uid://1ej2arg6cdu4" path="res://Models/Numbers/PartDiv.fbx" id="13_6s8t7"]
+[ext_resource type="PackedScene" uid="uid://bp3ppkradgxhw" path="res://Models/Numbers/PartEqu.fbx" id="14_uvpov"]
+[ext_resource type="PackedScene" uid="uid://d1s8ew5lc8xu5" path="res://Models/Numbers/PartMul.fbx" id="15_hhn0n"]
+[ext_resource type="PackedScene" uid="uid://ddohj12ou6j0s" path="res://Models/Numbers/PartSub.fbx" id="16_03l7j"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_s17xb"]
 
@@ -9,10 +24,12 @@ albedo_color = Color(1, 0.3529412, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5pwlv"]
 
-[node name="PushBlock" type="CharacterBody3D" unique_id=47364855 groups=["Interactable"]]
-collision_layer = 5
-collision_mask = 5
+[node name="PushBlock" type="CharacterBody3D" unique_id=47364855 node_paths=PackedStringArray("meshes") groups=["Interactable"]]
+collision_layer = 13
+collision_mask = 13
 script = ExtResource("1_n0h5u")
+meshes = [NodePath("Part0"), NodePath("Part1"), NodePath("Part2"), NodePath("Part3"), NodePath("Part4"), NodePath("Part5"), NodePath("Part6"), NodePath("Part7"), NodePath("Part8"), NodePath("Part9"), NodePath("PartAdd"), NodePath("PartDiv"), NodePath("PartEqu"), NodePath("PartMul"), NodePath("PartSub")]
+values = PackedStringArray("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "/", "=", "*", "-")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1813855529]
 mesh = SubResource("BoxMesh_s17xb")
@@ -20,3 +37,68 @@ surface_material_override/0 = SubResource("StandardMaterial3D_abov3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2091163431]
 shape = SubResource("BoxShape3D_5pwlv")
+
+[node name="Part0" parent="." unique_id=1348387665 instance=ExtResource("2_tvcfx")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 0.50342107, 0)
+visible = false
+
+[node name="Part1" parent="." unique_id=1662153250 instance=ExtResource("3_vhans")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 0.50342107, 0)
+visible = false
+
+[node name="Part2" parent="." unique_id=1668629745 instance=ExtResource("4_8p8xj")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 0.50342107, 0)
+visible = false
+
+[node name="Part3" parent="." unique_id=961471751 instance=ExtResource("5_ni17l")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 0.50342107, 0)
+visible = false
+
+[node name="Part4" parent="." unique_id=1108743144 instance=ExtResource("6_xgqe0")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 0.50342107, 0)
+visible = false
+
+[node name="Part5" parent="." unique_id=2052920274 instance=ExtResource("7_vcde2")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 0.50342107, 0)
+visible = false
+
+[node name="Part6" parent="." unique_id=598363994 instance=ExtResource("8_bsymp")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 0.50342107, 0)
+visible = false
+
+[node name="Part7" parent="." unique_id=2114236634 instance=ExtResource("9_hjxad")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 0.50342107, 0.4457593)
+visible = false
+
+[node name="Part8" parent="." unique_id=1493092289 instance=ExtResource("10_aca4n")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 0.50342107, 0)
+visible = false
+
+[node name="Part9" parent="." unique_id=1318038055 instance=ExtResource("11_onjr0")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 0.50342107, 0)
+visible = false
+
+[node name="PartAdd" parent="." unique_id=418528977 instance=ExtResource("12_yjn7u")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 0.50342107, 0)
+visible = false
+
+[node name="PartDiv" parent="." unique_id=398112452 instance=ExtResource("13_6s8t7")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 0.50342107, 0.5604768)
+visible = false
+
+[node name="PartEqu" parent="." unique_id=279357795 instance=ExtResource("14_uvpov")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 0.50342107, 0)
+visible = false
+
+[node name="PartMul" parent="." unique_id=1995774566 instance=ExtResource("15_hhn0n")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 0.50342107, 0)
+visible = false
+
+[node name="PartSub" parent="." unique_id=167785909 instance=ExtResource("16_03l7j")]
+transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 0.50342107, 0)
+visible = false
+
+[node name="Area3D" type="Area3D" parent="." unique_id=218387208]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+collision_layer = 8
+collision_mask = 8

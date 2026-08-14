@@ -4,8 +4,11 @@ using System.Threading.Tasks;
 [GlobalClass]
 public partial class PushBlock : InteractionTest
 {
+    int index;
     [Export]
-    string value;
+    Node3D[] meshes;
+    [Export]
+    string[] values;
 
     GridMap grid;
     bool isMoving = false;
@@ -17,10 +20,16 @@ public partial class PushBlock : InteractionTest
     [Export]
     private bool interactRequired;
 
+    public void SetValue(int _index)
+    {
+        index = _index;
+        meshes[index].Visible = true;
+    }
+
     public string GetValue()
     {
-        return value;
-    } 
+        return values[index];
+    }
 
     /// <summary>
     /// Initializes the grid 
@@ -64,12 +73,17 @@ public partial class PushBlock : InteractionTest
                 .SetTrans(Tween.TransitionType.Cubic);
             await ToSignal(tween, Tween.SignalName.Finished);
             isMoving = false;
+
+            GD.Print(GetNode<Area3D>("Area3D").GetOverlappingAreas().Count);
+            foreach (object button in GetNode<Area3D>("Area3D").GetOverlappingAreas())
+            {
+                GD.Print(button);
+                //button.OnBodyEntered(values[index]);
+            }
         }
 
-        GD.Print(moveTo);
-        GD.Print(GlobalPosition);
-
-
+        //GD.Print(moveTo);
+        //GD.Print(GlobalPosition);
     }
 
     /// <summary>
@@ -103,12 +117,13 @@ public partial class PushBlock : InteractionTest
         Vector3 motion = moveTo - GlobalPosition;
         //return !TestMove(currentTransform, motion);
 
+        SetCollisionMaskValue(4, false);
         bool hit = TestMove(currentTransform, motion);
+        SetCollisionMaskValue(4, true);
 
-        GD.Print($"Motion: {motion}");
-        GD.Print($"Hit: {hit}");
+        //GD.Print($"Motion: {motion}");
+        //GD.Print($"Hit: {hit}");
 
         return !hit;
     }
-
 }
