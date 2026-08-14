@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://balmyx7vxdsm7"
-path="res://.godot/imported/Enemy_X_Gear.fbx-faf6552a87dada6483d53eb35f136a14.scn"
+uid="uid://c4lctsrjmkmky"
+path="res://.godot/imported/Dungeon floor.fbx-a84a551a77954c98758e3021b28e86dd.scn"
 
 [deps]
 
-source_file="res://Models/Enemy_X_Gear.fbx"
-dest_files=["res://.godot/imported/Enemy_X_Gear.fbx-faf6552a87dada6483d53eb35f136a14.scn"]
+source_file="res://Models/Health Assets/Dungeon floor.fbx"
+dest_files=["res://.godot/imported/Dungeon floor.fbx-a84a551a77954c98758e3021b28e86dd.scn"]
 
 [params]
 
@@ -37,25 +37,7 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"materials": {
-"lambert2": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Materials/XGear/GearMatA.tres",
-"use_external/path": "uid://c1y1gmgns6csk"
-},
-"lambert3": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Materials/XGear/GearMatB.tres",
-"use_external/path": "uid://c2m070gjdd4wm"
-},
-"lambert4": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://Materials/XGear/GearMatC.tres",
-"use_external/path": "uid://bosofdb7wwdwg"
-}
-}
-}
+_subresources={}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://df7lqrm5ai3ma"]
 
-[ext_resource type="Script" uid="uid://r74q2g0yviaq" path="res://Menu.cs" id="1_l48gv"]
-[ext_resource type="FontFile" uid="uid://bjl4ttra3a6wb" path="res://Assets/Menu Assets/Terra Ignota Font.ttf" id="1_lti8b"]
-[ext_resource type="PackedScene" uid="uid://mbseh5th1rku" path="res://male___character.tscn" id="1_ouk20"]
-[ext_resource type="Texture2D" uid="uid://n607hvxd0u1f" path="res://Assets/Menu Assets/Blackboard.png" id="3_mae5d"]
-[ext_resource type="FontFile" uid="uid://ck45s4ppm8tnj" path="res://Assets/Menu Assets/EraserRegular.ttf" id="5_ecwwl"]
-[ext_resource type="Texture2D" uid="uid://b4xwh3fa4as5a" path="res://Assets/Menu Assets/Menu_Select_Thingy.png" id="6_kk3ma"]
+[ext_resource type="Script" uid="uid://r74q2g0yviaq" path="res://Menu.cs" id="1_wwsa2"]
+[ext_resource type="FontFile" uid="uid://bjl4ttra3a6wb" path="res://Assets/Menu Assets/Terra Ignota Font.ttf" id="2_jsrd8"]
+[ext_resource type="PackedScene" uid="uid://bg8ytimk6fm61" path="res://Scenes/menu_room.tscn" id="2_wbdvm"]
+[ext_resource type="Texture2D" uid="uid://n607hvxd0u1f" path="res://Assets/Menu Assets/Blackboard.png" id="3_wbdvm"]
+[ext_resource type="FontFile" uid="uid://ck45s4ppm8tnj" path="res://Assets/Menu Assets/EraserRegular.ttf" id="4_q3rjx"]
+[ext_resource type="Texture2D" uid="uid://b4xwh3fa4as5a" path="res://Assets/Menu Assets/Menu_Select_Thingy.png" id="5_6swd7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mae5d"]
 
@@ -28,11 +28,11 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g7jxm"]
 
 [node name="Menu" type="CanvasLayer" unique_id=1712853273]
-script = ExtResource("1_l48gv")
+script = ExtResource("1_wwsa2")
 
 [node name="Background" type="Node3D" parent="." unique_id=358169908]
 
-[node name="Male - Character" parent="Background" unique_id=66504351 instance=ExtResource("1_ouk20")]
+[node name="Menu Room" parent="Background" unique_id=58081280 instance=ExtResource("2_wbdvm")]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Background" unique_id=794580350]
 z_index = -2824
@@ -48,7 +48,7 @@ size = Vector2i(1280, 720)
 render_target_update_mode = 4
 
 [node name="Camera3D2" type="Camera3D" parent="Background/SubViewportContainer/SubViewport" unique_id=130048472]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.5627017)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.6521516, 0.4428988, 2.5593655)
 
 [node name="MainButtons" type="Control" parent="." unique_id=1791278159]
 layout_mode = 3
@@ -85,7 +85,7 @@ layout_mode = 2
 [node name="Game Title" type="Label" parent="MainButtons/MarginContainer/VBoxContainer" unique_id=1011779092]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_fonts/font = ExtResource("2_jsrd8")
 theme_override_font_sizes/font_size = 62
 text = "Dungeons N Academics"
 
@@ -98,7 +98,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_focus_color = Color(0.82247823, 0.29866156, 0.3742573, 1)
 theme_override_colors/font_pressed_color = Color(0.9948632, 0, 0.13248974, 1)
-theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_fonts/font = ExtResource("2_jsrd8")
 theme_override_font_sizes/font_size = 68
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mae5d")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_4hy44")
@@ -112,7 +112,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_focus_color = Color(0.82247823, 0.29866156, 0.3742573, 1)
 theme_override_colors/font_pressed_color = Color(0.9948632, 0, 0.13248974, 1)
-theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_fonts/font = ExtResource("2_jsrd8")
 theme_override_font_sizes/font_size = 68
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mae5d")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_4hy44")
@@ -126,7 +126,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_focus_color = Color(0.82247823, 0.29866156, 0.3742573, 1)
 theme_override_colors/font_pressed_color = Color(0.9948632, 0, 0.13248974, 1)
-theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_fonts/font = ExtResource("2_jsrd8")
 theme_override_font_sizes/font_size = 68
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mae5d")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_4hy44")
@@ -145,7 +145,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("3_mae5d")
+texture = ExtResource("3_wbdvm")
 expand_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SettingsMenu" unique_id=277912514]
@@ -166,7 +166,7 @@ theme_override_constants/separation = 58
 [node name="Graphics" type="Button" parent="SettingsMenu/HBoxContainer" unique_id=1194995141]
 custom_minimum_size = Vector2(274.735, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_ecwwl")
+theme_override_fonts/font = ExtResource("4_q3rjx")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_nrnbx")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_iqepy")
@@ -185,13 +185,13 @@ offset_right = 240.73
 offset_bottom = 96.14
 size_flags_vertical = 0
 mouse_filter = 2
-texture = ExtResource("6_kk3ma")
+texture = ExtResource("5_6swd7")
 expand_mode = 1
 
 [node name="Controls" type="Button" parent="SettingsMenu/HBoxContainer" unique_id=757659430]
 custom_minimum_size = Vector2(274.735, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_ecwwl")
+theme_override_fonts/font = ExtResource("4_q3rjx")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_nrnbx")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_iqepy")
@@ -210,13 +210,13 @@ offset_right = 236.73
 offset_bottom = 96.14
 size_flags_vertical = 0
 mouse_filter = 2
-texture = ExtResource("6_kk3ma")
+texture = ExtResource("5_6swd7")
 expand_mode = 1
 
 [node name="Audio" type="Button" parent="SettingsMenu/HBoxContainer" unique_id=114266941]
 custom_minimum_size = Vector2(274.735, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("5_ecwwl")
+theme_override_fonts/font = ExtResource("4_q3rjx")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_nrnbx")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_iqepy")
@@ -235,7 +235,7 @@ offset_right = 239.705
 offset_bottom = 96.14
 size_flags_vertical = 0
 mouse_filter = 2
-texture = ExtResource("6_kk3ma")
+texture = ExtResource("5_6swd7")
 expand_mode = 1
 
 [node name="Close" type="Button" parent="SettingsMenu" unique_id=1846472955]
