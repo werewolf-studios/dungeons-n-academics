@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ci256tn1vache" path="res://Scenes/grid_map.tscn" id="8_twbbp"]
 [ext_resource type="Material" uid="uid://bar85gvgqs1dt" path="res://Materials/test_material_1.tres" id="9_b24h5"]
 [ext_resource type="PackedScene" uid="uid://dlc25wp4ww0sp" path="res://Models/Numbers/Part5.fbx" id="10_u1eke"]
+[ext_resource type="PackedScene" uid="uid://bp3ppkradgxhw" path="res://Models/Numbers/PartEqu.fbx" id="11_u1eke"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_gu0sv"]
 
@@ -131,18 +132,18 @@ transform = Transform3D(-4.371139e-07, 0, 1, 0, 5, 0, -10, 0, -4.371139e-08, -2,
 shape = SubResource("BoxShape3D_gu0sv")
 
 [node name="MathSystemTest" parent="." unique_id=1256670147 node_paths=PackedStringArray("puzzleParts") instance=ExtResource("3_rv78f")]
-answers = PackedFloat32Array(5)
-puzzleParts = [NodePath("TilePlate"), NodePath("TilePlate2"), NodePath("Area3D")]
+answers = PackedFloat32Array(4)
+puzzleParts = [NodePath("TilePlate"), NodePath("TilePlate2"), NodePath("Button")]
 
 [node name="TilePlate" parent="MathSystemTest" unique_id=562736670 node_paths=PackedStringArray("heldTile") instance=ExtResource("5_mcfpr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.5, 7)
 heldTile = NodePath("../TilePickUp")
 
 [node name="TilePlate2" parent="MathSystemTest" unique_id=1386583407 instance=ExtResource("5_mcfpr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.5, 7)
 
 [node name="TilePlate3" parent="MathSystemTest" unique_id=1954915075 node_paths=PackedStringArray("heldTile") instance=ExtResource("5_mcfpr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.5, -3)
 heldTile = NodePath("../TilePickUp2")
 
 [node name="TilePickUp" parent="MathSystemTest" unique_id=1728698675 instance=ExtResource("6_b24h5")]
@@ -150,12 +151,6 @@ index = 10
 
 [node name="TilePickUp2" parent="MathSystemTest" unique_id=635914419 instance=ExtResource("6_b24h5")]
 index = 1
-
-[node name="Area3D" parent="MathSystemTest" unique_id=704564999 instance=ExtResource("7_u1eke")]
-transform = Transform3D(1, 0, 0, 0, 0.05450669, 0, 0, 0, 1, 1, 0, 7)
-
-[node name="Area3D2" parent="MathSystemTest" unique_id=330849875 instance=ExtResource("7_u1eke")]
-transform = Transform3D(1, 0, 0, 0, 0.05450669, 0, 0, 0, 1, -1, 0, 7)
 
 [node name="GridMap" parent="MathSystemTest" unique_id=240971848 instance=ExtResource("8_twbbp")]
 cell_octant_size = 2
@@ -313,3 +308,18 @@ shape = SubResource("BoxShape3D_twbbp")
 
 [node name="Part5" parent="MathSystemTest" unique_id=2052920274 instance=ExtResource("10_u1eke")]
 transform = Transform3D(-200, 0, -1.7484555e-05, 0, 200, 0, 1.7484555e-05, 0, -200, -3, 1, 7)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MathSystemTest" unique_id=941815016]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1, 0, 7)
+material_override = ExtResource("9_b24h5")
+mesh = SubResource("BoxMesh_4svcl")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="MathSystemTest" unique_id=90576934]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1, 0, 7)
+shape = SubResource("BoxShape3D_twbbp")
+
+[node name="Button" parent="MathSystemTest" unique_id=704564999 instance=ExtResource("7_u1eke")]
+transform = Transform3D(1, 0, 0, 0, 0.05450669, 0, 0, 0, 1, 1, 0, 7)
+
+[node name="PartEqu" parent="." unique_id=279357795 instance=ExtResource("11_u1eke")]
+transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, -1, 1, 7)

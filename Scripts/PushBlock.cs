@@ -74,11 +74,13 @@ public partial class PushBlock : InteractionTest
             await ToSignal(tween, Tween.SignalName.Finished);
             isMoving = false;
 
-            GD.Print(GetNode<Area3D>("Area3D").GetOverlappingAreas().Count);
-            foreach (object button in GetNode<Area3D>("Area3D").GetOverlappingAreas())
+            GD.Print(GetNode<Area3D>("Area3D").GetOverlappingBodies().Count);
+            foreach (Node3D hit in GetNode<Area3D>("Area3D").GetOverlappingBodies())
             {
-                GD.Print(button);
-                //button.OnBodyEntered(values[index]);
+                if (hit is PushButton button)
+                {
+                    button.OnBodyEntered(values[index]);
+                }
             }
         }
 
