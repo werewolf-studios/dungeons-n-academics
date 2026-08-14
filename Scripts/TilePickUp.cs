@@ -7,6 +7,7 @@ public partial class TilePickUp : InteractionTest
     int index;
     [Export]
     Node3D[] meshes;
+    [Export]
     string[] values;
 
     public override void _Ready()

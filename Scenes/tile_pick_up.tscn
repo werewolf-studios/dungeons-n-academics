@@ -20,7 +20,8 @@
 
 [node name="TilePickUp" type="CharacterBody3D" unique_id=1728698675 node_paths=PackedStringArray("meshes")]
 script = ExtResource("1_u22ku")
-meshes = [null]
+meshes = [NodePath("Part0"), NodePath("Part1"), NodePath("Part2"), NodePath("Part3"), NodePath("Part4"), NodePath("Part5"), NodePath("Part6"), NodePath("Part7"), NodePath("Part8"), NodePath("Part9"), NodePath("PartAdd"), NodePath("PartDiv"), NodePath("PartEqu"), NodePath("PartMul"), NodePath("PartSub")]
+values = PackedStringArray("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "/", "=", "*", "-")
 
 [node name="Part0" parent="." unique_id=1348387665 instance=ExtResource("2_8ak04")]
 transform = Transform3D(-169.99998, 0, -1.4861871e-05, 0, 169.99998, 0, 1.4861871e-05, 0, -169.99998, 0, 1.1854558, 0)
