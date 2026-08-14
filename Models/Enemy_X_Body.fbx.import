@@ -16,6 +16,8 @@ dest_files=["res://.godot/imported/Enemy_X_Body.fbx-78dfddef124b2ef93d994b7bd4e3
 nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
+mesh_library/use_node_names_as_mesh_names=false
+array_mesh/deduplicate_surfaces=true
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -41,47 +43,47 @@ _subresources={
 "materials": {
 "lambert10": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Materials/BodyMatF.tres",
+"use_external/fallback_path": "res://Materials/XBody/BodyMatF.tres",
 "use_external/path": "uid://q2dllf85q0rb"
 },
 "lambert11": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Materials/BodyMatG.tres",
+"use_external/fallback_path": "res://Materials/XBody/BodyMatG.tres",
 "use_external/path": "uid://l1hdb0t5tvgl"
 },
 "lambert12": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Materials/BodyMatH.tres",
+"use_external/fallback_path": "res://Materials/XBody/BodyMatH.tres",
 "use_external/path": "uid://c03aftthqs6tq"
 },
 "lambert13": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Materials/BodyMatI.tres",
+"use_external/fallback_path": "res://Materials/XBody/BodyMatI.tres",
 "use_external/path": "uid://218vnb2igavf"
 },
 "lambert5": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Materials/BodyMatA.tres",
+"use_external/fallback_path": "res://Materials/XBody/BodyMatA.tres",
 "use_external/path": "uid://ddlb08umwwvyd"
 },
 "lambert6": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Materials/BodyMatB.tres",
+"use_external/fallback_path": "res://Materials/XBody/BodyMatB.tres",
 "use_external/path": "uid://chr5vk2sb35gg"
 },
 "lambert7": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Materials/BodyMatC.tres",
+"use_external/fallback_path": "res://Materials/XBody/BodyMatC.tres",
 "use_external/path": "uid://cfvf30fywju7h"
 },
 "lambert8": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Materials/BodyMatD.tres",
+"use_external/fallback_path": "res://Materials/XBody/BodyMatD.tres",
 "use_external/path": "uid://c80lak1enbvxl"
 },
 "lambert9": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Materials/BodyMatE.tres",
+"use_external/fallback_path": "res://Materials/XBody/BodyMatE.tres",
 "use_external/path": "uid://cvxwptxwd7a3n"
 }
 }

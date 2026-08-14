@@ -16,6 +16,8 @@ dest_files=["res://.godot/imported/Enemy_X_Gear.fbx-faf6552a87dada6483d53eb35f13
 nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
+mesh_library/use_node_names_as_mesh_names=false
+array_mesh/deduplicate_surfaces=true
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -41,17 +43,17 @@ _subresources={
 "materials": {
 "lambert2": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Materials/GearMatA.tres",
+"use_external/fallback_path": "res://Materials/XGear/GearMatA.tres",
 "use_external/path": "uid://c1y1gmgns6csk"
 },
 "lambert3": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Materials/GearMatB.tres",
+"use_external/fallback_path": "res://Materials/XGear/GearMatB.tres",
 "use_external/path": "uid://c2m070gjdd4wm"
 },
 "lambert4": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Materials/GearMatC.tres",
+"use_external/fallback_path": "res://Materials/XGear/GearMatC.tres",
 "use_external/path": "uid://bosofdb7wwdwg"
 }
 }
