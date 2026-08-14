@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://diobguy00k3gs"]
+
+[ext_resource type="PackedScene" uid="uid://d2knkywuirngr" path="res://Models/Dungeon floor.fbx" id="1_mtohx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mtohx"]
+size = Vector3(1, 0.32720947, 1)
+
+[node name="Node3D" type="Node3D" unique_id=421261955]
+
+[node name="Dungeon floor" parent="." unique_id=21884124 instance=ExtResource("1_mtohx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Dungeon floor" unique_id=1137817258]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dungeon floor/StaticBody3D" unique_id=527660452]
+transform = Transform3D(2, 0, 0, 0, 0.5, 0, 0, 0, 2, 0, 0.0017547607, 0)
+shape = SubResource("BoxShape3D_mtohx")

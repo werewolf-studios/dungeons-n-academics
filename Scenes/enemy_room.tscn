@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://da5vit0svhfty"]
 
-[ext_resource type="PackedScene" uid="uid://wxovbdt7lbjj" path="res://Scenes/left_wall.tscn" id="1_sqjsd"]
 [ext_resource type="PackedScene" uid="uid://0l41fxib1ugi" path="res://Scenes/enemy_x.tscn" id="2_75x5l"]
+[ext_resource type="PackedScene" uid="uid://c33gyolc4fysk" path="res://Scenes/dungeon_wall.tscn" id="2_jhg6j"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_sqjsd"]
 vertices = PackedVector3Array(-11.926376, 0.529, -9.5, -11.926376, 0.529, 9.5, 7.0736237, 0.529, 9.5, 7.0736237, 0.529, -9.5)
@@ -11,13 +11,10 @@ polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="BoxMesh" id="BoxMesh_u3pak"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhg6j"]
+albedo_color = Color(0.36078432, 0.22745098, 0.18039216, 1)
+
 [node name="Node3D" type="Node3D" unique_id=274251251]
-
-[node name="Left Wall" parent="." unique_id=1429365271 instance=ExtResource("1_sqjsd")]
-transform = Transform3D(1, 0, 0, 0, 1, 7.5497894e-08, 0, -7.5497894e-08, 1, 1.0250192, -1.6250405, -17.283684)
-
-[node name="Left Wall2" parent="." unique_id=161190021 instance=ExtResource("1_sqjsd")]
-transform = Transform3D(-1, -8.742278e-08, -6.6002357e-15, 8.742278e-08, -1, -7.5497894e-08, 0, -7.5497894e-08, 1, -6.903698, 3.9100337, -18.822943)
 
 [node name="EnemyX" parent="." unique_id=94392762 instance=ExtResource("2_75x5l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9458575, 1.758712, -0.3162303)
@@ -36,9 +33,16 @@ shape = SubResource("BoxShape3D_ax8mu")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Floor" unique_id=2002882221]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.529, 0)
 mesh = SubResource("BoxMesh_u3pak")
+surface_material_override/0 = SubResource("StandardMaterial3D_jhg6j")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1002128024]
 transform = Transform3D(1, 0, 0, 0, 0.47098115, 0.8821433, 0, -0.8821433, 0.47098115, -3.2306328, 9.464814, 9.200441)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2119734643]
 transform = Transform3D(1, 0, 0, 0, 0.47098115, 0.8821433, 0, -0.8821433, 0.47098115, -2.7698464, 8.464814, 7.2004414)
+
+[node name="DungeonWall" parent="." unique_id=342813738 instance=ExtResource("2_jhg6j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 0)
+
+[node name="DungeonWall2" parent="." unique_id=724530310 instance=ExtResource("2_jhg6j")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 6.660553, 0, 0)

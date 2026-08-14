@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c33gyolc4fysk"]
+
+[ext_resource type="PackedScene" uid="uid://dibp1dx3kx6to" path="res://Models/WallTileFinal.fbx" id="1_jihd1"]
+
+[node name="DungeonWall" type="Node3D" unique_id=342813738]
+
+[node name="WallTileFinal" parent="." unique_id=471606112 instance=ExtResource("1_jihd1")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.71857214, 7.6736727)
+
+[node name="WallTileFinal2" parent="." unique_id=1463191515 instance=ExtResource("1_jihd1")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.71857214, 6.2029767)
+
+[node name="WallTileFinal3" parent="." unique_id=1081333015 instance=ExtResource("1_jihd1")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.71857214, 4.770278)
+
+[node name="WallTileFinal4" parent="." unique_id=1696267903 instance=ExtResource("1_jihd1")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.71857214, 3.3012729)
+
+[node name="WallTileFinal5" parent="." unique_id=2098883890 instance=ExtResource("1_jihd1")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.71857214, 1.829015)
+
+[node name="WallTileFinal6" parent="." unique_id=1542542661 instance=ExtResource("1_jihd1")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.71857214, 0.37563396)
+
+[node name="WallTileFinal7" parent="." unique_id=1397019318 instance=ExtResource("1_jihd1")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.71857214, -1.0777651)
+
+[node name="WallTileFinal8" parent="." unique_id=119179484 instance=ExtResource("1_jihd1")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.71857214, -2.478068)
+
+[node name="WallTileFinal9" parent="." unique_id=1925858530 instance=ExtResource("1_jihd1")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.71857214, -3.942178)
+
+[node name="WallTileFinal10" parent="." unique_id=233805865 instance=ExtResource("1_jihd1")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.71857214, -5.4082108)
+
+[node name="WallTileFinal11" parent="." unique_id=245978445 instance=ExtResource("1_jihd1")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.71857214, -6.8334265)
+
+[node name="WallTileFinal12" parent="." unique_id=1480192056 instance=ExtResource("1_jihd1")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.71857214, -8.307339)
+
+[node name="WallTileFinal13" parent="." unique_id=1567986702 instance=ExtResource("1_jihd1")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.71857214, -9.758045)
+
+[node name="WallTileFinal14" parent="." unique_id=804832395 instance=ExtResource("1_jihd1")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.71857214, -11.175961)
