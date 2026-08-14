@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{EACABD49-E7F1-4DC8-BB56-B8A60A01139D}|Dungeons N Academics.csproj|c:\\users\\dolph\\documents\\github\\dungeons-n-academics\\scenes\\enemywander.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EACABD49-E7F1-4DC8-BB56-B8A60A01139D}|Dungeons N Academics.csproj|solutionrelative:scenes\\enemywander.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{EACABD49-E7F1-4DC8-BB56-B8A60A01139D}|Dungeons N Academics.csproj|c:\\users\\dolph\\documents\\github\\dungeons-n-academics\\scripts\\enemyscripts\\enemymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EACABD49-E7F1-4DC8-BB56-B8A60A01139D}|Dungeons N Academics.csproj|solutionrelative:scripts\\enemyscripts\\enemymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -62,7 +66,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,7 +78,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "EnemyWander.cs",
+              "DocumentMoniker": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\Scenes\\EnemyWander.cs",
+              "RelativeDocumentMoniker": "Scenes\\EnemyWander.cs",
+              "ToolTip": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\Scenes\\EnemyWander.cs",
+              "RelativeToolTip": "Scenes\\EnemyWander.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-14T17:59:00.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\Scripts\\Player.cs",
               "RelativeDocumentMoniker": "Scripts\\Player.cs",
@@ -82,12 +99,11 @@
               "RelativeToolTip": "Scripts\\Player.cs",
               "ViewState": "AgIAAG0AAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-14T02:21:25.958Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-14T02:21:25.958Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "EnemyAttackState.cs",
               "DocumentMoniker": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\Scripts\\CombatStateMachine\\EnemyAttackState.cs",
               "RelativeDocumentMoniker": "Scripts\\CombatStateMachine\\EnemyAttackState.cs",
@@ -95,12 +111,11 @@
               "RelativeToolTip": "Scripts\\CombatStateMachine\\EnemyAttackState.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-14T02:18:45.483Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-14T02:18:45.483Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "HealthBar.cs",
               "DocumentMoniker": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\Scenes\\HealthBar.cs",
               "RelativeDocumentMoniker": "Scenes\\HealthBar.cs",
@@ -112,7 +127,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CombatPlayer.cs",
               "DocumentMoniker": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\Scenes\\CombatPlayer.cs",
               "RelativeDocumentMoniker": "Scenes\\CombatPlayer.cs",
@@ -120,12 +135,11 @@
               "RelativeToolTip": "Scenes\\CombatPlayer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-14T02:11:54.504Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-14T02:11:54.504Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "EnemyManager.cs",
               "DocumentMoniker": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\Scripts\\EnemyScripts\\EnemyManager.cs",
               "RelativeDocumentMoniker": "Scripts\\EnemyScripts\\EnemyManager.cs",
@@ -138,7 +152,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "PlayerAttackState.cs",
               "DocumentMoniker": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\Scripts\\CombatStateMachine\\PlayerAttackState.cs",
               "RelativeDocumentMoniker": "Scripts\\CombatStateMachine\\PlayerAttackState.cs",
@@ -150,7 +164,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "CombatState.cs",
               "DocumentMoniker": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\Scripts\\CombatStateMachine\\CombatState.cs",
               "RelativeDocumentMoniker": "Scripts\\CombatStateMachine\\CombatState.cs",
@@ -162,7 +176,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "CombatStateMachine.cs",
               "DocumentMoniker": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\Scripts\\CombatStateMachine\\CombatStateMachine.cs",
               "RelativeDocumentMoniker": "Scripts\\CombatStateMachine\\CombatStateMachine.cs",
@@ -174,7 +188,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "PlayerTurnState.cs",
               "DocumentMoniker": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\Scripts\\CombatStateMachine\\PlayerTurnState.cs",
               "RelativeDocumentMoniker": "Scripts\\CombatStateMachine\\PlayerTurnState.cs",
@@ -186,7 +200,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "ExampleButtonScript.cs",
               "DocumentMoniker": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\Scripts\\ExampleButtonScript.cs",
               "RelativeDocumentMoniker": "Scripts\\ExampleButtonScript.cs",
@@ -198,7 +212,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "QuestionConversionHandler.cs",
               "DocumentMoniker": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\Scripts\\QuestionConversionHandler.cs",
               "RelativeDocumentMoniker": "Scripts\\QuestionConversionHandler.cs",
@@ -210,7 +224,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "QuestionManager.cs",
               "DocumentMoniker": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\Scripts\\QuestionManager.cs",
               "RelativeDocumentMoniker": "Scripts\\QuestionManager.cs",
@@ -222,7 +236,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "SaveManager.cs",
               "DocumentMoniker": "C:\\Users\\dolph\\Documents\\GitHub\\dungeons-n-academics\\Scripts\\SaveManager.cs",
               "RelativeDocumentMoniker": "Scripts\\SaveManager.cs",

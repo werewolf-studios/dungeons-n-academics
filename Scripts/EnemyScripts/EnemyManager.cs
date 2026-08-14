@@ -83,4 +83,9 @@ public partial class EnemyManager : Node
 			enemies[0].PlayAnim("Idle_Float");
 		}
 	}
+
+	public int getEnemyHealth(int index)
+	{
+		return enemies[index].health;
+	}
 }

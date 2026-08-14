@@ -9,7 +9,10 @@ public partial class PlayerAttackState : CombatState
 	[Export]
 	public EnemyManager EnemyManager { get; set; }
 
-	[Export]
+    [Export]
+    public ProgressBar enemyHealthBar { get; set; }
+
+    [Export]
 	public Timer PAttkStartTimer { get; set; }
 
 	[Export]
@@ -32,6 +35,7 @@ public partial class PlayerAttackState : CombatState
 	{
 		GD.Print("PAttkStartTimer timedout");
 		EnemyManager.DamageEnemies();
+		enemyHealthBar.Value = EnemyManager.getEnemyHealth(0);
 
 		EnemyManager.CheckIfEnemiesDead();
 

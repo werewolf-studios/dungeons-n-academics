@@ -15,6 +15,12 @@ public partial class PlayerTurnState : CombatState
     [Export]
     public Button PlchldrButton2 { get; set; }
 
+    [Export]
+    public CombatPlayer player { get; set; }
+
+    [Export]
+    public ProgressBar playerHealthBar { get; set; }
+
     public override void Enter()
     {
         GD.Print("Entered PlayerTurnState");
@@ -22,6 +28,7 @@ public partial class PlayerTurnState : CombatState
         SpecialButton.Show();
         ItemsButton.Show();
         PlchldrButton2.Show();
+        playerHealthBar.Value = player.health;
     }
 
     public override void Exit()

@@ -13,7 +13,10 @@ public partial class EnemyAttackState : CombatState
 	public CombatPlayer player { get; set; }
 
     [Export]
-    public ProgressBar healthBar { get; set; }
+    public ProgressBar playerHealthBar { get; set; }
+
+    [Export]
+    public ProgressBar enemyHealthBar { get; set; }
 
     [Export]
 	public Timer EAttkStartTimer { get; set; }
@@ -22,6 +25,7 @@ public partial class EnemyAttackState : CombatState
 	public Timer EAttkEndTimer { get; set; }
     public override void Enter()
     {
+		enemyHealthBar.Value = EnemyManager.getEnemyHealth(0);
 		GD.Print("Entered EnemyAttackState");
         EAttkStartTimer.Start();
 		GD.Print("EAttkStartTimer started");
@@ -40,7 +44,7 @@ public partial class EnemyAttackState : CombatState
 		GD.Print("EAttkStartTimer timedout");
 		// player.TakeDamage(enemy.Damage);
 		EnemyManager.DealDamage();
-		healthBar.Value = player.health;
+		playerHealthBar.Value = player.health;
 
 		if (player.health <= 0)
 		{
