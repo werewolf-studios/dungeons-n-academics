@@ -214,6 +214,8 @@ horizontal_alignment = 1
 
 [node name="healthBar" parent="CombatUI" unique_id=367515396 instance=ExtResource("13_wn5wi")]
 layout_mode = 0
+offset_top = 693.0
+offset_bottom = 720.0
 max_value = 30.0
 value = 30.0
 
