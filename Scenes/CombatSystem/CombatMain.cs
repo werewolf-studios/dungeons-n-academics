@@ -3,6 +3,8 @@ using System;
 
 public partial class CombatMain : Node
 {
+	// This script might not be used at all. Probably made when I was first
+	// figuring out how this was supposed to work.
     private CombatEnemy enemy;
     private CombatPlayer player;
     // Called when the node enters the scene tree for the first time.

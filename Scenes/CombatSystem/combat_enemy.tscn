@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cow858qw2lptn"]
 
-[ext_resource type="Script" uid="uid://dn4er6s6ui4s0" path="res://Scenes/CombatEnemy.cs" id="1_2l20i"]
+[ext_resource type="Script" uid="uid://dn4er6s6ui4s0" path="res://Scripts/CombatEnemyScripts/CombatEnemy.cs" id="1_2l20i"]
 [ext_resource type="PackedScene" uid="uid://0l41fxib1ugi" path="res://Scenes/enemy_x.tscn" id="2_2l20i"]
 
 [node name="CombatEnemy" type="Node3D" unique_id=1914067803]

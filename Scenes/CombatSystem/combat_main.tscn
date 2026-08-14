@@ -1,19 +1,19 @@
 [gd_scene format=3 uid="uid://cwdd3rvi5k3ht"]
 
-[ext_resource type="PackedScene" uid="uid://b3qff5jhxpi58" path="res://Scenes/combat_player.tscn" id="1_k5tp8"]
-[ext_resource type="Script" uid="uid://bmwa235ar8c5v" path="res://Scenes/CombatMain.cs" id="1_m6hub"]
-[ext_resource type="Script" uid="uid://bw3y4d0guwtie" path="res://Scripts/CombatStateMachine/CombatStateMachine.cs" id="2_fpfme"]
-[ext_resource type="PackedScene" uid="uid://cow858qw2lptn" path="res://Scenes/combat_enemy.tscn" id="2_m6hub"]
-[ext_resource type="Script" uid="uid://cbjqrcitcxl1h" path="res://Scripts/CombatStateMachine/CombatState.cs" id="2_ngsrv"]
-[ext_resource type="Script" uid="uid://dypot533y0gx8" path="res://Scripts/CombatStateMachine/PlayerTurnState.cs" id="4_n3wdt"]
-[ext_resource type="Script" uid="uid://bncae8au578y7" path="res://Scripts/CombatStateMachine/QuestionState.cs" id="5_fsxqa"]
-[ext_resource type="Script" uid="uid://dcclrqruxv42v" path="res://Scripts/CombatStateMachine/PlayerAttackState.cs" id="6_kmofc"]
-[ext_resource type="Script" uid="uid://cd5qys37gd87b" path="res://Scripts/CombatStateMachine/EnemyAttackState.cs" id="7_lpvq3"]
-[ext_resource type="Script" uid="uid://bb42175myn3do" path="res://Scenes/VictoryState.cs" id="8_lpvq3"]
-[ext_resource type="Script" uid="uid://ck0s7bsc5uikf" path="res://Scenes/DefeatedState.cs" id="9_lhrf8"]
-[ext_resource type="Script" uid="uid://dttwcnsq4f4ti" path="res://Scripts/EnemyScripts/EnemyManager.cs" id="11_6d8ab"]
-[ext_resource type="PackedScene" uid="uid://bydeivn00di27" path="res://Scenes/healthBar.tscn" id="13_wn5wi"]
-[ext_resource type="PackedScene" uid="uid://c7na4426cw7ug" path="res://Scenes/question_system.tscn" id="14_kvfeh"]
+[ext_resource type="Script" uid="uid://bmwa235ar8c5v" path="res://Scenes/CombatSystem/CombatMain.cs" id="1_ww78x"]
+[ext_resource type="Script" uid="uid://cbjqrcitcxl1h" path="res://Scripts/CombatStateMachine/CombatState.cs" id="2_djp57"]
+[ext_resource type="Script" uid="uid://bw3y4d0guwtie" path="res://Scripts/CombatStateMachine/CombatStateMachine.cs" id="3_u2u4f"]
+[ext_resource type="Script" uid="uid://dypot533y0gx8" path="res://Scripts/CombatStateMachine/PlayerTurnState.cs" id="4_ravxi"]
+[ext_resource type="Script" uid="uid://bncae8au578y7" path="res://Scripts/CombatStateMachine/QuestionState.cs" id="5_4awps"]
+[ext_resource type="Script" uid="uid://dcclrqruxv42v" path="res://Scripts/CombatStateMachine/PlayerAttackState.cs" id="6_lnjhy"]
+[ext_resource type="Script" uid="uid://cd5qys37gd87b" path="res://Scripts/CombatStateMachine/EnemyAttackState.cs" id="7_r45e5"]
+[ext_resource type="Script" uid="uid://bb42175myn3do" path="res://Scripts/CombatStateMachine/VictoryState.cs" id="8_s5a2c"]
+[ext_resource type="Script" uid="uid://ck0s7bsc5uikf" path="res://Scripts/CombatStateMachine/DefeatedState.cs" id="9_85jmk"]
+[ext_resource type="PackedScene" uid="uid://b3qff5jhxpi58" path="res://Scenes/CombatSystem/combat_player.tscn" id="10_8gp0e"]
+[ext_resource type="Script" uid="uid://dttwcnsq4f4ti" path="res://Scripts/CombatEnemyScripts/EnemyManager.cs" id="11_1o64b"]
+[ext_resource type="PackedScene" uid="uid://cow858qw2lptn" path="res://Scenes/CombatSystem/combat_enemy.tscn" id="12_w3fjn"]
+[ext_resource type="PackedScene" uid="uid://bydeivn00di27" path="res://Scenes/healthBar.tscn" id="13_f2y4d"]
+[ext_resource type="PackedScene" uid="uid://c7na4426cw7ug" path="res://Scenes/question_system.tscn" id="14_rpsqt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k5tp8"]
 
@@ -39,27 +39,29 @@ bg_color = Color(3.6098064e-07, 0.54618376, 0, 1)
 bg_color = Color(0.8274293, 3.946722e-06, 8.663535e-07, 1)
 
 [node name="CombatMain" type="Node" unique_id=2054122581]
-script = ExtResource("1_m6hub")
+script = ExtResource("1_ww78x")
 
 [node name="CombatState" type="Node" parent="." unique_id=1285535956]
-script = ExtResource("2_ngsrv")
+script = ExtResource("2_djp57")
 
 [node name="CombatStateMachine" type="Node" parent="." unique_id=980917272 node_paths=PackedStringArray("initialState")]
-script = ExtResource("2_fpfme")
+script = ExtResource("3_u2u4f")
 initialState = NodePath("PlayerTurnState")
 
 [node name="PlayerTurnState" type="Node" parent="CombatStateMachine" unique_id=496265634 node_paths=PackedStringArray("AttackButton", "SpecialButton", "ItemsButton", "PlchldrButton2")]
-script = ExtResource("4_n3wdt")
+script = ExtResource("4_ravxi")
 AttackButton = NodePath("../../CombatUI/AttackButton")
 SpecialButton = NodePath("../../CombatUI/SpecialButton")
 ItemsButton = NodePath("../../CombatUI/ItemsButton")
 PlchldrButton2 = NodePath("../../CombatUI/PlchldrButton2")
 
-[node name="QuestionState" type="Node" parent="CombatStateMachine" unique_id=399550750]
-script = ExtResource("5_fsxqa")
+[node name="QuestionState" type="Node" parent="CombatStateMachine" unique_id=399550750 node_paths=PackedStringArray("PlayerStatsUI", "QuestionManager")]
+script = ExtResource("5_4awps")
+PlayerStatsUI = NodePath("../../Main/PlayerStatsUI")
+QuestionManager = NodePath("../../Main/QuestionsUI")
 
 [node name="PlayerAttackState" type="Node" parent="CombatStateMachine" unique_id=118247676 node_paths=PackedStringArray("EnemyManager", "PAttkStartTimer", "PAttkEndTimer")]
-script = ExtResource("6_kmofc")
+script = ExtResource("6_lnjhy")
 EnemyManager = NodePath("../../EnemyManager")
 PAttkStartTimer = NodePath("PAttkStartTimer")
 PAttkEndTimer = NodePath("PAttkEndTimer")
@@ -74,7 +76,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="EnemyAttackState" type="Node" parent="CombatStateMachine" unique_id=342074136 node_paths=PackedStringArray("EnemyManager", "player", "healthBar", "EAttkStartTimer", "EAttkEndTimer")]
-script = ExtResource("7_lpvq3")
+script = ExtResource("7_r45e5")
 EnemyManager = NodePath("../../EnemyManager")
 player = NodePath("../../CombatPlayer")
 healthBar = NodePath("../../CombatUI/healthBar")
@@ -90,11 +92,11 @@ wait_time = 2.0
 one_shot = true
 
 [node name="VictoryState" type="Node" parent="CombatStateMachine" unique_id=1105563629 node_paths=PackedStringArray("VictoryText")]
-script = ExtResource("8_lpvq3")
+script = ExtResource("8_s5a2c")
 VictoryText = NodePath("../../CombatUI/VictoryText")
 
 [node name="DefeatedState" type="Node" parent="CombatStateMachine" unique_id=195838736 node_paths=PackedStringArray("DefeatedText")]
-script = ExtResource("9_lhrf8")
+script = ExtResource("9_85jmk")
 DefeatedText = NodePath("../../CombatUI/DefeatedText")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=762101080]
@@ -107,15 +109,15 @@ shape = SubResource("BoxShape3D_m6hub")
 transform = Transform3D(16.841759, 0, 0, 0, 0.27999997, 0, 0, 0, 16.783913, 0, 0, 0)
 mesh = SubResource("BoxMesh_ngsrv")
 
-[node name="CombatPlayer" parent="." unique_id=849479885 instance=ExtResource("1_k5tp8")]
+[node name="CombatPlayer" parent="." unique_id=849479885 instance=ExtResource("10_8gp0e")]
 unique_name_in_owner = true
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.757, 0.12, 3.157)
 
 [node name="EnemyManager" type="Node" parent="." unique_id=1693601362 node_paths=PackedStringArray("player")]
-script = ExtResource("11_6d8ab")
+script = ExtResource("11_1o64b")
 player = NodePath("../CombatPlayer")
 
-[node name="CombatEnemy" parent="EnemyManager" unique_id=545224293 instance=ExtResource("2_m6hub")]
+[node name="CombatEnemy" parent="EnemyManager" unique_id=545224293 instance=ExtResource("12_w3fjn")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.757, 0.26, -3.131)
 
@@ -212,7 +214,7 @@ theme_override_font_sizes/font_size = 42
 text = "Defeated..."
 horizontal_alignment = 1
 
-[node name="healthBar" parent="CombatUI" unique_id=367515396 instance=ExtResource("13_wn5wi")]
+[node name="healthBar" parent="CombatUI" unique_id=367515396 instance=ExtResource("13_f2y4d")]
 layout_mode = 0
 offset_top = 693.0
 offset_bottom = 720.0
@@ -260,7 +262,7 @@ theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_ngsrv")
 text = "No"
 
-[node name="Main" parent="." unique_id=1895040970 instance=ExtResource("14_kvfeh")]
+[node name="Main" parent="." unique_id=1895040970 instance=ExtResource("14_rpsqt")]
 
 [node name="PlayerStatsUI" parent="Main" index="0" unique_id=839078456]
 visible = false
