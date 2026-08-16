@@ -32,6 +32,13 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8b84w"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_uu1sk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gg48i"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_06xjd"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_bijy0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hrye0"]
@@ -7322,23 +7329,102 @@ transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, -6, 
 answers = PackedFloat32Array(2, 5, 2, 5)
 
 [node name="MathSystem" parent="." unique_id=514112647 node_paths=PackedStringArray("puzzleParts") instance=ExtResource("12_omupu")]
+answers = PackedFloat32Array(4)
 puzzleParts = []
 
 [node name="TilePlate" parent="MathSystem" unique_id=562736670 instance=ExtResource("8_pc80o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.171852, 0, 62.866035)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.171852, 0, 63.866035)
 
-[node name="TilePlate2" parent="MathSystem" unique_id=431915382 instance=ExtResource("8_pc80o")]
+[node name="TilePlate3" parent="MathSystem" unique_id=867191940 instance=ExtResource("8_pc80o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.171852, -7, 63.866035)
+
+[node name="TilePlate2" parent="MathSystem" unique_id=431915382 node_paths=PackedStringArray("heldTile") instance=ExtResource("8_pc80o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.171852, 0, 55.019733)
+heldTile = NodePath("../TilePickUp")
 
 [node name="Button" parent="MathSystem" unique_id=704564999 instance=ExtResource("11_pnl26")]
-transform = Transform3D(1, 0, 0, 0, 0.05450669, 0, 0, 0, 1, 0, 0, 64)
+transform = Transform3D(1, 0, 0, 0, 0.05450669, 0, 0, 0, 1, 1, 0, 64)
 
 [node name="TilePickUp" parent="MathSystem" unique_id=1728698675 instance=ExtResource("9_bv58s")]
 index = 8
 
+[node name="TilePickUp2" parent="MathSystem" unique_id=1391107478 node_paths=PackedStringArray("meshes") instance=ExtResource("9_bv58s")]
+index = 11
+meshes = [NodePath("../TilePickUp/Part0"), NodePath("../TilePickUp/Part1"), NodePath("../TilePickUp/Part2"), NodePath("../TilePickUp/Part3"), NodePath("../TilePickUp/Part4"), NodePath("../TilePickUp/Part5"), NodePath("../TilePickUp/Part6"), NodePath("../TilePickUp/Part7"), NodePath("../TilePickUp/Part8"), NodePath("../TilePickUp/Part9"), NodePath("../TilePickUp/PartAdd"), NodePath("../TilePickUp/PartDiv"), NodePath("../TilePickUp/PartEqu"), NodePath("../TilePickUp/PartMul"), NodePath("../TilePickUp/PartSub")]
+
+[node name="GridMap" parent="MathSystem" unique_id=1539772217 instance=ExtResource("12_dwc1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 59.145)
+cell_octant_size = 2
+collision_layer = 5
+collision_mask = 5
+blockIndex = 2
+metadata/_editor_floor_ = Vector3(0, 5, 0)
+
+[node name="PuzzleWall1" type="StaticBody3D" parent="MathSystem/GridMap" unique_id=2079059339]
+transform = Transform3D(2.8900201, 0, 0, 0, 1.5, 0, 0, 0, 0.7, 0.89170396, 0.0119999945, 6.0768166)
+disable_mode = 1
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MathSystem/GridMap/PuzzleWall1" unique_id=1807413136]
+mesh = SubResource("BoxMesh_uu1sk")
+surface_material_override/0 = SubResource("StandardMaterial3D_gg48i")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MathSystem/GridMap/PuzzleWall1" unique_id=630547830]
+shape = SubResource("BoxShape3D_06xjd")
+metadata/_edit_group_ = true
+
+[node name="PuzzleWall2" type="StaticBody3D" parent="MathSystem/GridMap" unique_id=1227918016]
+transform = Transform3D(2.8900647, 0, 0, 0, 1, 0, 0, 0, 0.7, 0.8184781, 0.011786282, -0.86091614)
+disable_mode = 1
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MathSystem/GridMap/PuzzleWall2" unique_id=1324825521]
+mesh = SubResource("BoxMesh_uu1sk")
+surface_material_override/0 = SubResource("StandardMaterial3D_gg48i")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MathSystem/GridMap/PuzzleWall2" unique_id=1377002034]
+shape = SubResource("BoxShape3D_06xjd")
+metadata/_edit_group_ = true
+
+[node name="PuzzleWall3" type="StaticBody3D" parent="MathSystem/GridMap" unique_id=462121140]
+transform = Transform3D(-2.9476706e-07, 0, 0.3, 0, 1, 0, -6.743484, 0, -1.3113417e-08, -0.6196761, 0.011786282, 2.6390839)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MathSystem/GridMap/PuzzleWall3" unique_id=1022253384]
+mesh = SubResource("BoxMesh_uu1sk")
+surface_material_override/0 = SubResource("StandardMaterial3D_gg48i")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MathSystem/GridMap/PuzzleWall3" unique_id=1671978106]
+shape = SubResource("BoxShape3D_06xjd")
+metadata/_edit_group_ = true
+
+[node name="PuzzleWall4" type="StaticBody3D" parent="MathSystem/GridMap" unique_id=1815606270]
+transform = Transform3D(-2.9476706e-07, 0, 0.3, 0, 1, 0, -6.743484, 0, -1.3113417e-08, 2.3803241, 0.011786282, 2.6390839)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MathSystem/GridMap/PuzzleWall4" unique_id=546045808]
+mesh = SubResource("BoxMesh_uu1sk")
+surface_material_override/0 = SubResource("StandardMaterial3D_gg48i")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MathSystem/GridMap/PuzzleWall4" unique_id=1837641774]
+shape = SubResource("BoxShape3D_06xjd")
+metadata/_edit_group_ = true
+
 [node name="MathSystemTest2" parent="." unique_id=1914444878 node_paths=PackedStringArray("puzzleParts") instance=ExtResource("12_omupu")]
 answers = PackedFloat32Array(4)
-puzzleParts = [NodePath(""), NodePath(""), NodePath("")]
+puzzleParts = [null, null, null]
 
 [node name="TilePlate" parent="MathSystemTest2" unique_id=1074415832 node_paths=PackedStringArray("heldTile") instance=ExtResource("8_pc80o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.429255, -0.5, 34.806473)
@@ -7354,12 +7440,12 @@ heldTile = NodePath("../TilePickUp2")
 [node name="TilePickUp" parent="MathSystemTest2" unique_id=402421252 node_paths=PackedStringArray("meshes") instance=ExtResource("9_bv58s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.429255, 0, 27.806473)
 index = 10
-meshes = [NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath("")]
+meshes = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
 
 [node name="TilePickUp2" parent="MathSystemTest2" unique_id=1871700521 node_paths=PackedStringArray("meshes") instance=ExtResource("9_bv58s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.429255, 0, 27.806473)
 index = 1
-meshes = [NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath(""), NodePath("")]
+meshes = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
 
 [node name="GridMap" parent="MathSystemTest2" unique_id=240971848 instance=ExtResource("12_dwc1d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.429255, 0, 27.806473)
@@ -7403,11 +7489,3 @@ shape = SubResource("BoxShape3D_hrye0")
 
 [node name="Button" parent="MathSystemTest2" unique_id=2036101833 instance=ExtResource("11_pnl26")]
 transform = Transform3D(1, 0, 0, 0, 0.05450669, 0, 0, 0, 1, -28.429255, 0, 34.806473)
-
-[node name="GridMap" parent="." unique_id=1539772217 instance=ExtResource("12_dwc1d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 60)
-cell_octant_size = 2
-collision_layer = 5
-collision_mask = 5
-blockIndex = 4
-metadata/_editor_floor_ = Vector3(0, 5, 0)
