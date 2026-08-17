@@ -3,6 +3,14 @@ using System.Text.RegularExpressions;
 
 public partial class Menu : CanvasLayer
 {
+	[Export]
+	public string levelPath = "res://Scenes/dungeon_room.tscn";
+	
+	public void _on_start_button_pressed()
+	{
+		GetTree().ChangeSceneToFile(levelPath);
+	}
+	
 	private void OnSettingsPressed()
 	{
 		GetNode<VBoxContainer>("MainButtons/MarginContainer/VBoxContainer").Visible = false;
