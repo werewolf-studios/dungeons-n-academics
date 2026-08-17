@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://b8efxf8liu74h"]
+
+[ext_resource type="Texture2D" uid="uid://b6ua536y3t51j" path="res://Models/Health Assets/UI.png" id="1_srckl"]
+[ext_resource type="Script" uid="uid://6vt8qaycpsrn" path="res://mana_bar.gd" id="2_1r8bn"]
+[ext_resource type="Texture2D" uid="uid://bj5q7sp371m88" path="res://Models/Health Assets/Mana_Bar.png" id="2_h5b4h"]
+[ext_resource type="Script" uid="uid://dw1co6qcnft6j" path="res://health_bar.gd" id="3_dxn08"]
+[ext_resource type="Texture2D" uid="uid://c8a3rphomovhy" path="res://Models/Health Assets/Mana_Depletion_Bar.png" id="4_4hq00"]
+[ext_resource type="Texture2D" uid="uid://dvbbu8pomu76t" path="res://Models/Health Assets/Health_bar.png" id="5_8gymc"]
+[ext_resource type="Texture2D" uid="uid://dc65jnmcmmrlx" path="res://Models/Health Assets/Damage_bar.png" id="7_vyw5x"]
+
+[node name="Health Bar" type="Control" unique_id=971185487]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=524313024]
+z_index = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -368.0
+offset_top = -174.0
+offset_right = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("1_srckl")
+expand_mode = 1
+
+[node name="ManaBar" type="TextureProgressBar" parent="." unique_id=181218435]
+z_index = -1
+layout_mode = 0
+offset_left = 953.0
+offset_top = 699.0
+offset_right = 1130.0
+offset_bottom = 712.0
+value = 100.0
+texture_progress = ExtResource("2_h5b4h")
+script = ExtResource("2_1r8bn")
+
+[node name="ManaDepletionBar" type="TextureProgressBar" parent="ManaBar" unique_id=351149593]
+z_index = -10
+layout_mode = 0
+offset_right = 177.0
+offset_bottom = 13.0
+texture_progress = ExtResource("4_4hq00")
+
+[node name="DepleteMana" type="Button" parent="ManaBar" unique_id=1416218714]
+layout_mode = 0
+offset_left = -121.0
+offset_top = -223.0
+offset_right = -113.0
+offset_bottom = -215.0
+text = "Deplete Mana"
+
+[node name="ResetMana" type="Button" parent="ManaBar" unique_id=765398995]
+layout_mode = 0
+offset_left = 27.0
+offset_top = -223.0
+offset_right = 126.0
+offset_bottom = -192.0
+text = "Reset Mana"
+
+[node name="Timer" type="Timer" parent="ManaBar" unique_id=2110405302]
+wait_time = 0.4
+one_shot = true
+
+[node name="HealthBar" type="TextureProgressBar" parent="." unique_id=382342566]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -352.0
+offset_top = -75.0
+offset_right = -54.0
+offset_bottom = -51.0
+grow_horizontal = 0
+grow_vertical = 0
+value = 100.0
+texture_progress = ExtResource("5_8gymc")
+script = ExtResource("3_dxn08")
+
+[node name="DamageBar" type="TextureProgressBar" parent="HealthBar" unique_id=1930701307]
+z_index = -2
+layout_mode = 0
+offset_right = 298.0
+offset_bottom = 24.0
+texture_progress = ExtResource("7_vyw5x")
+
+[node name="Timer" type="Timer" parent="HealthBar" unique_id=219759716]
+wait_time = 0.4
+one_shot = true
+
+[node name="DamageHealth" type="Button" parent="HealthBar" unique_id=1649678206]
+layout_mode = 0
+offset_left = -107.0
+offset_top = -66.0
+offset_right = -99.0
+offset_bottom = -58.0
+text = "Damage Health"
+
+[node name="ResetHealth" type="Button" parent="HealthBar" unique_id=778124755]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.30600002
+anchor_top = -3.9410002
+anchor_right = -0.30600002
+anchor_bottom = -3.9410002
+offset_left = 129.188
+offset_top = 26.584007
+offset_right = 236.188
+offset_bottom = 57.584007
+text = "Reset Health"
+
+[connection signal="pressed" from="ManaBar/DepleteMana" to="ManaBar" method="_on_deplete_mana_pressed"]
+[connection signal="pressed" from="ManaBar/ResetMana" to="ManaBar" method="_on_reset_mana_pressed"]
+[connection signal="timeout" from="ManaBar/Timer" to="ManaBar" method="_on_timer_timeout"]
+[connection signal="timeout" from="HealthBar/Timer" to="HealthBar" method="_on_timer_timeout"]
+[connection signal="pressed" from="HealthBar/DamageHealth" to="HealthBar" method="_on_damage_health_pressed"]
+[connection signal="pressed" from="HealthBar/ResetHealth" to="HealthBar" method="_on_reset_health_pressed"]
