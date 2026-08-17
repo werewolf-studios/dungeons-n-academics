@@ -53,23 +53,19 @@ script = ExtResource("2_ngsrv")
 script = ExtResource("2_fpfme")
 initialState = NodePath("PlayerTurnState")
 
-[node name="PlayerTurnState" type="Node" parent="CombatStateMachine" unique_id=496265634 node_paths=PackedStringArray("AttackButton", "SpecialButton", "ItemsButton", "PlchldrButton2", "player", "playerHealthBar")]
+[node name="PlayerTurnState" type="Node" parent="CombatStateMachine" unique_id=496265634 node_paths=PackedStringArray("AttackButton", "SpecialButton", "ItemsButton", "PlchldrButton2")]
 script = ExtResource("4_n3wdt")
 AttackButton = NodePath("../../CombatUI/AttackButton")
 SpecialButton = NodePath("../../CombatUI/SpecialButton")
 ItemsButton = NodePath("../../CombatUI/ItemsButton")
 PlchldrButton2 = NodePath("../../CombatUI/PlchldrButton2")
-player = NodePath("../../CombatPlayer")
-playerHealthBar = NodePath("../../CombatUI/PlayerHealthBar")
 
-[node name="QuestionState" type="Node" parent="CombatStateMachine" unique_id=399550750 node_paths=PackedStringArray("QuestionUI")]
+[node name="QuestionState" type="Node" parent="CombatStateMachine" unique_id=399550750]
 script = ExtResource("5_fsxqa")
-QuestionUI = NodePath("../../QuestionUI")
 
-[node name="PlayerAttackState" type="Node" parent="CombatStateMachine" unique_id=118247676 node_paths=PackedStringArray("EnemyManager", "enemyHealthBar", "PAttkStartTimer", "PAttkEndTimer")]
+[node name="PlayerAttackState" type="Node" parent="CombatStateMachine" unique_id=118247676 node_paths=PackedStringArray("EnemyManager", "PAttkStartTimer", "PAttkEndTimer")]
 script = ExtResource("6_kmofc")
 EnemyManager = NodePath("../../EnemyManager")
-enemyHealthBar = NodePath("../../CombatUI/EnemyHealthBar")
 PAttkStartTimer = NodePath("PAttkStartTimer")
 PAttkEndTimer = NodePath("PAttkEndTimer")
 
@@ -82,12 +78,10 @@ unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
 
-[node name="EnemyAttackState" type="Node" parent="CombatStateMachine" unique_id=342074136 node_paths=PackedStringArray("EnemyManager", "player", "playerHealthBar", "enemyHealthBar", "EAttkStartTimer", "EAttkEndTimer")]
+[node name="EnemyAttackState" type="Node" parent="CombatStateMachine" unique_id=342074136 node_paths=PackedStringArray("EnemyManager", "player", "EAttkStartTimer", "EAttkEndTimer")]
 script = ExtResource("7_lpvq3")
 EnemyManager = NodePath("../../EnemyManager")
 player = NodePath("../../CombatPlayer")
-playerHealthBar = NodePath("../../CombatUI/PlayerHealthBar")
-enemyHealthBar = NodePath("../../CombatUI/EnemyHealthBar")
 EAttkStartTimer = NodePath("EAttkStartTimer")
 EAttkEndTimer = NodePath("EAttkEndTimer")
 
