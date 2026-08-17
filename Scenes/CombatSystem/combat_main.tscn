@@ -1,0 +1,301 @@
+[gd_scene format=3 uid="uid://cwdd3rvi5k3ht"]
+
+[ext_resource type="Script" uid="uid://bmwa235ar8c5v" path="res://Scenes/CombatSystem/CombatMain.cs" id="1_ww78x"]
+[ext_resource type="Script" uid="uid://cbjqrcitcxl1h" path="res://Scripts/CombatStateMachine/CombatState.cs" id="2_djp57"]
+[ext_resource type="Script" uid="uid://bw3y4d0guwtie" path="res://Scripts/CombatStateMachine/CombatStateMachine.cs" id="3_u2u4f"]
+[ext_resource type="Script" uid="uid://dypot533y0gx8" path="res://Scripts/CombatStateMachine/PlayerTurnState.cs" id="4_ravxi"]
+[ext_resource type="Script" uid="uid://bncae8au578y7" path="res://Scripts/CombatStateMachine/QuestionState.cs" id="5_4awps"]
+[ext_resource type="Script" uid="uid://dcclrqruxv42v" path="res://Scripts/CombatStateMachine/PlayerAttackState.cs" id="6_lnjhy"]
+[ext_resource type="Script" uid="uid://cd5qys37gd87b" path="res://Scripts/CombatStateMachine/EnemyAttackState.cs" id="7_r45e5"]
+[ext_resource type="Script" uid="uid://bb42175myn3do" path="res://Scripts/CombatStateMachine/VictoryState.cs" id="8_s5a2c"]
+[ext_resource type="Script" uid="uid://ck0s7bsc5uikf" path="res://Scripts/CombatStateMachine/DefeatedState.cs" id="9_85jmk"]
+[ext_resource type="PackedScene" uid="uid://b3qff5jhxpi58" path="res://Scenes/CombatSystem/combat_player.tscn" id="10_8gp0e"]
+[ext_resource type="Script" uid="uid://dttwcnsq4f4ti" path="res://Scripts/CombatEnemyScripts/EnemyManager.cs" id="11_1o64b"]
+[ext_resource type="PackedScene" uid="uid://cow858qw2lptn" path="res://Scenes/CombatSystem/combat_enemy.tscn" id="12_w3fjn"]
+[ext_resource type="PackedScene" uid="uid://bydeivn00di27" path="res://Scenes/healthBar.tscn" id="13_f2y4d"]
+[ext_resource type="PackedScene" uid="uid://c7na4426cw7ug" path="res://Scenes/question_system.tscn" id="14_rpsqt"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k5tp8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m6hub"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ngsrv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phkcs"]
+bg_color = Color(0.45882353, 0.34117648, 0.23529412, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.38045204, 0.27944052, 0.18836206, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5tp8"]
+bg_color = Color(0.5057749, 0.37876475, 0.26462448, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_djp57"]
+bg_color = Color(0, 0.827451, 0.09019608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ww78x"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6hub"]
+bg_color = Color(3.6098064e-07, 0.54618376, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngsrv"]
+bg_color = Color(0.8274293, 3.946722e-06, 8.663535e-07, 1)
+
+[node name="CombatMain" type="Node" unique_id=2054122581]
+script = ExtResource("1_ww78x")
+
+[node name="CombatState" type="Node" parent="." unique_id=1285535956]
+script = ExtResource("2_djp57")
+
+[node name="CombatStateMachine" type="Node" parent="." unique_id=980917272 node_paths=PackedStringArray("initialState")]
+script = ExtResource("3_u2u4f")
+initialState = NodePath("PlayerTurnState")
+
+[node name="PlayerTurnState" type="Node" parent="CombatStateMachine" unique_id=496265634 node_paths=PackedStringArray("AttackButton", "SpecialButton", "ItemsButton", "PlchldrButton2", "player", "playerHealthBar")]
+script = ExtResource("4_ravxi")
+AttackButton = NodePath("../../CombatUI/AttackButton")
+SpecialButton = NodePath("../../CombatUI/SpecialButton")
+ItemsButton = NodePath("../../CombatUI/ItemsButton")
+PlchldrButton2 = NodePath("../../CombatUI/PlchldrButton2")
+player = NodePath("../../CombatPlayer")
+playerHealthBar = NodePath("../../CombatUI/PlayerHealthBar")
+
+[node name="QuestionState" type="Node" parent="CombatStateMachine" unique_id=399550750 node_paths=PackedStringArray("PlayerStatsUI", "QuestionManager")]
+script = ExtResource("5_4awps")
+PlayerStatsUI = NodePath("../../Main/PlayerStatsUI")
+QuestionManager = NodePath("../../Main/QuestionsUI")
+
+[node name="PlayerAttackState" type="Node" parent="CombatStateMachine" unique_id=118247676 node_paths=PackedStringArray("EnemyManager", "enemyHealthBar", "PAttkStartTimer", "PAttkEndTimer")]
+script = ExtResource("6_lnjhy")
+EnemyManager = NodePath("../../EnemyManager")
+enemyHealthBar = NodePath("../../CombatUI/EnemyHealthBar")
+PAttkStartTimer = NodePath("PAttkStartTimer")
+PAttkEndTimer = NodePath("PAttkEndTimer")
+
+[node name="PAttkStartTimer" type="Timer" parent="CombatStateMachine/PlayerAttackState" unique_id=1690371911]
+wait_time = 2.0
+one_shot = true
+
+[node name="PAttkEndTimer" type="Timer" parent="CombatStateMachine/PlayerAttackState" unique_id=1158799479]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
+[node name="EnemyAttackState" type="Node" parent="CombatStateMachine" unique_id=342074136 node_paths=PackedStringArray("EnemyManager", "player", "playerHealthBar", "enemyHealthBar", "EAttkStartTimer", "EAttkEndTimer")]
+script = ExtResource("7_r45e5")
+EnemyManager = NodePath("../../EnemyManager")
+player = NodePath("../../CombatPlayer")
+playerHealthBar = NodePath("../../CombatUI/PlayerHealthBar")
+enemyHealthBar = NodePath("../../CombatUI/EnemyHealthBar")
+EAttkStartTimer = NodePath("EAttkStartTimer")
+EAttkEndTimer = NodePath("EAttkEndTimer")
+
+[node name="EAttkStartTimer" type="Timer" parent="CombatStateMachine/EnemyAttackState" unique_id=926602337]
+wait_time = 2.0
+one_shot = true
+
+[node name="EAttkEndTimer" type="Timer" parent="CombatStateMachine/EnemyAttackState" unique_id=2042409877]
+wait_time = 2.0
+one_shot = true
+
+[node name="VictoryState" type="Node" parent="CombatStateMachine" unique_id=1105563629 node_paths=PackedStringArray("VictoryText")]
+script = ExtResource("8_s5a2c")
+VictoryText = NodePath("../../CombatUI/VictoryText")
+
+[node name="DefeatedState" type="Node" parent="CombatStateMachine" unique_id=195838736 node_paths=PackedStringArray("DefeatedText")]
+script = ExtResource("9_85jmk")
+DefeatedText = NodePath("../../CombatUI/DefeatedText")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=762101080]
+physics_material_override = SubResource("PhysicsMaterial_k5tp8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=640390195]
+shape = SubResource("BoxShape3D_m6hub")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D" unique_id=2075741761]
+transform = Transform3D(16.841759, 0, 0, 0, 0.27999997, 0, 0, 0, 16.783913, 0, 0, 0)
+mesh = SubResource("BoxMesh_ngsrv")
+
+[node name="CombatPlayer" parent="." unique_id=849479885 instance=ExtResource("10_8gp0e")]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.757, 0.12, 3.157)
+
+[node name="EnemyManager" type="Node" parent="." unique_id=1693601362 node_paths=PackedStringArray("player")]
+script = ExtResource("11_1o64b")
+player = NodePath("../CombatPlayer")
+
+[node name="CombatEnemy" parent="EnemyManager" unique_id=545224293 instance=ExtResource("12_w3fjn")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.757, 0.26, -3.131)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2141222278]
+transform = Transform3D(0.7836912, -0.17334133, 0.5964737, 0, 0.96027225, 0.2790649, -0.6211506, -0.2187007, 0.7525569, 4.0712943, 2.180417, 5.21705)
+fov = 45.9
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=780092791]
+transform = Transform3D(1, 0, 0, 0, 0.22569923, 0.97419703, 0, -0.97419703, 0.22569923, 0, 14.558374, 0)
+shadow_enabled = true
+
+[node name="CombatUI" type="Control" parent="." unique_id=2039811101]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AttackButton" type="Button" parent="CombatUI" unique_id=1806849163]
+visible = false
+layout_mode = 0
+offset_left = 736.0
+offset_top = 464.0
+offset_right = 912.0
+offset_bottom = 528.0
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
+text = "Attack"
+
+[node name="SpecialButton" type="Button" parent="CombatUI" unique_id=1614576005]
+visible = false
+layout_mode = 0
+offset_left = 912.0
+offset_top = 464.0
+offset_right = 1088.0
+offset_bottom = 528.0
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
+text = "Special"
+
+[node name="ItemsButton" type="Button" parent="CombatUI" unique_id=808082463]
+visible = false
+layout_mode = 0
+offset_left = 736.0
+offset_top = 528.0
+offset_right = 912.0
+offset_bottom = 592.0
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
+text = "Items"
+
+[node name="PlchldrButton2" type="Button" parent="CombatUI" unique_id=1088781498]
+visible = false
+layout_mode = 0
+offset_left = 912.0
+offset_top = 528.0
+offset_right = 1088.0
+offset_bottom = 592.0
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
+
+[node name="VictoryText" type="Label" parent="CombatUI" unique_id=1133505847]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -176.0
+offset_top = 48.0
+offset_right = 176.0
+offset_bottom = 106.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 42
+text = "Battle victorious!"
+horizontal_alignment = 1
+
+[node name="DefeatedText" type="Label" parent="CombatUI" unique_id=1913203415]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -112.0
+offset_top = 48.0
+offset_right = 112.0
+offset_bottom = 112.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 42
+text = "Defeated..."
+horizontal_alignment = 1
+
+[node name="PlayerHealthBar" parent="CombatUI" unique_id=367515396 instance=ExtResource("13_f2y4d")]
+layout_mode = 0
+offset_top = 693.0
+offset_bottom = 720.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_djp57")
+max_value = 30.0
+value = 30.0
+
+[node name="EnemyHealthBar" parent="CombatUI" unique_id=1123073468 instance=ExtResource("13_f2y4d")]
+layout_mode = 0
+offset_left = 1040.0
+offset_right = 1280.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_ww78x")
+max_value = 20.0
+value = 20.0
+
+[node name="QuestionUI" type="Control" parent="." unique_id=1706086032]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="QuestionUI" unique_id=136292072]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -275.5
+offset_right = 275.5
+offset_bottom = 72.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 52
+text = "Answer the question successfully?"
+
+[node name="YesButton" type="Button" parent="QuestionUI" unique_id=1724538565]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 344.0
+offset_right = 532.0
+offset_bottom = 410.0
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_m6hub")
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="QuestionUI" unique_id=602408105]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 344.0
+offset_right = 804.0
+offset_bottom = 410.0
+theme_override_font_sizes/font_size = 42
+theme_override_styles/normal = SubResource("StyleBoxFlat_ngsrv")
+text = "No"
+
+[node name="Main" parent="." unique_id=1895040970 instance=ExtResource("14_rpsqt")]
+
+[node name="PlayerStatsUI" parent="Main" index="0" unique_id=839078456]
+visible = false
+
+[node name="ExampleButton" parent="Main/PlayerStatsUI/Control" parent_id_path=PackedInt32Array(1895040970, 890047294) index="2" unique_id=460907232]
+visible = false
+
+[connection signal="timeout" from="CombatStateMachine/PlayerAttackState/PAttkStartTimer" to="CombatStateMachine/PlayerAttackState" method="OnPAttkStartTimerTimeout"]
+[connection signal="timeout" from="CombatStateMachine/PlayerAttackState/PAttkEndTimer" to="CombatStateMachine/PlayerAttackState" method="OnPAttkEndTimerTimeout"]
+[connection signal="timeout" from="CombatStateMachine/EnemyAttackState/EAttkStartTimer" to="CombatStateMachine/EnemyAttackState" method="OnEAttkStartTimerTimeout"]
+[connection signal="timeout" from="CombatStateMachine/EnemyAttackState/EAttkEndTimer" to="CombatStateMachine/EnemyAttackState" method="OnEAttkEndTimerTimeout"]
+[connection signal="pressed" from="CombatUI/AttackButton" to="CombatStateMachine/PlayerTurnState" method="OnAttackButtonPressed"]
+[connection signal="CorrectAnswer" from="Main/QuestionsUI" to="CombatStateMachine/QuestionState" method="OnQuestionsUICorrectAnswer"]
+[connection signal="QuestionSequenceEnded" from="Main/QuestionsUI" to="CombatStateMachine/QuestionState" method="OnQuestionsUIQuestionSequenceEnded"]
+[connection signal="WrongAnswer" from="Main/QuestionsUI" to="CombatStateMachine/QuestionState" method="OnQuestionsUIWrongAnswer"]
+
+[editable path="Main"]

@@ -23,7 +23,7 @@ public partial class ExampleButtonScript : Button
 		answerLabel.Visible = true;
 
 		// This is how to start a question sequence
-        questionManager.StartQuestionSequence(Grade.Eighth, QuestionType.Math, Topic.Geometry, currentDifficulty, 10, 20);
+        questionManager.StartQuestionSequence(Grade.Eighth, QuestionType.Math, Topic.Geometry, currentDifficulty, 1, 20);
     }
 
 	// You can also use the sequence ended Signal from the QuestionsUI node
