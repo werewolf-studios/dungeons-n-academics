@@ -39,6 +39,7 @@ bg_color = Color(0.22542277, 0.71733445, 0, 1)
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_jjgbg")
 
 [node name="Main" type="Node3D" unique_id=1895040970]
+process_mode = 3
 
 [node name="PlayerStatsUI" type="CanvasLayer" parent="." unique_id=839078456 node_paths=PackedStringArray("coinsLabel", "xpLabel")]
 script = ExtResource("1_nxhvv")

@@ -9,6 +9,7 @@ public partial class MathSystem : Node
 
     [Export]
     CharacterBody3D[] puzzleParts;
+    [Export]
     Door[] recievers;
 
     private Expression _expression = new Expression();
@@ -49,7 +50,10 @@ public partial class MathSystem : Node
                     {
                         GD.Print("Thats Right!");
 
-                        // Send message to object
+                        foreach (Door door in recievers)
+                        {
+                            door.Answered();
+                        }
                     }
                 }
             }
