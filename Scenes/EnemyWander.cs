@@ -1,40 +1,32 @@
 using Godot;
-using System;
+using System.Collections.Generic;
 
 public partial class EnemyWander : CharacterBody3D
 {
-	private const int MaxTargetAttempts = 12;
-	private const float MinTargetDistance = 2.0f;
-	private const float ArrivalDistance = 0.75f;
-	private const float StuckMoveThreshold = 0.08f;
-	private const float StuckTimeLimit = 0.35f;
-	private const float RetargetCooldown = 0.2f;
-	private const float Gravity = 20.0f;
-
-	private NavigationAgent3D navAgent;
 	private Node3D pivot;
 	private RandomNumberGenerator rng = new RandomNumberGenerator();
 	private SceneManager sceneManager;
 
-	private Vector3 lastPosition;
-	private float stuckTime;
-	private float retargetLock;
-	private bool hasTarget;
+	private Tween tween;
+	private bool isMoving;
+	private Vector3 hopStart;
+	private Vector3 hopEnd;
 
 	[Export]
-	public int speed = 1;
+	public float moveDistance = 2.5f;
 
 	[Export]
-	public float wanderRadius = 10.0f;
+	public float moveDuration = 0.8f;
+
+	[Export]
+	public float idleTime = 0.6f;
+
+	[Export]
+	public int probeDirections = 8;
 
 	public override void _Ready()
 	{
-		navAgent = GetNode<NavigationAgent3D>("NavigationAgent3D");
-		navAgent.PathDesiredDistance = 0.5f;
-		navAgent.TargetDesiredDistance = ArrivalDistance;
-
 		pivot = GetNodeOrNull<Node3D>("Pivot");
-		lastPosition = GlobalPosition;
 		rng.Randomize();
 
 		Area3D encounterArea = GetNodeOrNull<Area3D>("EncounterArea");
@@ -43,104 +35,12 @@ public partial class EnemyWander : CharacterBody3D
 			encounterArea.BodyEntered += OnEncounterAreaBodyEntered;
 		}
 
-		// Wait a physics frame so the navigation map can sync before the first path query.
-		Callable.From(PickInitialTarget).CallDeferred();
+		Callable.From(StartIdle).CallDeferred();
 	}
 
-	private async void PickInitialTarget()
+	public override void _ExitTree()
 	{
-		await ToSignal(GetTree(), SceneTree.SignalName.PhysicsFrame);
-		MakeNewWanderTarget();
-	}
-
-	public override void _PhysicsProcess(double delta)
-	{
-		float dt = (float)delta;
-		retargetLock = Mathf.Max(0.0f, retargetLock - dt);
-
-		if (!hasTarget || navAgent.IsNavigationFinished() || ReachedTarget() || !IsCurrentTargetUsable())
-		{
-			MakeNewWanderTarget();
-		}
-
-		Vector3 nextPoint = hasTarget ? navAgent.GetNextPathPosition() : GlobalPosition;
-		Vector3 moveDir = Flatten(nextPoint - GlobalPosition);
-		if (moveDir.LengthSquared() < 0.0001f)
-		{
-			MakeNewWanderTarget();
-			moveDir = Flatten(navAgent.TargetPosition - GlobalPosition);
-		}
-
-		if (moveDir.LengthSquared() > 0.0001f)
-		{
-			moveDir = moveDir.Normalized();
-			FaceDirection(moveDir);
-		}
-
-		Velocity = new Vector3(moveDir.X * speed, Velocity.Y, moveDir.Z * speed);
-		if (!IsOnFloor())
-		{
-			Velocity += Vector3.Down * Gravity * dt;
-		}
-
-		MoveAndSlide();
-		HandleCollisions(moveDir);
-		UpdateStuckTimer(dt);
-	}
-
-	/// <summary>
-	/// Picks a random wander point. When <paramref name="preferredDirection"/> is set
-	/// (usually a wall normal), new points are biased away from the obstacle.
-	/// </summary>
-	public void MakeNewWanderTarget(Vector3 preferredDirection = default)
-	{
-		if (retargetLock > 0.0f && hasTarget)
-		{
-			return;
-		}
-
-		Vector3 bias = Flatten(preferredDirection);
-		Vector3 chosen = GlobalPosition;
-		bool found = false;
-
-		for (int i = 0; i < MaxTargetAttempts; i++)
-		{
-			float angle = rng.Randf() * Mathf.Tau;
-			if (bias.LengthSquared() > 0.0001f)
-			{
-				float away = Mathf.Atan2(bias.Z, bias.X);
-				angle = away + rng.RandfRange(-Mathf.Pi * 0.45f, Mathf.Pi * 0.45f);
-			}
-
-			float distance = rng.RandfRange(MinTargetDistance, wanderRadius);
-			Vector3 candidate = GlobalPosition + new Vector3(Mathf.Cos(angle), 0.0f, Mathf.Sin(angle)) * distance;
-			candidate = ProjectOntoNavigation(candidate);
-
-			if (Flatten(candidate - GlobalPosition).Length() < MinTargetDistance)
-			{
-				continue;
-			}
-
-			chosen = candidate;
-			found = true;
-			break;
-		}
-
-		if (!found)
-		{
-			Vector3 escape = bias.LengthSquared() > 0.0001f ? bias.Normalized() : Flatten(-Transform.Basis.Z);
-			if (escape.LengthSquared() < 0.0001f)
-			{
-				escape = Vector3.Forward;
-			}
-			chosen = ProjectOntoNavigation(GlobalPosition + escape * MinTargetDistance);
-		}
-
-		navAgent.TargetPosition = chosen;
-		hasTarget = true;
-		stuckTime = 0.0f;
-		retargetLock = RetargetCooldown;
-		lastPosition = GlobalPosition;
+		StopMotion();
 	}
 
 	public void Interaction(Player player)
@@ -158,6 +58,8 @@ public partial class EnemyWander : CharacterBody3D
 
 	private void TryStartBattle()
 	{
+		StopMotion();
+
 		if (!GodotObject.IsInstanceValid(sceneManager))
 		{
 			sceneManager = FindSceneManager();
@@ -182,93 +84,161 @@ public partial class EnemyWander : CharacterBody3D
 		return GetTree()?.GetFirstNodeInGroup("SceneManager") as SceneManager;
 	}
 
-	private void HandleCollisions(Vector3 moveDir)
+	private void StartIdle()
 	{
-		Vector3 pushAway = Vector3.Zero;
-
-		for (int i = 0; i < GetSlideCollisionCount(); i++)
+		StopMotion();
+		if (!IsInsideTree())
 		{
-			KinematicCollision3D hit = GetSlideCollision(i);
-			if (hit.GetCollider() is Player)
+			return;
+		}
+
+		tween = CreateTween();
+		tween.SetProcessMode(Tween.TweenProcessMode.Physics);
+		tween.TweenInterval(idleTime);
+		tween.Finished += OnIdleFinished;
+	}
+
+	private void OnIdleFinished()
+	{
+		if (!IsInsideTree())
+		{
+			return;
+		}
+
+		TryStartHop();
+	}
+
+	private void TryStartHop()
+	{
+		List<Vector3> open = CollectOpenDirections();
+		if (open.Count == 0)
+		{
+			StartIdle();
+			return;
+		}
+
+		Vector3 dir = open[rng.RandiRange(0, open.Count - 1)];
+		FaceDirection(dir);
+		StartHop(dir);
+	}
+
+	private List<Vector3> CollectOpenDirections()
+	{
+		int count = probeDirections <= 4 ? 4 : 8;
+		List<Vector3> open = new List<Vector3>(count);
+
+		for (int i = 0; i < count; i++)
+		{
+			float angle = i * (Mathf.Tau / count);
+			Vector3 dir = new Vector3(Mathf.Cos(angle), 0.0f, Mathf.Sin(angle));
+			Vector3 motion = dir * moveDistance;
+			if (!HitsWall(GlobalTransform, motion))
 			{
-				TryStartBattle();
-				return;
+				open.Add(dir);
 			}
-
-			Vector3 normal = Flatten(hit.GetNormal());
-			if (normal.LengthSquared() < 0.0001f)
-			{
-				continue;
-			}
-
-			// Only retarget when the wall is actually blocking the current heading.
-			if (moveDir.LengthSquared() > 0.0001f && normal.Dot(moveDir) > -0.2f)
-			{
-				continue;
-			}
-
-			pushAway += normal;
 		}
 
-		if (pushAway.LengthSquared() > 0.0001f)
-		{
-			MakeNewWanderTarget(pushAway.Normalized());
-		}
+		return open;
 	}
 
-	private void UpdateStuckTimer(float delta)
+	private void StartHop(Vector3 dir)
 	{
-		Vector3 moved = Flatten(GlobalPosition - lastPosition);
-		lastPosition = GlobalPosition;
+		StopMotion();
 
-		if (moved.Length() < StuckMoveThreshold)
-		{
-			stuckTime += delta;
-		}
-		else
-		{
-			stuckTime = 0.0f;
-		}
+		hopStart = GlobalPosition;
+		hopEnd = hopStart + dir * moveDistance;
+		hopEnd.Y = hopStart.Y;
+		isMoving = true;
 
-		if (stuckTime >= StuckTimeLimit)
-		{
-			stuckTime = 0.0f;
-			MakeNewWanderTarget(-Flatten(Velocity));
-		}
+		tween = CreateTween();
+		tween.SetProcessMode(Tween.TweenProcessMode.Physics);
+		tween.TweenMethod(new Callable(this, MethodName.ApplyHop), 0.0f, 1.0f, moveDuration)
+			.SetEase(Tween.EaseType.Out)
+			.SetTrans(Tween.TransitionType.Cubic);
+		tween.Finished += OnHopFinished;
 	}
 
-	private bool ReachedTarget()
+	private void ApplyHop(float t)
 	{
-		return Flatten(navAgent.TargetPosition - GlobalPosition).Length() <= ArrivalDistance;
+		if (!isMoving)
+		{
+			return;
+		}
+
+		Vector3 desired = hopStart.Lerp(hopEnd, t);
+		desired.Y = hopStart.Y;
+
+		Vector3 motion = desired - GlobalPosition;
+		motion.Y = 0.0f;
+		if (motion.LengthSquared() < 0.0001f)
+		{
+			return;
+		}
+
+		KinematicCollision3D hit = new KinematicCollision3D();
+		if (HitsWall(GlobalTransform, motion, hit))
+		{
+			AbortHop(hit);
+			return;
+		}
+
+		GlobalPosition = desired;
 	}
 
-	private bool IsCurrentTargetUsable()
+	/// <summary>
+	/// True when the motion is blocked by a wall or actor. Floor/ceiling hits
+	/// (almost-vertical normals) are ignored so a slightly buried collider
+	/// does not treat every heading as blocked.
+	/// </summary>
+	private bool HitsWall(Transform3D from, Vector3 motion, KinematicCollision3D hit = null)
 	{
-		if (navAgent.IsTargetReachable())
+		hit ??= new KinematicCollision3D();
+		if (!TestMove(from, motion, hit))
 		{
-			return true;
+			return false;
 		}
 
-		// No baked navmesh (the main dungeon sandbox) still walks in a straight line.
-		// Treat that as usable and let collision / stuck checks retarget.
-		return NavigationServer3D.MapGetIterationId(navAgent.GetNavigationMap()) == 0;
+		Vector3 wallNormal = hit.GetNormal();
+		wallNormal.Y = 0.0f;
+		return wallNormal.LengthSquared() > 0.05f;
 	}
 
-	private Vector3 ProjectOntoNavigation(Vector3 point)
+	private void AbortHop(KinematicCollision3D hit)
 	{
-		Rid map = navAgent.GetNavigationMap();
-		if (!map.IsValid || NavigationServer3D.MapGetIterationId(map) == 0)
+		Vector3 travel = hit.GetTravel();
+		travel.Y = 0.0f;
+		if (travel.LengthSquared() > 0.0001f)
 		{
-			return point;
+			GlobalPosition += travel;
 		}
 
-		Vector3 closest = NavigationServer3D.MapGetClosestPoint(map, point);
-		if (Flatten(closest - point).Length() > wanderRadius)
+		StopMotion();
+
+		if (hit.GetCollider() is Player)
 		{
-			return point;
+			TryStartBattle();
+			return;
 		}
 
-		return new Vector3(closest.X, GlobalPosition.Y, closest.Z);
+		StartIdle();
+	}
+
+	private void OnHopFinished()
+	{
+		isMoving = false;
+		if (!IsInsideTree())
+		{
+			return;
+		}
+
+		StartIdle();
+	}
+
+	private void StopMotion()
+	{
+		tween?.Kill();
+		tween = null;
+		isMoving = false;
 	}
 
 	private void FaceDirection(Vector3 direction)
@@ -285,11 +255,5 @@ public partial class EnemyWander : CharacterBody3D
 		Node3D face = pivot ?? this;
 		face.LookAt(lookPos, Vector3.Up);
 		face.RotateObjectLocal(Vector3.Up, Mathf.Pi);
-	}
-
-	private static Vector3 Flatten(Vector3 value)
-	{
-		value.Y = 0.0f;
-		return value;
 	}
 }
