@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d4hfgpi2u34uo"]
 
-[ext_resource type="Script" uid="uid://8b1bq6jx3ef4" path="res://Scripts/PushBlock.cs" id="1_n0h5u"]
+[ext_resource type="Script" uid="uid://8b1bq6jx3ef4" path="res://Scripts/PushBlock.cs" id="1_push"]
 [ext_resource type="PackedScene" uid="uid://3bo5lg1ixjhg" path="res://Models/Numbers/Part0.fbx" id="2_tvcfx"]
 [ext_resource type="PackedScene" uid="uid://dbw1wpqi5ma3o" path="res://Models/Numbers/Part1.fbx" id="3_vhans"]
 [ext_resource type="PackedScene" uid="uid://cy5k6d4xhuhtn" path="res://Models/Numbers/Part2.fbx" id="4_8p8xj"]
@@ -24,10 +24,10 @@ albedo_color = Color(1, 0.3529412, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5pwlv"]
 
-[node name="PushBlock" type="CharacterBody3D" unique_id=47364855 node_paths=PackedStringArray("meshes") groups=["Interactable"]]
+[node name="PushBlock" type="CharacterBody3D" unique_id=47364855 groups=["Interactable"] node_paths=PackedStringArray("meshes")]
 collision_layer = 13
 collision_mask = 13
-script = ExtResource("1_n0h5u")
+script = ExtResource("1_push")
 meshes = [NodePath("Part0"), NodePath("Part1"), NodePath("Part2"), NodePath("Part3"), NodePath("Part4"), NodePath("Part5"), NodePath("Part6"), NodePath("Part7"), NodePath("Part8"), NodePath("Part9"), NodePath("PartAdd"), NodePath("PartDiv"), NodePath("PartEqu"), NodePath("PartMul"), NodePath("PartSub")]
 values = PackedStringArray("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "/", "=", "*", "-")
 

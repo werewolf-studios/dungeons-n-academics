@@ -3,31 +3,41 @@ using System;
 
 public partial class InteractionTest : CharacterBody3D
 {
-    // Test with toggle
-    [Export]
-    private StandardMaterial3D materialA;
+	// Test with toggle
+	[Export]
+	private StandardMaterial3D materialA;
 
-    [Export]
-    private StandardMaterial3D materialB;
+	[Export]
+	private StandardMaterial3D materialB;
 
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
 	{
-        GetNode<MeshInstance3D>("MeshInstance3D").MaterialOverride = materialA;
-    }
+		MeshInstance3D mesh = GetNodeOrNull<MeshInstance3D>("MeshInstance3D");
+		if (mesh != null)
+		{
+			mesh.MaterialOverride = materialA;
+		}
+	}
 
 	// On Interaction
 	public virtual void Interaction(Player origin)
 	{
-        GD.Print("Interaction Started");
+		GD.Print("Interaction Started");
 
-        if (GetNode<MeshInstance3D>("MeshInstance3D").MaterialOverride == materialA)
-        {
-            GetNode<MeshInstance3D>("MeshInstance3D").MaterialOverride = materialB;
-        }
-        else
-        {
-            GetNode<MeshInstance3D>("MeshInstance3D").MaterialOverride = materialA;
-        }
+		MeshInstance3D mesh = GetNodeOrNull<MeshInstance3D>("MeshInstance3D");
+		if (mesh == null)
+		{
+			return;
+		}
+
+		if (mesh.MaterialOverride == materialA)
+		{
+			mesh.MaterialOverride = materialB;
+		}
+		else
+		{
+			mesh.MaterialOverride = materialA;
+		}
 	}
 }

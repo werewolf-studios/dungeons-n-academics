@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 public partial class Menu : CanvasLayer
 {
 	[Export]
-	public string levelPath = "res://Scenes/dungeon_room.tscn";
+	public string levelPath = "res://Scenes/player_controller_test.tscn";
 	
 	public void _on_start_button_pressed()
 	{

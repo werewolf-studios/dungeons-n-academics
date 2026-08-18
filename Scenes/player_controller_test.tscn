@@ -58,6 +58,7 @@ player = NodePath("../Player")
 maxCameraDistance = 2.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CameraFollower" unique_id=1423326211]
+transparency = 1.0
 mesh = SubResource("SphereMesh_gu0sv")
 
 [node name="World" type="StaticBody3D" parent="." unique_id=556897208]
@@ -548,7 +549,7 @@ transform = Transform3D(-0.050000004, 0, 4.371138e-09, 0, 1, 0, -4.371138e-09, 0
 transform = Transform3D(-0.050000004, 0, 4.371138e-09, 0, 1, 0, -4.371138e-09, 0, -0.050000004, 0.035714347, 1, -0.5142858)
 
 [node name="Door3" parent="." unique_id=846634546 node_paths=PackedStringArray("playerRef", "cameraRef") instance=ExtResource("4_oxgd0")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -16.846783, 1, 60.43333)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10.396922, 1, 60.43333)
 playerRef = NodePath("../Player")
 cameraRef = NodePath("../CameraFollower")
 newPlayerLocation = Vector3(-23.4, 1, 31)
@@ -612,7 +613,7 @@ newPlayerLocation = Vector3(1, 1, 55)
 newCameraLocation = Vector3(0, 1, 55)
 
 [node name="Door10" parent="." unique_id=206175471 node_paths=PackedStringArray("playerRef", "cameraRef") instance=ExtResource("4_oxgd0")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -16.527609, 1.7865734, 40.97493)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -31.64697, 1.7865734, 40.97493)
 playerRef = NodePath("../Player")
 cameraRef = NodePath("../CameraFollower")
 newPlayerLocation = Vector3(-31, 1, 55)
@@ -7369,7 +7370,7 @@ answers = PackedFloat32Array(2, 5, 2, 5)
 [node name="MathSystem" parent="." unique_id=514112647 node_paths=PackedStringArray("puzzleParts", "recievers") instance=ExtResource("12_omupu")]
 answers = PackedFloat32Array(4)
 puzzleParts = [NodePath("TilePlate"), NodePath("TilePlate3"), NodePath("Button2")]
-recievers = [NodePath("../Door3")]
+recievers = []
 
 [node name="TilePlate" parent="MathSystem" unique_id=562736670 instance=ExtResource("8_pc80o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.171852, 0, 63.866035)
@@ -7395,6 +7396,9 @@ collision_layer = 5
 collision_mask = 5
 blockIndex = 2
 metadata/_editor_floor_ = Vector3(0, 5, 0)
+
+[node name="CharacterBody3D" parent="MathSystem/GridMap" index="0" unique_id=47364855]
+script = null
 
 [node name="PuzzleWall1" type="StaticBody3D" parent="MathSystem/GridMap" unique_id=2079059339]
 transform = Transform3D(2.8900201, 0, 0, 0, 1.5, 0, 0, 0, 0.7, 0.89170396, 0.0119999945, 6.0768166)
@@ -7467,14 +7471,13 @@ index = 11
 [node name="MathSystemTest2" parent="." unique_id=1914444878 node_paths=PackedStringArray("puzzleParts", "recievers") instance=ExtResource("12_omupu")]
 answers = PackedFloat32Array(4)
 puzzleParts = [NodePath("TilePlate"), NodePath("TilePlate2"), NodePath("Button")]
-recievers = [NodePath("../Door10")]
+recievers = []
 
 [node name="TilePickUp2" parent="MathSystemTest2" unique_id=1277418436 instance=ExtResource("9_bv58s")]
 index = 10
 
-[node name="TilePlate" parent="MathSystemTest2" unique_id=1074415832 node_paths=PackedStringArray("heldTile") instance=ExtResource("8_pc80o")]
+[node name="TilePlate" parent="MathSystemTest2" unique_id=1074415832 instance=ExtResource("8_pc80o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.429255, -0.5, 34.806473)
-heldTile = NodePath("")
 
 [node name="TilePlate2" parent="MathSystemTest2" unique_id=1834494789 node_paths=PackedStringArray("heldTile") instance=ExtResource("8_pc80o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.429255, -0.5, 34.806473)
@@ -7492,13 +7495,19 @@ collision_mask = 5
 blockIndex = 12
 metadata/_editor_floor_ = Vector3(0, 5, 0)
 
+[node name="CharacterBody3D" parent="MathSystemTest2/GridMap" index="0" unique_id=47364855]
+script = null
+
 [node name="GridMap2" parent="MathSystemTest2" unique_id=447357730 instance=ExtResource("12_dwc1d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.429255, 0, 27.806473)
 cell_octant_size = 2
 collision_layer = 5
 collision_mask = 5
 blockIndex = 3
-metadata/_editor_floor_ = Vector3(0, 5, 0)
+metadata/_editor_floor_ = Vector3(0, 3, 0)
+
+[node name="CharacterBody3D" parent="MathSystemTest2/GridMap2" index="0" unique_id=47364855]
+script = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MathSystemTest2" unique_id=491615609]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -32.429253, 0, 34.806473)
@@ -7619,3 +7628,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 30)
 
 [node name="Part6" parent="." unique_id=455662703 instance=ExtResource("20_bijy0")]
 transform = Transform3D(-200, 0, -1.7484555e-05, 0, 200, 0, 1.7484555e-05, 0, -200, -32, 1, 35)
+
+[editable path="MathSystem/GridMap"]
+[editable path="MathSystemTest2/GridMap"]
+[editable path="MathSystemTest2/GridMap2"]

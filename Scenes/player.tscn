@@ -16,6 +16,7 @@ script = ExtResource("1_i3pqv")
 [node name="Pivot" type="Node3D" parent="." unique_id=1498624738]
 
 [node name="Male-Character" parent="Pivot" unique_id=787788361 instance=ExtResource("2_hqtel")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Female-Character" parent="Pivot" unique_id=733471895 instance=ExtResource("3_sweqy")]
 visible = false
@@ -29,6 +30,7 @@ shape = SubResource("BoxShape3D_6t5aa")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot/InteractionCollider" unique_id=1400917127]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+transparency = 1.0
 mesh = SubResource("BoxMesh_6t5aa")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=805874879]
