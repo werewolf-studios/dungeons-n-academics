@@ -19,6 +19,7 @@ script = ExtResource("1_i3pqv")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="Female-Character" parent="Pivot" unique_id=733471895 instance=ExtResource("3_sweqy")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 visible = false
 
 [node name="InteractionCollider" type="Area3D" parent="Pivot" unique_id=1915739309]
