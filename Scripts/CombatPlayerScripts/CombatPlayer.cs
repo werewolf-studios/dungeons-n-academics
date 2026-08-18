@@ -12,9 +12,18 @@ public partial class CombatPlayer : Node3D
 		private set { damage = value; }
 	}
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+	public void SetCharacterMale(bool isMale)
 	{
+		Node3D male = GetNodeOrNull<Node3D>("Male-Character");
+		Node3D female = GetNodeOrNull<Node3D>("Female-Character");
+		if (male != null)
+		{
+			male.Visible = isMale;
+		}
+		if (female != null)
+		{
+			female.Visible = !isMale;
+		}
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

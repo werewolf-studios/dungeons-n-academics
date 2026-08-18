@@ -40,6 +40,12 @@ public partial class SceneManager : Node
 
 		if (combatInstance is CombatMain combatMain)
 		{
+			Player overworldPlayer = GetNodeOrNull<Player>("Player");
+			if (overworldPlayer != null)
+			{
+				combatMain.ApplyOverworldCharacter(overworldPlayer.IsCharacterMale);
+			}
+
 			combatMain.BattleFinished += ExitBattle;
 		}
 

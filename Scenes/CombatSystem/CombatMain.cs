@@ -21,6 +21,12 @@ public partial class CombatMain : Node
 		combatCamera.MakeCurrent();
 	}
 
+	public void ApplyOverworldCharacter(bool isMale)
+	{
+		player ??= GetNodeOrNull<CombatPlayer>("%CombatPlayer");
+		player?.SetCharacterMale(isMale);
+	}
+
 	public void NotifyBattleEnded(bool playerWon)
 	{
 		if (ending)

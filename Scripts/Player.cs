@@ -40,6 +40,7 @@ public partial class Player : CharacterBody3D
 
     // Character swapping
     private bool isCharacterMale = true;
+    public bool IsCharacterMale => isCharacterMale;
 
     // Prevent input spam
     private bool singlePressInteract;
