@@ -6,6 +6,9 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n0xsv"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_encounter"]
+size = Vector3(2, 2.8, 1.4)
+
 [sub_resource type="Animation" id="Animation_p2kfq"]
 resource_name = "Death"
 length = 2.0
@@ -186,7 +189,7 @@ _data = {
 &"Shoot": SubResource("Animation_tvfud")
 }
 
-[node name="EnemyX" type="CharacterBody3D" unique_id=94392762]
+[node name="EnemyX" type="CharacterBody3D" unique_id=94392762 groups=["Interactable"]]
 script = ExtResource("1_p2kfq")
 
 [node name="Pivot" type="Node3D" parent="." unique_id=705436247]
@@ -201,6 +204,15 @@ transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
 transform = Transform3D(1.43, 0, 0, 0, 2.2264287, 0, 0, 0, 0.8, 0, 0, 0)
 visible = false
 shape = SubResource("BoxShape3D_n0xsv")
+
+[node name="EncounterArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 1
+monitoring = true
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EncounterArea"]
+shape = SubResource("BoxShape3D_encounter")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1293713281]
 libraries/ = SubResource("AnimationLibrary_o4b28")

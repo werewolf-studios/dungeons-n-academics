@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://dwl1au8so3fdi" path="res://Models/Numbers/Part4.fbx" id="20_bijy0"]
 [ext_resource type="PackedScene" uid="uid://1ej2arg6cdu4" path="res://Models/Numbers/PartDiv.fbx" id="21_hrye0"]
 [ext_resource type="PackedScene" uid="uid://0l41fxib1ugi" path="res://Scenes/enemy_x.tscn" id="22_bijy0"]
+[ext_resource type="PackedScene" uid="uid://cwdd3rvi5k3ht" path="res://Scenes/CombatSystem/combat_main.tscn" id="23_combat"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_gu0sv"]
 
@@ -47,8 +48,10 @@ albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hrye0"]
 
-[node name="PlayerControllerTest" type="Node" unique_id=1805647473]
+[node name="PlayerControllerTest" type="Node" unique_id=1805647473 node_paths=PackedStringArray("OverworldCamera")]
 script = ExtResource("1_gg48i")
+CombatScene = ExtResource("23_combat")
+OverworldCamera = NodePath("CameraFollower/CameraPivot/Camera")
 
 [node name="Player" parent="." unique_id=1667134440 instance=ExtResource("1_gu0sv")]
 Speed = 10
@@ -7624,7 +7627,7 @@ transform = Transform3D(-200, 0, -1.7484555e-05, 0, 200, 0, 1.7484555e-05, 0, -2
 transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 3.5, 1, 63)
 
 [node name="EnemyX" parent="." unique_id=94392762 instance=ExtResource("22_bijy0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 24.059023)
 
 [node name="Part6" parent="." unique_id=455662703 instance=ExtResource("20_bijy0")]
 transform = Transform3D(-200, 0, -1.7484555e-05, 0, 200, 0, 1.7484555e-05, 0, -200, -32, 1, 35)

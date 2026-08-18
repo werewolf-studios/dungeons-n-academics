@@ -18,4 +18,12 @@ public partial class CombatState : Node
 	public virtual void Ready(){}
 
 	public virtual void HandleInput(InputEvent @event){}
+
+	protected void NotifyBattleEnded(bool playerWon)
+	{
+		if (GetOwner() is CombatMain combat)
+		{
+			combat.NotifyBattleEnded(playerWon);
+		}
+	}
 }

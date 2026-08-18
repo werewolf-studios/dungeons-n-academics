@@ -9,5 +9,6 @@ public partial class DefeatedState : CombatState
     public override void Enter()
     {
         DefeatedText.Show();
+        NotifyBattleEnded(false);
     }
 }

@@ -139,6 +139,19 @@ public partial class Player : CharacterBody3D
 
         //Push Block Check
         CheckBoxCollision(direction);
+        CheckEnemyCollision();
+    }
+
+    private void CheckEnemyCollision()
+    {
+        for (int i = 0; i < GetSlideCollisionCount(); i++)
+        {
+            if (GetSlideCollision(i).GetCollider() is EnemyWander enemy)
+            {
+                enemy.Interaction(this);
+                break;
+            }
+        }
     }
 
     // Interactions with puzzles and enemies
