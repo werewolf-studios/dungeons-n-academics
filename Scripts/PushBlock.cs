@@ -45,7 +45,7 @@ public partial class PushBlock : InteractionTest
 
 	public override void Interaction(Player origin)
 	{
-		Push(origin.Velocity, true);
+		_ = Push(origin.Velocity, true);
 	}
 
 	/// <summary>
