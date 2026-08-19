@@ -1,0 +1,23 @@
+Samuel Pennington:
+	Player:
+		Designed basic player movement and interaction with puzzles
+	Camera:
+		Created a camera follower that tracks the player, but has custom 
+		boundries and a radius for controlled movement
+	Door:
+		Teleports the player to another room, can be kept hidden until a condition is met
+	Math System:
+		A math system that contains multiple puzzle objects and their values that are 
+		then calculated and compared to a list of possible answers
+	Tile Puzzle:
+		Created Tile plates and pick-ups allowing puzzles with carefully placing 
+		objects in the right order
+	Growing Equation Puzzle:
+		Designed a unique puzzle involving a procedurally growing equation using similar 
+		features to the math system
+	Enemy X:
+		Created a design for a base enemy with models and animations
+	Layout:
+		Designed a basic layout that presents all current aspects of the overworld
+	Models:
+		Designed models for Enemy X, Most puzzle objects, and the wall tiles.

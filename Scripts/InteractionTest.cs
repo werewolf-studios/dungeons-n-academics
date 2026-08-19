@@ -20,7 +20,7 @@ public partial class InteractionTest : CharacterBody3D
 		}
 	}
 
-	// On Interaction
+	// On Interaction (Inherited by children)
 	public virtual void Interaction(Player origin)
 	{
 		GD.Print("Interaction Started");

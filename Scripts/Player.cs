@@ -163,6 +163,7 @@ public partial class Player : CharacterBody3D
             singlePressInteract = true;
             GD.Print("Checking");
 
+            // Checks for objects in range within the interact group
             foreach (CharacterBody3D body in GetNode<Area3D>("Pivot/InteractionCollider").GetOverlappingBodies())
             {
                 GD.Print("Group Check");

@@ -24,6 +24,7 @@ public partial class Door : Area3D
 
     public void ChangeRoom(Node3D body)
     {
+        // Move player to target location
         if (body == playerRef)
         {
             playerRef.Position = newPlayerLocation;
@@ -33,6 +34,7 @@ public partial class Door : Area3D
 
     public void Answered()
     {
+        // Move door to usable position
         Position = AnswerMoveTo;
     }
 }

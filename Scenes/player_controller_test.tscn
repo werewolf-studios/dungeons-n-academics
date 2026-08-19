@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://dwl1au8so3fdi" path="res://Models/Numbers/Part4.fbx" id="20_bijy0"]
 [ext_resource type="PackedScene" uid="uid://1ej2arg6cdu4" path="res://Models/Numbers/PartDiv.fbx" id="21_hrye0"]
 [ext_resource type="PackedScene" uid="uid://0l41fxib1ugi" path="res://Scenes/enemy_x.tscn" id="22_bijy0"]
-[ext_resource type="PackedScene" uid="uid://cwdd3rvi5k3ht" path="res://Scenes/CombatSystem/combat_main.tscn" id="23_combat"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_gu0sv"]
 
@@ -48,10 +47,8 @@ albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hrye0"]
 
-[node name="PlayerControllerTest" type="Node" unique_id=1805647473 node_paths=PackedStringArray("OverworldCamera")]
+[node name="PlayerControllerTest" type="Node" unique_id=1805647473]
 script = ExtResource("1_gg48i")
-CombatScene = ExtResource("23_combat")
-OverworldCamera = NodePath("CameraFollower/CameraPivot/Camera")
 
 [node name="Player" parent="." unique_id=1667134440 instance=ExtResource("1_gu0sv")]
 Speed = 10

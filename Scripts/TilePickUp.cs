@@ -3,6 +3,7 @@ using System;
 
 public partial class TilePickUp : InteractionTest
 {
+    // Tile Data arrays
     [Export]
     int index;
     [Export]
@@ -15,6 +16,7 @@ public partial class TilePickUp : InteractionTest
         meshes[index].Visible = true;
     }
 
+    // Send data to plate
     public string GetValue()
     {
         return values[index];

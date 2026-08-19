@@ -21,6 +21,7 @@ public partial class MathSystem : Node
 
         GD.Print("Calculating");
 
+        // compile data
         foreach (var symbol in puzzleParts)
         {
             GD.Print("Checking");
@@ -44,6 +45,7 @@ public partial class MathSystem : Node
                 GD.Print("Result: " + result);
                 float resultNum = (float)result;
 
+                // Check if any answers match. Allows multiple answers
                 foreach (var number in answers)
                 {
                     if (resultNum == number)

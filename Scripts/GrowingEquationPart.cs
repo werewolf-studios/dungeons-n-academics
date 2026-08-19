@@ -16,6 +16,7 @@ public partial class GrowingEquationPart : InteractionTest
 
     public override void Interaction(Player origin)
     {
+        // Send signal to main puzzle system
         if (GetParent() is GrowingEquationManager manager)
         {
             manager.DeviceHit(answers[currentValue].ToString());
@@ -24,12 +25,14 @@ public partial class GrowingEquationPart : InteractionTest
 
     public void IncrementQuestion()
     {
+        // Next array element
         currentValue++;
         GetNode<Label3D>("Text").Text = answers[currentValue].ToString();
     }
 
     public void Reset()
     {
+        // Reset after completion
         currentValue = 0;
         GetNode<Label3D>("Text").Text = answers[currentValue].ToString();
     }

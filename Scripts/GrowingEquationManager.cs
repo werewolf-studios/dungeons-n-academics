@@ -55,21 +55,26 @@ public partial class GrowingEquationManager : Node
             GD.Print("Break");
             streak = false;
         }
+        // Increment progress
         statuesHit++;
 
         if (statuesHit >= statueCount)
         {
+            // All phases hit
             if (streak)
             {
+                // All nodes hit correctly
                 GetNode<Label3D>("Text").Text = "Correct";
                 GetNode<Label3D>("Text").Modulate = new Color(0.0f, 1.0f, 0.0f, 1.0f);
             }
             else
             {
+                // Order was incorrect
                 GetNode<Label3D>("Text").Text = "Incorrect";
                 GetNode<Label3D>("Text").Modulate = new Color(1.0f, 0.0f, 0.0f, 1.0f);
             }
 
+            // Reset sequence
             equation = startNumber + equations[0];
             statuesHit = 0;
             GD.Print("Reset");
@@ -81,10 +86,12 @@ public partial class GrowingEquationManager : Node
         }
         else
         {
+            // Array limit not reached
             GD.Print("Next");
             equation = value + equations[statuesHit];
             GD.Print(equation);
 
+            // Show next options
             foreach (GrowingEquationPart child in children)
             {
                 child.IncrementQuestion();
@@ -118,6 +125,7 @@ public partial class GrowingEquationManager : Node
         }
         else
         {
+            // Error fallback
             GetNode<Label3D>("Text").Text = "Error";
             GetNode<Label3D>("Text").Modulate = new Color(1.0f, 0.0f, 0.0f, 1.0f);
         }
