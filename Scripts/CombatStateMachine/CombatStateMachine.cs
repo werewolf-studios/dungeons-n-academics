@@ -29,7 +29,7 @@ public partial class CombatStateMachine : Node
 			{
 				states[node.Name.ToString()] = s;
 				s.csm = this;
-				s.Ready();
+				s.Initialize();
 				s.Exit(); // reset all states
 			}
 		}

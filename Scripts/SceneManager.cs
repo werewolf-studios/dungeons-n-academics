@@ -25,15 +25,30 @@ public partial class SceneManager : Node
 			return;
 		}
 
+		inBattle = true;
+		encounterEnemy = enemy;
+		// Area3D / MoveAndSlide callbacks cannot disable CollisionObjects
+		// (PushBlock, player, etc.). Run the scene swap on the next idle frame.
+		CallDeferred(MethodName.BeginBattle);
+	}
+
+	private void BeginBattle()
+	{
+		if (!GodotObject.IsInstanceValid(encounterEnemy))
+		{
+			inBattle = false;
+			encounterEnemy = null;
+			return;
+		}
+
 		PackedScene scene = CombatScene ?? GD.Load<PackedScene>("res://Scenes/CombatSystem/combat_main.tscn");
 		if (scene == null)
 		{
 			GD.PrintErr("SceneManager: CombatScene is missing.");
+			inBattle = false;
+			encounterEnemy = null;
 			return;
 		}
-
-		inBattle = true;
-		encounterEnemy = enemy;
 
 		combatInstance = scene.Instantiate();
 		AddChild(combatInstance);

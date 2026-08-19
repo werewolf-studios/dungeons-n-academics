@@ -1,295 +1,259 @@
 using Godot;
-using System;
+using System.Collections.Generic;
 
 public partial class EnemyWander : CharacterBody3D
 {
-    private const int MaxTargetAttempts = 12;
-    private const float MinTargetDistance = 2.0f;
-    private const float ArrivalDistance = 0.75f;
-    private const float StuckMoveThreshold = 0.08f;
-    private const float StuckTimeLimit = 0.35f;
-    private const float RetargetCooldown = 0.2f;
-    private const float Gravity = 20.0f;
+	private Node3D pivot;
+	private RandomNumberGenerator rng = new RandomNumberGenerator();
+	private SceneManager sceneManager;
 
-    private NavigationAgent3D navAgent;
-    private Node3D pivot;
-    private RandomNumberGenerator rng = new RandomNumberGenerator();
-    private SceneManager sceneManager;
+	private Tween tween;
+	private bool isMoving;
+	private Vector3 hopStart;
+	private Vector3 hopEnd;
 
-    private Vector3 lastPosition;
-    private float stuckTime;
-    private float retargetLock;
-    private bool hasTarget;
+	[Export]
+	public float moveDistance = 2.5f;
 
-    [Export]
-    public int speed = 2;
+	[Export]
+	public float moveDuration = 0.8f;
 
-    [Export]
-    public float wanderRadius = 10.0f;
+	[Export]
+	public float idleTime = 0.6f;
 
-    public override void _Ready()
-    {
-        navAgent = GetNode<NavigationAgent3D>("NavigationAgent3D");
-        navAgent.PathDesiredDistance = 0.5f;
-        navAgent.TargetDesiredDistance = ArrivalDistance;
+	[Export]
+	public int probeDirections = 8;
 
-        pivot = GetNodeOrNull<Node3D>("Pivot");
-        lastPosition = GlobalPosition;
-        rng.Randomize();
+	public override void _Ready()
+	{
+		pivot = GetNodeOrNull<Node3D>("Pivot");
+		rng.Randomize();
 
-        Area3D encounterArea = GetNodeOrNull<Area3D>("EncounterArea");
-        if (encounterArea != null)
-        {
-            encounterArea.BodyEntered += OnEncounterAreaBodyEntered;
-        }
+		Area3D encounterArea = GetNodeOrNull<Area3D>("EncounterArea");
+		if (encounterArea != null)
+		{
+			encounterArea.BodyEntered += OnEncounterAreaBodyEntered;
+		}
 
-        // Wait a physics frame so the navigation map can sync before the first path query.
-        Callable.From(PickInitialTarget).CallDeferred();
-    }
+		Callable.From(StartIdle).CallDeferred();
+	}
 
-    private async void PickInitialTarget()
-    {
-        await ToSignal(GetTree(), SceneTree.SignalName.PhysicsFrame);
-        MakeNewWanderTarget();
-    }
+	public override void _ExitTree()
+	{
+		StopMotion();
+	}
 
-    public override void _PhysicsProcess(double delta)
-    {
-        float dt = (float)delta;
-        retargetLock = Mathf.Max(0.0f, retargetLock - dt);
+	public void Interaction(Player player)
+	{
+		TryStartBattle();
+	}
 
-        if (!hasTarget || navAgent.IsNavigationFinished() || ReachedTarget() || !IsCurrentTargetUsable())
-        {
-            MakeNewWanderTarget();
-        }
+	private void OnEncounterAreaBodyEntered(Node3D body)
+	{
+		if (body is Player)
+		{
+			TryStartBattle();
+		}
+	}
 
-        Vector3 nextPoint = hasTarget ? navAgent.GetNextPathPosition() : GlobalPosition;
-        Vector3 moveDir = Flatten(nextPoint - GlobalPosition);
-        if (moveDir.LengthSquared() < 0.0001f)
-        {
-            MakeNewWanderTarget();
-            moveDir = Flatten(navAgent.TargetPosition - GlobalPosition);
-        }
+	private void TryStartBattle()
+	{
+		StopMotion();
 
-        if (moveDir.LengthSquared() > 0.0001f)
-        {
-            moveDir = moveDir.Normalized();
-            FaceDirection(moveDir);
-        }
+		if (!GodotObject.IsInstanceValid(sceneManager))
+		{
+			sceneManager = FindSceneManager();
+		}
 
-        Velocity = new Vector3(moveDir.X * speed, Velocity.Y, moveDir.Z * speed);
-        if (!IsOnFloor())
-        {
-            Velocity += Vector3.Down * Gravity * dt;
-        }
+		sceneManager?.EnterBattle(this);
+	}
 
-        MoveAndSlide();
-        HandleCollisions(moveDir);
-        UpdateStuckTimer(dt);
-    }
+	private SceneManager FindSceneManager()
+	{
+		Node node = GetParent();
+		while (node != null)
+		{
+			if (node is SceneManager manager)
+			{
+				return manager;
+			}
 
-    /// <summary>
-    /// Picks a random wander point. When <paramref name="preferredDirection"/> is set
-    /// (usually a wall normal), new points are biased away from the obstacle.
-    /// </summary>
-    public void MakeNewWanderTarget(Vector3 preferredDirection = default)
-    {
-        if (retargetLock > 0.0f && hasTarget)
-        {
-            return;
-        }
+			node = node.GetParent();
+		}
 
-        Vector3 bias = Flatten(preferredDirection);
-        Vector3 chosen = GlobalPosition;
-        bool found = false;
+		return GetTree()?.GetFirstNodeInGroup("SceneManager") as SceneManager;
+	}
 
-        for (int i = 0; i < MaxTargetAttempts; i++)
-        {
-            float angle = rng.Randf() * Mathf.Tau;
-            if (bias.LengthSquared() > 0.0001f)
-            {
-                float away = Mathf.Atan2(bias.Z, bias.X);
-                angle = away + rng.RandfRange(-Mathf.Pi * 0.45f, Mathf.Pi * 0.45f);
-            }
+	private void StartIdle()
+	{
+		StopMotion();
+		if (!IsInsideTree())
+		{
+			return;
+		}
 
-            float distance = rng.RandfRange(MinTargetDistance, wanderRadius);
-            Vector3 candidate = GlobalPosition + new Vector3(Mathf.Cos(angle), 0.0f, Mathf.Sin(angle)) * distance;
-            candidate = ProjectOntoNavigation(candidate);
+		tween = CreateTween();
+		tween.SetProcessMode(Tween.TweenProcessMode.Physics);
+		tween.TweenInterval(idleTime);
+		tween.Finished += OnIdleFinished;
+	}
 
-            if (Flatten(candidate - GlobalPosition).Length() < MinTargetDistance)
-            {
-                continue;
-            }
+	private void OnIdleFinished()
+	{
+		if (!IsInsideTree())
+		{
+			return;
+		}
 
-            chosen = candidate;
-            found = true;
-            break;
-        }
+		TryStartHop();
+	}
 
-        if (!found)
-        {
-            Vector3 escape = bias.LengthSquared() > 0.0001f ? bias.Normalized() : Flatten(-Transform.Basis.Z);
-            if (escape.LengthSquared() < 0.0001f)
-            {
-                escape = Vector3.Forward;
-            }
-            chosen = ProjectOntoNavigation(GlobalPosition + escape * MinTargetDistance);
-        }
+	private void TryStartHop()
+	{
+		List<Vector3> open = CollectOpenDirections();
+		if (open.Count == 0)
+		{
+			StartIdle();
+			return;
+		}
 
-        navAgent.TargetPosition = chosen;
-        hasTarget = true;
-        stuckTime = 0.0f;
-        retargetLock = RetargetCooldown;
-        lastPosition = GlobalPosition;
-    }
+		Vector3 dir = open[rng.RandiRange(0, open.Count - 1)];
+		FaceDirection(dir);
+		StartHop(dir);
+	}
 
-    public void Interaction(Player player)
-    {
-        TryStartBattle();
-    }
+	private List<Vector3> CollectOpenDirections()
+	{
+		int count = probeDirections <= 4 ? 4 : 8;
+		List<Vector3> open = new List<Vector3>(count);
 
-    private void OnEncounterAreaBodyEntered(Node3D body)
-    {
-        if (body is Player)
-        {
-            TryStartBattle();
-        }
-    }
+		for (int i = 0; i < count; i++)
+		{
+			float angle = i * (Mathf.Tau / count);
+			Vector3 dir = new Vector3(Mathf.Cos(angle), 0.0f, Mathf.Sin(angle));
+			Vector3 motion = dir * moveDistance;
+			if (!HitsWall(GlobalTransform, motion))
+			{
+				open.Add(dir);
+			}
+		}
 
-    private void TryStartBattle()
-    {
-        if (!GodotObject.IsInstanceValid(sceneManager))
-        {
-            sceneManager = FindSceneManager();
-        }
+		return open;
+	}
 
-        sceneManager?.EnterBattle(this);
-    }
+	private void StartHop(Vector3 dir)
+	{
+		StopMotion();
 
-    private SceneManager FindSceneManager()
-    {
-        Node node = GetParent();
-        while (node != null)
-        {
-            if (node is SceneManager manager)
-            {
-                return manager;
-            }
+		hopStart = GlobalPosition;
+		hopEnd = hopStart + dir * moveDistance;
+		hopEnd.Y = hopStart.Y;
+		isMoving = true;
 
-            node = node.GetParent();
-        }
+		tween = CreateTween();
+		tween.SetProcessMode(Tween.TweenProcessMode.Physics);
+		tween.TweenMethod(new Callable(this, MethodName.ApplyHop), 0.0f, 1.0f, moveDuration)
+			.SetEase(Tween.EaseType.Out)
+			.SetTrans(Tween.TransitionType.Cubic);
+		tween.Finished += OnHopFinished;
+	}
 
-        return GetTree()?.GetFirstNodeInGroup("SceneManager") as SceneManager;
-    }
+	private void ApplyHop(float t)
+	{
+		if (!isMoving)
+		{
+			return;
+		}
 
-    private void HandleCollisions(Vector3 moveDir)
-    {
-        Vector3 pushAway = Vector3.Zero;
+		Vector3 desired = hopStart.Lerp(hopEnd, t);
+		desired.Y = hopStart.Y;
 
-        for (int i = 0; i < GetSlideCollisionCount(); i++)
-        {
-            KinematicCollision3D hit = GetSlideCollision(i);
-            if (hit.GetCollider() is Player)
-            {
-                TryStartBattle();
-                return;
-            }
+		Vector3 motion = desired - GlobalPosition;
+		motion.Y = 0.0f;
+		if (motion.LengthSquared() < 0.0001f)
+		{
+			return;
+		}
 
-            Vector3 normal = Flatten(hit.GetNormal());
-            if (normal.LengthSquared() < 0.0001f)
-            {
-                continue;
-            }
+		KinematicCollision3D hit = new KinematicCollision3D();
+		if (HitsWall(GlobalTransform, motion, hit))
+		{
+			AbortHop(hit);
+			return;
+		}
 
-            // Only retarget when the wall is actually blocking the current heading.
-            if (moveDir.LengthSquared() > 0.0001f && normal.Dot(moveDir) > -0.2f)
-            {
-                continue;
-            }
+		GlobalPosition = desired;
+	}
 
-            pushAway += normal;
-        }
+	/// <summary>
+	/// True when the motion is blocked by a wall or actor. Floor/ceiling hits
+	/// (almost-vertical normals) are ignored so a slightly buried collider
+	/// does not treat every heading as blocked.
+	/// </summary>
+	private bool HitsWall(Transform3D from, Vector3 motion, KinematicCollision3D hit = null)
+	{
+		hit ??= new KinematicCollision3D();
+		if (!TestMove(from, motion, hit))
+		{
+			return false;
+		}
 
-        if (pushAway.LengthSquared() > 0.0001f)
-        {
-            MakeNewWanderTarget(pushAway.Normalized());
-        }
-    }
+		Vector3 wallNormal = hit.GetNormal();
+		wallNormal.Y = 0.0f;
+		return wallNormal.LengthSquared() > 0.05f;
+	}
 
-    private void UpdateStuckTimer(float delta)
-    {
-        Vector3 moved = Flatten(GlobalPosition - lastPosition);
-        lastPosition = GlobalPosition;
+	private void AbortHop(KinematicCollision3D hit)
+	{
+		Vector3 travel = hit.GetTravel();
+		travel.Y = 0.0f;
+		if (travel.LengthSquared() > 0.0001f)
+		{
+			GlobalPosition += travel;
+		}
 
-        if (moved.Length() < StuckMoveThreshold)
-        {
-            stuckTime += delta;
-        }
-        else
-        {
-            stuckTime = 0.0f;
-        }
+		StopMotion();
 
-        if (stuckTime >= StuckTimeLimit)
-        {
-            stuckTime = 0.0f;
-            MakeNewWanderTarget(-Flatten(Velocity));
-        }
-    }
+		if (hit.GetCollider() is Player)
+		{
+			TryStartBattle();
+			return;
+		}
 
-    private bool ReachedTarget()
-    {
-        return Flatten(navAgent.TargetPosition - GlobalPosition).Length() <= ArrivalDistance;
-    }
+		StartIdle();
+	}
 
-    private bool IsCurrentTargetUsable()
-    {
-        if (navAgent.IsTargetReachable())
-        {
-            return true;
-        }
+	private void OnHopFinished()
+	{
+		isMoving = false;
+		if (!IsInsideTree())
+		{
+			return;
+		}
 
-        // No baked navmesh (the main dungeon sandbox) still walks in a straight line.
-        // Treat that as usable and let collision / stuck checks retarget.
-        return NavigationServer3D.MapGetIterationId(navAgent.GetNavigationMap()) == 0;
-    }
+		StartIdle();
+	}
 
-    private Vector3 ProjectOntoNavigation(Vector3 point)
-    {
-        Rid map = navAgent.GetNavigationMap();
-        if (!map.IsValid || NavigationServer3D.MapGetIterationId(map) == 0)
-        {
-            return point;
-        }
+	private void StopMotion()
+	{
+		tween?.Kill();
+		tween = null;
+		isMoving = false;
+	}
 
-        Vector3 closest = NavigationServer3D.MapGetClosestPoint(map, point);
-        if (Flatten(closest - point).Length() > wanderRadius)
-        {
-            return point;
-        }
+	private void FaceDirection(Vector3 direction)
+	{
+		Vector3 lookPos = GlobalPosition + direction;
+		lookPos.Y = GlobalPosition.Y;
+		if (GlobalPosition.DistanceTo(lookPos) <= 0.01f)
+		{
+			return;
+		}
 
-        return new Vector3(closest.X, GlobalPosition.Y, closest.Z);
-    }
-
-    private void FaceDirection(Vector3 direction)
-    {
-        Vector3 lookPos = GlobalPosition + direction;
-        lookPos.Y = GlobalPosition.Y;
-        if (GlobalPosition.DistanceTo(lookPos) <= 0.01f)
-        {
-            return;
-        }
-
-        // Rotate the visual only. Looking with the CharacterBody3D itself turns the
-        // collision box and is what wedges the enemy into walls.
-        Node3D face = pivot ?? this;
-        face.LookAt(lookPos, Vector3.Up);
-        face.RotateObjectLocal(Vector3.Up, Mathf.Pi);
-    }
-
-    private static Vector3 Flatten(Vector3 value)
-    {
-        value.Y = 0.0f;
-        return value;
-    }
+		// Rotate the visual only. Looking with the CharacterBody3D itself turns the
+		// collision box and is what wedges the enemy into walls.
+		Node3D face = pivot ?? this;
+		face.LookAt(lookPos, Vector3.Up);
+		face.RotateObjectLocal(Vector3.Up, Mathf.Pi);
+	}
 }

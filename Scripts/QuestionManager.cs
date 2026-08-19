@@ -178,7 +178,7 @@ public partial class QuestionManager : CanvasLayer
 			SaveManager.Instance.PlayerData.Coins -= 10;
 		}
 		
-		DisplayCorrectAnswer();
+		_ = DisplayCorrectAnswer();
 	}
 
 	/// <summary>
@@ -190,7 +190,7 @@ public partial class QuestionManager : CanvasLayer
 		didPlayerAnswer = true;
 		EmitSignal(SignalName.WrongAnswer);
 		SaveManager.Instance.PlayerData.Coins -= 10;
-		DisplayCorrectAnswer();
+		_ = DisplayCorrectAnswer();
 	}
 
 	/// <summary>

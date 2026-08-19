@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://dttwcnsq4f4ti" path="res://Scripts/CombatEnemyScripts/EnemyManager.cs" id="11_1o64b"]
 [ext_resource type="PackedScene" uid="uid://cow858qw2lptn" path="res://Scenes/CombatSystem/combat_enemy.tscn" id="12_w3fjn"]
 [ext_resource type="PackedScene" uid="uid://bydeivn00di27" path="res://Scenes/healthBar.tscn" id="13_f2y4d"]
+[ext_resource type="Texture2D" uid="uid://b6ua536y3t51j" path="res://Models/Health Assets/UI.png" id="14_djp57"]
 [ext_resource type="PackedScene" uid="uid://c7na4426cw7ug" path="res://Scenes/question_system.tscn" id="14_rpsqt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k5tp8"]
@@ -226,11 +227,18 @@ horizontal_alignment = 1
 
 [node name="PlayerHealthBar" parent="CombatUI" unique_id=367515396 instance=ExtResource("13_f2y4d")]
 layout_mode = 0
-offset_top = 693.0
-offset_bottom = 720.0
+offset_left = 990.0
+offset_top = 689.0
+offset_right = 1230.0
+offset_bottom = 716.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_djp57")
 max_value = 30.0
 value = 30.0
+
+[node name="DragonSprite" type="Sprite2D" parent="CombatUI/PlayerHealthBar" unique_id=1039520333]
+position = Vector2(129, -18)
+scale = Vector2(0.14, 0.125)
+texture = ExtResource("14_djp57")
 
 [node name="EnemyHealthBar" parent="CombatUI" unique_id=1123073468 instance=ExtResource("13_f2y4d")]
 layout_mode = 0

@@ -15,7 +15,7 @@ public partial class CombatState : Node
 
 	public virtual void Update(double delta){}
 	
-	public virtual void Ready(){}
+	public virtual void Initialize(){}
 
 	public virtual void HandleInput(InputEvent @event){}
 
