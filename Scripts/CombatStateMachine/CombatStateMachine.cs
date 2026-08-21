@@ -9,13 +9,8 @@ public partial class CombatStateMachine : Node
 	[Export] public CombatState initialState;
 
 	private Dictionary<string, CombatState> states;
-	//private enum States { PlayerTurnState, QuestionState, PlayerAttackState, EnemyAttackState};
-
-	//private States cStates = States.PlayerTurnState;
 
 	private CombatState currentState;
-
-	//private PlayerTurnState test;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -33,8 +28,6 @@ public partial class CombatStateMachine : Node
 				s.Exit(); // reset all states
 			}
 		}
-
-		//currentState = test;
 
 		if (initialState != null)
 		{
