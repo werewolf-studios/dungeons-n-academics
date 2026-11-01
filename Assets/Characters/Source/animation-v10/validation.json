@@ -1,0 +1,114 @@
+{
+  "Brother": {
+    "Idle": {
+      "action": "Brother_Idle_v13",
+      "finite": true,
+      "first_last_matrix_error": 0.0,
+      "mesh_min_z": null
+    },
+    "Walk": {
+      "action": "Brother_Walk_v15",
+      "finite": true,
+      "first_last_matrix_error": 4.408728321890747e-18,
+      "mesh_min_z": -3.9238173599187576e-07
+    },
+    "Run": {
+      "action": "Brother_Run_v15",
+      "finite": true,
+      "first_last_matrix_error": 4.408728321890747e-18,
+      "mesh_min_z": -3.038297222701658e-07
+    },
+    "SwordIdle": {
+      "action": "Brother_SwordIdle_v17",
+      "finite": true,
+      "first_last_matrix_error": 1.043081283569336e-06,
+      "mesh_min_z": null
+    },
+    "SpearIdle": {
+      "action": "Brother_SpearIdle_v17",
+      "finite": true,
+      "first_last_matrix_error": 2.4437904357910156e-06,
+      "mesh_min_z": null
+    },
+    "SwordSlash": {
+      "action": "Brother_SwordSlash_v17",
+      "finite": true,
+      "first_last_matrix_error": 3.0100345611572266e-06,
+      "mesh_min_z": -2.921741497630137e-07
+    },
+    "SpearThrust": {
+      "action": "Brother_SpearThrust_v17",
+      "finite": true,
+      "first_last_matrix_error": 1.1622905731201172e-06,
+      "mesh_min_z": -3.8921331224628375e-07
+    },
+    "TakeDamage": {
+      "action": "Brother_TakeDamage_v17",
+      "finite": true,
+      "first_last_matrix_error": 1.087784767150879e-06,
+      "mesh_min_z": -3.4723709063655406e-07
+    },
+    "mesh": {
+      "triangles": 11910,
+      "vertices": 6229,
+      "max_influences": 4,
+      "unweighted": 0
+    }
+  },
+  "Sister": {
+    "Idle": {
+      "action": "Sister_Idle_v3",
+      "finite": true,
+      "first_last_matrix_error": 0.0,
+      "mesh_min_z": null
+    },
+    "Walk": {
+      "action": "Sister_Walk_v6",
+      "finite": true,
+      "first_last_matrix_error": 4.408728321890747e-18,
+      "mesh_min_z": -9.206208346768108e-07
+    },
+    "Run": {
+      "action": "Sister_Run_v6",
+      "finite": true,
+      "first_last_matrix_error": 4.408728321890747e-18,
+      "mesh_min_z": -9.339212851955381e-07
+    },
+    "SwordIdle": {
+      "action": "Sister_SwordIdle_v17",
+      "finite": true,
+      "first_last_matrix_error": 2.0563602447509766e-06,
+      "mesh_min_z": null
+    },
+    "SpearIdle": {
+      "action": "Sister_SpearIdle_v17",
+      "finite": true,
+      "first_last_matrix_error": 3.986060619354248e-07,
+      "mesh_min_z": null
+    },
+    "SwordSlash": {
+      "action": "Sister_SwordSlash_v17",
+      "finite": true,
+      "first_last_matrix_error": 5.066394805908203e-07,
+      "mesh_min_z": -4.989008743905288e-07
+    },
+    "SpearThrust": {
+      "action": "Sister_SpearThrust_v17",
+      "finite": true,
+      "first_last_matrix_error": 6.854534149169922e-07,
+      "mesh_min_z": -1.777211764419917e-07
+    },
+    "TakeDamage": {
+      "action": "Sister_TakeDamage_v17",
+      "finite": true,
+      "first_last_matrix_error": 3.5762786865234375e-07,
+      "mesh_min_z": -1.5184130006673513e-06
+    },
+    "mesh": {
+      "triangles": 11280,
+      "vertices": 6106,
+      "max_influences": 4,
+      "unweighted": 0
+    }
+  }
+}

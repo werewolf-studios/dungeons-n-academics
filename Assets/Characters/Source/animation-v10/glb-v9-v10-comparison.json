@@ -1,0 +1,124 @@
+{
+  "brother": {
+    "clip_names_v10": [
+      "Idle",
+      "Run",
+      "SpearIdle",
+      "SpearThrust",
+      "SwordIdle",
+      "SwordSlash",
+      "TakeDamage",
+      "Walk"
+    ],
+    "node_count_same": true,
+    "Idle": {
+      "duration_s": 3.0,
+      "frames": 72,
+      "max_channel_difference": 0,
+      "bones_changed": 0
+    },
+    "Run": {
+      "duration_s": 0.75,
+      "frames": 18,
+      "max_channel_difference": 0,
+      "bones_changed": 0
+    },
+    "SpearIdle": {
+      "duration_s": 2.0,
+      "frames": 48,
+      "max_channel_difference": 0.810655,
+      "bones_changed": 16
+    },
+    "SpearThrust": {
+      "duration_s": 1.0833,
+      "frames": 26,
+      "max_channel_difference": 0.970827,
+      "bones_changed": 16
+    },
+    "SwordIdle": {
+      "duration_s": 2.0,
+      "frames": 48,
+      "max_channel_difference": 0.671373,
+      "bones_changed": 10
+    },
+    "SwordSlash": {
+      "duration_s": 1.5,
+      "frames": 36,
+      "max_channel_difference": 0.853829,
+      "bones_changed": 10
+    },
+    "TakeDamage": {
+      "duration_s": 1.5417,
+      "frames": 37,
+      "max_channel_difference": 9,
+      "bones_changed": 30
+    },
+    "Walk": {
+      "duration_s": 1.1667,
+      "frames": 28,
+      "max_channel_difference": 0,
+      "bones_changed": 0
+    }
+  },
+  "sister": {
+    "clip_names_v10": [
+      "Idle",
+      "Run",
+      "SpearIdle",
+      "SpearThrust",
+      "SwordIdle",
+      "SwordSlash",
+      "TakeDamage",
+      "Walk"
+    ],
+    "node_count_same": true,
+    "Idle": {
+      "duration_s": 3.0,
+      "frames": 72,
+      "max_channel_difference": 0,
+      "bones_changed": 0
+    },
+    "Run": {
+      "duration_s": 0.75,
+      "frames": 18,
+      "max_channel_difference": 0,
+      "bones_changed": 0
+    },
+    "SpearIdle": {
+      "duration_s": 2.0,
+      "frames": 48,
+      "max_channel_difference": 0.846103,
+      "bones_changed": 16
+    },
+    "SpearThrust": {
+      "duration_s": 1.0833,
+      "frames": 26,
+      "max_channel_difference": 1.007604,
+      "bones_changed": 16
+    },
+    "SwordIdle": {
+      "duration_s": 2.0,
+      "frames": 48,
+      "max_channel_difference": 0.412624,
+      "bones_changed": 10
+    },
+    "SwordSlash": {
+      "duration_s": 1.5,
+      "frames": 36,
+      "max_channel_difference": 0.800103,
+      "bones_changed": 10
+    },
+    "TakeDamage": {
+      "duration_s": 1.5417,
+      "frames": 37,
+      "max_channel_difference": 9,
+      "bones_changed": 30
+    },
+    "Walk": {
+      "duration_s": 1.1667,
+      "frames": 28,
+      "max_channel_difference": 0,
+      "bones_changed": 0
+    }
+  }
+}

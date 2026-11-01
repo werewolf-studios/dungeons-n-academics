@@ -1,0 +1,114 @@
+{
+ "Brother.SpearIdle.1.L": {
+  "hand_verts": 306,
+  "shaft_radius": 0.0451,
+  "shaft_centre_hand_xy": [
+   -0.0271,
+   0.0849
+  ],
+  "skin_inside_shaft": 225,
+  "deepest_mm": 40.4,
+  "best_centre_xy": [
+   0.034,
+   0.136
+  ],
+  "best_inside": 0,
+  "best_contact": 9,
+  "skin_x_range": [
+   -0.073,
+   0.051
+  ],
+  "skin_y_range": [
+   -0.014,
+   0.123
+  ],
+  "skin_z_range": [
+   -0.047,
+   0.091
+  ]
+ },
+ "Brother.SpearIdle.1.R": {
+  "hand_verts": 306,
+  "shaft_radius": 0.0452,
+  "shaft_centre_hand_xy": [
+   0.0255,
+   0.0854
+  ],
+  "skin_inside_shaft": 219,
+  "deepest_mm": 41.6,
+  "best_centre_xy": [
+   -0.034,
+   0.136
+  ],
+  "best_inside": 0,
+  "best_contact": 9,
+  "skin_x_range": [
+   -0.051,
+   0.073
+  ],
+  "skin_y_range": [
+   -0.016,
+   0.123
+  ],
+  "skin_z_range": [
+   -0.047,
+   0.091
+  ]
+ },
+ "Sister.SpearIdle.1.L": {
+  "hand_verts": 574,
+  "shaft_radius": 0.0451,
+  "shaft_centre_hand_xy": [
+   -0.0248,
+   0.0847
+  ],
+  "skin_inside_shaft": 353,
+  "deepest_mm": 42.6,
+  "best_centre_xy": [
+   0.038,
+   0.144
+  ],
+  "best_inside": 0,
+  "best_contact": 30,
+  "skin_x_range": [
+   -0.087,
+   0.045
+  ],
+  "skin_y_range": [
+   -0.025,
+   0.133
+  ],
+  "skin_z_range": [
+   -0.082,
+   0.077
+  ]
+ },
+ "Sister.SpearIdle.1.R": {
+  "hand_verts": 573,
+  "shaft_radius": 0.0451,
+  "shaft_centre_hand_xy": [
+   0.0255,
+   0.0846
+  ],
+  "skin_inside_shaft": 357,
+  "deepest_mm": 42.9,
+  "best_centre_xy": [
+   -0.038,
+   0.144
+  ],
+  "best_inside": 0,
+  "best_contact": 30,
+  "skin_x_range": [
+   -0.048,
+   0.087
+  ],
+  "skin_y_range": [
+   -0.017,
+   0.133
+  ],
+  "skin_z_range": [
+   -0.082,
+   0.077
+  ]
+ }
+}

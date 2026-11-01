@@ -1,0 +1,274 @@
+{
+ "Brother": {
+  "L": [
+   {
+    "base": 20,
+    "tip": 20,
+    "cost": 0.0223,
+    "x": 0.06,
+    "y": 0.09,
+    "palm_gap_mm": 0,
+    "base_gap_mm": 0,
+    "tip_gap_mm": 0,
+    "deep_mm": 16.0,
+    "inside": 34,
+    "wrap_past_centre_mm": -3.5
+   },
+   {
+    "base": 30,
+    "tip": 20,
+    "cost": 0.0251,
+    "x": 0.065,
+    "y": 0.085,
+    "palm_gap_mm": 0,
+    "base_gap_mm": 0,
+    "tip_gap_mm": 0,
+    "deep_mm": 19.2,
+    "inside": 53,
+    "wrap_past_centre_mm": 0.8
+   },
+   {
+    "base": 20,
+    "tip": 35,
+    "cost": 0.0256,
+    "x": 0.065,
+    "y": 0.09,
+    "palm_gap_mm": 0,
+    "base_gap_mm": 0,
+    "tip_gap_mm": 0,
+    "deep_mm": 17.5,
+    "inside": 44,
+    "wrap_past_centre_mm": -5.7
+   },
+   {
+    "base": 50,
+    "tip": 20,
+    "cost": 0.0266,
+    "x": 0.08,
+    "y": 0.07,
+    "palm_gap_mm": 0,
+    "base_gap_mm": 0,
+    "tip_gap_mm": 0,
+    "deep_mm": 20.3,
+    "inside": 56,
+    "wrap_past_centre_mm": -0.0
+   },
+   {
+    "base": 40,
+    "tip": 20,
+    "cost": 0.0267,
+    "x": 0.075,
+    "y": 0.08,
+    "palm_gap_mm": 0,
+    "base_gap_mm": 0,
+    "tip_gap_mm": 0,
+    "deep_mm": 19.8,
+    "inside": 56,
+    "wrap_past_centre_mm": -1.5
+   }
+  ],
+  "R": [
+   {
+    "base": 20,
+    "tip": 20,
+    "cost": 0.0219,
+    "x": 0.06,
+    "y": 0.09,
+    "palm_gap_mm": 0,
+    "base_gap_mm": 0,
+    "tip_gap_mm": 0,
+    "deep_mm": 15.6,
+    "inside": 34,
+    "wrap_past_centre_mm": -3.5
+   },
+   {
+    "base": 30,
+    "tip": 20,
+    "cost": 0.0235,
+    "x": 0.07,
+    "y": 0.085,
+    "palm_gap_mm": 0,
+    "base_gap_mm": 0,
+    "tip_gap_mm": 0,
+    "deep_mm": 16.5,
+    "inside": 40,
+    "wrap_past_centre_mm": -4.2
+   },
+   {
+    "base": 20,
+    "tip": 35,
+    "cost": 0.0254,
+    "x": 0.06,
+    "y": 0.085,
+    "palm_gap_mm": 0,
+    "base_gap_mm": 0,
+    "tip_gap_mm": 0,
+    "deep_mm": 19.5,
+    "inside": 42,
+    "wrap_past_centre_mm": -0.7
+   },
+   {
+    "base": 50,
+    "tip": 20,
+    "cost": 0.0265,
+    "x": 0.08,
+    "y": 0.07,
+    "palm_gap_mm": 0,
+    "base_gap_mm": 0,
+    "tip_gap_mm": 0,
+    "deep_mm": 20.3,
+    "inside": 55,
+    "wrap_past_centre_mm": -0.0
+   },
+   {
+    "base": 40,
+    "tip": 20,
+    "cost": 0.0267,
+    "x": 0.075,
+    "y": 0.08,
+    "palm_gap_mm": 0,
+    "base_gap_mm": 0,
+    "tip_gap_mm": 0,
+    "deep_mm": 19.8,
+    "inside": 56,
+    "wrap_past_centre_mm": -1.5
+   }
+  ]
+ },
+ "Sister": {
+  "L": [
+   {
+    "base": 60,
+    "tip": 20,
+    "cost": 0.0095,
+    "x": 0.07,
+    "y": 0.065,
+    "palm_gap_mm": 0,
+    "base_gap_mm": 0.3,
+    "tip_gap_mm": 0,
+    "deep_mm": 7.4,
+    "inside": 9,
+    "wrap_past_centre_mm": 11.9
+   },
+   {
+    "base": 50,
+    "tip": 20,
+    "cost": 0.0112,
+    "x": 0.065,
+    "y": 0.075,
+    "palm_gap_mm": 0,
+    "base_gap_mm": 0,
+    "tip_gap_mm": 0,
+    "deep_mm": 8.7,
+    "inside": 19,
+    "wrap_past_centre_mm": 7.5
+   },
+   {
+    "base": 50,
+    "tip": 35,
+    "cost": 0.0135,
+    "x": 0.065,
+    "y": 0.07,
+    "palm_gap_mm": 0,
+    "base_gap_mm": 0.8,
+    "tip_gap_mm": 0,
+    "deep_mm": 10.2,
+    "inside": 13,
+    "wrap_past_centre_mm": 14.3
+   },
+   {
+    "base": 70,
+    "tip": 20,
+    "cost": 0.0139,
+    "x": 0.07,
+    "y": 0.055,
+    "palm_gap_mm": 0,
+    "base_gap_mm": 2.3,
+    "tip_gap_mm": 0,
+    "deep_mm": 9.2,
+    "inside": 15,
+    "wrap_past_centre_mm": 18.8
+   },
+   {
+    "base": 60,
+    "tip": 35,
+    "cost": 0.0153,
+    "x": 0.07,
+    "y": 0.06,
+    "palm_gap_mm": 0,
+    "base_gap_mm": 4.1,
+    "tip_gap_mm": 0,
+    "deep_mm": 8.9,
+    "inside": 14,
+    "wrap_past_centre_mm": 16.8
+   }
+  ],
+  "R": [
+   {
+    "base": 60,
+    "tip": 20,
+    "cost": 0.0095,
+    "x": 0.07,
+    "y": 0.065,
+    "palm_gap_mm": 0,
+    "base_gap_mm": 0.3,
+    "tip_gap_mm": 0,
+    "deep_mm": 7.4,
+    "inside": 9,
+    "wrap_past_centre_mm": 11.9
+   },
+   {
+    "base": 50,
+    "tip": 20,
+    "cost": 0.0111,
+    "x": 0.065,
+    "y": 0.075,
+    "palm_gap_mm": 0,
+    "base_gap_mm": 0,
+    "tip_gap_mm": 0,
+    "deep_mm": 8.7,
+    "inside": 18,
+    "wrap_past_centre_mm": 7.5
+   },
+   {
+    "base": 50,
+    "tip": 35,
+    "cost": 0.0135,
+    "x": 0.065,
+    "y": 0.07,
+    "palm_gap_mm": 0,
+    "base_gap_mm": 0.8,
+    "tip_gap_mm": 0,
+    "deep_mm": 10.2,
+    "inside": 13,
+    "wrap_past_centre_mm": 14.3
+   },
+   {
+    "base": 70,
+    "tip": 20,
+    "cost": 0.0139,
+    "x": 0.07,
+    "y": 0.055,
+    "palm_gap_mm": 0,
+    "base_gap_mm": 2.3,
+    "tip_gap_mm": 0,
+    "deep_mm": 9.2,
+    "inside": 15,
+    "wrap_past_centre_mm": 18.8
+   },
+   {
+    "base": 60,
+    "tip": 35,
+    "cost": 0.0153,
+    "x": 0.07,
+    "y": 0.06,
+    "palm_gap_mm": 0,
+    "base_gap_mm": 4.1,
+    "tip_gap_mm": 0,
+    "deep_mm": 8.9,
+    "inside": 14,
+    "wrap_past_centre_mm": 16.8
+   }
+  ]
+ }
+}

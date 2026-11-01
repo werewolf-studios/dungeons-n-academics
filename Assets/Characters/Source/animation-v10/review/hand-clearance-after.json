@@ -1,0 +1,450 @@
+{
+ "Brother.SpearIdle.1.L": {
+  "hand_verts": 306,
+  "shaft_radius": 0.045,
+  "shaft_centre_hand_xy": [
+   -0.1132,
+   0.0733
+  ],
+  "skin_inside_shaft": 16,
+  "deepest_mm": 6.8,
+  "best_centre_xy": [
+   0.04,
+   0.15
+  ],
+  "best_inside": 0,
+  "best_contact": 7,
+  "skin_x_range": [
+   -0.08,
+   0.051
+  ],
+  "skin_y_range": [
+   -0.016,
+   0.131
+  ],
+  "skin_z_range": [
+   -0.05,
+   0.091
+  ]
+ },
+ "Brother.SpearIdle.1.R": {
+  "hand_verts": 306,
+  "shaft_radius": 0.0452,
+  "shaft_centre_hand_xy": [
+   0.1155,
+   0.1054
+  ],
+  "skin_inside_shaft": 3,
+  "deepest_mm": 1.3,
+  "best_centre_xy": [
+   -0.04,
+   0.146
+  ],
+  "best_inside": 6,
+  "best_contact": 18,
+  "skin_x_range": [
+   -0.051,
+   0.077
+  ],
+  "skin_y_range": [
+   -0.015,
+   0.134
+  ],
+  "skin_z_range": [
+   -0.051,
+   0.091
+  ]
+ },
+ "Sister.SpearIdle.1.L": {
+  "hand_verts": 574,
+  "shaft_radius": 0.045,
+  "shaft_centre_hand_xy": [
+   -0.1021,
+   0.0841
+  ],
+  "skin_inside_shaft": 35,
+  "deepest_mm": 7.0,
+  "best_centre_xy": [
+   0.04,
+   0.002
+  ],
+  "best_inside": 16,
+  "best_contact": 38,
+  "skin_x_range": [
+   -0.081,
+   0.048
+  ],
+  "skin_y_range": [
+   -0.013,
+   0.139
+  ],
+  "skin_z_range": [
+   -0.083,
+   0.077
+  ]
+ },
+ "Sister.SpearIdle.1.R": {
+  "hand_verts": 573,
+  "shaft_radius": 0.0451,
+  "shaft_centre_hand_xy": [
+   0.1005,
+   0.1203
+  ],
+  "skin_inside_shaft": 6,
+  "deepest_mm": 1.6,
+  "best_centre_xy": [
+   -0.04,
+   0.002
+  ],
+  "best_inside": 16,
+  "best_contact": 37,
+  "skin_x_range": [
+   -0.048,
+   0.062
+  ],
+  "skin_y_range": [
+   -0.017,
+   0.15
+  ],
+  "skin_z_range": [
+   -0.083,
+   0.077
+  ]
+ },
+ "Brother.SpearThrust.6.L": {
+  "hand_verts": 306,
+  "shaft_radius": 0.0451,
+  "shaft_centre_hand_xy": [
+   -0.1133,
+   0.0733
+  ],
+  "skin_inside_shaft": 15,
+  "deepest_mm": 6.1,
+  "best_centre_xy": [
+   0.04,
+   0.15
+  ],
+  "best_inside": 0,
+  "best_contact": 7,
+  "skin_x_range": [
+   -0.08,
+   0.051
+  ],
+  "skin_y_range": [
+   -0.016,
+   0.131
+  ],
+  "skin_z_range": [
+   -0.05,
+   0.091
+  ]
+ },
+ "Brother.SpearThrust.6.R": {
+  "hand_verts": 306,
+  "shaft_radius": 0.0452,
+  "shaft_centre_hand_xy": [
+   0.1155,
+   0.1054
+  ],
+  "skin_inside_shaft": 2,
+  "deepest_mm": 1.2,
+  "best_centre_xy": [
+   -0.04,
+   0.146
+  ],
+  "best_inside": 6,
+  "best_contact": 18,
+  "skin_x_range": [
+   -0.051,
+   0.076
+  ],
+  "skin_y_range": [
+   -0.013,
+   0.134
+  ],
+  "skin_z_range": [
+   -0.051,
+   0.091
+  ]
+ },
+ "Sister.SpearThrust.6.L": {
+  "hand_verts": 574,
+  "shaft_radius": 0.0451,
+  "shaft_centre_hand_xy": [
+   -0.103,
+   0.0831
+  ],
+  "skin_inside_shaft": 27,
+  "deepest_mm": 5.6,
+  "best_centre_xy": [
+   0.04,
+   0.0
+  ],
+  "best_inside": 16,
+  "best_contact": 34,
+  "skin_x_range": [
+   -0.081,
+   0.047
+  ],
+  "skin_y_range": [
+   -0.009,
+   0.139
+  ],
+  "skin_z_range": [
+   -0.083,
+   0.077
+  ]
+ },
+ "Sister.SpearThrust.6.R": {
+  "hand_verts": 573,
+  "shaft_radius": 0.0451,
+  "shaft_centre_hand_xy": [
+   0.1005,
+   0.1203
+  ],
+  "skin_inside_shaft": 6,
+  "deepest_mm": 1.6,
+  "best_centre_xy": [
+   -0.04,
+   0.002
+  ],
+  "best_inside": 18,
+  "best_contact": 41,
+  "skin_x_range": [
+   -0.048,
+   0.062
+  ],
+  "skin_y_range": [
+   -0.017,
+   0.15
+  ],
+  "skin_z_range": [
+   -0.083,
+   0.077
+  ]
+ },
+ "Brother.SpearThrust.13.L": {
+  "hand_verts": 306,
+  "shaft_radius": 0.045,
+  "shaft_centre_hand_xy": [
+   -0.1099,
+   0.0777
+  ],
+  "skin_inside_shaft": 41,
+  "deepest_mm": 10.9,
+  "best_centre_xy": [
+   0.04,
+   0.15
+  ],
+  "best_inside": 0,
+  "best_contact": 7,
+  "skin_x_range": [
+   -0.08,
+   0.051
+  ],
+  "skin_y_range": [
+   -0.013,
+   0.131
+  ],
+  "skin_z_range": [
+   -0.05,
+   0.091
+  ]
+ },
+ "Brother.SpearThrust.13.R": {
+  "hand_verts": 306,
+  "shaft_radius": 0.0452,
+  "shaft_centre_hand_xy": [
+   0.1155,
+   0.1054
+  ],
+  "skin_inside_shaft": 3,
+  "deepest_mm": 2.5,
+  "best_centre_xy": [
+   -0.04,
+   0.146
+  ],
+  "best_inside": 6,
+  "best_contact": 18,
+  "skin_x_range": [
+   -0.051,
+   0.078
+  ],
+  "skin_y_range": [
+   -0.009,
+   0.134
+  ],
+  "skin_z_range": [
+   -0.05,
+   0.091
+  ]
+ },
+ "Sister.SpearThrust.13.L": {
+  "hand_verts": 574,
+  "shaft_radius": 0.045,
+  "shaft_centre_hand_xy": [
+   -0.0981,
+   0.0883
+  ],
+  "skin_inside_shaft": 88,
+  "deepest_mm": 12.8,
+  "best_centre_xy": [
+   0.04,
+   0.15
+  ],
+  "best_inside": 18,
+  "best_contact": 37,
+  "skin_x_range": [
+   -0.081,
+   0.047
+  ],
+  "skin_y_range": [
+   -0.012,
+   0.139
+  ],
+  "skin_z_range": [
+   -0.083,
+   0.077
+  ]
+ },
+ "Sister.SpearThrust.13.R": {
+  "hand_verts": 573,
+  "shaft_radius": 0.0451,
+  "shaft_centre_hand_xy": [
+   0.1005,
+   0.1203
+  ],
+  "skin_inside_shaft": 6,
+  "deepest_mm": 1.6,
+  "best_centre_xy": [
+   -0.04,
+   0.0
+  ],
+  "best_inside": 18,
+  "best_contact": 39,
+  "skin_x_range": [
+   -0.047,
+   0.062
+  ],
+  "skin_y_range": [
+   -0.017,
+   0.15
+  ],
+  "skin_z_range": [
+   -0.083,
+   0.077
+  ]
+ },
+ "Brother.SpearThrust.21.L": {
+  "hand_verts": 306,
+  "shaft_radius": 0.045,
+  "shaft_centre_hand_xy": [
+   -0.1134,
+   0.0729
+  ],
+  "skin_inside_shaft": 16,
+  "deepest_mm": 6.3,
+  "best_centre_xy": [
+   0.04,
+   0.15
+  ],
+  "best_inside": 0,
+  "best_contact": 7,
+  "skin_x_range": [
+   -0.08,
+   0.051
+  ],
+  "skin_y_range": [
+   -0.015,
+   0.131
+  ],
+  "skin_z_range": [
+   -0.05,
+   0.091
+  ]
+ },
+ "Brother.SpearThrust.21.R": {
+  "hand_verts": 306,
+  "shaft_radius": 0.0452,
+  "shaft_centre_hand_xy": [
+   0.1155,
+   0.1054
+  ],
+  "skin_inside_shaft": 3,
+  "deepest_mm": 1.8,
+  "best_centre_xy": [
+   -0.04,
+   0.146
+  ],
+  "best_inside": 6,
+  "best_contact": 18,
+  "skin_x_range": [
+   -0.051,
+   0.077
+  ],
+  "skin_y_range": [
+   -0.013,
+   0.134
+  ],
+  "skin_z_range": [
+   -0.05,
+   0.091
+  ]
+ },
+ "Sister.SpearThrust.21.L": {
+  "hand_verts": 574,
+  "shaft_radius": 0.045,
+  "shaft_centre_hand_xy": [
+   -0.1011,
+   0.0851
+  ],
+  "skin_inside_shaft": 48,
+  "deepest_mm": 8.4,
+  "best_centre_xy": [
+   0.04,
+   0.0
+  ],
+  "best_inside": 16,
+  "best_contact": 34,
+  "skin_x_range": [
+   -0.081,
+   0.047
+  ],
+  "skin_y_range": [
+   -0.012,
+   0.139
+  ],
+  "skin_z_range": [
+   -0.083,
+   0.077
+  ]
+ },
+ "Sister.SpearThrust.21.R": {
+  "hand_verts": 573,
+  "shaft_radius": 0.0451,
+  "shaft_centre_hand_xy": [
+   0.1005,
+   0.1203
+  ],
+  "skin_inside_shaft": 6,
+  "deepest_mm": 1.6,
+  "best_centre_xy": [
+   -0.04,
+   0.002
+  ],
+  "best_inside": 18,
+  "best_contact": 41,
+  "skin_x_range": [
+   -0.048,
+   0.062
+  ],
+  "skin_y_range": [
+   -0.017,
+   0.15
+  ],
+  "skin_z_range": [
+   -0.083,
+   0.077
+  ]
+ }
+}
