@@ -55,3 +55,10 @@ Models/TilePickUp.fbx.import
 Models/TilePlate.fbx.import
 Models/WallTileFinal.fbx.import
 ARCHITECTURE.md
+.genex/
+.env
+.env.*
+!.env.example
+node_modules/
+*.blend
+*.blend1
