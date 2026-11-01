@@ -1,0 +1,320 @@
+{
+  "Brother": {
+    "clips": {
+      "Idle": {
+        "duration": 3.0,
+        "frames_including_endpoint": 73,
+        "loop": true,
+        "weapon": null,
+        "loop_matrix_error": 0.0,
+        "start_end_matrix_error": 0.0,
+        "max_foot_target_error_m": 0,
+        "max_spear_contact_error_m": 0,
+        "nonfinite_states": 0,
+        "min_mesh_z": -2.627987498726725e-07
+      },
+      "Walk": {
+        "duration": 1.1666666666666667,
+        "frames_including_endpoint": 29,
+        "loop": true,
+        "weapon": null,
+        "loop_matrix_error": 1.959610723472824e-18,
+        "start_end_matrix_error": 1.959610723472824e-18,
+        "max_foot_target_error_m": 3.365155992101495e-07,
+        "max_spear_contact_error_m": 0,
+        "nonfinite_states": 0,
+        "min_mesh_z": -3.388572906715126e-07
+      },
+      "Run": {
+        "duration": 0.75,
+        "frames_including_endpoint": 19,
+        "loop": true,
+        "weapon": null,
+        "loop_matrix_error": 1.959610723472824e-18,
+        "start_end_matrix_error": 1.959610723472824e-18,
+        "max_foot_target_error_m": 4.0110496638161066e-07,
+        "max_spear_contact_error_m": 0,
+        "nonfinite_states": 0,
+        "min_mesh_z": -2.41904729136877e-07
+      },
+      "SwordIdle": {
+        "duration": 2.0,
+        "frames_including_endpoint": 49,
+        "loop": true,
+        "weapon": "Sword",
+        "loop_matrix_error": 0.0,
+        "start_end_matrix_error": 0.0,
+        "max_foot_target_error_m": 0,
+        "max_spear_contact_error_m": 0,
+        "nonfinite_states": 0,
+        "min_mesh_z": -3.2044812314779847e-07
+      },
+      "SpearIdle": {
+        "duration": 2.0,
+        "frames_including_endpoint": 49,
+        "loop": true,
+        "weapon": "Spear",
+        "loop_matrix_error": 0.0,
+        "start_end_matrix_error": 0.0,
+        "max_foot_target_error_m": 0,
+        "max_spear_contact_error_m": 5.213809620416434e-07,
+        "nonfinite_states": 0,
+        "min_mesh_z": -3.2044812314779847e-07
+      },
+      "SwordSlash": {
+        "duration": 0.9166666666666666,
+        "frames_including_endpoint": 23,
+        "loop": false,
+        "weapon": "Sword",
+        "loop_matrix_error": null,
+        "start_end_matrix_error": 0.0,
+        "max_foot_target_error_m": 0,
+        "max_spear_contact_error_m": 0,
+        "nonfinite_states": 0,
+        "min_mesh_z": -3.208506882401707e-07
+      },
+      "SpearThrust": {
+        "duration": 1.0833333333333333,
+        "frames_including_endpoint": 27,
+        "loop": false,
+        "weapon": "Spear",
+        "loop_matrix_error": null,
+        "start_end_matrix_error": 0.0,
+        "max_foot_target_error_m": 0,
+        "max_spear_contact_error_m": 5.583960390851418e-07,
+        "nonfinite_states": 0,
+        "min_mesh_z": -2.0847939197210508e-07
+      },
+      "TakeDamage": {
+        "duration": 0.6666666666666666,
+        "frames_including_endpoint": 17,
+        "loop": false,
+        "weapon": null,
+        "loop_matrix_error": null,
+        "start_end_matrix_error": 0.0,
+        "max_foot_target_error_m": 0,
+        "max_spear_contact_error_m": 0,
+        "nonfinite_states": 0,
+        "min_mesh_z": -3.136705686301866e-07,
+        "authoring_ik_target_error_m": 0,
+        "polish": "Stronger chest recoil, asymmetric torso twist, head lag, knee absorption, raised hands."
+      }
+    },
+    "weights": {
+      "unweighted": 0,
+      "non_normalized": 0,
+      "max_influences": 4
+    },
+    "triangles": 11910,
+    "uv_preserved": true,
+    "bones": 30,
+    "export": {
+      "file": "D:/GodotProjects/dungeons-n-academics/Assets/Characters/Animated/v1/brother-animations-v1.glb",
+      "animation_names": [
+        "Idle",
+        "Walk",
+        "Run",
+        "SwordIdle",
+        "SpearIdle",
+        "SwordSlash",
+        "SpearThrust",
+        "TakeDamage"
+      ],
+      "joints": 30,
+      "embedded_images": 3,
+      "helper_translation_channels": {
+        "Idle": [
+          "tunic.L",
+          "tunic.R"
+        ],
+        "Walk": [
+          "tunic.L",
+          "tunic.R"
+        ],
+        "Run": [
+          "tunic.L",
+          "tunic.R"
+        ],
+        "SwordIdle": [
+          "tunic.L",
+          "tunic.R"
+        ],
+        "SpearIdle": [
+          "tunic.L",
+          "tunic.R"
+        ],
+        "SwordSlash": [
+          "tunic.L",
+          "tunic.R"
+        ],
+        "SpearThrust": [
+          "tunic.L",
+          "tunic.R"
+        ],
+        "TakeDamage": [
+          "tunic.L",
+          "tunic.R"
+        ]
+      }
+    }
+  },
+  "Sister": {
+    "clips": {
+      "Idle": {
+        "duration": 3.0,
+        "frames_including_endpoint": 73,
+        "loop": true,
+        "weapon": null,
+        "loop_matrix_error": 0.0,
+        "start_end_matrix_error": 0.0,
+        "max_foot_target_error_m": 0,
+        "max_spear_contact_error_m": 0,
+        "nonfinite_states": 0,
+        "min_mesh_z": -3.8331180007844523e-07
+      },
+      "Walk": {
+        "duration": 1.1666666666666667,
+        "frames_including_endpoint": 29,
+        "loop": true,
+        "weapon": null,
+        "loop_matrix_error": 1.9594349475926563e-18,
+        "start_end_matrix_error": 1.9594349475926563e-18,
+        "max_foot_target_error_m": 2.3139061257011443e-06,
+        "max_spear_contact_error_m": 0,
+        "nonfinite_states": 0,
+        "min_mesh_z": -7.317402150874841e-07
+      },
+      "Run": {
+        "duration": 0.75,
+        "frames_including_endpoint": 19,
+        "loop": true,
+        "weapon": null,
+        "loop_matrix_error": 1.959610723472824e-18,
+        "start_end_matrix_error": 1.959610723472824e-18,
+        "max_foot_target_error_m": 2.88174742546882e-06,
+        "max_spear_contact_error_m": 0,
+        "nonfinite_states": 0,
+        "min_mesh_z": -7.470410423593421e-07
+      },
+      "SwordIdle": {
+        "duration": 2.0,
+        "frames_including_endpoint": 49,
+        "loop": true,
+        "weapon": "Sword",
+        "loop_matrix_error": 0.0,
+        "start_end_matrix_error": 0.0,
+        "max_foot_target_error_m": 0,
+        "max_spear_contact_error_m": 0,
+        "nonfinite_states": 0,
+        "min_mesh_z": -3.5047028745793796e-07
+      },
+      "SpearIdle": {
+        "duration": 2.0,
+        "frames_including_endpoint": 49,
+        "loop": true,
+        "weapon": "Spear",
+        "loop_matrix_error": 0.0,
+        "start_end_matrix_error": 0.0,
+        "max_foot_target_error_m": 0,
+        "max_spear_contact_error_m": 9.417545663397689e-07,
+        "nonfinite_states": 0,
+        "min_mesh_z": -3.5047028745793796e-07
+      },
+      "SwordSlash": {
+        "duration": 0.9166666666666666,
+        "frames_including_endpoint": 23,
+        "loop": false,
+        "weapon": "Sword",
+        "loop_matrix_error": null,
+        "start_end_matrix_error": 0.0,
+        "max_foot_target_error_m": 0,
+        "max_spear_contact_error_m": 0,
+        "nonfinite_states": 0,
+        "min_mesh_z": -3.0628183367298334e-07
+      },
+      "SpearThrust": {
+        "duration": 1.0833333333333333,
+        "frames_including_endpoint": 27,
+        "loop": false,
+        "weapon": "Spear",
+        "loop_matrix_error": null,
+        "start_end_matrix_error": 0.0,
+        "max_foot_target_error_m": 0,
+        "max_spear_contact_error_m": 8.058001836386132e-07,
+        "nonfinite_states": 0,
+        "min_mesh_z": -2.6464044822205324e-07
+      },
+      "TakeDamage": {
+        "duration": 0.6666666666666666,
+        "frames_including_endpoint": 17,
+        "loop": false,
+        "weapon": null,
+        "loop_matrix_error": null,
+        "start_end_matrix_error": 0.0,
+        "max_foot_target_error_m": 0,
+        "max_spear_contact_error_m": 0,
+        "nonfinite_states": 0,
+        "min_mesh_z": -6.794685987188132e-07,
+        "authoring_ik_target_error_m": 0,
+        "polish": "Stronger chest recoil, asymmetric torso twist, head lag, knee absorption, raised hands."
+      }
+    },
+    "weights": {
+      "unweighted": 0,
+      "non_normalized": 0,
+      "max_influences": 4
+    },
+    "triangles": 11280,
+    "uv_preserved": true,
+    "bones": 30,
+    "export": {
+      "file": "D:/GodotProjects/dungeons-n-academics/Assets/Characters/Animated/v1/sister-animations-v1.glb",
+      "animation_names": [
+        "Idle",
+        "Walk",
+        "Run",
+        "SwordIdle",
+        "SpearIdle",
+        "SwordSlash",
+        "SpearThrust",
+        "TakeDamage"
+      ],
+      "joints": 30,
+      "embedded_images": 3,
+      "helper_translation_channels": {
+        "Idle": [
+          "tunic.L",
+          "tunic.R"
+        ],
+        "Walk": [
+          "tunic.L",
+          "tunic.R"
+        ],
+        "Run": [
+          "tunic.L",
+          "tunic.R"
+        ],
+        "SwordIdle": [
+          "tunic.L",
+          "tunic.R"
+        ],
+        "SpearIdle": [
+          "tunic.L",
+          "tunic.R"
+        ],
+        "SwordSlash": [
+          "tunic.L",
+          "tunic.R"
+        ],
+        "SpearThrust": [
+          "tunic.L",
+          "tunic.R"
+        ],
+        "TakeDamage": [
+          "tunic.L",
+          "tunic.R"
+        ]
+      }
+    }
+  }
+}

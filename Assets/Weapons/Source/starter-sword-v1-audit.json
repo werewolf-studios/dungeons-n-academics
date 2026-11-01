@@ -1,0 +1,56 @@
+{
+  "task_id": "ec14d3ea-a6bd-4fce-b9ea-4426066de0fa",
+  "model": "P1-20260311",
+  "credits_consumed": 40,
+  "vertices": 1256,
+  "faces": 957,
+  "runtime_triangles": 957,
+  "zero_area_faces": 0,
+  "uv_layers": 1,
+  "uvs_unchanged": true,
+  "total_length_m": 0.85,
+  "bounds_min_m": [
+    -0.1282359030599364,
+    -0.06276659377338821,
+    -0.11186127989495
+  ],
+  "bounds_max_m": [
+    0.15591892530212623,
+    0.04244683643609874,
+    0.73813872010505
+  ],
+  "blade_axis_blender": "+Z",
+  "blade_axis_godot": "+Y",
+  "broad_face_godot": "XY plane; normals approximately +/-Z",
+  "pivot": "center of brown grip",
+  "grip_sample_count": 98,
+  "steel_sample_count": 598,
+  "images": [
+    {
+      "name": "Color_ec14d3ea-a6bd-4fce-b9ea-4426066de0fa",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    },
+    {
+      "name": "NormalGL_ec14d3ea-a6bd-4fce-b9ea-4426066de0fa",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    },
+    {
+      "name": "ORM_ec14d3ea-a6bd-4fce-b9ea-4426066de0fa",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    }
+  ],
+  "runtime_file": "D:\\GodotProjects\\dungeons-n-academics\\Assets\\Weapons\\Runtime\\starter-sword-v1.glb",
+  "source_file": "D:\\GodotProjects\\dungeons-n-academics\\Assets\\Weapons\\Source\\starter-sword-v1.blend"
+}

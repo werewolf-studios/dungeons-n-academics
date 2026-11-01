@@ -1,0 +1,30 @@
+{
+  "Brother": {
+    "Walk": {
+      "max_ik_error_m": 0,
+      "duration": 1.1666666666666667
+    },
+    "Run": {
+      "max_ik_error_m": 0,
+      "duration": 0.75
+    },
+    "SwordSlash": {
+      "max_ik_error_m": 0,
+      "duration": 1.5
+    }
+  },
+  "Sister": {
+    "Walk": {
+      "max_ik_error_m": 0,
+      "duration": 1.1666666666666667
+    },
+    "Run": {
+      "max_ik_error_m": 0,
+      "duration": 0.75
+    },
+    "SwordSlash": {
+      "max_ik_error_m": 0,
+      "duration": 1.5
+    }
+  }
+}

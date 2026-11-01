@@ -1,0 +1,38 @@
+{
+  "Brother": {
+    "source": "Brother_RigMesh_v1",
+    "signature": {
+      "vertices": 6229,
+      "faces": 6829,
+      "uv": "c9e2483ac6e17e2465eb91ee597c73241e068ac6535ebc0b3b59ce54c32128bc"
+    },
+    "rig": "Brother_AnimRig_v1",
+    "mesh": "Brother_AnimMesh_v1",
+    "weapons": {
+      "sword": [
+        "Brother_Anim_Sword"
+      ],
+      "spear": [
+        "Brother_Anim_Spear"
+      ]
+    }
+  },
+  "Sister": {
+    "source": "Sister_RigMesh_v1",
+    "signature": {
+      "vertices": 6106,
+      "faces": 6086,
+      "uv": "b938d12e7e0780f6ee2c0bfbcc53fe05867cb2c385dacf9484fc4f55c419d0ef"
+    },
+    "rig": "Sister_AnimRig_v1",
+    "mesh": "Sister_AnimMesh_v1",
+    "weapons": {
+      "sword": [
+        "Sister_Anim_Sword"
+      ],
+      "spear": [
+        "Sister_Anim_Spear"
+      ]
+    }
+  }
+}

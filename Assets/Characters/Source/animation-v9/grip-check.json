@@ -1,0 +1,18 @@
+{
+  "Brother": {
+    "SpearIdle": {
+      "max_grip_target_change_m": 4.862895271802163e-07
+    },
+    "SpearThrust": {
+      "max_grip_target_change_m": 3.614107619415195e-07
+    }
+  },
+  "Sister": {
+    "SpearIdle": {
+      "max_grip_target_change_m": 4.902685843814046e-07
+    },
+    "SpearThrust": {
+      "max_grip_target_change_m": 4.982984843017449e-07
+    }
+  }
+}

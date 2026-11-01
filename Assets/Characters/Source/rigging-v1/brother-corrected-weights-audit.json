@@ -1,0 +1,41 @@
+{
+  "before": {
+    "vertices": 6229,
+    "triangles": 11910,
+    "unweighted": 0,
+    "non_normalized": 5460,
+    "max_influences": 6,
+    "over_four": 173,
+    "weight_sum_range": [
+      0.9057782562449574,
+      1.0010433197021484
+    ],
+    "bones": 22,
+    "deform_bones": 21
+  },
+  "after": {
+    "vertices": 6229,
+    "triangles": 11910,
+    "unweighted": 0,
+    "non_normalized": 0,
+    "max_influences": 4,
+    "over_four": 0,
+    "weight_sum_range": [
+      0.999999962747097,
+      1.000000037252903
+    ],
+    "bones": 22,
+    "deform_bones": 21
+  },
+  "vertex_corrections": {
+    "hand_wrist": 614,
+    "normalize_limit": 940,
+    "tunic_seam_hem": 652,
+    "torso_waist_blend": 72,
+    "rigid_head_shell": 1685,
+    "neck_face_transition": 825,
+    "shoe_cuff_ankle": 1106,
+    "rigid_pouch": 225,
+    "rigid_clasp": 110
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "task_id": "a4f6bb68-fd9c-46c4-bf1b-bbe931739d84",
+  "model": "P1-20260311",
+  "credits_consumed": 40,
+  "vertices": 794,
+  "faces": 916,
+  "runtime_triangles": 916,
+  "zero_area_faces": 0,
+  "uv_layers": 1,
+  "uvs_unchanged": true,
+  "total_length_m": 1.8,
+  "pivot": "shaft grip 0.6m above butt",
+  "tip_m": 1.2,
+  "butt_m": -0.6000000000000001,
+  "bounds_min_m": [
+    -0.1933871257315731,
+    -0.08406422835638687,
+    -0.6000000000000001
+  ],
+  "bounds_max_m": [
+    0.19101955632968223,
+    0.08903713636793767,
+    1.2
+  ],
+  "blade_axis_blender": "+Z",
+  "blade_axis_godot": "+Y",
+  "head_width_axis_godot": "+X",
+  "steel_sample_count": 141,
+  "wood_sample_count": 40,
+  "images": [
+    {
+      "name": "Color_a4f6bb68-fd9c-46c4-bf1b-bbe931739d84",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    },
+    {
+      "name": "NormalGL_a4f6bb68-fd9c-46c4-bf1b-bbe931739d84",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    },
+    {
+      "name": "ORM_a4f6bb68-fd9c-46c4-bf1b-bbe931739d84",
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true
+    }
+  ],
+  "runtime_file": "D:\\GodotProjects\\dungeons-n-academics\\Assets\\Weapons\\Runtime\\starter-spear-v1.glb",
+  "source_file": "D:\\GodotProjects\\dungeons-n-academics\\Assets\\Weapons\\Source\\starter-spear-v1.blend"
+}

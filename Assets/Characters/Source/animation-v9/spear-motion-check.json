@@ -1,0 +1,22 @@
+{
+  "Brother": {
+    "SpearIdle": {
+      "max_two_hand_contact_error_m": 6.835577793437106e-07,
+      "max_world_arm_rotation_per_quarter_frame_deg": 0
+    },
+    "SpearThrust": {
+      "max_two_hand_contact_error_m": 0.0012913820257805368,
+      "max_world_arm_rotation_per_quarter_frame_deg": 2.209288720064093
+    }
+  },
+  "Sister": {
+    "SpearIdle": {
+      "max_two_hand_contact_error_m": 1.105482642172164e-06,
+      "max_world_arm_rotation_per_quarter_frame_deg": 0
+    },
+    "SpearThrust": {
+      "max_two_hand_contact_error_m": 0.0016754082222423775,
+      "max_world_arm_rotation_per_quarter_frame_deg": 2.4383348450122395
+    }
+  }
+}

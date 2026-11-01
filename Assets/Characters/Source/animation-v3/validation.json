@@ -1,0 +1,98 @@
+{
+  "Brother": {
+    "Idle": {
+      "finite": true,
+      "loop_matrix_error": 0.0,
+      "mesh_min_z": null
+    },
+    "Walk": {
+      "finite": true,
+      "loop_matrix_error": 4.408728321890747e-18,
+      "mesh_min_z": -2.784380797038466e-07
+    },
+    "Run": {
+      "finite": true,
+      "loop_matrix_error": 4.408728321890747e-18,
+      "mesh_min_z": -1.578372916810622e-07
+    },
+    "SwordIdle": {
+      "finite": true,
+      "loop_matrix_error": 0.0,
+      "mesh_min_z": null
+    },
+    "SpearIdle": {
+      "finite": true,
+      "loop_matrix_error": 0.0,
+      "mesh_min_z": null
+    },
+    "SwordSlash": {
+      "finite": true,
+      "loop_matrix_error": null,
+      "mesh_min_z": -2.9637698162332526e-07
+    },
+    "SpearThrust": {
+      "finite": true,
+      "loop_matrix_error": null,
+      "mesh_min_z": null
+    },
+    "TakeDamage": {
+      "finite": true,
+      "loop_matrix_error": null,
+      "mesh_min_z": null
+    },
+    "mesh": {
+      "triangles": 11910,
+      "vertices": 6229,
+      "max_influences": 4,
+      "unweighted": 0
+    }
+  },
+  "Sister": {
+    "Idle": {
+      "finite": true,
+      "loop_matrix_error": 0.0,
+      "mesh_min_z": null
+    },
+    "Walk": {
+      "finite": true,
+      "loop_matrix_error": 4.408728321890747e-18,
+      "mesh_min_z": -6.364127784763696e-07
+    },
+    "Run": {
+      "finite": true,
+      "loop_matrix_error": 4.408728321890747e-18,
+      "mesh_min_z": -5.873175723536406e-07
+    },
+    "SwordIdle": {
+      "finite": true,
+      "loop_matrix_error": 0.0,
+      "mesh_min_z": null
+    },
+    "SpearIdle": {
+      "finite": true,
+      "loop_matrix_error": 0.0,
+      "mesh_min_z": null
+    },
+    "SwordSlash": {
+      "finite": true,
+      "loop_matrix_error": null,
+      "mesh_min_z": -4.893080358669977e-07
+    },
+    "SpearThrust": {
+      "finite": true,
+      "loop_matrix_error": null,
+      "mesh_min_z": null
+    },
+    "TakeDamage": {
+      "finite": true,
+      "loop_matrix_error": null,
+      "mesh_min_z": null
+    },
+    "mesh": {
+      "triangles": 11280,
+      "vertices": 6106,
+      "max_influences": 4,
+      "unweighted": 0
+    }
+  }
+}

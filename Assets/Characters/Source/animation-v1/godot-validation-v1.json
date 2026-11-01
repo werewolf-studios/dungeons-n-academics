@@ -1,0 +1,532 @@
+{
+  "brother": {
+    "bones": 30,
+    "clips": {
+      "Idle": {
+        "samples": [
+          {
+            "blender_pose_error_m": 0.000000596523534568405,
+            "fraction": 0.0,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.0000105720519059105,
+            "fraction": 0.25,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.000000596523534568405,
+            "fraction": 0.5,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.0000105211229310953,
+            "fraction": 0.75,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.000000596523534568405,
+            "fraction": 1.0,
+            "spear_contact_error_m": 0.0
+          }
+        ],
+        "seconds": 3.0,
+        "tracks": 18
+      },
+      "Run": {
+        "samples": [
+          {
+            "blender_pose_error_m": 0.000000674277544021606,
+            "fraction": 0.0,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.000000539794427822926,
+            "fraction": 0.25,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00539719732478261,
+            "fraction": 0.5,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.000844942929688841,
+            "fraction": 0.75,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.000000674277544021606,
+            "fraction": 1.0,
+            "spear_contact_error_m": 0.0
+          }
+        ],
+        "seconds": 0.75,
+        "tracks": 22
+      },
+      "SpearIdle": {
+        "samples": [
+          {
+            "blender_pose_error_m": 0.02569729834795,
+            "fraction": 0.0,
+            "spear_contact_error_m": 0.000000193284776628389
+          },
+          {
+            "blender_pose_error_m": 0.0256707258522511,
+            "fraction": 0.25,
+            "spear_contact_error_m": 0.000000338817159217797
+          },
+          {
+            "blender_pose_error_m": 0.02569729834795,
+            "fraction": 0.5,
+            "spear_contact_error_m": 0.000000193284776628389
+          },
+          {
+            "blender_pose_error_m": 0.0257242415100336,
+            "fraction": 0.75,
+            "spear_contact_error_m": 0.000000190827975643515
+          },
+          {
+            "blender_pose_error_m": 0.02569729834795,
+            "fraction": 1.0,
+            "spear_contact_error_m": 0.000000281154541426076
+          }
+        ],
+        "seconds": 2.0,
+        "tracks": 24
+      },
+      "SpearThrust": {
+        "samples": [
+          {
+            "blender_pose_error_m": 0.000000338489314799517,
+            "fraction": 0.0,
+            "spear_contact_error_m": 0.000000256801968134823
+          },
+          {
+            "blender_pose_error_m": 0.000651007634587586,
+            "fraction": 0.25,
+            "spear_contact_error_m": 0.000984742655418813
+          },
+          {
+            "blender_pose_error_m": 0.00000892052321432857,
+            "fraction": 0.5,
+            "spear_contact_error_m": 0.00000303402430290589
+          },
+          {
+            "blender_pose_error_m": 0.000656137301120907,
+            "fraction": 0.75,
+            "spear_contact_error_m": 0.000146626043715514
+          },
+          {
+            "blender_pose_error_m": 0.000000329177396451996,
+            "fraction": 1.0,
+            "spear_contact_error_m": 0.000000292001942625575
+          }
+        ],
+        "seconds": 1.08333337306976,
+        "tracks": 27
+      },
+      "SwordIdle": {
+        "samples": [
+          {
+            "blender_pose_error_m": 0.0218046698719263,
+            "fraction": 0.0,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.0218037459999323,
+            "fraction": 0.25,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.0218046698719263,
+            "fraction": 0.5,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.0218030847609043,
+            "fraction": 0.75,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.0218046698719263,
+            "fraction": 1.0,
+            "spear_contact_error_m": 0.0
+          }
+        ],
+        "seconds": 2.0,
+        "tracks": 21
+      },
+      "SwordSlash": {
+        "samples": [
+          {
+            "blender_pose_error_m": 0.000000481471261082334,
+            "fraction": 0.0,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.000672058202326298,
+            "fraction": 0.25,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00410133879631758,
+            "fraction": 0.5,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.000000509752567268151,
+            "fraction": 0.75,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.000000481471261082334,
+            "fraction": 1.0,
+            "spear_contact_error_m": 0.0
+          }
+        ],
+        "seconds": 0.916666686534882,
+        "tracks": 24
+      },
+      "TakeDamage": {
+        "samples": [
+          {
+            "blender_pose_error_m": 0.000000567431527542794,
+            "fraction": 0.0,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.000000440900578269066,
+            "fraction": 0.25,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.000000401105239689059,
+            "fraction": 0.5,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00000071580848270969,
+            "fraction": 0.75,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.000000596523534568405,
+            "fraction": 1.0,
+            "spear_contact_error_m": 0.0
+          }
+        ],
+        "seconds": 0.666666686534882,
+        "tracks": 21
+      },
+      "Walk": {
+        "samples": [
+          {
+            "blender_pose_error_m": 0.000000481471261082334,
+            "fraction": 0.0,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00304716755636036,
+            "fraction": 0.25,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00348985707387328,
+            "fraction": 0.5,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00304718338884413,
+            "fraction": 0.75,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.000000481471261082334,
+            "fraction": 1.0,
+            "spear_contact_error_m": 0.0
+          }
+        ],
+        "seconds": 1.16666662693024,
+        "tracks": 22
+      }
+    }
+  },
+  "failures": [
+    "brother Run pose error 0.00539719732478",
+    "brother SwordIdle pose error 0.02180466987193",
+    "brother SwordIdle pose error 0.02180374599993",
+    "brother SwordIdle pose error 0.02180466987193",
+    "brother SwordIdle pose error 0.0218030847609",
+    "brother SwordIdle pose error 0.02180466987193",
+    "brother SpearIdle pose error 0.02569729834795",
+    "brother SpearIdle pose error 0.02567072585225",
+    "brother SpearIdle pose error 0.02569729834795",
+    "brother SpearIdle pose error 0.02572424151003",
+    "brother SpearIdle pose error 0.02569729834795",
+    "sister Run pose error 0.0052981544286",
+    "sister SwordIdle pose error 0.01914781145751",
+    "sister SwordIdle pose error 0.01914701238275",
+    "sister SwordIdle pose error 0.01914781145751",
+    "sister SwordIdle pose error 0.0191463585943",
+    "sister SwordIdle pose error 0.01914781145751",
+    "sister SpearIdle pose error 0.02432679757476",
+    "sister SpearIdle pose error 0.02430809661746",
+    "sister SpearIdle pose error 0.02432679757476",
+    "sister SpearIdle pose error 0.02434609271586",
+    "sister SpearIdle pose error 0.02432679757476"
+  ],
+  "sister": {
+    "bones": 30,
+    "clips": {
+      "Idle": {
+        "samples": [
+          {
+            "blender_pose_error_m": 0.00000169139764238935,
+            "fraction": 0.0,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00000906595869309967,
+            "fraction": 0.25,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00000169139764238935,
+            "fraction": 0.5,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00000953057224251097,
+            "fraction": 0.75,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00000169139764238935,
+            "fraction": 1.0,
+            "spear_contact_error_m": 0.0
+          }
+        ],
+        "seconds": 3.0,
+        "tracks": 18
+      },
+      "Run": {
+        "samples": [
+          {
+            "blender_pose_error_m": 0.00000290694879367948,
+            "fraction": 0.0,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00000271794078798848,
+            "fraction": 0.25,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00529815442860127,
+            "fraction": 0.5,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.000840733875520527,
+            "fraction": 0.75,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00000290694879367948,
+            "fraction": 1.0,
+            "spear_contact_error_m": 0.0
+          }
+        ],
+        "seconds": 0.75,
+        "tracks": 22
+      },
+      "SpearIdle": {
+        "samples": [
+          {
+            "blender_pose_error_m": 0.0243267975747585,
+            "fraction": 0.0,
+            "spear_contact_error_m": 0.000000195568873095908
+          },
+          {
+            "blender_pose_error_m": 0.0243080966174603,
+            "fraction": 0.25,
+            "spear_contact_error_m": 0.00000010133885552932
+          },
+          {
+            "blender_pose_error_m": 0.0243267975747585,
+            "fraction": 0.5,
+            "spear_contact_error_m": 0.000000195568873095908
+          },
+          {
+            "blender_pose_error_m": 0.0243460927158594,
+            "fraction": 0.75,
+            "spear_contact_error_m": 0.000000460792961121115
+          },
+          {
+            "blender_pose_error_m": 0.0243267975747585,
+            "fraction": 1.0,
+            "spear_contact_error_m": 0.000000195568873095908
+          }
+        ],
+        "seconds": 2.0,
+        "tracks": 24
+      },
+      "SpearThrust": {
+        "samples": [
+          {
+            "blender_pose_error_m": 0.00000196214978132048,
+            "fraction": 0.0,
+            "spear_contact_error_m": 0.000000271614283064991
+          },
+          {
+            "blender_pose_error_m": 0.000677528034429997,
+            "fraction": 0.25,
+            "spear_contact_error_m": 0.000649438996333629
+          },
+          {
+            "blender_pose_error_m": 0.00000373422221855435,
+            "fraction": 0.5,
+            "spear_contact_error_m": 0.00000350567825080361
+          },
+          {
+            "blender_pose_error_m": 0.000144529825774953,
+            "fraction": 0.75,
+            "spear_contact_error_m": 0.00017436794587411
+          },
+          {
+            "blender_pose_error_m": 0.00000196214978132048,
+            "fraction": 1.0,
+            "spear_contact_error_m": 0.000000271614283064991
+          }
+        ],
+        "seconds": 1.08333337306976,
+        "tracks": 27
+      },
+      "SwordIdle": {
+        "samples": [
+          {
+            "blender_pose_error_m": 0.0191478114575148,
+            "fraction": 0.0,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.0191470123827457,
+            "fraction": 0.25,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.0191478114575148,
+            "fraction": 0.5,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.0191463585942984,
+            "fraction": 0.75,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.0191478114575148,
+            "fraction": 1.0,
+            "spear_contact_error_m": 0.0
+          }
+        ],
+        "seconds": 2.0,
+        "tracks": 21
+      },
+      "SwordSlash": {
+        "samples": [
+          {
+            "blender_pose_error_m": 0.00000196214978132048,
+            "fraction": 0.0,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.000674633425660431,
+            "fraction": 0.25,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00410873861983418,
+            "fraction": 0.5,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00000196656174011878,
+            "fraction": 0.75,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00000196214978132048,
+            "fraction": 1.0,
+            "spear_contact_error_m": 0.0
+          }
+        ],
+        "seconds": 0.916666686534882,
+        "tracks": 24
+      },
+      "TakeDamage": {
+        "samples": [
+          {
+            "blender_pose_error_m": 0.0000016575334029767,
+            "fraction": 0.0,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00000196050814338378,
+            "fraction": 0.25,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00000196005862562743,
+            "fraction": 0.5,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00000181288100975507,
+            "fraction": 0.75,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00000169139764238935,
+            "fraction": 1.0,
+            "spear_contact_error_m": 0.0
+          }
+        ],
+        "seconds": 0.666666686534882,
+        "tracks": 21
+      },
+      "Walk": {
+        "samples": [
+          {
+            "blender_pose_error_m": 0.00000232930460697389,
+            "fraction": 0.0,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00302281067706645,
+            "fraction": 0.25,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00350777502171695,
+            "fraction": 0.5,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00302299414761364,
+            "fraction": 0.75,
+            "spear_contact_error_m": 0.0
+          },
+          {
+            "blender_pose_error_m": 0.00000232930460697389,
+            "fraction": 1.0,
+            "spear_contact_error_m": 0.0
+          }
+        ],
+        "seconds": 1.16666662693024,
+        "tracks": 22
+      }
+    }
+  }
+}

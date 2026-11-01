@@ -1,0 +1,22 @@
+{
+  "Brother_SwordIdle": {
+    "upper_arm.R": 0,
+    "forearm.R": 0,
+    "hand.R": 0
+  },
+  "Brother_SwordSlash": {
+    "upper_arm.R": 6.622068183360585,
+    "forearm.R": 12.930406141348621,
+    "hand.R": 9.242955201867048
+  },
+  "Sister_SwordIdle": {
+    "upper_arm.R": 0,
+    "forearm.R": 0,
+    "hand.R": 0
+  },
+  "Sister_SwordSlash": {
+    "upper_arm.R": 6.401757443474062,
+    "forearm.R": 13.32688752361046,
+    "hand.R": 8.935211637302015
+  }
+}

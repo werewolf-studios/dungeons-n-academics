@@ -1,0 +1,22 @@
+{
+  "Brother": {
+    "SwordIdle": {
+      "max_grip_position_change_m": 4.142951600092007e-07,
+      "frames": 49
+    },
+    "SwordSlash": {
+      "max_grip_position_change_m": 4.2981520598697533e-07,
+      "frames": 37
+    }
+  },
+  "Sister": {
+    "SwordIdle": {
+      "max_grip_position_change_m": 4.826228243321671e-07,
+      "frames": 49
+    },
+    "SwordSlash": {
+      "max_grip_position_change_m": 5.031211082975308e-07,
+      "frames": 37
+    }
+  }
+}

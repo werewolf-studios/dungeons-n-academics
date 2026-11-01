@@ -1,0 +1,14 @@
+{
+  "vertices": 6106,
+  "triangles": 11280,
+  "unweighted": 0,
+  "non_normalized": 3969,
+  "max_influences": 6,
+  "over_four": 23,
+  "weight_sum_range": [
+    0.9173872768878937,
+    1.1125204376876354
+  ],
+  "bones": 22,
+  "deform_bones": 21
+}

@@ -1,0 +1,122 @@
+{
+  "Brother": {
+    "file": "D:/GodotProjects/dungeons-n-academics/Assets/Characters/Source/rigging-v1/qualification/brother-v009-rest.glb",
+    "bytes": 4727156,
+    "skins": 1,
+    "joints": 24,
+    "embedded_images": 3,
+    "all_images_embedded": true,
+    "animation_count": 0,
+    "has_uv_and_weights": true,
+    "has_extra_influence_sets": false,
+    "roundtrip": {
+      "triangles": 11910,
+      "vertices_after_uv_normal_splits": 13643,
+      "hierarchy_matches": true,
+      "bone_count": 24,
+      "height": 1.800000086621253,
+      "feet_min_z": -1.343049689239706e-07,
+      "rest_position_max_error": 3.6519367085929844e-07,
+      "weights": {
+        "vertices": 13643,
+        "triangles": 11910,
+        "unweighted": 0,
+        "non_normalized": 0,
+        "max_influences": 4,
+        "over_four": 0,
+        "weight_sum_range": [
+          0.9999998733401299,
+          1.0000001192092896
+        ],
+        "bones": 24,
+        "deform_bones": 24
+      },
+      "images": [
+        {
+          "name": "Color.004",
+          "size": [
+            2048,
+            2048
+          ],
+          "packed": true
+        },
+        {
+          "name": "tripo_image_3cc91a2e_2-tripo_image_3cc91a2e_1.002",
+          "size": [
+            2048,
+            2048
+          ],
+          "packed": true
+        },
+        {
+          "name": "Normal.004",
+          "size": [
+            2048,
+            2048
+          ],
+          "packed": true
+        }
+      ]
+    }
+  },
+  "Sister": {
+    "file": "D:/GodotProjects/dungeons-n-academics/Assets/Characters/Source/rigging-v1/qualification/sister-v009-rest.glb",
+    "bytes": 5230736,
+    "skins": 1,
+    "joints": 24,
+    "embedded_images": 3,
+    "all_images_embedded": true,
+    "animation_count": 0,
+    "has_uv_and_weights": true,
+    "has_extra_influence_sets": false,
+    "roundtrip": {
+      "triangles": 11280,
+      "vertices_after_uv_normal_splits": 12598,
+      "hierarchy_matches": true,
+      "bone_count": 24,
+      "height": 1.8000001658967193,
+      "feet_min_z": -9.437114556476445e-08,
+      "rest_position_max_error": 2.754148681560764e-06,
+      "weights": {
+        "vertices": 12598,
+        "triangles": 11280,
+        "unweighted": 0,
+        "non_normalized": 0,
+        "max_influences": 4,
+        "over_four": 0,
+        "weight_sum_range": [
+          0.9999998735729605,
+          1.0000001032312866
+        ],
+        "bones": 24,
+        "deform_bones": 24
+      },
+      "images": [
+        {
+          "name": "Color.005",
+          "size": [
+            2048,
+            2048
+          ],
+          "packed": true
+        },
+        {
+          "name": "tripo_image_457309d5_2-tripo_image_457309d5_1.002",
+          "size": [
+            2048,
+            2048
+          ],
+          "packed": true
+        },
+        {
+          "name": "Normal.005",
+          "size": [
+            2048,
+            2048
+          ],
+          "packed": true
+        }
+      ]
+    }
+  }
+}

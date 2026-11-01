@@ -1,0 +1,98 @@
+{
+  "Brother": {
+    "Idle": {
+      "finite": true,
+      "loop_matrix_error": 0.0,
+      "mesh_min_z": -2.967926207020355e-07
+    },
+    "Walk": {
+      "finite": true,
+      "loop_matrix_error": 4.408728321890747e-18,
+      "mesh_min_z": -2.784380797038466e-07
+    },
+    "Run": {
+      "finite": true,
+      "loop_matrix_error": 4.408728321890747e-18,
+      "mesh_min_z": -1.4805763726144505e-07
+    },
+    "SwordIdle": {
+      "finite": true,
+      "loop_matrix_error": 0.0,
+      "mesh_min_z": null
+    },
+    "SpearIdle": {
+      "finite": true,
+      "loop_matrix_error": 0.0,
+      "mesh_min_z": null
+    },
+    "SwordSlash": {
+      "finite": true,
+      "loop_matrix_error": null,
+      "mesh_min_z": -2.9637698162332526e-07
+    },
+    "SpearThrust": {
+      "finite": true,
+      "loop_matrix_error": null,
+      "mesh_min_z": null
+    },
+    "TakeDamage": {
+      "finite": true,
+      "loop_matrix_error": null,
+      "mesh_min_z": -3.9556687170261284e-07
+    },
+    "mesh": {
+      "triangles": 11910,
+      "vertices": 6229,
+      "max_influences": 4,
+      "unweighted": 0
+    }
+  },
+  "Sister": {
+    "Idle": {
+      "finite": true,
+      "loop_matrix_error": 0.0,
+      "mesh_min_z": -4.357810325927858e-07
+    },
+    "Walk": {
+      "finite": true,
+      "loop_matrix_error": 4.408728321890747e-18,
+      "mesh_min_z": -6.28166162641719e-07
+    },
+    "Run": {
+      "finite": true,
+      "loop_matrix_error": 4.408728321890747e-18,
+      "mesh_min_z": -5.952973651801585e-07
+    },
+    "SwordIdle": {
+      "finite": true,
+      "loop_matrix_error": 0.0,
+      "mesh_min_z": null
+    },
+    "SpearIdle": {
+      "finite": true,
+      "loop_matrix_error": 0.0,
+      "mesh_min_z": null
+    },
+    "SwordSlash": {
+      "finite": true,
+      "loop_matrix_error": null,
+      "mesh_min_z": -4.858473516833328e-07
+    },
+    "SpearThrust": {
+      "finite": true,
+      "loop_matrix_error": null,
+      "mesh_min_z": null
+    },
+    "TakeDamage": {
+      "finite": true,
+      "loop_matrix_error": null,
+      "mesh_min_z": -6.927365348019521e-07
+    },
+    "mesh": {
+      "triangles": 11280,
+      "vertices": 6106,
+      "max_influences": 4,
+      "unweighted": 0
+    }
+  }
+}

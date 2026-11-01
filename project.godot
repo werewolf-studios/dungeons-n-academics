@@ -31,6 +31,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="Dungeons N Academics"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/Tripo3d_Godot_Bridge/plugin.cfg")
+
 [global_group]
 
 Interactable=""
@@ -87,3 +91,7 @@ AttackInteract={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+
+[tripo_bridge]
+
+last_cleanup="2026-10-31T16:07:21"

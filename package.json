@@ -1,0 +1,7 @@
+{
+  "name": "dungeons-n-academics",
+  "private": true,
+  "devDependencies": {
+    "@genex-ai/cli-demo": "^1.36.17"
+  }
+}

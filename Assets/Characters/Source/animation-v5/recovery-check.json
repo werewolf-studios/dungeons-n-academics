@@ -1,0 +1,10 @@
+{
+  "Brother": {
+    "max_recovery_local_rotation_per_frame_deg": 8.065583414439528,
+    "idle_endpoint_error": 5.960464477539063e-08
+  },
+  "Sister": {
+    "max_recovery_local_rotation_per_frame_deg": 8.07208831585032,
+    "idle_endpoint_error": 5.960464477539063e-08
+  }
+}

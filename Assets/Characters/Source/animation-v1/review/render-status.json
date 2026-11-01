@@ -1,0 +1,15 @@
+{
+  "done": [
+    "Idle",
+    "Walk",
+    "Run",
+    "SwordIdle",
+    "SpearIdle",
+    "SwordSlash",
+    "SpearThrust",
+    "TakeDamage"
+  ],
+  "remaining": [],
+  "state": "complete",
+  "version": "final"
+}

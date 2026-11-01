@@ -1,0 +1,150 @@
+{
+  "date": "2026-10-30",
+  "primary": {
+    "status": "ok",
+    "result": {
+      "cleanup": [
+        {
+          "character": "Brother",
+          "source_object": "Brother_P2_tripo_node_3cc91a2e",
+          "clean_object": "Brother_Clean_v1",
+          "changes": {
+            "removed_redundant_triangles": 0,
+            "degenerate_dissolve_tolerance": 0.000001,
+            "retriangulated_local_ngons": 1,
+            "split_branching_edges": 0
+          },
+          "before": {
+            "vertices": 6162,
+            "faces": 6699,
+            "quads": 5103,
+            "triangle_faces": 1596,
+            "ngons": 0,
+            "runtime_triangles": 11802,
+            "zero_area_faces": 2,
+            "overconnected_edges": 0,
+            "boundary_edges": 492,
+            "wire_edges": 0,
+            "loose_vertices": 0,
+            "inconsistent_winding_edges": 0,
+            "uv_layers": 1,
+            "custom_normals": true
+          },
+          "after": {
+            "vertices": 6162,
+            "faces": 6699,
+            "quads": 5103,
+            "triangle_faces": 1596,
+            "ngons": 0,
+            "runtime_triangles": 11802,
+            "zero_area_faces": 0,
+            "overconnected_edges": 0,
+            "boundary_edges": 492,
+            "wire_edges": 0,
+            "loose_vertices": 0,
+            "inconsistent_winding_edges": 0,
+            "uv_layers": 1,
+            "custom_normals": true
+          },
+          "checks": {
+            "new_or_moved_vertex_positions": 0,
+            "unmatched_uv_corners": 0,
+            "interpolated_uv_corners_restored": 3,
+            "original_mesh_unchanged": true,
+            "materials_preserved": true
+          }
+        },
+        {
+          "character": "Sister",
+          "source_object": "Sister_P2_tripo_node_457309d5",
+          "clean_object": "Sister_Clean_v1",
+          "changes": {
+            "removed_redundant_triangles": 8,
+            "degenerate_dissolve_tolerance": 0.000001,
+            "retriangulated_local_ngons": 2,
+            "split_branching_edges": 2
+          },
+          "before": {
+            "vertices": 6098,
+            "faces": 6092,
+            "quads": 5196,
+            "triangle_faces": 896,
+            "ngons": 0,
+            "runtime_triangles": 11288,
+            "zero_area_faces": 2,
+            "overconnected_edges": 20,
+            "boundary_edges": 881,
+            "wire_edges": 0,
+            "loose_vertices": 0,
+            "inconsistent_winding_edges": 0,
+            "uv_layers": 1,
+            "custom_normals": true
+          },
+          "after": {
+            "vertices": 6102,
+            "faces": 6086,
+            "quads": 5194,
+            "triangle_faces": 892,
+            "ngons": 0,
+            "runtime_triangles": 11280,
+            "zero_area_faces": 0,
+            "overconnected_edges": 0,
+            "boundary_edges": 884,
+            "wire_edges": 0,
+            "loose_vertices": 0,
+            "inconsistent_winding_edges": 0,
+            "uv_layers": 1,
+            "custom_normals": true
+          },
+          "checks": {
+            "new_or_moved_vertex_positions": 0,
+            "unmatched_uv_corners": 0,
+            "interpolated_uv_corners_restored": 2,
+            "original_mesh_unchanged": true,
+            "materials_preserved": true
+          }
+        }
+      ],
+      "source_geometry_preserved": true,
+      "paid_operations": 0
+    }
+  },
+  "vertex_fans": {
+    "status": "ok",
+    "result": {
+      "vertex_fan_cleanup": [
+        {
+          "object": "Brother_Clean_v1",
+          "separated_bowtie_vertices": 0,
+          "remaining_bowtie_vertices": 0,
+          "vertices": 6162,
+          "faces": 6699,
+          "quads": 5103,
+          "runtime_triangles": 11802,
+          "zero_area_faces": 0,
+          "overconnected_edges": 0,
+          "boundary_edges": 492,
+          "new_or_moved_vertex_positions": 0,
+          "restored_interpolated_uv_corners": 0,
+          "custom_normals": true
+        },
+        {
+          "object": "Sister_Clean_v1",
+          "separated_bowtie_vertices": 4,
+          "remaining_bowtie_vertices": 0,
+          "vertices": 6106,
+          "faces": 6086,
+          "quads": 5194,
+          "runtime_triangles": 11280,
+          "zero_area_faces": 0,
+          "overconnected_edges": 0,
+          "boundary_edges": 884,
+          "new_or_moved_vertex_positions": 0,
+          "restored_interpolated_uv_corners": 0,
+          "custom_normals": true
+        }
+      ]
+    }
+  },
+  "paid_operations": 0
+}

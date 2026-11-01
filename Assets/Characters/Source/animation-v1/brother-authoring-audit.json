@@ -1,0 +1,50 @@
+{
+  "Idle": {
+    "frames": 73,
+    "loop": true,
+    "max_ik_target_error_m": 0,
+    "max_spear_hand_error_m": 0
+  },
+  "Walk": {
+    "frames": 29,
+    "loop": true,
+    "max_ik_target_error_m": 0,
+    "max_spear_hand_error_m": 0
+  },
+  "Run": {
+    "frames": 19,
+    "loop": true,
+    "max_ik_target_error_m": 0,
+    "max_spear_hand_error_m": 0
+  },
+  "SwordIdle": {
+    "frames": 49,
+    "loop": true,
+    "max_ik_target_error_m": 0,
+    "max_spear_hand_error_m": 0
+  },
+  "SpearIdle": {
+    "frames": 49,
+    "loop": true,
+    "max_ik_target_error_m": 0,
+    "max_spear_hand_error_m": 6.006850114687196e-08
+  },
+  "SwordSlash": {
+    "frames": 23,
+    "loop": false,
+    "max_ik_target_error_m": 0,
+    "max_spear_hand_error_m": 0
+  },
+  "SpearThrust": {
+    "frames": 27,
+    "loop": false,
+    "max_ik_target_error_m": 0.003753119462920229,
+    "max_spear_hand_error_m": 6.365778852490731e-08
+  },
+  "TakeDamage": {
+    "frames": 17,
+    "loop": false,
+    "max_ik_target_error_m": 0,
+    "max_spear_hand_error_m": 0
+  }
+}

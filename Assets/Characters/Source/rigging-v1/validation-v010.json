@@ -1,0 +1,1908 @@
+{
+  "version": 10,
+  "status": "Rigged and tested; sister deep-flexion garment limitation remains",
+  "bind_convention": {
+    "height_m": 1.8,
+    "up": "+Z",
+    "front": "-Y",
+    "feet_z": 0,
+    "scale_applied": true,
+    "mesh_and_rig_transforms": "identity"
+  },
+  "skin_method": "Linear blend skinning (preserve volume disabled), matching ordinary glTF/Godot skinning",
+  "characters": {
+    "Brother": {
+      "mesh": "Brother_RigMesh_v1",
+      "rig": "Brother_Humanoid_v1",
+      "scene": "Brother_Rig_Validation_v1",
+      "weights": {
+        "vertices": 6229,
+        "triangles": 11910,
+        "unweighted": 0,
+        "non_normalized": 0,
+        "max_influences": 4,
+        "over_four": 0,
+        "weight_sum_range": [
+          0.9999999624924385,
+          1.0000000423751771
+        ],
+        "bones": 24,
+        "deform_bones": 23
+      },
+      "uv_exact": true,
+      "materials": [
+        {
+          "name": "Brother_SmoothTunic_Material_v2",
+          "same_datablock_as_source": true,
+          "images": [
+            {
+              "name": "tripo_image_3cc91a2e_0",
+              "size": [
+                2048,
+                2048
+              ],
+              "packed": true
+            },
+            {
+              "name": "tripo_image_3cc91a2e_3",
+              "size": [
+                2048,
+                2048
+              ],
+              "packed": true
+            },
+            {
+              "name": "tripo_image_3cc91a2e_1",
+              "size": [
+                2048,
+                2048
+              ],
+              "packed": true
+            },
+            {
+              "name": "tripo_image_3cc91a2e_2",
+              "size": [
+                2048,
+                2048
+              ],
+              "packed": true
+            }
+          ]
+        }
+      ],
+      "source_unchanged": true,
+      "source_topology_preserved": true,
+      "rest_near_zero_triangle_count": 3,
+      "new_collapsed_triangles": [],
+      "sample_count": 28,
+      "samples": [
+        {
+          "test": "arms",
+          "fraction": 0.25,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 3,
+          "edge_stretch_p99": 1.0315210522429545,
+          "edge_stretch_max": 1.5151662053391408,
+          "edge_compression_min": 0.9174468047565685,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0
+        },
+        {
+          "test": "arms",
+          "fraction": 0.5,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 3,
+          "edge_stretch_p99": 1.0624493660040508,
+          "edge_stretch_max": 1.9986455344270428,
+          "edge_compression_min": 0.8288872170644651,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0
+        },
+        {
+          "test": "arms",
+          "fraction": 0.75,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 3,
+          "edge_stretch_p99": 1.097924921916436,
+          "edge_stretch_max": 2.410232761790444,
+          "edge_compression_min": 0.7352854738927197,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0
+        },
+        {
+          "test": "arms",
+          "fraction": 1.0,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 3,
+          "edge_stretch_p99": 1.1303591860998323,
+          "edge_stretch_max": 2.726136634434822,
+          "edge_compression_min": 0.6317125047314779,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0
+        },
+        {
+          "test": "legs",
+          "fraction": 0.25,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 1,
+          "edge_stretch_p99": 1.0933585725277175,
+          "edge_stretch_max": 1.926144418351939,
+          "edge_compression_min": 0.6685141686257247,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0
+        },
+        {
+          "test": "legs",
+          "fraction": 0.5,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 1,
+          "edge_stretch_p99": 1.2448154061880037,
+          "edge_stretch_max": 2.8611781097027835,
+          "edge_compression_min": 0.3221244646247574,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0
+        },
+        {
+          "test": "legs",
+          "fraction": 0.75,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 1,
+          "edge_stretch_p99": 1.405650607083503,
+          "edge_stretch_max": 3.7894851082702705,
+          "edge_compression_min": 0.169355604326844,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0
+        },
+        {
+          "test": "legs",
+          "fraction": 1.0,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 1,
+          "edge_stretch_p99": 1.5575969915862071,
+          "edge_stretch_max": 4.679795498674156,
+          "edge_compression_min": 0.16705025539384036,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0
+        },
+        {
+          "test": "torso",
+          "fraction": 0.25,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.0067573688188136,
+          "edge_stretch_max": 1.1037909881899273,
+          "edge_compression_min": 0.8452255971632302,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0000303823282335
+        },
+        {
+          "test": "torso",
+          "fraction": 0.5,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.0148095166628581,
+          "edge_stretch_max": 1.253483221357101,
+          "edge_compression_min": 0.73697486999014,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0000193519760798
+        },
+        {
+          "test": "torso",
+          "fraction": 0.75,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.0259829867054957,
+          "edge_stretch_max": 1.4325903069309947,
+          "edge_compression_min": 0.6901140463206796,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0000445403396192
+        },
+        {
+          "test": "torso",
+          "fraction": 1.0,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.0358100946130115,
+          "edge_stretch_max": 1.6284888734060616,
+          "edge_compression_min": 0.6352692332470817,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0000584335204254
+        },
+        {
+          "test": "shoulders",
+          "fraction": 0.25,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 3,
+          "edge_stretch_p99": 1.0351469817506955,
+          "edge_stretch_max": 1.2624355401126302,
+          "edge_compression_min": 0.8048401823578406,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0
+        },
+        {
+          "test": "shoulders",
+          "fraction": 0.5,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 3,
+          "edge_stretch_p99": 1.0673045750901424,
+          "edge_stretch_max": 1.63439231619343,
+          "edge_compression_min": 0.660317903500866,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0
+        },
+        {
+          "test": "shoulders",
+          "fraction": 0.75,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 3,
+          "edge_stretch_p99": 1.1098086569147105,
+          "edge_stretch_max": 2.4283564182502166,
+          "edge_compression_min": 0.4882522493687022,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0
+        },
+        {
+          "test": "shoulders",
+          "fraction": 1.0,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 3,
+          "edge_stretch_p99": 1.1696796136012295,
+          "edge_stretch_max": 3.43957561740065,
+          "edge_compression_min": 0.3864673248960528,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0
+        },
+        {
+          "test": "crouch",
+          "fraction": 0.25,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.1509137683454183,
+          "edge_stretch_max": 2.0094839830806306,
+          "edge_compression_min": 0.5155448778525756,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.000014055525236
+        },
+        {
+          "test": "crouch",
+          "fraction": 0.5,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.4448078405165303,
+          "edge_stretch_max": 3.0276823802378408,
+          "edge_compression_min": 0.2852405638019958,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0000445403396192
+        },
+        {
+          "test": "crouch",
+          "fraction": 0.75,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.7701636652208095,
+          "edge_stretch_max": 4.0373246013721396,
+          "edge_compression_min": 0.17509361159018907,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.000047120516363
+        },
+        {
+          "test": "crouch",
+          "fraction": 1.0,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.922080824274942,
+          "edge_stretch_max": 4.679399357433494,
+          "edge_compression_min": 0.18548932489559009,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0000526154032077
+        },
+        {
+          "test": "stride",
+          "fraction": 0.25,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 1,
+          "edge_stretch_p99": 1.0572151448858926,
+          "edge_stretch_max": 1.4914148678258488,
+          "edge_compression_min": 0.7946865415322417,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0
+        },
+        {
+          "test": "stride",
+          "fraction": 0.5,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 1,
+          "edge_stretch_p99": 1.1373291136157162,
+          "edge_stretch_max": 1.9905155189673245,
+          "edge_compression_min": 0.5935159512838554,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0
+        },
+        {
+          "test": "stride",
+          "fraction": 0.75,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 1,
+          "edge_stretch_p99": 1.2392877216290383,
+          "edge_stretch_max": 2.491914193651421,
+          "edge_compression_min": 0.4047223345470809,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0
+        },
+        {
+          "test": "stride",
+          "fraction": 1.0,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 1,
+          "edge_stretch_p99": 1.355272997549647,
+          "edge_stretch_max": 2.9939219019098537,
+          "edge_compression_min": 0.22255833573070521,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0
+        },
+        {
+          "test": "wrists_ankles",
+          "fraction": 0.25,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 1,
+          "edge_stretch_p99": 1.028924463593035,
+          "edge_stretch_max": 1.0877622036209313,
+          "edge_compression_min": 0.8715160342574856,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0
+        },
+        {
+          "test": "wrists_ankles",
+          "fraction": 0.5,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 1,
+          "edge_stretch_p99": 1.0614110630077267,
+          "edge_stretch_max": 1.1742306916633656,
+          "edge_compression_min": 0.7449358814004972,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0
+        },
+        {
+          "test": "wrists_ankles",
+          "fraction": 0.75,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 1,
+          "edge_stretch_p99": 1.093347988793138,
+          "edge_stretch_max": 1.2584635956067807,
+          "edge_compression_min": 0.6225824658694434,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0
+        },
+        {
+          "test": "wrists_ankles",
+          "fraction": 1.0,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 1,
+          "edge_stretch_p99": 1.1263190307468411,
+          "edge_stretch_max": 1.346101736578757,
+          "edge_compression_min": 0.5072249097366932,
+          "waist_band_edges": 111,
+          "waist_band_stretch_max": 1.0
+        }
+      ],
+      "action": {
+        "name": "Brother_DEFORM_TEST_v2",
+        "poses": [
+          [
+            1,
+            "neutral"
+          ],
+          [
+            13,
+            "arms"
+          ],
+          [
+            25,
+            "neutral"
+          ],
+          [
+            37,
+            "legs"
+          ],
+          [
+            49,
+            "neutral"
+          ],
+          [
+            61,
+            "torso"
+          ],
+          [
+            73,
+            "neutral"
+          ],
+          [
+            85,
+            "shoulders"
+          ],
+          [
+            97,
+            "neutral"
+          ],
+          [
+            109,
+            "crouch"
+          ],
+          [
+            121,
+            "neutral"
+          ],
+          [
+            133,
+            "stride"
+          ],
+          [
+            145,
+            "neutral"
+          ],
+          [
+            157,
+            "wrists_ankles"
+          ],
+          [
+            169,
+            "neutral"
+          ]
+        ]
+      },
+      "hierarchy": [
+        [
+          "root",
+          null
+        ],
+        [
+          "pelvis",
+          "root"
+        ],
+        [
+          "spine",
+          "pelvis"
+        ],
+        [
+          "chest",
+          "spine"
+        ],
+        [
+          "neck",
+          "chest"
+        ],
+        [
+          "head",
+          "neck"
+        ],
+        [
+          "clavicle.L",
+          "chest"
+        ],
+        [
+          "upper_arm.L",
+          "clavicle.L"
+        ],
+        [
+          "forearm.L",
+          "upper_arm.L"
+        ],
+        [
+          "hand.L",
+          "forearm.L"
+        ],
+        [
+          "clavicle.R",
+          "chest"
+        ],
+        [
+          "upper_arm.R",
+          "clavicle.R"
+        ],
+        [
+          "forearm.R",
+          "upper_arm.R"
+        ],
+        [
+          "hand.R",
+          "forearm.R"
+        ],
+        [
+          "thigh.L",
+          "pelvis"
+        ],
+        [
+          "shin.L",
+          "thigh.L"
+        ],
+        [
+          "foot.L",
+          "shin.L"
+        ],
+        [
+          "toe.L",
+          "foot.L"
+        ],
+        [
+          "thigh.R",
+          "pelvis"
+        ],
+        [
+          "shin.R",
+          "thigh.R"
+        ],
+        [
+          "foot.R",
+          "shin.R"
+        ],
+        [
+          "toe.R",
+          "foot.R"
+        ],
+        [
+          "tunic.L",
+          "pelvis"
+        ],
+        [
+          "tunic.R",
+          "pelvis"
+        ]
+      ],
+      "bones": [
+        {
+          "name": "root",
+          "head": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "tail": [
+            0.0,
+            0.0,
+            0.15000000596046448
+          ],
+          "deform": false
+        },
+        {
+          "name": "pelvis",
+          "head": [
+            0.0,
+            0.0,
+            0.8999999761581421
+          ],
+          "tail": [
+            0.0,
+            0.0,
+            1.0399999618530273
+          ],
+          "deform": true
+        },
+        {
+          "name": "spine",
+          "head": [
+            0.0,
+            0.0,
+            1.0399999618530273
+          ],
+          "tail": [
+            0.0,
+            0.0,
+            1.159999966621399
+          ],
+          "deform": true
+        },
+        {
+          "name": "chest",
+          "head": [
+            0.0,
+            0.0,
+            1.159999966621399
+          ],
+          "tail": [
+            0.0,
+            0.0,
+            1.3200000524520874
+          ],
+          "deform": true
+        },
+        {
+          "name": "neck",
+          "head": [
+            0.0,
+            0.0,
+            1.3200000524520874
+          ],
+          "tail": [
+            0.0,
+            0.0,
+            1.4299999475479126
+          ],
+          "deform": true
+        },
+        {
+          "name": "head",
+          "head": [
+            0.0,
+            0.0,
+            1.4299999475479126
+          ],
+          "tail": [
+            0.0,
+            0.0,
+            1.7200000286102295
+          ],
+          "deform": true
+        },
+        {
+          "name": "clavicle.L",
+          "head": [
+            0.0,
+            0.0,
+            1.2999999523162842
+          ],
+          "tail": [
+            0.1550000011920929,
+            0.0,
+            1.3200000524520874
+          ],
+          "deform": true
+        },
+        {
+          "name": "upper_arm.L",
+          "head": [
+            0.1550000011920929,
+            0.0,
+            1.3200000524520874
+          ],
+          "tail": [
+            0.2980000078678131,
+            -0.004999999888241291,
+            1.0770000219345093
+          ],
+          "deform": true
+        },
+        {
+          "name": "forearm.L",
+          "head": [
+            0.2980000078678131,
+            -0.004999999888241291,
+            1.0770000219345093
+          ],
+          "tail": [
+            0.39899998903274536,
+            -0.014999999664723873,
+            0.8669999837875366
+          ],
+          "deform": true
+        },
+        {
+          "name": "hand.L",
+          "head": [
+            0.39899998903274536,
+            -0.014999999664723873,
+            0.8669999837875366
+          ],
+          "tail": [
+            0.42899999022483826,
+            -0.019999999552965164,
+            0.7279999852180481
+          ],
+          "deform": true
+        },
+        {
+          "name": "clavicle.R",
+          "head": [
+            0.0,
+            0.0,
+            1.2999999523162842
+          ],
+          "tail": [
+            -0.1550000011920929,
+            0.0,
+            1.3200000524520874
+          ],
+          "deform": true
+        },
+        {
+          "name": "upper_arm.R",
+          "head": [
+            -0.1550000011920929,
+            0.0,
+            1.3200000524520874
+          ],
+          "tail": [
+            -0.2980000078678131,
+            -0.004999999888241291,
+            1.0770000219345093
+          ],
+          "deform": true
+        },
+        {
+          "name": "forearm.R",
+          "head": [
+            -0.2980000078678131,
+            -0.004999999888241291,
+            1.0770000219345093
+          ],
+          "tail": [
+            -0.39899998903274536,
+            -0.014999999664723873,
+            0.8669999837875366
+          ],
+          "deform": true
+        },
+        {
+          "name": "hand.R",
+          "head": [
+            -0.39899998903274536,
+            -0.014999999664723873,
+            0.8669999837875366
+          ],
+          "tail": [
+            -0.42899999022483826,
+            -0.019999999552965164,
+            0.7279999852180481
+          ],
+          "deform": true
+        },
+        {
+          "name": "thigh.L",
+          "head": [
+            0.10199999809265137,
+            0.0,
+            0.9100000262260437
+          ],
+          "tail": [
+            0.17299999296665192,
+            -0.017999999225139618,
+            0.5099999904632568
+          ],
+          "deform": true
+        },
+        {
+          "name": "shin.L",
+          "head": [
+            0.17299999296665192,
+            -0.017999999225139618,
+            0.5099999904632568
+          ],
+          "tail": [
+            0.21199999749660492,
+            0.012000000104308128,
+            0.14499999582767487
+          ],
+          "deform": true
+        },
+        {
+          "name": "foot.L",
+          "head": [
+            0.21199999749660492,
+            0.012000000104308128,
+            0.14499999582767487
+          ],
+          "tail": [
+            0.22300000488758087,
+            -0.125,
+            0.06199999898672104
+          ],
+          "deform": true
+        },
+        {
+          "name": "toe.L",
+          "head": [
+            0.22300000488758087,
+            -0.125,
+            0.06199999898672104
+          ],
+          "tail": [
+            0.22499999403953552,
+            -0.20499999821186066,
+            0.05000000074505806
+          ],
+          "deform": true
+        },
+        {
+          "name": "thigh.R",
+          "head": [
+            -0.10199999809265137,
+            0.0,
+            0.9100000262260437
+          ],
+          "tail": [
+            -0.17299999296665192,
+            -0.017999999225139618,
+            0.5099999904632568
+          ],
+          "deform": true
+        },
+        {
+          "name": "shin.R",
+          "head": [
+            -0.17299999296665192,
+            -0.017999999225139618,
+            0.5099999904632568
+          ],
+          "tail": [
+            -0.21199999749660492,
+            0.012000000104308128,
+            0.14499999582767487
+          ],
+          "deform": true
+        },
+        {
+          "name": "foot.R",
+          "head": [
+            -0.21199999749660492,
+            0.012000000104308128,
+            0.14499999582767487
+          ],
+          "tail": [
+            -0.22300000488758087,
+            -0.125,
+            0.06199999898672104
+          ],
+          "deform": true
+        },
+        {
+          "name": "toe.R",
+          "head": [
+            -0.22300000488758087,
+            -0.125,
+            0.06199999898672104
+          ],
+          "tail": [
+            -0.22499999403953552,
+            -0.20499999821186066,
+            0.05000000074505806
+          ],
+          "deform": true
+        },
+        {
+          "name": "tunic.L",
+          "head": [
+            0.10199999809265137,
+            0.0,
+            1.0350000858306885
+          ],
+          "tail": [
+            0.17299999296665192,
+            -0.017999999225139618,
+            0.6350000500679016
+          ],
+          "deform": true
+        },
+        {
+          "name": "tunic.R",
+          "head": [
+            -0.10199999809265137,
+            0.0,
+            1.0350000858306885
+          ],
+          "tail": [
+            -0.17299999296665192,
+            -0.017999999225139618,
+            0.6350000500679016
+          ],
+          "deform": true
+        }
+      ],
+      "height": 1.800000011920929,
+      "feet_min_z": -5.960464477539063e-08,
+      "visual_review_v010": "55deg hip/95deg knee and 60deg crouch viewed from back and front. Rear thigh clipping corrected; open side splits reveal the leg during high flexion. Waist band stretch <0.006%."
+    },
+    "Sister": {
+      "mesh": "Sister_RigMesh_v1",
+      "rig": "Sister_Humanoid_v1",
+      "scene": "Sister_Rig_Validation_v1",
+      "weights": {
+        "vertices": 6106,
+        "triangles": 11280,
+        "unweighted": 0,
+        "non_normalized": 0,
+        "max_influences": 4,
+        "over_four": 0,
+        "weight_sum_range": [
+          0.9999999615829438,
+          1.0000000407162588
+        ],
+        "bones": 24,
+        "deform_bones": 23
+      },
+      "uv_exact": true,
+      "materials": [
+        {
+          "name": "tripo_mat_457309d5",
+          "same_datablock_as_source": true,
+          "images": [
+            {
+              "name": "tripo_image_457309d5_0",
+              "size": [
+                2048,
+                2048
+              ],
+              "packed": true
+            },
+            {
+              "name": "tripo_image_457309d5_3",
+              "size": [
+                2048,
+                2048
+              ],
+              "packed": true
+            },
+            {
+              "name": "tripo_image_457309d5_1",
+              "size": [
+                2048,
+                2048
+              ],
+              "packed": true
+            },
+            {
+              "name": "tripo_image_457309d5_2",
+              "size": [
+                2048,
+                2048
+              ],
+              "packed": true
+            }
+          ]
+        }
+      ],
+      "source_unchanged": true,
+      "source_topology_preserved": true,
+      "rest_near_zero_triangle_count": 0,
+      "new_collapsed_triangles": [],
+      "sample_count": 28,
+      "samples": [
+        {
+          "test": "arms",
+          "fraction": 0.25,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.037908895012656,
+          "edge_stretch_max": 1.2626447205601803,
+          "edge_compression_min": 0.8646946763954282,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.0000061618421747
+        },
+        {
+          "test": "arms",
+          "fraction": 0.5,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.0764070976260665,
+          "edge_stretch_max": 1.4936161829678063,
+          "edge_compression_min": 0.7268387555829335,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.0000061618421747
+        },
+        {
+          "test": "arms",
+          "fraction": 0.75,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.115926073908464,
+          "edge_stretch_max": 1.6788048230215518,
+          "edge_compression_min": 0.6155887000932017,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.0000061618421747
+        },
+        {
+          "test": "arms",
+          "fraction": 1.0,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.1500069822362764,
+          "edge_stretch_max": 1.8904838674182174,
+          "edge_compression_min": 0.5456138747618117,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.0000061618421747
+        },
+        {
+          "test": "legs",
+          "fraction": 0.25,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.0289675726425522,
+          "edge_stretch_max": 1.4377721791760198,
+          "edge_compression_min": 0.7653291719722731,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.0078650587881477
+        },
+        {
+          "test": "legs",
+          "fraction": 0.5,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.0632766804524314,
+          "edge_stretch_max": 2.2114573481741426,
+          "edge_compression_min": 0.5225453009616008,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.0170239167968138
+        },
+        {
+          "test": "legs",
+          "fraction": 0.75,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.1027399540750762,
+          "edge_stretch_max": 3.03277982734894,
+          "edge_compression_min": 0.2472338176635081,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.027421119289081
+        },
+        {
+          "test": "legs",
+          "fraction": 1.0,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.147630183115863,
+          "edge_stretch_max": 3.817038474507626,
+          "edge_compression_min": 0.06962428429929093,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.038672198571634
+        },
+        {
+          "test": "torso",
+          "fraction": 0.25,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.0261049572459058,
+          "edge_stretch_max": 1.191830542196763,
+          "edge_compression_min": 0.7878126613459339,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.0000051101825493
+        },
+        {
+          "test": "torso",
+          "fraction": 0.5,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.0563466303473252,
+          "edge_stretch_max": 1.4209104937722035,
+          "edge_compression_min": 0.5782137232820298,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.000006003173282
+        },
+        {
+          "test": "torso",
+          "fraction": 0.75,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.0890534260036542,
+          "edge_stretch_max": 1.6697626900397082,
+          "edge_compression_min": 0.3793768080748,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.000010249865896
+        },
+        {
+          "test": "torso",
+          "fraction": 1.0,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.1262050100287624,
+          "edge_stretch_max": 1.9282906649023743,
+          "edge_compression_min": 0.2258272431189848,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.0000046771840014
+        },
+        {
+          "test": "shoulders",
+          "fraction": 0.25,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.0364452005638267,
+          "edge_stretch_max": 1.4411948915417911,
+          "edge_compression_min": 0.5740764438868675,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.0000061618421747
+        },
+        {
+          "test": "shoulders",
+          "fraction": 0.5,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.0833662851589116,
+          "edge_stretch_max": 1.9209852449312668,
+          "edge_compression_min": 0.23043625487683977,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.0000061618421747
+        },
+        {
+          "test": "shoulders",
+          "fraction": 0.75,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.1185373888820527,
+          "edge_stretch_max": 2.388999167990705,
+          "edge_compression_min": 0.3323442200788621,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.0000061618421747
+        },
+        {
+          "test": "shoulders",
+          "fraction": 1.0,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.156815127180147,
+          "edge_stretch_max": 2.819628954512533,
+          "edge_compression_min": 0.6326127730314897,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.0000061618421747
+        },
+        {
+          "test": "crouch",
+          "fraction": 0.25,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.036236113995771,
+          "edge_stretch_max": 1.2028972373764197,
+          "edge_compression_min": 0.6639805653071196,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.0086315027782473
+        },
+        {
+          "test": "crouch",
+          "fraction": 0.5,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.0726963879504556,
+          "edge_stretch_max": 1.3934989272284055,
+          "edge_compression_min": 0.49425609197312054,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.0187960818140438
+        },
+        {
+          "test": "crouch",
+          "fraction": 0.75,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.1139493601942345,
+          "edge_stretch_max": 1.5647930863140056,
+          "edge_compression_min": 0.20326016417214882,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.030424605236218
+        },
+        {
+          "test": "crouch",
+          "fraction": 1.0,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.1508912341824362,
+          "edge_stretch_max": 2.024117739148538,
+          "edge_compression_min": 0.11938670037605616,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.0386721442760647
+        },
+        {
+          "test": "stride",
+          "fraction": 0.25,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.030778781908518,
+          "edge_stretch_max": 1.34030678666279,
+          "edge_compression_min": 0.8748743029098575,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.0077285003454244
+        },
+        {
+          "test": "stride",
+          "fraction": 0.5,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.0629883119188899,
+          "edge_stretch_max": 1.8770088949201216,
+          "edge_compression_min": 0.7392675173747424,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.015796187599284
+        },
+        {
+          "test": "stride",
+          "fraction": 0.75,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.097085828115364,
+          "edge_stretch_max": 2.469555854102188,
+          "edge_compression_min": 0.592225335759002,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.0241967987247553
+        },
+        {
+          "test": "stride",
+          "fraction": 1.0,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.1339147382044144,
+          "edge_stretch_max": 3.0661640746903007,
+          "edge_compression_min": 0.43705118863567266,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.0329249103405622
+        },
+        {
+          "test": "wrists_ankles",
+          "fraction": 0.25,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.0332491098800125,
+          "edge_stretch_max": 1.283157564047414,
+          "edge_compression_min": 0.7164630892097154,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.0000061618421747
+        },
+        {
+          "test": "wrists_ankles",
+          "fraction": 0.5,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.0689555175290115,
+          "edge_stretch_max": 1.6032753791163343,
+          "edge_compression_min": 0.4403679453030687,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.0000061618421747
+        },
+        {
+          "test": "wrists_ankles",
+          "fraction": 0.75,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.1079652790282324,
+          "edge_stretch_max": 1.9390011689024185,
+          "edge_compression_min": 0.21849287985492746,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.0000061618421747
+        },
+        {
+          "test": "wrists_ankles",
+          "fraction": 1.0,
+          "nonfinite_vertices": 0,
+          "zero_area_triangles": 0,
+          "edge_stretch_p99": 1.1461380978500229,
+          "edge_stretch_max": 2.2797480003080564,
+          "edge_compression_min": 0.2788230712841644,
+          "waist_band_edges": 54,
+          "waist_band_stretch_max": 1.0000061618421747
+        }
+      ],
+      "action": {
+        "name": "Sister_DEFORM_TEST_v2",
+        "poses": [
+          [
+            1,
+            "neutral"
+          ],
+          [
+            13,
+            "arms"
+          ],
+          [
+            25,
+            "neutral"
+          ],
+          [
+            37,
+            "legs"
+          ],
+          [
+            49,
+            "neutral"
+          ],
+          [
+            61,
+            "torso"
+          ],
+          [
+            73,
+            "neutral"
+          ],
+          [
+            85,
+            "shoulders"
+          ],
+          [
+            97,
+            "neutral"
+          ],
+          [
+            109,
+            "crouch"
+          ],
+          [
+            121,
+            "neutral"
+          ],
+          [
+            133,
+            "stride"
+          ],
+          [
+            145,
+            "neutral"
+          ],
+          [
+            157,
+            "wrists_ankles"
+          ],
+          [
+            169,
+            "neutral"
+          ]
+        ]
+      },
+      "hierarchy": [
+        [
+          "root",
+          null
+        ],
+        [
+          "pelvis",
+          "root"
+        ],
+        [
+          "spine",
+          "pelvis"
+        ],
+        [
+          "chest",
+          "spine"
+        ],
+        [
+          "neck",
+          "chest"
+        ],
+        [
+          "head",
+          "neck"
+        ],
+        [
+          "clavicle.L",
+          "chest"
+        ],
+        [
+          "upper_arm.L",
+          "clavicle.L"
+        ],
+        [
+          "forearm.L",
+          "upper_arm.L"
+        ],
+        [
+          "hand.L",
+          "forearm.L"
+        ],
+        [
+          "clavicle.R",
+          "chest"
+        ],
+        [
+          "upper_arm.R",
+          "clavicle.R"
+        ],
+        [
+          "forearm.R",
+          "upper_arm.R"
+        ],
+        [
+          "hand.R",
+          "forearm.R"
+        ],
+        [
+          "thigh.L",
+          "pelvis"
+        ],
+        [
+          "shin.L",
+          "thigh.L"
+        ],
+        [
+          "foot.L",
+          "shin.L"
+        ],
+        [
+          "toe.L",
+          "foot.L"
+        ],
+        [
+          "thigh.R",
+          "pelvis"
+        ],
+        [
+          "shin.R",
+          "thigh.R"
+        ],
+        [
+          "foot.R",
+          "shin.R"
+        ],
+        [
+          "toe.R",
+          "foot.R"
+        ],
+        [
+          "tunic.L",
+          "pelvis"
+        ],
+        [
+          "tunic.R",
+          "pelvis"
+        ]
+      ],
+      "bones": [
+        {
+          "name": "root",
+          "head": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "tail": [
+            0.0,
+            0.0,
+            0.15000000596046448
+          ],
+          "deform": false
+        },
+        {
+          "name": "pelvis",
+          "head": [
+            0.0,
+            0.0,
+            0.949999988079071
+          ],
+          "tail": [
+            0.0,
+            0.0,
+            1.100000023841858
+          ],
+          "deform": true
+        },
+        {
+          "name": "spine",
+          "head": [
+            0.0,
+            0.0,
+            1.100000023841858
+          ],
+          "tail": [
+            0.0,
+            0.0,
+            1.2100000381469727
+          ],
+          "deform": true
+        },
+        {
+          "name": "chest",
+          "head": [
+            0.0,
+            0.0,
+            1.2100000381469727
+          ],
+          "tail": [
+            0.0,
+            0.0,
+            1.340000033378601
+          ],
+          "deform": true
+        },
+        {
+          "name": "neck",
+          "head": [
+            0.0,
+            0.0,
+            1.340000033378601
+          ],
+          "tail": [
+            0.0,
+            0.0,
+            1.4450000524520874
+          ],
+          "deform": true
+        },
+        {
+          "name": "head",
+          "head": [
+            0.0,
+            0.0,
+            1.4450000524520874
+          ],
+          "tail": [
+            0.0,
+            0.0,
+            1.7300000190734863
+          ],
+          "deform": true
+        },
+        {
+          "name": "clavicle.L",
+          "head": [
+            0.0,
+            0.0,
+            1.3200000524520874
+          ],
+          "tail": [
+            0.14000000059604645,
+            -0.014999999664723873,
+            1.3300000429153442
+          ],
+          "deform": true
+        },
+        {
+          "name": "upper_arm.L",
+          "head": [
+            0.14000000059604645,
+            -0.014999999664723873,
+            1.3300000429153442
+          ],
+          "tail": [
+            0.27300000190734863,
+            -0.02500000037252903,
+            1.1050000190734863
+          ],
+          "deform": true
+        },
+        {
+          "name": "forearm.L",
+          "head": [
+            0.27300000190734863,
+            -0.02500000037252903,
+            1.1050000190734863
+          ],
+          "tail": [
+            0.375,
+            -0.02500000037252903,
+            0.9100000262260437
+          ],
+          "deform": true
+        },
+        {
+          "name": "hand.L",
+          "head": [
+            0.375,
+            -0.02500000037252903,
+            0.9100000262260437
+          ],
+          "tail": [
+            0.4230000078678131,
+            -0.03500000014901161,
+            0.7749999761581421
+          ],
+          "deform": true
+        },
+        {
+          "name": "clavicle.R",
+          "head": [
+            0.0,
+            0.0,
+            1.3200000524520874
+          ],
+          "tail": [
+            -0.14000000059604645,
+            -0.014999999664723873,
+            1.3300000429153442
+          ],
+          "deform": true
+        },
+        {
+          "name": "upper_arm.R",
+          "head": [
+            -0.14000000059604645,
+            -0.014999999664723873,
+            1.3300000429153442
+          ],
+          "tail": [
+            -0.27300000190734863,
+            -0.02500000037252903,
+            1.1050000190734863
+          ],
+          "deform": true
+        },
+        {
+          "name": "forearm.R",
+          "head": [
+            -0.27300000190734863,
+            -0.02500000037252903,
+            1.1050000190734863
+          ],
+          "tail": [
+            -0.375,
+            -0.02500000037252903,
+            0.9100000262260437
+          ],
+          "deform": true
+        },
+        {
+          "name": "hand.R",
+          "head": [
+            -0.375,
+            -0.02500000037252903,
+            0.9100000262260437
+          ],
+          "tail": [
+            -0.4230000078678131,
+            -0.03500000014901161,
+            0.7749999761581421
+          ],
+          "deform": true
+        },
+        {
+          "name": "thigh.L",
+          "head": [
+            0.09000000357627869,
+            0.0,
+            0.949999988079071
+          ],
+          "tail": [
+            0.14300000667572021,
+            -0.02500000037252903,
+            0.5249999761581421
+          ],
+          "deform": true
+        },
+        {
+          "name": "shin.L",
+          "head": [
+            0.14300000667572021,
+            -0.02500000037252903,
+            0.5249999761581421
+          ],
+          "tail": [
+            0.17499999701976776,
+            0.014999999664723873,
+            0.17499999701976776
+          ],
+          "deform": true
+        },
+        {
+          "name": "foot.L",
+          "head": [
+            0.17499999701976776,
+            0.014999999664723873,
+            0.17499999701976776
+          ],
+          "tail": [
+            0.1899999976158142,
+            -0.1550000011920929,
+            0.057999998331069946
+          ],
+          "deform": true
+        },
+        {
+          "name": "toe.L",
+          "head": [
+            0.1899999976158142,
+            -0.1550000011920929,
+            0.057999998331069946
+          ],
+          "tail": [
+            0.19300000369548798,
+            -0.25999999046325684,
+            0.05000000074505806
+          ],
+          "deform": true
+        },
+        {
+          "name": "thigh.R",
+          "head": [
+            -0.09000000357627869,
+            0.0,
+            0.949999988079071
+          ],
+          "tail": [
+            -0.14300000667572021,
+            -0.02500000037252903,
+            0.5249999761581421
+          ],
+          "deform": true
+        },
+        {
+          "name": "shin.R",
+          "head": [
+            -0.14300000667572021,
+            -0.02500000037252903,
+            0.5249999761581421
+          ],
+          "tail": [
+            -0.17499999701976776,
+            0.014999999664723873,
+            0.17499999701976776
+          ],
+          "deform": true
+        },
+        {
+          "name": "foot.R",
+          "head": [
+            -0.17499999701976776,
+            0.014999999664723873,
+            0.17499999701976776
+          ],
+          "tail": [
+            -0.1899999976158142,
+            -0.1550000011920929,
+            0.057999998331069946
+          ],
+          "deform": true
+        },
+        {
+          "name": "toe.R",
+          "head": [
+            -0.1899999976158142,
+            -0.1550000011920929,
+            0.057999998331069946
+          ],
+          "tail": [
+            -0.19300000369548798,
+            -0.25999999046325684,
+            0.05000000074505806
+          ],
+          "deform": true
+        },
+        {
+          "name": "tunic.L",
+          "head": [
+            0.09000000357627869,
+            0.0,
+            1.0750000476837158
+          ],
+          "tail": [
+            0.14300000667572021,
+            -0.02500000037252903,
+            0.6500000357627869
+          ],
+          "deform": true
+        },
+        {
+          "name": "tunic.R",
+          "head": [
+            -0.09000000357627869,
+            0.0,
+            1.0750000476837158
+          ],
+          "tail": [
+            -0.14300000667572021,
+            -0.02500000037252903,
+            0.6500000357627869
+          ],
+          "deform": true
+        }
+      ],
+      "height": 1.800000011920929,
+      "feet_min_z": -5.960464477539063e-08
+    }
+  },
+  "integration": "No Godot scene or gameplay code changed. Production clips and player replacement deferred.",
+  "hierarchies_match": true,
+  "limitations": [
+    "Sister: moderate 30deg hip stride, arms, torso, neck, wrists and ankles visually reviewed. At 55-60deg hip flexion/deep crouch, thighs still intersect the short fused tunic; not approved for deep crouch/seated production clips.",
+    "Sister: shoulder stress is usable but the generated sleeve has a broad fold; final overhead clips need silhouette polish.",
+    "Both: simple FK hand bones, no independent finger controls, facial rig, IK, cloth physics, foot locking or production animation.",
+    "Brother: near-collinear source triangles retained; no new collapsed joint triangles in sampled tests.",
+    "Tunic helper location drivers must be baked into exported animation. Rest-only qualification GLBs do not reproduce live drivers.",
+    "Sister footwear is a stiff sole: toe bones reserved for future clips and not used to flex the shoes.",
+    "Godot scene scale, model forward yaw, animation cadence and the existing debug-swap node-path mismatch remain integration work."
+  ],
+  "final_file": "D:/GodotProjects/dungeons-n-academics/Assets/Characters/Source/rigging-v1/siblings-rig-v010-reviewed.blend",
+  "last_correction": "Brother front hem uses driven clearance while rear hem blends pelvis/thigh weights, smoothly across both center and depth; repaired waist remains held to pelvis. Sister collar matches adjacent torso/neck.",
+  "roundtrip": {
+    "Brother": {
+      "file": "D:/GodotProjects/dungeons-n-academics/Assets/Characters/Source/rigging-v1/qualification/brother-v010-rest.glb",
+      "bytes": 4727156,
+      "skins": 1,
+      "joints": 24,
+      "embedded_images": 3,
+      "all_images_embedded": true,
+      "animation_count": 0,
+      "has_uv_and_weights": true,
+      "has_extra_influence_sets": false,
+      "roundtrip": {
+        "triangles": 11910,
+        "vertices_after_uv_normal_splits": 13643,
+        "hierarchy_matches": true,
+        "bone_count": 24,
+        "height": 1.800000086621253,
+        "feet_min_z": -1.343049689239706e-07,
+        "rest_position_max_error": 3.6519367085929844e-07,
+        "weights": {
+          "vertices": 13643,
+          "triangles": 11910,
+          "unweighted": 0,
+          "non_normalized": 0,
+          "max_influences": 4,
+          "over_four": 0,
+          "weight_sum_range": [
+            0.9999998733401299,
+            1.0000001192092896
+          ],
+          "bones": 24,
+          "deform_bones": 24
+        },
+        "images": [
+          {
+            "name": "Color.006",
+            "size": [
+              2048,
+              2048
+            ],
+            "packed": true
+          },
+          {
+            "name": "tripo_image_3cc91a2e_2-tripo_image_3cc91a2e_1.003",
+            "size": [
+              2048,
+              2048
+            ],
+            "packed": true
+          },
+          {
+            "name": "Normal.006",
+            "size": [
+              2048,
+              2048
+            ],
+            "packed": true
+          }
+        ]
+      }
+    },
+    "Sister": {
+      "file": "D:/GodotProjects/dungeons-n-academics/Assets/Characters/Source/rigging-v1/qualification/sister-v010-rest.glb",
+      "bytes": 5230736,
+      "skins": 1,
+      "joints": 24,
+      "embedded_images": 3,
+      "all_images_embedded": true,
+      "animation_count": 0,
+      "has_uv_and_weights": true,
+      "has_extra_influence_sets": false,
+      "roundtrip": {
+        "triangles": 11280,
+        "vertices_after_uv_normal_splits": 12598,
+        "hierarchy_matches": true,
+        "bone_count": 24,
+        "height": 1.8000001658967193,
+        "feet_min_z": -9.437114556476445e-08,
+        "rest_position_max_error": 2.754148681560764e-06,
+        "weights": {
+          "vertices": 12598,
+          "triangles": 11280,
+          "unweighted": 0,
+          "non_normalized": 0,
+          "max_influences": 4,
+          "over_four": 0,
+          "weight_sum_range": [
+            0.9999998735729605,
+            1.0000001032312866
+          ],
+          "bones": 24,
+          "deform_bones": 24
+        },
+        "images": [
+          {
+            "name": "Color.007",
+            "size": [
+              2048,
+              2048
+            ],
+            "packed": true
+          },
+          {
+            "name": "tripo_image_457309d5_2-tripo_image_457309d5_1.003",
+            "size": [
+              2048,
+              2048
+            ],
+            "packed": true
+          },
+          {
+            "name": "Normal.007",
+            "size": [
+              2048,
+              2048
+            ],
+            "packed": true
+          }
+        ]
+      }
+    }
+  },
+  "export_sampler_warning_review": "Exporter combines metallic/roughness images. All source image nodes use identical Linear/FLAT/REPEAT settings with the same active UV input; first-sampler warning has no settings conflict."
+}

@@ -1,0 +1,58 @@
+{
+  "final_blend": "D:/GodotProjects/dungeons-n-academics/Assets/Characters/Source/animation-v1/siblings-animation-v005-reviewed.blend",
+  "review_scenes": [
+    "ANIM_REVIEW_Idle",
+    "ANIM_REVIEW_Walk",
+    "ANIM_REVIEW_Run",
+    "ANIM_REVIEW_SwordIdle",
+    "ANIM_REVIEW_SpearIdle",
+    "ANIM_REVIEW_SwordSlash",
+    "ANIM_REVIEW_SpearThrust",
+    "ANIM_REVIEW_TakeDamage"
+  ],
+  "movies": {
+    "Idle": {
+      "file": "D:/GodotProjects/dungeons-n-academics/Assets/Characters/Source/animation-v1/review/Idle.mp4",
+      "bytes": 647752,
+      "duration": 3.0
+    },
+    "Walk": {
+      "file": "D:/GodotProjects/dungeons-n-academics/Assets/Characters/Source/animation-v1/review/Walk.mp4",
+      "bytes": 342126,
+      "duration": 1.167
+    },
+    "Run": {
+      "file": "D:/GodotProjects/dungeons-n-academics/Assets/Characters/Source/animation-v1/review/Run.mp4",
+      "bytes": 215589,
+      "duration": 0.75
+    },
+    "SwordIdle": {
+      "file": "D:/GodotProjects/dungeons-n-academics/Assets/Characters/Source/animation-v1/review/SwordIdle.mp4",
+      "bytes": 503812,
+      "duration": 2.0
+    },
+    "SpearIdle": {
+      "file": "D:/GodotProjects/dungeons-n-academics/Assets/Characters/Source/animation-v1/review/SpearIdle.mp4",
+      "bytes": 508608,
+      "duration": 2.0
+    },
+    "SwordSlash": {
+      "file": "D:/GodotProjects/dungeons-n-academics/Assets/Characters/Source/animation-v1/review/SwordSlash.mp4",
+      "bytes": 304833,
+      "duration": 0.917
+    },
+    "SpearThrust": {
+      "file": "D:/GodotProjects/dungeons-n-academics/Assets/Characters/Source/animation-v1/review/SpearThrust.mp4",
+      "bytes": 329013,
+      "duration": 1.084
+    },
+    "TakeDamage": {
+      "file": "D:/GodotProjects/dungeons-n-academics/Assets/Characters/Source/animation-v1/review/TakeDamage.mp4",
+      "bytes": 200794,
+      "duration": 0.667
+    }
+  },
+  "raw_glb_max_error_m": 0.0006561373416633969,
+  "godot_status": "Pending editor/playback approval due .NET launch popups; see ANIMATION_HANDOFF.md",
+  "notes": "D:/GodotProjects/dungeons-n-academics/Assets/Characters/Source/animation-v1/ANIMATION_HANDOFF.md"
+}

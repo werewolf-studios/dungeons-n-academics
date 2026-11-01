@@ -1,0 +1,259 @@
+{
+  "weights": {
+    "vertices": 6229,
+    "triangles": 11910,
+    "unweighted": 0,
+    "non_normalized": 0,
+    "max_influences": 4,
+    "over_four": 0,
+    "weight_sum_range": [
+      0.999999962747097,
+      1.000000037252903
+    ],
+    "bones": 24,
+    "deform_bones": 23
+  },
+  "source_objects_unchanged": {
+    "Brother_SmoothTunic_v2": true,
+    "Sister_Clean_v1": true
+  },
+  "uv_exactly_preserved": true,
+  "deformations": [
+    {
+      "test": "arms",
+      "fraction": 0.25,
+      "nonfinite_vertices": 0,
+      "zero_area_triangles": 3,
+      "edge_stretch_p99": 1.0327883279915677,
+      "edge_stretch_max": 1.5360798028823281,
+      "edge_compression_min": 0.9202301868115665,
+      "waist_band_edges": 111,
+      "waist_band_stretch_max": 1.029540045145606
+    },
+    {
+      "test": "arms",
+      "fraction": 0.5,
+      "nonfinite_vertices": 0,
+      "zero_area_triangles": 3,
+      "edge_stretch_p99": 1.0671888979413149,
+      "edge_stretch_max": 2.1091919493833315,
+      "edge_compression_min": 0.8397713001623233,
+      "waist_band_edges": 111,
+      "waist_band_stretch_max": 1.059749217369838
+    },
+    {
+      "test": "arms",
+      "fraction": 0.75,
+      "nonfinite_vertices": 0,
+      "zero_area_triangles": 3,
+      "edge_stretch_p99": 1.11032814176091,
+      "edge_stretch_max": 2.7138661098241323,
+      "edge_compression_min": 0.7590694055871904,
+      "waist_band_edges": 111,
+      "waist_band_stretch_max": 1.0901161595240136
+    },
+    {
+      "test": "arms",
+      "fraction": 1.0,
+      "nonfinite_vertices": 0,
+      "zero_area_triangles": 3,
+      "edge_stretch_p99": 1.1539906311026984,
+      "edge_stretch_max": 3.3573760206980054,
+      "edge_compression_min": 0.6788306233873428,
+      "waist_band_edges": 111,
+      "waist_band_stretch_max": 1.1201386336363588
+    },
+    {
+      "test": "legs",
+      "fraction": 0.25,
+      "nonfinite_vertices": 0,
+      "zero_area_triangles": 1,
+      "edge_stretch_p99": 1.0503460998641425,
+      "edge_stretch_max": 20.49948886591296,
+      "edge_compression_min": 0.5485953628664424,
+      "waist_band_edges": 111,
+      "waist_band_stretch_max": 1.0216104655151244
+    },
+    {
+      "test": "legs",
+      "fraction": 0.5,
+      "nonfinite_vertices": 0,
+      "zero_area_triangles": 1,
+      "edge_stretch_p99": 1.1305129132885723,
+      "edge_stretch_max": 40.321471677993976,
+      "edge_compression_min": 0.3596146637499277,
+      "waist_band_edges": 111,
+      "waist_band_stretch_max": 1.0442730755288874
+    },
+    {
+      "test": "legs",
+      "fraction": 0.75,
+      "nonfinite_vertices": 0,
+      "zero_area_triangles": 1,
+      "edge_stretch_p99": 1.2230319206513551,
+      "edge_stretch_max": 60.120876221764895,
+      "edge_compression_min": 0.17194160247598608,
+      "waist_band_edges": 111,
+      "waist_band_stretch_max": 1.0677905857347834
+    },
+    {
+      "test": "legs",
+      "fraction": 1.0,
+      "nonfinite_vertices": 0,
+      "zero_area_triangles": 1,
+      "edge_stretch_p99": 1.3645790834113962,
+      "edge_stretch_max": 79.3742174787023,
+      "edge_compression_min": 0.07479121689100578,
+      "waist_band_edges": 111,
+      "waist_band_stretch_max": 1.0914072587315011
+    },
+    {
+      "test": "torso",
+      "fraction": 0.25,
+      "nonfinite_vertices": 0,
+      "zero_area_triangles": 0,
+      "edge_stretch_p99": 1.007883732924106,
+      "edge_stretch_max": 1.0773885868873703,
+      "edge_compression_min": 0.8462801347154458,
+      "waist_band_edges": 111,
+      "waist_band_stretch_max": 1.0150934736320403
+    },
+    {
+      "test": "torso",
+      "fraction": 0.5,
+      "nonfinite_vertices": 0,
+      "zero_area_triangles": 0,
+      "edge_stretch_p99": 1.016750520322637,
+      "edge_stretch_max": 1.1924563615982373,
+      "edge_compression_min": 0.7411398871073877,
+      "waist_band_edges": 111,
+      "waist_band_stretch_max": 1.0293031431691537
+    },
+    {
+      "test": "torso",
+      "fraction": 0.75,
+      "nonfinite_vertices": 0,
+      "zero_area_triangles": 1,
+      "edge_stretch_p99": 1.0278848873648754,
+      "edge_stretch_max": 1.3351645217681944,
+      "edge_compression_min": 0.6997471292338693,
+      "waist_band_edges": 111,
+      "waist_band_stretch_max": 1.0424685659666046
+    },
+    {
+      "test": "torso",
+      "fraction": 1.0,
+      "nonfinite_vertices": 0,
+      "zero_area_triangles": 0,
+      "edge_stretch_p99": 1.0427583515525847,
+      "edge_stretch_max": 1.4972817925413489,
+      "edge_compression_min": 0.6608754872246319,
+      "waist_band_edges": 111,
+      "waist_band_stretch_max": 1.0544514993488106
+    },
+    {
+      "test": "shoulders",
+      "fraction": 0.25,
+      "nonfinite_vertices": 0,
+      "zero_area_triangles": 3,
+      "edge_stretch_p99": 1.0397684494852117,
+      "edge_stretch_max": 1.2765112644740846,
+      "edge_compression_min": 0.7669722923713054,
+      "waist_band_edges": 111,
+      "waist_band_stretch_max": 1.0813856923737424
+    },
+    {
+      "test": "shoulders",
+      "fraction": 0.5,
+      "nonfinite_vertices": 0,
+      "zero_area_triangles": 3,
+      "edge_stretch_p99": 1.0851954910948423,
+      "edge_stretch_max": 1.5812523202991156,
+      "edge_compression_min": 0.6283503541513233,
+      "waist_band_edges": 111,
+      "waist_band_stretch_max": 1.1729756620836784
+    },
+    {
+      "test": "shoulders",
+      "fraction": 0.75,
+      "nonfinite_vertices": 0,
+      "zero_area_triangles": 3,
+      "edge_stretch_p99": 1.1343790262199835,
+      "edge_stretch_max": 1.9495080849262618,
+      "edge_compression_min": 0.4873802856569113,
+      "waist_band_edges": 111,
+      "waist_band_stretch_max": 1.2704047968072918
+    },
+    {
+      "test": "shoulders",
+      "fraction": 1.0,
+      "nonfinite_vertices": 0,
+      "zero_area_triangles": 3,
+      "edge_stretch_p99": 1.1914236754826668,
+      "edge_stretch_max": 2.3672984922896934,
+      "edge_compression_min": 0.3779734981233668,
+      "waist_band_edges": 111,
+      "waist_band_stretch_max": 1.369345622600575
+    },
+    {
+      "test": "crouch",
+      "fraction": 0.25,
+      "nonfinite_vertices": 0,
+      "zero_area_triangles": 0,
+      "edge_stretch_p99": 1.1063696084394357,
+      "edge_stretch_max": 3.326115502252437,
+      "edge_compression_min": 0.516967076693612,
+      "waist_band_edges": 111,
+      "waist_band_stretch_max": 1.0293759989037925
+    },
+    {
+      "test": "crouch",
+      "fraction": 0.5,
+      "nonfinite_vertices": 0,
+      "zero_area_triangles": 0,
+      "edge_stretch_p99": 1.3471254195964337,
+      "edge_stretch_max": 5.7727274445184,
+      "edge_compression_min": 0.31156369933116534,
+      "waist_band_edges": 111,
+      "waist_band_stretch_max": 1.0596388319806906
+    },
+    {
+      "test": "crouch",
+      "fraction": 0.75,
+      "nonfinite_vertices": 0,
+      "zero_area_triangles": 0,
+      "edge_stretch_p99": 1.5942439723517985,
+      "edge_stretch_max": 8.228863776806183,
+      "edge_compression_min": 0.19265328776515833,
+      "waist_band_edges": 111,
+      "waist_band_stretch_max": 1.0906384495193158
+    },
+    {
+      "test": "crouch",
+      "fraction": 1.0,
+      "nonfinite_vertices": 0,
+      "zero_area_triangles": 0,
+      "edge_stretch_p99": 1.8576102733898334,
+      "edge_stretch_max": 9.811117107849835,
+      "edge_compression_min": 0.07479076231159552,
+      "waist_band_edges": 111,
+      "waist_band_stretch_max": 1.110920219628888
+    }
+  ],
+  "diagnostic_action": "Brother_DEFORM_TEST_v1",
+  "rest_height": 1.800000011920929,
+  "feet_min_z": -5.960464477539063e-08,
+  "visual_review": {
+    "arms": "95/80deg elbow bends; hands retained, no finger rig",
+    "legs": "55deg hip,95deg knee,20deg ankle; hem translation clears front thigh",
+    "torso": "30deg distributed forward bend +24deg twist; repaired waist held to pelvis",
+    "shoulders": "73deg abduction from A-pose; no long sleeve-weight spikes",
+    "crouch": "60deg hip/100deg knee stress; short tunic opens at side splits"
+  },
+  "limitations": [
+    "No individual finger/facial controls.",
+    "No physical cloth/contact solving; extreme seated, crossed-leg and overhead poses require clip-specific polish.",
+    "Tunic helper drivers must be baked for runtime export.",
+    "Dual quaternion preserve-volume is used in Blender; linear skinning must be checked separately before production export."
+  ]
+}

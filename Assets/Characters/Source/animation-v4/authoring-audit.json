@@ -1,0 +1,10 @@
+{
+  "Brother": {
+    "max_ik_error_m": 0,
+    "damage_duration_seconds": 1.0
+  },
+  "Sister": {
+    "max_ik_error_m": 0,
+    "damage_duration_seconds": 1.0
+  }
+}

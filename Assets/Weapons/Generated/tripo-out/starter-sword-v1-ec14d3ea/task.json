@@ -1,0 +1,28 @@
+{
+  "task_id": "ec14d3ea-a6bd-4fce-b9ea-4426066de0fa",
+  "type": "text_to_model",
+  "status": "success",
+  "input": {
+    "pbr": true,
+    "prompt": "A simple stylized low-poly one-handed starter sword for a cartoony academy dungeon adventure. Broad straight double-edged silver steel blade, short sturdy point, shallow central ridge, compact straight deep-purple crossguard, brown leather grip long enough for one hand, small simple gold pommel. Chunky readable proportions matching stylized teenage adventurer characters. Clean flat color blocking, restrained metal highlights, minimal decoration, no gems, no runes, no glow, no damage, no scabbard, no character, no stand. One complete rigid sword, blade and grip aligned on one straight axis, blade pointing up, handle below. Suitable as a small real-time game prop.",
+    "texture": true,
+    "export_uv": true,
+    "face_limit": 1000,
+    "model_version": "P1-20260311",
+    "texture_alignment": "geometry"
+  },
+  "output_fields": [
+    "model_url",
+    "rendered_image_url",
+    "generated_image_url"
+  ],
+  "credits_consumed": 40,
+  "created_at": "2026-10-31T18:13:31.455199Z",
+  "completed_at": "2026-10-31T18:14:27.778247Z",
+  "files": [
+    "model.glb",
+    "rendered_image.webp",
+    "generated_image.jpeg",
+    "preview.png"
+  ]
+}

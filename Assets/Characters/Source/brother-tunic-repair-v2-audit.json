@@ -1,0 +1,21 @@
+{
+  "status": "ok",
+  "result": {
+    "vertices": 6229,
+    "faces": 6829,
+    "quads": 5081,
+    "runtime_triangles": 11910,
+    "degenerate_faces": 0,
+    "overconnected_edges": 0,
+    "bowtie_vertices": 0,
+    "wire_edges": 0,
+    "boundary_edges": 522,
+    "inconsistent_winding_edges": 0,
+    "uv_layers": 1,
+    "uv_coordinates_finite": true,
+    "lower_body_face_uv_signatures_preserved": true,
+    "lower_body_faces_verified": 3081,
+    "texture_images_preserved": true,
+    "additional_bowtie_vertices_separated": 2
+  }
+}

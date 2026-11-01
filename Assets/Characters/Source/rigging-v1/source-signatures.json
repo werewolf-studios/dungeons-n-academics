@@ -1,0 +1,17 @@
+{
+  "live_file": "C:\\Users\\Chris\\Documents\\Blender\\Projects\\dungeoncharacter.blend",
+  "original_signatures": {
+    "Brother_SmoothTunic_v2": {
+      "vertices": 6229,
+      "faces": 6829,
+      "coords": "9cd11833602d7a5bfc3c6c22b5959405fa15908666aa100e195675ec254729cf",
+      "uv": "c9e2483ac6e17e2465eb91ee597c73241e068ac6535ebc0b3b59ce54c32128bc"
+    },
+    "Sister_Clean_v1": {
+      "vertices": 6106,
+      "faces": 6086,
+      "coords": "303891cda19ec7ff4dd1d95103b4ab1d17ae8bba38fd3cb99995d9da84e735c6",
+      "uv": "b938d12e7e0780f6ee2c0bfbcc53fe05867cb2c385dacf9484fc4f55c419d0ef"
+    }
+  }
+}
