@@ -1,0 +1,96 @@
+{
+  "fps": 24,
+  "clips": {
+    "Idle": {
+      "duration": 3.0,
+      "loop": true,
+      "weapon": null,
+      "event_frame": null
+    },
+    "Walk": {
+      "duration": 1.1666666666666667,
+      "loop": true,
+      "weapon": null,
+      "event_frame": null
+    },
+    "Run": {
+      "duration": 0.75,
+      "loop": true,
+      "weapon": null,
+      "event_frame": null
+    },
+    "SwordIdle": {
+      "duration": 2.0,
+      "loop": true,
+      "weapon": "Sword",
+      "event_frame": null
+    },
+    "SpearIdle": {
+      "duration": 2.0,
+      "loop": true,
+      "weapon": "Spear",
+      "event_frame": null
+    },
+    "SwordSlash": {
+      "duration": 1.5,
+      "loop": false,
+      "weapon": "Sword",
+      "event_frame": 19,
+      "event_time_seconds": 0.75
+    },
+    "SpearThrust": {
+      "duration": 1.0833333333333333,
+      "loop": false,
+      "weapon": "Spear",
+      "event_frame": 13,
+      "event_time_seconds": 0.5
+    },
+    "TakeDamage": {
+      "duration": 1.5416666666666667,
+      "loop": false,
+      "weapon": null,
+      "event_frame": 4,
+      "event_time_seconds": 0.125
+    }
+  },
+  "walk_reference_speed_mps": 0.6571428571428571,
+  "run_reference_speed_mps": 1.7543859649122806,
+  "socket": {
+    "bone": "hand.R",
+    "position": [
+      0.025,
+      0.085,
+      0
+    ],
+    "weapon_rotation_degrees": [
+      -90,
+      0,
+      0
+    ],
+    "sword_rotation_degrees": [
+      -90,
+      0,
+      0
+    ],
+    "spear_rotation_degrees": [
+      -90,
+      0,
+      0
+    ],
+    "spear_position": {
+      "brother": [
+        0.08,
+        0.07,
+        0
+      ],
+      "sister": [
+        0.07,
+        0.065,
+        0
+      ]
+    }
+  },
+  "spear_front_grip_distance_m": 0.28,
+  "godot_runtime_status": "v11 awaiting user visual review.",
+  "revision": "v11: handmade Blender meshes (handmade-v1) replace the Tripo meshes on the unchanged v10 rigs; all eight clips, timings, events and sockets are identical to v10."
+}

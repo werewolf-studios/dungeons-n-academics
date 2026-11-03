@@ -47,7 +47,7 @@ func _ready() -> void:
 	set_view(0.35)
 	for i in 2:
 		var label := "brother" if i == 0 else "sister"
-		var packed := load("res://Assets/Characters/Animated/v10/%s-animations-v10.glb" % label) as PackedScene
+		var packed := load("res://Assets/Characters/Animated/v11/%s-animations-v11.glb" % label) as PackedScene
 		var actor := packed.instantiate() as Node3D
 		actor.position.x = -0.65 if i == 0 else 0.65
 		add_child(actor)

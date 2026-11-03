@@ -1,0 +1,175 @@
+{
+  "Brother": {
+    "Idle": {
+      "action": "Brother_Idle_v13",
+      "frames": 73,
+      "finite": true,
+      "mesh_min_z": -0.0
+    },
+    "Walk": {
+      "action": "Brother_Walk_v15",
+      "frames": 29,
+      "finite": true,
+      "mesh_min_z": -0.0
+    },
+    "Run": {
+      "action": "Brother_Run_v15",
+      "frames": 19,
+      "finite": true,
+      "mesh_min_z": -0.0
+    },
+    "SwordIdle": {
+      "action": "Brother_SwordIdle_v17",
+      "frames": 49,
+      "finite": true,
+      "mesh_min_z": -0.0
+    },
+    "SpearIdle": {
+      "action": "Brother_SpearIdle_v17",
+      "frames": 49,
+      "finite": true,
+      "mesh_min_z": -0.0
+    },
+    "SwordSlash": {
+      "action": "Brother_SwordSlash_v17",
+      "frames": 37,
+      "finite": true,
+      "mesh_min_z": -0.0
+    },
+    "SpearThrust": {
+      "action": "Brother_SpearThrust_v17",
+      "frames": 27,
+      "finite": true,
+      "mesh_min_z": -0.0
+    },
+    "TakeDamage": {
+      "action": "Brother_TakeDamage_v17",
+      "frames": 38,
+      "finite": true,
+      "mesh_min_z": -0.0
+    },
+    "mesh": {
+      "vertices": 6199,
+      "triangles": 11064,
+      "materials": [
+        "HM_Brother_Skin",
+        "HM_Brother_EyeRim",
+        "HM_Brother_EyeWhite",
+        "HM_Brother_IrisDark",
+        "HM_Brother_Iris",
+        "HM_Brother_Pupil",
+        "HM_Brother_Glint",
+        "HM_Brother_LidLine",
+        "HM_Brother_LidCrease",
+        "HM_Brother_Lash",
+        "HM_Brother_Brow",
+        "HM_Brother_LipUpper",
+        "HM_Brother_Mouth",
+        "HM_Brother_LipLower",
+        "HM_Brother_Nostril",
+        "HM_Brother_Hair",
+        "HM_Brother_HairDark",
+        "HM_Brother_Tunic",
+        "HM_Brother_Trim",
+        "HM_Brother_Belt",
+        "HM_Brother_Pouch",
+        "HM_Brother_PouchFlap",
+        "HM_Brother_Gold",
+        "HM_Brother_Nail",
+        "HM_Brother_Pants",
+        "HM_Brother_Boot",
+        "HM_Brother_BootCuff",
+        "HM_Brother_Sole"
+      ],
+      "max_influences": 4,
+      "unweighted": 0
+    }
+  },
+  "Sister": {
+    "Idle": {
+      "action": "Sister_Idle_v3",
+      "frames": 73,
+      "finite": true,
+      "mesh_min_z": -0.0
+    },
+    "Walk": {
+      "action": "Sister_Walk_v6",
+      "frames": 29,
+      "finite": true,
+      "mesh_min_z": -0.0
+    },
+    "Run": {
+      "action": "Sister_Run_v6",
+      "frames": 19,
+      "finite": true,
+      "mesh_min_z": -0.0
+    },
+    "SwordIdle": {
+      "action": "Sister_SwordIdle_v17",
+      "frames": 49,
+      "finite": true,
+      "mesh_min_z": -0.0
+    },
+    "SpearIdle": {
+      "action": "Sister_SpearIdle_v17",
+      "frames": 49,
+      "finite": true,
+      "mesh_min_z": -0.0
+    },
+    "SwordSlash": {
+      "action": "Sister_SwordSlash_v17",
+      "frames": 37,
+      "finite": true,
+      "mesh_min_z": -0.0
+    },
+    "SpearThrust": {
+      "action": "Sister_SpearThrust_v17",
+      "frames": 27,
+      "finite": true,
+      "mesh_min_z": -0.0
+    },
+    "TakeDamage": {
+      "action": "Sister_TakeDamage_v17",
+      "frames": 38,
+      "finite": true,
+      "mesh_min_z": -0.0
+    },
+    "mesh": {
+      "vertices": 8951,
+      "triangles": 16502,
+      "materials": [
+        "HM_Sister_Skin",
+        "HM_Sister_EyeRim",
+        "HM_Sister_EyeWhite",
+        "HM_Sister_IrisDark",
+        "HM_Sister_Iris",
+        "HM_Sister_Pupil",
+        "HM_Sister_Glint",
+        "HM_Sister_LidLine",
+        "HM_Sister_LidCrease",
+        "HM_Sister_Lash",
+        "HM_Sister_Brow",
+        "HM_Sister_LipUpper",
+        "HM_Sister_Mouth",
+        "HM_Sister_LipLower",
+        "HM_Sister_Blush",
+        "HM_Sister_Nostril",
+        "HM_Sister_Hair",
+        "HM_Sister_HairDark",
+        "HM_Sister_Tunic",
+        "HM_Sister_Trim",
+        "HM_Sister_Panel",
+        "HM_Sister_Belt",
+        "HM_Sister_Gold",
+        "HM_Sister_Nail",
+        "HM_Sister_Leggings",
+        "HM_Sister_Boot",
+        "HM_Sister_BootCuff",
+        "HM_Sister_Sole",
+        "HM_Sister_Strap"
+      ],
+      "max_influences": 4,
+      "unweighted": 0
+    }
+  }
+}
