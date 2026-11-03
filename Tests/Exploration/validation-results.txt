@@ -1,0 +1,31 @@
+PASS brother selected at startup; both Pivot paths resolve
+PASS both characters idle on spawn
+PASS feet-at-origin visuals align with the unchanged grounded capsule
+PASS walk action includes keyboard and gamepad bindings
+PASS brother approved combat clips retained
+PASS brother v10 sword socket
+PASS brother v10 spear socket; weapons hidden for locomotion
+PASS sister approved combat clips retained
+PASS sister v10 sword socket
+PASS sister v10 spear socket; weapons hidden for locomotion
+PASS existing full movement speed preserved
+PASS run follows movement for both siblings
+PASS both siblings run at approved 1x timing at existing traversal speed
+PASS Pivot faces movement direction
+PASS walk modifier reduces speed and selects Walk
+PASS both siblings walk at approved 1x timing
+PASS moving swap selects sister without losing locomotion
+PASS holding swap does not toggle repeatedly
+PASS release returns to Idle
+PASS sister model +Z faces the controller's -Z forward
+PASS idle swap returns to brother
+PASS brother model +Z faces the controller's -Z forward
+PASS diagonal movement remains normalized
+PASS existing scene-manager disable freezes movement and animation together
+PASS wall collision blocks travel and stops Run
+PASS brother forward interaction still works
+PASS holding interact triggers once
+PASS brother walking into a block still pushes on the grid
+PASS sister forward interaction still works
+PASS holding interact triggers once
+PASS sister walking into a block still pushes on the grid

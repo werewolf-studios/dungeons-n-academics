@@ -19,6 +19,26 @@ public partial class Player : CharacterBody3D
     [Export]
     public int Speed { get; set; } = 14;
 
+    // Full-speed traversal remains unchanged. Hold Walk for the authored walk/run ratio.
+    [Export(PropertyHint.Range, "0.05,1,0.005")]
+    public float WalkSpeedRatio { get; set; } = 0.37457144f;
+
+    private ExplorationCharacterVisual maleVisual;
+    private ExplorationCharacterVisual femaleVisual;
+
+    public override void _Ready()
+    {
+        maleVisual = GetNodeOrNull<ExplorationCharacterVisual>("Pivot/Male-Character");
+        femaleVisual = GetNodeOrNull<ExplorationCharacterVisual>("Pivot/Female-Character");
+        ApplyCharacterVisibility();
+    }
+
+    private void ApplyCharacterVisibility()
+    {
+        GetNode<Node3D>("Pivot/Male-Character").Visible = isCharacterMale;
+        GetNode<Node3D>("Pivot/Female-Character").Visible = !isCharacterMale;
+    }
+
     // The downward acceleration when in the air, in meters per second squared.
     [Export]
     public int FallAcceleration { get; set; } = 75;
@@ -84,8 +104,10 @@ public partial class Player : CharacterBody3D
         }
 
         // Ground Velocity
-        _targetVelocity.X = direction.X * Speed;
-        _targetVelocity.Z = direction.Z * Speed;
+        bool walking = Input.IsActionPressed("(Overworld) Walk");
+        float moveSpeed = Speed * (walking ? WalkSpeedRatio : 1.0f);
+        _targetVelocity.X = direction.X * moveSpeed;
+        _targetVelocity.Z = direction.Z * moveSpeed;
 
         // Vertical Velocity
         if (!IsOnFloor()) // If in the air, fall towards the floor. Literally gravity
@@ -137,6 +159,13 @@ public partial class Player : CharacterBody3D
 
         // Remove this when settings are implemented
         SwapCharacter();
+
+        // Real velocity excludes teleport distance and stops locomotion against walls.
+        Vector3 realVelocity = GetRealVelocity();
+        float horizontalSpeed = new Vector2(realVelocity.X, realVelocity.Z).Length();
+        // Keep both poses current so swapping while moving never flashes a stale pose.
+        maleVisual?.UpdateLocomotion(horizontalSpeed, walking);
+        femaleVisual?.UpdateLocomotion(horizontalSpeed, walking);
 
         //Push Block Check
         CheckBoxCollision(direction);
@@ -190,16 +219,13 @@ public partial class Player : CharacterBody3D
             {
                 GD.Print("Swap to Female");
                 isCharacterMale = false;
-                GetNode<Node3D>("Pivot/Male-Character").Visible = false;
-                GetNode<Node3D>("Pivot/Female-Character").Visible = true;
             }
             else
             {
                 GD.Print("Swap to Male");
                 isCharacterMale = true;
-                GetNode<Node3D>("Pivot/Female-Character").Visible = false;
-                GetNode<Node3D>("Pivot/Male-Character").Visible = true;
             }
+            ApplyCharacterVisibility();
         }
 
         if (!Input.IsActionPressed("(Temporary) Swap Character")) { singlePressCharacter = false; }

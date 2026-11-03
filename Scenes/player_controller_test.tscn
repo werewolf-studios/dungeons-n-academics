@@ -56,6 +56,13 @@ Speed = 10
 player = NodePath("../Player")
 maxCameraDistance = 2.0
 
+[node name="CameraPivot" parent="CameraFollower" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Camera" parent="CameraFollower/CameraPivot" index="0"]
+transform = Transform3D(-1, 0, 0, 0, 0.70710677, 0.70710677, 0, 0.70710677, -0.70710677, 0, 7, -7)
+fov = 55.0
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CameraFollower" unique_id=1423326211]
 transparency = 1.0
 mesh = SubResource("SphereMesh_gu0sv")

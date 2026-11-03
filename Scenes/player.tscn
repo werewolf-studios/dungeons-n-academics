@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://cupl2yi8jna1q"]
 
 [ext_resource type="Script" uid="uid://cf28joa5vvwel" path="res://Scripts/Player.cs" id="1_i3pqv"]
-[ext_resource type="PackedScene" uid="uid://pj2x1psdylwt" path="res://Models/Female-Character.glb" id="3_sweqy"]
+[ext_resource type="PackedScene" path="res://Assets/Characters/Animated/v11/brother-animations-v11.glb" id="2_brother"]
+[ext_resource type="PackedScene" path="res://Assets/Characters/Animated/v11/sister-animations-v11.glb" id="3_sweqy"]
+[ext_resource type="Script" path="res://Scripts/ExplorationCharacterVisual.cs" id="4_visual"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6t5aa"]
 
@@ -14,9 +16,20 @@ script = ExtResource("1_i3pqv")
 
 [node name="Pivot" type="Node3D" parent="." unique_id=1498624738]
 
-[node name="Female-Character" parent="Pivot" unique_id=733471895 instance=ExtResource("3_sweqy")]
+[node name="Male-Character" type="Node3D" parent="Pivot"]
+script = ExtResource("4_visual")
+CharacterId = "brother"
+
+[node name="Model" parent="Pivot/Male-Character" instance=ExtResource("2_brother")]
+rotation = Vector3(0, 3.1415927, 0)
+
+[node name="Female-Character" type="Node3D" parent="Pivot" unique_id=733471895]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 visible = false
+script = ExtResource("4_visual")
+CharacterId = "sister"
+
+[node name="Model" parent="Pivot/Female-Character" instance=ExtResource("3_sweqy")]
 
 [node name="InteractionCollider" type="Area3D" parent="Pivot" unique_id=1915739309]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
@@ -33,6 +46,3 @@ mesh = SubResource("BoxMesh_6t5aa")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=805874879]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_i3pqv")
-
-[node name="Male-Character" type="Node3D" parent="." unique_id=1035827282]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
