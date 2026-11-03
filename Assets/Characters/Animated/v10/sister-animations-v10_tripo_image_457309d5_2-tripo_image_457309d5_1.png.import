@@ -3,9 +3,10 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c26c731ow1awk"
-path="res://.godot/imported/sister-animations-v10_tripo_image_457309d5_2-tripo_image_457309d5_1.png-037f83959f6e2f35499dfb7cba1a0429.ctex"
+path.s3tc="res://.godot/imported/sister-animations-v10_tripo_image_457309d5_2-tripo_image_457309d5_1.png-037f83959f6e2f35499dfb7cba1a0429.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 generator_parameters={
 "md5": "9aa4112d80959a743c957c55549ceb96"
@@ -14,11 +15,11 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/Characters/Animated/v10/sister-animations-v10_tripo_image_457309d5_2-tripo_image_457309d5_1.png"
-dest_files=["res://.godot/imported/sister-animations-v10_tripo_image_457309d5_2-tripo_image_457309d5_1.png-037f83959f6e2f35499dfb7cba1a0429.ctex"]
+dest_files=["res://.godot/imported/sister-animations-v10_tripo_image_457309d5_2-tripo_image_457309d5_1.png-037f83959f6e2f35499dfb7cba1a0429.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -40,4 +41,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

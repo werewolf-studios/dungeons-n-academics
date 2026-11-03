@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dungeons N Academics"
-run/main_scene="res://Scenes/player_controller_test.tscn"
+run/main_scene="res://Scenes/CharacterAnimationPreview/v1/character_animation_preview.tscn"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 

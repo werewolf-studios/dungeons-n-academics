@@ -62,3 +62,21 @@ ARCHITECTURE.md
 node_modules/
 *.blend
 *.blend1
+IntegrationBackups/exploration-v10/.gdignore
+IntegrationBackups/exploration-v10/auto-import-sidecars/brother-animations-v10_Color.jpg.import
+IntegrationBackups/exploration-v10/auto-import-sidecars/brother-animations-v10_Normal.png.import
+IntegrationBackups/exploration-v10/auto-import-sidecars/brother-animations-v10_tripo_image_3cc91a2e_2-tripo_image_3cc91a2e_1.png.import
+IntegrationBackups/exploration-v10/auto-import-sidecars/sister-animations-v10_Color.jpg.import
+IntegrationBackups/exploration-v10/auto-import-sidecars/sister-animations-v10_Normal.png.import
+IntegrationBackups/exploration-v10/auto-import-sidecars/sister-animations-v10_tripo_image_457309d5_2-tripo_image_457309d5_1.png.import
+IntegrationBackups/exploration-v10/editor-state/Godot/app_userdata/Dungeons N Academics/shader_cache/SceneForwardClusteredShaderRD/c2ccf1fba03bf988835dba74b33ff9f9690ef985335908c22dcdd30d4d0def59/8a33e3448804a106dc84cf085356a6f6afc878ff.d3d12.cache
+IntegrationBackups/exploration-v10/import.log
+IntegrationBackups/exploration-v10/Player.cs.original
+IntegrationBackups/exploration-v10/player.tscn.original
+IntegrationBackups/exploration-v10/player_controller_test.tscn.original
+IntegrationBackups/exploration-v10/project.godot.original
+IntegrationBackups/exploration-v10/validation-cadence-fix.log
+IntegrationBackups/exploration-v10/validation.log
+IntegrationBackups/exploration-v10/world-review.log
+IntegrationBackups/exploration-v10/world-smoke-console.log
+IntegrationBackups/exploration-v10/world-smoke.log

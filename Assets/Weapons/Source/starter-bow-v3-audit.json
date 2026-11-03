@@ -1,0 +1,85 @@
+{
+  "task_id": "user-created-in-tripo-workspace",
+  "generation_credits": null,
+  "local_preparation_credits": 0,
+  "frame": {
+    "vertices": 825,
+    "triangles": 1026,
+    "zero_area_faces": 0,
+    "uv_layers": 1
+  },
+  "string": {
+    "vertices": 18,
+    "triangles": 32,
+    "zero_area_faces": 0,
+    "uv_layers": 0
+  },
+  "total_triangles": 1058,
+  "height_m": 1.2,
+  "generated_uv_map_retained": true,
+  "uvs_exactly_unchanged": true,
+  "raw_triangle_count": 1026,
+  "local_budget_reduction_applied": false,
+  "aim_direction_godot": "-Z",
+  "height_axis_godot": "+Y",
+  "markers_blender": {
+    "ArrowRest": [
+      0.0013170966412872076,
+      0.0,
+      0.034999966621398926
+    ],
+    "Grip": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "StringLower": [
+      0.0017306739464402199,
+      -0.2591526508331299,
+      -0.5942093133926392
+    ],
+    "StringNock": [
+      0.0013170966412872076,
+      -0.2622123956680298,
+      0.034999966621398926
+    ],
+    "StringUpper": [
+      0.0009452542872168124,
+      -0.26496338844299316,
+      0.6007145047187805
+    ]
+  },
+  "markers_godot": {
+    "ArrowRest": [
+      0.0013170966412872076,
+      0.034999966621398926,
+      -0.0
+    ],
+    "Grip": [
+      0.0,
+      0.0,
+      -0.0
+    ],
+    "StringLower": [
+      0.0017306739464402199,
+      -0.5942093133926392,
+      0.2591526508331299
+    ],
+    "StringNock": [
+      0.0013170966412872076,
+      0.034999966621398926,
+      0.2622123956680298
+    ],
+    "StringUpper": [
+      0.0009452542872168124,
+      0.6007145047187805,
+      0.26496338844299316
+    ]
+  },
+  "input_model": "Assets/Weapons/Generated/tripo-out/starter-bow-v3/starter_bow_v3.glb",
+  "string_draw_morph_m": 0.25,
+  "limb_deformation_included": false,
+  "runtime_file": "D:\\GodotProjects\\dungeons-n-academics\\Assets\\Weapons\\Runtime\\starter-bow-v3.glb",
+  "source_file": "D:\\GodotProjects\\dungeons-n-academics\\Assets\\Weapons\\Source\\starter-bow-v3.blend",
+  "preview": "D:\\GodotProjects\\dungeons-n-academics\\Assets\\Weapons\\Source\\starter-bow-v3-prepared.png"
+}

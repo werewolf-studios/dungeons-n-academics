@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://Assets/Weapons/Runtime/starter-arrow-v1.glb" id="1_arrow"]
+
+[node name="StarterArrow" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_arrow")]
+
+[node name="Nock" type="Marker3D" parent="."]
+
+[node name="Tip" type="Marker3D" parent="."]
+position = Vector3(0, 0, -0.65)
+
+[node name="Grip" type="Marker3D" parent="."]
+position = Vector3(0, 0, -0.3)

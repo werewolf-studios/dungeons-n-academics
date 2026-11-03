@@ -1,0 +1,42 @@
+{
+  "task_id": "ad1b4ba5-f006-48e0-a29e-6eaf3fc09d7a",
+  "generation_credits": 40,
+  "local_preparation_credits": 0,
+  "generated_result_issue": "Fletching at head; unsuitable as submitted",
+  "local_rebuild": true,
+  "mesh": {
+    "vertices": 93,
+    "triangles": 150,
+    "zero_area_faces": 0,
+    "uv_layers": 1
+  },
+  "length_m": 0.65,
+  "flight_direction_godot": "-Z",
+  "pivot": "notched nock at origin",
+  "fletching_count": 3,
+  "palette_atlas_size": [
+    64,
+    64
+  ],
+  "material_count": 1,
+  "markers_godot": {
+    "Nock": [
+      0,
+      0,
+      0
+    ],
+    "Tip": [
+      0,
+      0,
+      -0.65
+    ],
+    "Grip": [
+      0,
+      0,
+      -0.3
+    ]
+  },
+  "runtime_file": "D:\\GodotProjects\\dungeons-n-academics\\Assets\\Weapons\\Runtime\\starter-arrow-v1.glb",
+  "source_file": "D:\\GodotProjects\\dungeons-n-academics\\Assets\\Weapons\\Source\\starter-arrow-v1.blend",
+  "preview": "D:\\GodotProjects\\dungeons-n-academics\\Assets\\Weapons\\Source\\starter-arrow-v1-prepared.png"
+}

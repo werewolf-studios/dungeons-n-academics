@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="PackedScene" path="res://Assets/Weapons/Runtime/starter-bow-v3.glb" id="1_bow"]
+
+[node name="StarterBow" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_bow")]
+
+[node name="Grip" type="Marker3D" parent="."]
+
+[node name="ArrowRest" type="Marker3D" parent="."]
+position = Vector3(0.001317096641, 0.03499996662, 0)
+
+[node name="StringNock" type="Marker3D" parent="."]
+position = Vector3(0.001317096641, 0.03499996662, 0.2622123957)
+
+[node name="StringUpper" type="Marker3D" parent="."]
+position = Vector3(0.0009452542872, 0.6007145047, 0.2649633884)
+
+[node name="StringLower" type="Marker3D" parent="."]
+position = Vector3(0.001730673946, -0.5942093134, 0.2591526508)
