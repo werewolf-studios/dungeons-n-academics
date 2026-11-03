@@ -39,15 +39,11 @@ TORSO = [  # z, rx, df, db, front V depth
 ]
 rows = [B.ring(Vector((0, CY, z)), rx, df, db, 20, pf=2.3, vdepth=v) for z, rx, df, db, v in TORSO]
 B.loft_rows(bm, rows, [0] * 7 + [1])
-# sleeves: wide, ending at the elbow in a plum cuff with a turned-in lip
+# sleeves: rounded shoulder cap, wide, ending at the elbow in a plum cuff with a turned-in lip
 for side in (1, -1):
-    sfx = '.L' if side > 0 else '.R'
-    h, t = H.bone(L, 'upper_arm' + sfx)
-    frame = H.limb_frame(h - t)
     spec = [(-0.03, 0.055), (0.15, 0.067), (0.40, 0.073), (0.62, 0.078), (0.74, 0.081),
             (0.93, 0.085), (0.91, 0.077), (0.74, 0.070)]
-    srows = [H.section(h + (t - h) * s, r, r * 0.88, r * 0.88, n=14, pf=2.0, frame=frame) for s, r in spec]
-    B.loft_rows(bm, srows, [0, 0, 0, 0, 1, 1, 1])
+    B.sleeve(bm, L, side, spec, [0, 0, 0, 0, 1, 1, 1])
 tunic = H.make(L, 'Tunic', bm, [M['tunic'], M['trim']], smooth=False)
 
 # ---- skirt: open at the front slit, pointed hem, plum hem band folded inside

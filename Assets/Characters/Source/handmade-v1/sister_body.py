@@ -66,13 +66,9 @@ B.loft_rows(bm, rows, [0] * 7 + [1])
 paint_panels(bm, CY, PANELS, 0, 2, zmax=1.255)
 # sleeves are added after painting so they stay crimson
 for side in (1, -1):
-    sfx = '.L' if side > 0 else '.R'
-    h, t = H.bone(L, 'upper_arm' + sfx)
-    frame = H.limb_frame(h - t)
     spec = [(-0.03, 0.050), (0.15, 0.058), (0.40, 0.064), (0.60, 0.069), (0.72, 0.072),
             (0.95, 0.077), (0.93, 0.070), (0.72, 0.064)]
-    srows = [H.section(h + (t - h) * s, r, r * 0.88, r * 0.88, n=14, pf=2.0, frame=frame) for s, r in spec]
-    B.loft_rows(bm, srows, [0, 0, 0, 0, 1, 1, 1])
+    B.sleeve(bm, L, side, spec, [0, 0, 0, 0, 1, 1, 1])
 tunic = H.make(L, 'Tunic', bm, [M['tunic'], M['trim'], M['panel']], smooth=False)
 
 # ---- skirt: lavender side panels, crimson front and back, pointed hem, front slit

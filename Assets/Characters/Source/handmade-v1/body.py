@@ -194,6 +194,22 @@ def box(bm, centre, size, rot, mat, bevel=0.0):
     return vs
 
 
+def sleeve(bm, label, side, spec, mats, n=14):
+    """Sleeve along the rest-pose upper arm, closed at the top by a rounded shoulder cap.
+    spec: [(fraction along the bone, radius), ...] from the shoulder down to the cuff lip.
+    The cap continues the first ring back past the joint as a dome that sinks into the torso,
+    so the shoulder stays closed when the arm swings down or forward."""
+    sfx = '.L' if side > 0 else '.R'
+    h, t = H.bone(label, 'upper_arm' + sfx)
+    frame = H.limb_frame(h - t)
+    s0, r0 = spec[0]
+    ln = (t - h).length
+    depth = r0 * 1.05 / ln                      # dome depth as a fraction of the bone
+    dome = [(s0 - depth * k, r0 * math.sqrt(1 - k * k)) for k in (0.95, 0.8, 0.55, 0.3)]
+    rows = [H.section(h + (t - h) * s, r, r * 0.88, r * 0.88, n=n, pf=2.0, frame=frame) for s, r in dome + list(spec)]
+    loft_rows(bm, rows, [mats[0]] * len(dome) + list(mats), cap0=h + (t - h) * (s0 - depth))
+
+
 def leg_centre(label, side, z):
     """Point on the rest-pose thigh/shin line at height z (extrapolated above the hip)."""
     sfx = '.L' if side > 0 else '.R'

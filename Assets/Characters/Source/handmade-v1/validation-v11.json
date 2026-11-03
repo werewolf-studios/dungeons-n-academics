@@ -49,8 +49,8 @@
       "mesh_min_z": -0.0
     },
     "mesh": {
-      "vertices": 6199,
-      "triangles": 11064,
+      "vertices": 6313,
+      "triangles": 11316,
       "materials": [
         "HM_Brother_Skin",
         "HM_Brother_EyeRim",
@@ -135,8 +135,8 @@
       "mesh_min_z": -0.0
     },
     "mesh": {
-      "vertices": 8951,
-      "triangles": 16502,
+      "vertices": 9065,
+      "triangles": 16754,
       "materials": [
         "HM_Sister_Skin",
         "HM_Sister_EyeRim",

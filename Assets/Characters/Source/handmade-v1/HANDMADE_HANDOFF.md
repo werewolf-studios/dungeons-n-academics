@@ -20,7 +20,7 @@ and a copy of the v10 manifest (sockets, timings and events identical). `Scenes/
 
 | | Brother | Sister |
 | --- | ---: | ---: |
-| Vertices / triangles | 6,199 / 11,064 | 8,951 / 16,502 |
+| Vertices / triangles | 6,313 / 11,316 | 9,065 / 16,754 |
 | Materials (flat colour, no textures) | 28 | 29 |
 | Joints / clips | 30 / 8 | 30 / 8 |
 | GLB size (v10 was ~5 MB with 2K maps) | 1.3 MB | 1.9 MB |
@@ -41,7 +41,8 @@ through the Blender MCP; each rerun rebuilds its objects in place.
   glints, lower lid line, upper lid crease and lash band, brows, upper and lower lip shading
   round the mouth line with corner creases, blush), short spiky hair, long wavy hair.
   Polishing pass (Nov 2): the face and hand detail above was added on top of the first build.
-- `body.py`: torso and neckline rings, sleeves, forearms, hands, skirt with front slit and
+- `body.py`: torso and neckline rings, sleeves (`sleeve`: each closed at the top by a rounded
+  shoulder cap that continues back past the joint and sinks into the torso), forearms, hands, skirt with front slit and
   pointed hem, belts, boots. Hands (`hand` / `_digit`): a rounded back and lightly cupped palm,
   a thenar pad under the thumb, and jointed fingers along the finger bones with knuckle swell,
   finger pads, a slight splay and a bevelled nail on each tip (material `HM_*_Nail`). Each boot is one piece
