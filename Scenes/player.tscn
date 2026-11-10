@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cupl2yi8jna1q"]
 
 [ext_resource type="Script" uid="uid://cf28joa5vvwel" path="res://Scripts/Player.cs" id="1_i3pqv"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Animated/v11/brother-animations-v11.glb" id="2_brother"]
-[ext_resource type="PackedScene" path="res://Assets/Characters/Animated/v11/sister-animations-v11.glb" id="3_sweqy"]
+[ext_resource type="PackedScene" path="res://Assets/Characters/Animated/v10/brother-animations-v10.glb" id="2_brother"]
+[ext_resource type="PackedScene" path="res://Assets/Characters/Animated/v10/sister-animations-v10.glb" id="3_sweqy"]
 [ext_resource type="Script" path="res://Scripts/ExplorationCharacterVisual.cs" id="4_visual"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6t5aa"]

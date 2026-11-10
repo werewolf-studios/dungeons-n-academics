@@ -4,7 +4,7 @@ using System.Text.Json;
 /// <summary>Presentation only. The Player capsule owns all world movement.</summary>
 public partial class ExplorationCharacterVisual : Node3D
 {
-    private const string AssetRoot = "res://Assets/Characters/Animated/v11/";
+    private const string AssetRoot = "res://Assets/Characters/Animated/v10/";
     [Export] public string CharacterId { get; set; } = "brother";
     public string CurrentClip { get; private set; } = "";
     public AnimationPlayer AnimationPlayer { get; private set; }
