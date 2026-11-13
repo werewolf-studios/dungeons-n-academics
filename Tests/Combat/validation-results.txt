@@ -1,0 +1,35 @@
+PASS brother selected from overworld choice
+PASS temporary meshes replaced by animated v10 siblings
+PASS brother starts in Idle
+PASS brother weapons hidden while idle
+PASS sister starts in Idle
+PASS sister weapons hidden while idle
+PASS brother faces the enemy
+PASS sister faces the enemy
+PASS Idle keeps looping past its 3 s length
+PASS brother enters SwordSlash
+PASS sword in hand during the swing
+PASS hidden sister does not swing
+PASS no damage before the blade connects
+PASS swing reaches its contact frame
+PASS hit fires on SwordSlash frame 19 (0.75 s), got 0.750
+PASS enemy takes player damage on the hit
+PASS brother returns to Idle after the swing
+PASS sword put away back in Idle
+PASS attack condition cleared
+PASS one hit per swing
+PASS enemy attack triggers brother TakeDamage
+PASS player takes enemy damage as the flinch starts
+PASS brother reverts to Idle after TakeDamage
+PASS hurt condition cleared
+PASS battle returns to the player's turn
+PASS sister selected from overworld choice
+PASS sister enters SwordSlash
+PASS sister swings with sword; hidden brother stays idle
+PASS sister's hit damages the enemy
+PASS sister returns to Idle
+PASS lethal enemy hit plays the defeat
+PASS player model stays in the scene on defeat
+PASS defeat pose holds instead of returning to Idle
+PASS defeat holds TakeDamage frame 5, the deepest recoil
+PASS battle reaches DefeatedState

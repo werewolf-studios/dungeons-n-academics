@@ -69,16 +69,12 @@ script = ExtResource("5_4awps")
 PlayerStatsUI = NodePath("../../Main/PlayerStatsUI")
 QuestionManager = NodePath("../../Main/QuestionsUI")
 
-[node name="PlayerAttackState" type="Node" parent="CombatStateMachine" unique_id=118247676 node_paths=PackedStringArray("EnemyManager", "enemyHealthBar", "PAttkStartTimer", "PAttkEndTimer")]
+[node name="PlayerAttackState" type="Node" parent="CombatStateMachine" unique_id=118247676 node_paths=PackedStringArray("EnemyManager", "player", "enemyHealthBar", "PAttkEndTimer")]
 script = ExtResource("6_lnjhy")
 EnemyManager = NodePath("../../EnemyManager")
 enemyHealthBar = NodePath("../../CombatUI/EnemyHealthBar")
-PAttkStartTimer = NodePath("PAttkStartTimer")
+player = NodePath("../../CombatPlayer")
 PAttkEndTimer = NodePath("PAttkEndTimer")
-
-[node name="PAttkStartTimer" type="Timer" parent="CombatStateMachine/PlayerAttackState" unique_id=1690371911]
-wait_time = 2.0
-one_shot = true
 
 [node name="PAttkEndTimer" type="Timer" parent="CombatStateMachine/PlayerAttackState" unique_id=1158799479]
 unique_name_in_owner = true
@@ -297,7 +293,6 @@ visible = false
 [node name="ExampleButton" parent="Main/PlayerStatsUI/Control" parent_id_path=PackedInt32Array(1895040970, 890047294) index="2" unique_id=460907232]
 visible = false
 
-[connection signal="timeout" from="CombatStateMachine/PlayerAttackState/PAttkStartTimer" to="CombatStateMachine/PlayerAttackState" method="OnPAttkStartTimerTimeout"]
 [connection signal="timeout" from="CombatStateMachine/PlayerAttackState/PAttkEndTimer" to="CombatStateMachine/PlayerAttackState" method="OnPAttkEndTimerTimeout"]
 [connection signal="timeout" from="CombatStateMachine/EnemyAttackState/EAttkStartTimer" to="CombatStateMachine/EnemyAttackState" method="OnEAttkStartTimerTimeout"]
 [connection signal="timeout" from="CombatStateMachine/EnemyAttackState/EAttkEndTimer" to="CombatStateMachine/EnemyAttackState" method="OnEAttkEndTimerTimeout"]

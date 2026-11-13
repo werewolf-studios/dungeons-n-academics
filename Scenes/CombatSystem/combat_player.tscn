@@ -1,15 +1,37 @@
 [gd_scene format=3 uid="uid://b3qff5jhxpi58"]
 
-[ext_resource type="PackedScene" uid="uid://ds53f4331g314" path="res://Models/Male-Character.glb" id="1_0shjb"]
 [ext_resource type="Script" uid="uid://c3fbbdvh7bow1" path="res://Scripts/CombatPlayerScripts/CombatPlayer.cs" id="1_avigq"]
-[ext_resource type="PackedScene" uid="uid://pj2x1psdylwt" path="res://Models/Female-Character.glb" id="2_female"]
+[ext_resource type="PackedScene" path="res://Assets/Characters/Animated/v10/brother-animations-v10.glb" id="2_brother"]
+[ext_resource type="PackedScene" path="res://Assets/Characters/Animated/v10/sister-animations-v10.glb" id="3_sister"]
+[ext_resource type="Script" path="res://Scripts/CombatCharacterVisual.cs" id="4_visual"]
+[ext_resource type="AnimationNodeStateMachine" path="res://Assets/Characters/Animated/v10/combat_state_machine.tres" id="5_states"]
 
 [node name="CombatPlayer" type="Node3D" unique_id=1590966282]
 script = ExtResource("1_avigq")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=849479885]
+[node name="Male-Character" type="Node3D" parent="." unique_id=1619603551]
+script = ExtResource("4_visual")
+CharacterId = "brother"
 
-[node name="Male-Character" parent="." unique_id=1619603551 instance=ExtResource("1_0shjb")]
+[node name="Model" parent="Male-Character" instance=ExtResource("2_brother")]
 
-[node name="Female-Character" parent="." instance=ExtResource("2_female")]
+[node name="AnimationTree" type="AnimationTree" parent="Male-Character"]
+tree_root = ExtResource("5_states")
+anim_player = NodePath("../Model/AnimationPlayer")
+parameters/conditions/attack = false
+parameters/conditions/hurt = false
+parameters/conditions/defeated = false
+
+[node name="Female-Character" type="Node3D" parent="."]
 visible = false
+script = ExtResource("4_visual")
+CharacterId = "sister"
+
+[node name="Model" parent="Female-Character" instance=ExtResource("3_sister")]
+
+[node name="AnimationTree" type="AnimationTree" parent="Female-Character"]
+tree_root = ExtResource("5_states")
+anim_player = NodePath("../Model/AnimationPlayer")
+parameters/conditions/attack = false
+parameters/conditions/hurt = false
+parameters/conditions/defeated = false

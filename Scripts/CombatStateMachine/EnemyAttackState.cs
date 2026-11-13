@@ -46,9 +46,14 @@ public partial class EnemyAttackState : CombatState
 		EnemyManager.DealDamage();
 		playerHealthBar.Value = player.health;
 
+		// Flinch and return to Idle, or fall and hold the defeat pose.
 		if (player.health <= 0)
 		{
-			player.RemoveSelf();
+			player.PlayDefeated();
+		}
+		else
+		{
+			player.PlayHurt();
 		}
 
 		EAttkEndTimer.Start();

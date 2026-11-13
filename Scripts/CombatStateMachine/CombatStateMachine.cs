@@ -12,6 +12,8 @@ public partial class CombatStateMachine : Node
 
 	private CombatState currentState;
 
+	public CombatState CurrentState => currentState;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{

@@ -9,31 +9,37 @@ public partial class PlayerAttackState : CombatState
 	[Export]
 	public EnemyManager EnemyManager { get; set; }
 
+	[Export]
+	public CombatPlayer player { get; set; }
+
     [Export]
     public ProgressBar enemyHealthBar { get; set; }
 
-    [Export]
-	public Timer PAttkStartTimer { get; set; }
-
 	[Export]
 	public Timer PAttkEndTimer { get; set; }
+
     public override void Enter()
     {
 		GD.Print("Entered PlayerAttackState");
-        PAttkStartTimer.Start();
-		GD.Print("PAttkStartTimer started");
-
 		PAttkEndTimer.WaitTime = 2.0;
+
+		// Damage lands on the sword swing's contact frame, not on a fixed timer.
+		player.AttackHit += OnPlayerAttackHit;
+		player.PlayAttack();
     }
 
     public override void Exit()
     {
-        
+		if (player != null)
+		{
+			player.AttackHit -= OnPlayerAttackHit;
+		}
     }
 
-	private void OnPAttkStartTimerTimeout()
+	private void OnPlayerAttackHit()
 	{
-		GD.Print("PAttkStartTimer timedout");
+		GD.Print("Player sword hit");
+		player.AttackHit -= OnPlayerAttackHit;
 		EnemyManager.DamageEnemies();
 		enemyHealthBar.Value = EnemyManager.getEnemyHealth(0);
 
