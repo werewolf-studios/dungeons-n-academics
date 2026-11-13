@@ -4848,9 +4848,6 @@ transform = Transform3D(-0.0202037, 0, 0.9995207, 0, 0.9999298, 0, -0.65231884, 
 [node name="StoneWall218" parent="Wall2" unique_id=1526158131 instance=ExtResource("24_stonewall_v1")]
 transform = Transform3D(-0.0202037, 0, 0.9995207, 0, 0.9999298, 0, -0.65231884, 0, -0.030957282, 40.5548, 1.8777469, -38.84702)
 
-[node name="StoneWall219" parent="Wall2" unique_id=2055970266 instance=ExtResource("24_stonewall_v1")]
-transform = Transform3D(-0.03891321, 0, 0.9995207, 0, 0.9999298, 0, -1.2563909, 0, -0.03095737, 33.488514, -0.9295759, -40.930508)
-
 [node name="StoneWall222" parent="Wall2" unique_id=643771809 instance=ExtResource("23_stonewall")]
 transform = Transform3D(2.1986463, 0, 0.0073653236, 0, 1.9998596, 0, -0.01619418, 0, 0.9999729, 33.253304, -0.9295759, -41.77364)
 
