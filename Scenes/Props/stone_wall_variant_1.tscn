@@ -1,0 +1,8 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://bnj1yh0f62fqd" path="res://TripoModels/stone_wall_3d_model_1/stone_wall_3d_model_1.fbx" id="1_model"]
+
+[node name="StoneWallVariant1" type="Node3D"]
+
+[node name="Model" parent="." instance=ExtResource("1_model")]
+transform = Transform3D(2.2811, 0, 0, 0, 2.2619, 0, 0, 0, 1.7116, 0, 0, 0)
