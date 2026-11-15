@@ -4,18 +4,32 @@ using System.Collections.Generic;
 
 public partial class MathSystem : Node
 {
+    // Fired once, the first time the equation evaluates to one of the answers.
+    [Signal]
+    public delegate void SolvedEventHandler();
+
     [Export]
     float[] answers;
 
     [Export]
     CharacterBody3D[] puzzleParts;
+
+    // Doors opened when this puzzle is solved.
     [Export]
-    Door[] recievers;
+    Door[] doorsToUnlock = new Door[0];
+
+    public bool IsSolved { get; private set; }
 
     private Expression _expression = new Expression();
 
     public void ChangeDetected()
 	{
+        // Solved puzzles stay solved; moving tiles afterwards doesn't re-lock the door.
+        if (IsSolved)
+        {
+            return;
+        }
+
         string equation = "";
         Variant result;
 
@@ -55,17 +69,26 @@ public partial class MathSystem : Node
                 // Check if any answers match. Allows multiple answers
                 foreach (var number in answers)
                 {
-                    if (resultNum == number)
+                    if (Mathf.IsEqualApprox(resultNum, number))
                     {
                         GD.Print("Thats Right!");
-
-                        foreach (Door door in recievers)
-                        {
-                            door.Answered();
-                        }
+                        OnSolved();
+                        return;
                     }
                 }
             }
         }
+    }
+
+    private void OnSolved()
+    {
+        IsSolved = true;
+
+        foreach (Door door in doorsToUnlock)
+        {
+            door?.Unlock();
+        }
+
+        EmitSignal(SignalName.Solved);
     }
 }

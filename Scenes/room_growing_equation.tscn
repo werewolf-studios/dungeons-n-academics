@@ -109,9 +109,8 @@ shape = SubResource("BoxShape3D_gu0sv")
 transform = Transform3D(-4.371139e-07, 0, 1, 0, 5, 0, -10, 0, -4.371139e-08, -2, 1, 0)
 shape = SubResource("BoxShape3D_gu0sv")
 
-[node name="MathSystemTest" parent="." unique_id=1256670147 node_paths=PackedStringArray("recievers", "puzzleParts") instance=ExtResource("3_ausk5")]
+[node name="MathSystemTest" parent="." unique_id=1256670147 node_paths=PackedStringArray("puzzleParts") instance=ExtResource("3_ausk5")]
 answers = PackedFloat32Array(2)
-recievers = []
 puzzleParts = [null, null, null]
 
 [node name="GrowingEquationManager" parent="." unique_id=782073155 instance=ExtResource("4_mlbf6")]

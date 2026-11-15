@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d2knkywuirngr" path="res://Models/Dungeon floor.fbx" id="2_vaqm7"]
 [ext_resource type="PackedScene" uid="uid://hnq3611hisva" path="res://Scenes/fire.tscn" id="3_10yy4"]
 [ext_resource type="PackedScene" uid="uid://daeuqyxm1il2b" path="res://Models/Dungeon Roof.fbx" id="4_tpoy8"]
+[ext_resource type="PackedScene" uid="uid://bbxi16vey8wgo" path="res://TripoModels/stone_fireplace_3d_model/stone_fireplace_3d_model.fbx" id="5_tpoy8"]
 
 [node name="Menu Room" type="Node3D" unique_id=58081280]
 
@@ -123,3 +124,6 @@ light_energy = 0.3
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=823003758]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.4926496, 0.099909306, 2.408979)
+
+[node name="stone_fireplace_3d_model" parent="." unique_id=1065657065 instance=ExtResource("5_tpoy8")]
+transform = Transform3D(-1.3222696e-07, 0, -3.025, 0, 3.025, 0, 3.025, 0, -1.3222696e-07, -3.5533097, -0.71403056, 3.3875837)

@@ -4,6 +4,16 @@ using System.Linq;
 
 public partial class GrowingEquationManager : Node
 {
+    // Fired once, when every statue has been hit in the correct order.
+    [Signal]
+    public delegate void SolvedEventHandler();
+
+    // Doors opened when this puzzle is solved.
+    [Export]
+    private Door[] doorsToUnlock = new Door[0];
+
+    public bool IsSolved { get; private set; }
+
     private string equation = "";
     private int statuesHit = 0;
     private int statueCount;
@@ -48,6 +58,12 @@ public partial class GrowingEquationManager : Node
 
     public void DeviceHit(string value)
     {
+        // A solved puzzle keeps showing "Correct" and ignores further hits.
+        if (IsSolved)
+        {
+            return;
+        }
+
         GD.Print("Correct: " + CheckAnswer());
         GD.Print("Input: " + value);
         if (CheckAnswer().ToString() != value)
@@ -66,6 +82,8 @@ public partial class GrowingEquationManager : Node
                 // All nodes hit correctly
                 GetNode<Label3D>("Text").Text = "Correct";
                 GetNode<Label3D>("Text").Modulate = new Color(0.0f, 1.0f, 0.0f, 1.0f);
+                OnSolved();
+                return;
             }
             else
             {
@@ -131,5 +149,17 @@ public partial class GrowingEquationManager : Node
         }
 
         return 0;
+    }
+
+    private void OnSolved()
+    {
+        IsSolved = true;
+
+        foreach (Door door in doorsToUnlock)
+        {
+            door?.Unlock();
+        }
+
+        EmitSignal(SignalName.Solved);
     }
 }

@@ -104,7 +104,6 @@ shape = SubResource("BoxShape3D_4ayu3")
 
 [node name="Door" parent="World" unique_id=486056227 instance=ExtResource("3_twbbp")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 1, 17)
-AnswerMoveTo = Vector3(8, 1, 9)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1632692811]
 transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 14, 0)

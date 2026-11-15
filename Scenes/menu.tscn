@@ -84,9 +84,9 @@ layout_mode = 2
 [node name="Start Button" type="Button" parent="MainButtons/MarginContainer/VBoxContainer" unique_id=1703851083]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_colors/font_hover_color = Color(0.62, 0.5, 0.95, 1)
 theme_override_colors/font_focus_color = Color(0.72, 0.45, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.88, 0.75, 1, 1)
+theme_override_colors/font_hover_color = Color(0.62, 0.5, 0.95, 1)
 theme_override_fonts/font = ExtResource("2_jsrd8")
 theme_override_font_sizes/font_size = 68
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mae5d")
@@ -99,9 +99,9 @@ text = "Start Game"
 [node name="Settings Button" type="Button" parent="MainButtons/MarginContainer/VBoxContainer" unique_id=1908333538]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_colors/font_hover_color = Color(0.62, 0.5, 0.95, 1)
 theme_override_colors/font_focus_color = Color(0.72, 0.45, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.88, 0.75, 1, 1)
+theme_override_colors/font_hover_color = Color(0.62, 0.5, 0.95, 1)
 theme_override_fonts/font = ExtResource("2_jsrd8")
 theme_override_font_sizes/font_size = 68
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mae5d")
@@ -114,9 +114,9 @@ text = "Settings"
 [node name="Quit Button" type="Button" parent="MainButtons/MarginContainer/VBoxContainer" unique_id=920069194]
 layout_mode = 2
 size_flags_horizontal = 0
-theme_override_colors/font_hover_color = Color(0.62, 0.5, 0.95, 1)
 theme_override_colors/font_focus_color = Color(0.72, 0.45, 1, 1)
 theme_override_colors/font_pressed_color = Color(0.88, 0.75, 1, 1)
+theme_override_colors/font_hover_color = Color(0.62, 0.5, 0.95, 1)
 theme_override_fonts/font = ExtResource("2_jsrd8")
 theme_override_font_sizes/font_size = 68
 theme_override_styles/normal = SubResource("StyleBoxEmpty_mae5d")
@@ -126,11 +126,10 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_l48gv")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ecwwl")
 text = "Quit"
 
-[node name="SettingsPanel" parent="." instance=ExtResource("9_settings")]
+[node name="SettingsPanel" parent="." unique_id=2034087894 instance=ExtResource("9_settings")]
 
-[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=1754750411]
 autoplay = true
-bus = &"Music"
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="MainButtons/MarginContainer/VBoxContainer/Start Button" to="." method="_on_start_button_pressed"]

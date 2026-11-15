@@ -1,24 +1,80 @@
 [gd_scene format=3 uid="uid://b2rvaphfuxwrh"]
 
 [ext_resource type="Script" uid="uid://cwryb3xfbsf8h" path="res://Scripts/Door.cs" id="1_ba8gm"]
+[ext_resource type="PackedScene" uid="uid://cq5trmhwmlttg" path="res://Assets/Props/Doorway.glb" id="2_doorway"]
+[ext_resource type="PackedScene" uid="uid://8rwva4ib7twl" path="res://Assets/Props/Door.glb" id="3_doorleaf"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/SFX/door_unlock.mp3" id="4_unlock"]
+[ext_resource type="AudioStream" path="res://Assets/Audio/SFX/door_creak_open.mp3" id="5_creak"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_v6xrn"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_leaf"]
+size = Vector3(1.79, 3.27, 0.51)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0phs7"]
-albedo_color = Color(0, 0, 0, 1)
+[sub_resource type="BoxShape3D" id="BoxShape3D_jamb"]
+size = Vector3(0.5, 4, 1.72)
 
-[sub_resource type="BoxMesh" id="BoxMesh_50cdl"]
-material = SubResource("StandardMaterial3D_0phs7")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_passage"]
+shading_mode = 0
+albedo_color = Color(0.015, 0.012, 0.01, 1)
 
-[node name="Door" type="Area3D" unique_id=486056227]
+[sub_resource type="QuadMesh" id="QuadMesh_passage"]
+material = SubResource("StandardMaterial3D_passage")
+size = Vector2(1.76, 3.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_trigger"]
+size = Vector3(1.6, 3, 1.1)
+
+[node name="Door" type="Node3D" unique_id=486056227]
 script = ExtResource("1_ba8gm")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=995752652]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 1)
-shape = SubResource("BoxShape3D_v6xrn")
+[node name="Model" type="Node3D" parent="." unique_id=1203948811]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1464561088]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("BoxMesh_50cdl")
+[node name="Doorway" parent="Model" unique_id=1739920463 instance=ExtResource("2_doorway")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 
-[connection signal="body_entered" from="." to="." method="ChangeRoom"]
+[node name="PassageShadow" type="MeshInstance3D" parent="Model" unique_id=905512376]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0.53)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_passage")
+
+[node name="DoorHinge" type="Node3D" parent="Model" unique_id=1610427795]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8952, 0, 1.0656)
+
+[node name="DoorLeaf" parent="Model/DoorHinge" unique_id=322457119 instance=ExtResource("3_doorleaf")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0.8952, 0, -1.0656)
+
+[node name="LeafBody" type="StaticBody3D" parent="Model/DoorHinge" unique_id=1488135627]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Model/DoorHinge/LeafBody" unique_id=1964771062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.895, 1.85, -0.255)
+shape = SubResource("BoxShape3D_leaf")
+
+[node name="FrameBody" type="StaticBody3D" parent="Model" unique_id=749218803]
+
+[node name="LeftJamb" type="CollisionShape3D" parent="Model/FrameBody" unique_id=1170352236]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09, 2, 0)
+shape = SubResource("BoxShape3D_jamb")
+
+[node name="RightJamb" type="CollisionShape3D" parent="Model/FrameBody" unique_id=278319844]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09, 2, 0)
+shape = SubResource("BoxShape3D_jamb")
+
+[node name="Trigger" type="Area3D" parent="." unique_id=995752652]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1.05)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trigger" unique_id=1464561088]
+shape = SubResource("BoxShape3D_trigger")
+
+[node name="UnlockAudio" type="AudioStreamPlayer3D" parent="." unique_id=520894731]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1)
+stream = ExtResource("4_unlock")
+unit_size = 12.0
+bus = &"SFX"
+
+[node name="OpenAudio" type="AudioStreamPlayer3D" parent="." unique_id=1381706249]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1)
+stream = ExtResource("5_creak")
+unit_size = 12.0
+bus = &"SFX"
+
+[connection signal="body_entered" from="Trigger" to="." method="ChangeRoom"]
