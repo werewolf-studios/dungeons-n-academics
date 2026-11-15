@@ -6,17 +6,36 @@ public partial class Menu : CanvasLayer
 	[Export]
 	public string levelPath = "res://Scenes/player_controller_test.tscn";
 	
+	// Connected to this node's ready signal in menu.tscn. Gamepad navigation needs a
+	// focused button to start from.
+	public void _on_ready()
+	{
+		GetNode<Button>("MainButtons/MarginContainer/VBoxContainer/Start Button").CallDeferred(Control.MethodName.GrabFocus);
+	}
+
 	public void _on_start_button_pressed()
 	{
 		GetTree().ChangeSceneToFile(levelPath);
 	}
-	
+
 	private void OnSettingsPressed()
 	{
 		GetNode<VBoxContainer>("MainButtons/MarginContainer/VBoxContainer").Visible = false;
 		//Change this later to texture rect for scroll design
 		GetNode<ColorRect>("MainButtons/ColorRect").Visible = false;
 		GetNode<TextureRect>("SettingsMenu").Visible = true;
+		GetNode<Button>("SettingsMenu/HBoxContainer/Graphics").GrabFocus();
+	}
+
+	// B / Esc closes the settings screen.
+	public override void _UnhandledInput(InputEvent @event)
+	{
+		if (@event.IsActionPressed("ui_cancel") && GetNode<TextureRect>("SettingsMenu").Visible)
+		{
+			UiFeedback.Instance?.Back();
+			OnClosePressed();
+			GetViewport().SetInputAsHandled();
+		}
 	}
 
 	private void OnQuitPressed()
@@ -69,6 +88,7 @@ public partial class Menu : CanvasLayer
 		GetNode<VBoxContainer>("MainButtons/MarginContainer/VBoxContainer").Visible = true;
 		//Change this later to texture rect for scroll design
 		GetNode<ColorRect>("MainButtons/ColorRect").Visible = true;
+		GetNode<Button>("MainButtons/MarginContainer/VBoxContainer/Settings Button").GrabFocus();
 	}
 
 }

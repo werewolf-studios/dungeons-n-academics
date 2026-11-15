@@ -5,28 +5,48 @@
 [ext_resource type="Script" uid="uid://cv3c2gubtu4ng" path="res://Scripts/QuestionManager.cs" id="3_8prod"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bo1nx"]
-bg_color = Color(0, 0, 1, 1)
+bg_color = Color(0.08, 0.11, 0.22, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.17, 0.22, 0.4, 1)
 corner_radius_top_left = 22
 corner_radius_top_right = 22
 corner_radius_bottom_right = 22
 corner_radius_bottom_left = 22
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8gbba"]
-bg_color = Color(0, 0, 1, 1)
+bg_color = Color(0.08, 0.11, 0.22, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.17, 0.22, 0.4, 1)
 corner_radius_top_left = 22
 corner_radius_top_right = 22
 corner_radius_bottom_right = 22
 corner_radius_bottom_left = 22
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjvhh"]
-bg_color = Color(0, 0, 1, 1)
+bg_color = Color(0.08, 0.11, 0.22, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.17, 0.22, 0.4, 1)
 corner_radius_top_left = 22
 corner_radius_top_right = 22
 corner_radius_bottom_right = 22
 corner_radius_bottom_left = 22
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kry3j"]
-bg_color = Color(0, 0, 1, 1)
+bg_color = Color(0.08, 0.11, 0.22, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.17, 0.22, 0.4, 1)
 corner_radius_top_left = 22
 corner_radius_top_right = 22
 corner_radius_bottom_right = 22
@@ -34,6 +54,29 @@ corner_radius_bottom_left = 22
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjgbg"]
 bg_color = Color(0.22542277, 0.71733445, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_answer_focus"]
+bg_color = Color(0.6, 0.35, 1, 0.3)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.72, 0.45, 1, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_answer_hover"]
+bg_color = Color(0.12, 0.16, 0.31, 0.95)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
 
 [sub_resource type="Theme" id="Theme_bo1nx"]
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_jjgbg")
@@ -150,6 +193,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 27
 theme_override_styles/normal = SubResource("StyleBoxFlat_bo1nx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_answer_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_answer_focus")
+theme_override_colors/font_focus_color = Color(0.9, 0.82, 1, 1)
 text = "1)"
 
 [node name="Second" type="Button" parent="QuestionsUI/Control/VBoxContainer" unique_id=1346778065]
@@ -157,6 +203,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 27
 theme_override_styles/normal = SubResource("StyleBoxFlat_8gbba")
+theme_override_styles/hover = SubResource("StyleBoxFlat_answer_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_answer_focus")
+theme_override_colors/font_focus_color = Color(0.9, 0.82, 1, 1)
 text = "2)"
 
 [node name="Third" type="Button" parent="QuestionsUI/Control/VBoxContainer" unique_id=1182116623]
@@ -164,6 +213,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 27
 theme_override_styles/normal = SubResource("StyleBoxFlat_jjvhh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_answer_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_answer_focus")
+theme_override_colors/font_focus_color = Color(0.9, 0.82, 1, 1)
 text = "3)"
 
 [node name="Fourth" type="Button" parent="QuestionsUI/Control/VBoxContainer" unique_id=788005481]
@@ -171,6 +223,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 27
 theme_override_styles/normal = SubResource("StyleBoxFlat_kry3j")
+theme_override_styles/hover = SubResource("StyleBoxFlat_answer_hover")
+theme_override_styles/focus = SubResource("StyleBoxFlat_answer_focus")
+theme_override_colors/font_focus_color = Color(0.9, 0.82, 1, 1)
 text = "4)"
 
 [node name="ProgressBar" type="ProgressBar" parent="QuestionsUI/Control" unique_id=679775112]
@@ -184,6 +239,7 @@ value = 50.0
 show_percentage = false
 
 [node name="Timer" type="Timer" parent="QuestionsUI/Control" unique_id=1674864785]
+process_mode = 1
 wait_time = 10.0
 one_shot = true
 

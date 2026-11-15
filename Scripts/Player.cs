@@ -23,6 +23,10 @@ public partial class Player : CharacterBody3D
     [Export(PropertyHint.Range, "0.05,1,0.005")]
     public float WalkSpeedRatio { get; set; } = 0.37457144f;
 
+    // Stick tilt below this walks; at or above it runs. Keys always count as full tilt.
+    [Export(PropertyHint.Range, "0.1,1,0.05")]
+    public float RunTiltThreshold { get; set; } = 0.75f;
+
     private ExplorationCharacterVisual maleVisual;
     private ExplorationCharacterVisual femaleVisual;
 
@@ -68,28 +72,14 @@ public partial class Player : CharacterBody3D
 
     public override void _PhysicsProcess(double delta)
     {
-        // We create a local variable to store the input direction.
-        var direction = Vector3.Zero;
+        // Keys, D-pad and left stick combine into one analog vector (length 0..1, deadzone
+        // applied). Right is -X and Up is +Z in this level's camera framing.
+        Vector2 move = Input.GetVector("(Overworld) Move Right", "(Overworld) Move Left",
+            "(Overworld) Move Down", "(Overworld) Move Up");
+        var direction = new Vector3(move.X, 0, move.Y);
+        float tilt = move.Length();
 
-        // We check for each move input and update the direction accordingly.
-        if (Input.IsActionPressed("(Overworld) Move Right"))
-        {
-            direction.X -= 1.0f;
-        }
-        if (Input.IsActionPressed("(Overworld) Move Left"))
-        {
-            direction.X += 1.0f;
-        }
-        if (Input.IsActionPressed("(Overworld) Move Up"))
-        {
-            direction.Z += 1.0f;
-        }
-        if (Input.IsActionPressed("(Overworld) Move Down"))
-        {
-            direction.Z -= 1.0f;
-        }
-
-        // Prevent diagonal moving fast af
+        // Direction is normalized so diagonals and partial tilt never exceed the chosen speed.
         if (direction != Vector3.Zero)
         {
             direction = direction.Normalized();
@@ -104,7 +94,7 @@ public partial class Player : CharacterBody3D
         }
 
         // Ground Velocity
-        bool walking = Input.IsActionPressed("(Overworld) Walk");
+        bool walking = Input.IsActionPressed("(Overworld) Walk") || (tilt > 0 && tilt < RunTiltThreshold);
         float moveSpeed = Speed * (walking ? WalkSpeedRatio : 1.0f);
         _targetVelocity.X = direction.X * moveSpeed;
         _targetVelocity.Z = direction.Z * moveSpeed;

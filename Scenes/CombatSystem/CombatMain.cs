@@ -35,7 +35,8 @@ public partial class CombatMain : Node
 		}
 
 		ending = true;
-		GetTree().CreateTimer(2.0).Timeout += () =>
+		// processAlways: false so the exit delay stops while the game is paused.
+		GetTree().CreateTimer(2.0, false).Timeout += () =>
 		{
 			if (GodotObject.IsInstanceValid(this))
 			{

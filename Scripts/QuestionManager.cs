@@ -81,6 +81,9 @@ public partial class QuestionManager : CanvasLayer
 
 	private Random random = new Random();
 
+	// Resting colour of the answer buttons (dark blue menu scheme); reset before every question.
+	private static readonly Color AnswerColor = new Color(0.08f, 0.11f, 0.22f, 0.95f);
+
 	public override void _Ready()
 	{
 		SaveManager.Instance.LoadPlayerDataBinary();
@@ -201,6 +204,8 @@ public partial class QuestionManager : CanvasLayer
 	{
 		EmitSignal(SignalName.AnswerDisplayed);
 		blocker.Visible = true;
+		// The blocker stops the mouse; dropping focus stops gamepad/keyboard presses too.
+		GetViewport().GuiReleaseFocus();
 		foreach(Button b in buttonContainer.GetChildren())
 		{
 			StyleBoxFlat styleBox = b.GetThemeStylebox("normal") as StyleBoxFlat;
@@ -214,7 +219,9 @@ public partial class QuestionManager : CanvasLayer
 			}
 		}        
 
-		await ToSignal(GetTree().CreateTimer(5.0f), "timeout"); // Wait for 5 seconds before moving to the next question
+		// Wait for 5 seconds before moving to the next question. processAlways: false so
+		// the wait stops while the game is paused.
+		await ToSignal(GetTree().CreateTimer(5.0f, false), "timeout");
 
 		DisplayNextQuestion();
 	}
@@ -228,16 +235,16 @@ public partial class QuestionManager : CanvasLayer
 		didPlayerAnswer = false;
 
 		StyleBoxFlat styleBox = choice1.GetThemeStylebox("normal") as StyleBoxFlat;
-		styleBox.BgColor = new Color(0, 0, 1);
+		styleBox.BgColor = AnswerColor;
 
 		styleBox = choice2.GetThemeStylebox("normal") as StyleBoxFlat;
-		styleBox.BgColor = new Color(0, 0, 1);
+		styleBox.BgColor = AnswerColor;
 
 		styleBox = choice3.GetThemeStylebox("normal") as StyleBoxFlat;
-		styleBox.BgColor = new Color(0, 0, 1);
+		styleBox.BgColor = AnswerColor;
 
 		styleBox = choice4.GetThemeStylebox("normal") as StyleBoxFlat;
-		styleBox.BgColor = new Color(0, 0, 1);
+		styleBox.BgColor = AnswerColor;
 
 		blocker.Visible = false;
 
@@ -282,5 +289,9 @@ public partial class QuestionManager : CanvasLayer
 
 		timer.Start();
 		timer.Paused = false;
+
+		// Gamepad: start on the first answer. Deferred because the first question is
+		// set up before the UI is made visible.
+		choice1.CallDeferred(Control.MethodName.GrabFocus);
 	}
 }

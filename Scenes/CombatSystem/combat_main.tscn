@@ -23,15 +23,20 @@
 [sub_resource type="BoxMesh" id="BoxMesh_ngsrv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phkcs"]
-bg_color = Color(0.45882353, 0.34117648, 0.23529412, 1)
+bg_color = Color(0.08, 0.11, 0.22, 0.95)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
-border_color = Color(0.38045204, 0.27944052, 0.18836206, 1)
+border_color = Color(0.17, 0.22, 0.4, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5tp8"]
-bg_color = Color(0.5057749, 0.37876475, 0.26462448, 1)
+bg_color = Color(0.12, 0.16, 0.31, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.17, 0.22, 0.4, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_djp57"]
 bg_color = Color(0, 0.827451, 0.09019608, 1)
@@ -44,6 +49,14 @@ bg_color = Color(3.6098064e-07, 0.54618376, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngsrv"]
 bg_color = Color(0.8274293, 3.946722e-06, 8.663535e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_focus"]
+bg_color = Color(0.6, 0.35, 1, 0.3)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.72, 0.45, 1, 1)
 
 [node name="CombatMain" type="Node" unique_id=2054122581]
 script = ExtResource("1_ww78x")
@@ -154,6 +167,8 @@ offset_bottom = 528.0
 theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_focus")
+theme_override_colors/font_focus_color = Color(0.9, 0.82, 1, 1)
 text = "Attack"
 
 [node name="SpecialButton" type="Button" parent="CombatUI" unique_id=1614576005]
@@ -166,6 +181,8 @@ offset_bottom = 528.0
 theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_focus")
+theme_override_colors/font_focus_color = Color(0.9, 0.82, 1, 1)
 text = "Special"
 
 [node name="ItemsButton" type="Button" parent="CombatUI" unique_id=808082463]
@@ -178,9 +195,12 @@ offset_bottom = 592.0
 theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_focus")
+theme_override_colors/font_focus_color = Color(0.9, 0.82, 1, 1)
 text = "Items"
 
 [node name="PlchldrButton2" type="Button" parent="CombatUI" unique_id=1088781498]
+focus_mode = 0
 visible = false
 layout_mode = 0
 offset_left = 912.0
@@ -190,6 +210,8 @@ offset_bottom = 592.0
 theme_override_font_sizes/font_size = 42
 theme_override_styles/normal = SubResource("StyleBoxFlat_phkcs")
 theme_override_styles/hover = SubResource("StyleBoxFlat_k5tp8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_focus")
+theme_override_colors/font_focus_color = Color(0.9, 0.82, 1, 1)
 
 [node name="VictoryText" type="Label" parent="CombatUI" unique_id=1133505847]
 visible = false

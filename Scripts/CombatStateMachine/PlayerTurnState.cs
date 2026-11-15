@@ -29,6 +29,8 @@ public partial class PlayerTurnState : CombatState
         ItemsButton.Show();
         PlchldrButton2.Show();
         playerHealthBar.Value = player.health;
+        // Gamepad: start each turn on Attack.
+        AttackButton.CallDeferred(Control.MethodName.GrabFocus);
     }
 
     public override void Exit()

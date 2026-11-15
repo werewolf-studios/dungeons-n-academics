@@ -1,0 +1,40 @@
+PASS full stick tilt runs at full speed
+PASS light stick tilt walks at walk speed
+PASS stick inside the deadzone stays idle
+PASS D-pad moves at full speed
+PASS D-pad diagonal stays normalized
+PASS LB still forces walking
+PASS Start opens the pause menu and pauses the game
+PASS Resume has gamepad focus
+PASS opening the pause menu plays the pause sound, not a move tick
+PASS player is frozen while paused
+PASS pause menu has faded in and the focused button pops
+PASS D-pad moves focus in the pause menu with a tick
+PASS the previous button shrinks back
+PASS A opens the controls page with a confirm sound
+PASS B returns from the controls page with a back sound
+PASS B closes the pause menu
+PASS holding A on Resume waits for release
+PASS releasing A on Resume resumes the game
+PASS the A press that resumed does not trigger an interaction
+PASS A interacts in the overworld
+PASS X still interacts
+PASS Y swaps character
+PASS player turn starts with focus on Attack
+PASS a menu taking focus on its own makes no sound
+PASS A on Attack opens the quiz
+PASS quiz starts with focus on the first answer
+PASS D-pad moves between answers
+PASS the question countdown stops while paused
+PASS resuming returns focus to the same answer
+PASS A answers; focus is released during the reveal
+PASS presses during the reveal do nothing
+PASS pausing during the quiz covers it completely
+PASS the answer reveal waits while paused
+PASS Start resumes
+PASS quiz finishes after resuming
+PASS main menu starts with focus on Start Game
+PASS Start does not pause on the main menu
+PASS D-pad moves through the main menu
+PASS A opens settings with focus inside
+PASS B closes settings

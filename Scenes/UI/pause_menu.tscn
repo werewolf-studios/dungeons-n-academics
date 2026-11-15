@@ -1,0 +1,246 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/PauseMenu.cs" id="1_pause"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.035, 0.045, 0.09, 0.97)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.2, 0.24, 0.42, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_normal"]
+bg_color = Color(0.08, 0.11, 0.22, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.17, 0.22, 0.4, 1)
+content_margin_left = 24.0
+content_margin_top = 8.0
+content_margin_right = 24.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hover"]
+bg_color = Color(0.12, 0.16, 0.31, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.17, 0.22, 0.4, 1)
+content_margin_left = 24.0
+content_margin_top = 8.0
+content_margin_right = 24.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_focus"]
+bg_color = Color(0.6, 0.35, 1, 0.3)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.72, 0.45, 1, 1)
+
+[sub_resource type="Theme" id="Theme_pause"]
+default_font_size = 30
+Button/colors/font_focus_color = Color(0.9, 0.82, 1, 1)
+Button/colors/font_hover_color = Color(0.85, 0.88, 1, 1)
+Button/styles/focus = SubResource("StyleBoxFlat_focus")
+Button/styles/hover = SubResource("StyleBoxFlat_hover")
+Button/styles/normal = SubResource("StyleBoxFlat_normal")
+Button/styles/pressed = SubResource("StyleBoxFlat_hover")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 100
+visible = false
+script = ExtResource("1_pause")
+
+[node name="Dim" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.75)
+
+[node name="Center" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_pause")
+
+[node name="Panel" type="PanelContainer" parent="Center"]
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Center/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 28
+
+[node name="MainPage" type="VBoxContainer" parent="Center/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="Center/Panel/Margin/MainPage"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="Center/Panel/Margin/MainPage"]
+layout_mode = 2
+text = "Resume"
+
+[node name="Controls" type="Button" parent="Center/Panel/Margin/MainPage"]
+layout_mode = 2
+text = "Controls"
+
+[node name="MainMenu" type="Button" parent="Center/Panel/Margin/MainPage"]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="Center/Panel/Margin/MainPage"]
+layout_mode = 2
+text = "Quit Game"
+
+[node name="ControlsPage" type="VBoxContainer" parent="Center/Panel/Margin"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="Center/Panel/Margin/ControlsPage"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="Table" type="GridContainer" parent="Center/Panel/Margin/ControlsPage"]
+layout_mode = 2
+theme_override_constants/h_separation = 36
+theme_override_constants/v_separation = 6
+theme_override_font_sizes/font_size = 22
+columns = 3
+
+[node name="Head1" type="Label" parent="Center/Panel/Margin/ControlsPage/Table"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.78, 0.62, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "Action"
+
+[node name="Head2" type="Label" parent="Center/Panel/Margin/ControlsPage/Table"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.78, 0.62, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "Keyboard / Mouse"
+
+[node name="Head3" type="Label" parent="Center/Panel/Margin/ControlsPage/Table"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.78, 0.62, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "Gamepad"
+
+[node name="MoveA" type="Label" parent="Center/Panel/Margin/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Move"
+
+[node name="MoveK" type="Label" parent="Center/Panel/Margin/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "W A S D"
+
+[node name="MoveG" type="Label" parent="Center/Panel/Margin/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Left stick / D-pad"
+
+[node name="WalkA" type="Label" parent="Center/Panel/Margin/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Walk"
+
+[node name="WalkK" type="Label" parent="Center/Panel/Margin/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Hold Shift"
+
+[node name="WalkG" type="Label" parent="Center/Panel/Margin/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Light tilt / hold LB"
+
+[node name="InteractA" type="Label" parent="Center/Panel/Margin/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Interact / Attack"
+
+[node name="InteractK" type="Label" parent="Center/Panel/Margin/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Left click"
+
+[node name="InteractG" type="Label" parent="Center/Panel/Margin/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "A  (or X)"
+
+[node name="SwapA" type="Label" parent="Center/Panel/Margin/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Swap character"
+
+[node name="SwapK" type="Label" parent="Center/Panel/Margin/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "C"
+
+[node name="SwapG" type="Label" parent="Center/Panel/Margin/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Y"
+
+[node name="PauseA" type="Label" parent="Center/Panel/Margin/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Pause"
+
+[node name="PauseK" type="Label" parent="Center/Panel/Margin/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Esc"
+
+[node name="PauseG" type="Label" parent="Center/Panel/Margin/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Start"
+
+[node name="MenuA" type="Label" parent="Center/Panel/Margin/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Menus"
+
+[node name="MenuK" type="Label" parent="Center/Panel/Margin/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Arrows, Enter, Esc"
+
+[node name="MenuG" type="Label" parent="Center/Panel/Margin/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "D-pad / stick, A, B"
+
+[node name="Back" type="Button" parent="Center/Panel/Margin/ControlsPage"]
+layout_mode = 2
+text = "Back"
