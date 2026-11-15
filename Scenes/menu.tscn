@@ -130,6 +130,7 @@ text = "Quit"
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=1754750411]
 autoplay = true
+bus = &"Music"
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="MainButtons/MarginContainer/VBoxContainer/Start Button" to="." method="_on_start_button_pressed"]
