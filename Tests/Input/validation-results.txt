@@ -11,8 +11,14 @@ PASS player is frozen while paused
 PASS pause menu has faded in and the focused button pops
 PASS D-pad moves focus in the pause menu with a tick
 PASS the previous button shrinks back
-PASS A opens the controls page with a confirm sound
-PASS B returns from the controls page with a back sound
+PASS A opens settings on the Graphics tab with a confirm sound
+PASS RB switches to the Audio tab
+PASS D-pad down reaches the first option
+PASS the focused option's row is highlighted
+PASS D-pad left lowers master volume by 5% and applies it to the bus
+PASS the change is saved (to the test settings file)
+PASS LB wraps round to the Controls tab
+PASS B leaves settings back to the pause menu with a back sound
 PASS B closes the pause menu
 PASS holding A on Resume waits for release
 PASS releasing A on Resume resumes the game
@@ -36,5 +42,7 @@ PASS quiz finishes after resuming
 PASS main menu starts with focus on Start Game
 PASS Start does not pause on the main menu
 PASS D-pad moves through the main menu
-PASS A opens settings with focus inside
+PASS A opens the shared settings panel in place of the main buttons
+PASS D-pad down reaches Display Mode
+PASS menu music player is routed to the Music bus
 PASS B closes settings

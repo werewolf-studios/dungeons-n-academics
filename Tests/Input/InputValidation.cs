@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 /// </summary>
 public partial class InputValidation : Node3D
 {
+    private const string TestSettingsPath = "user://settings_test.cfg";
     private readonly List<string> passed = new();
     private PauseMenu pause;
 
@@ -18,10 +19,18 @@ public partial class InputValidation : Node3D
         SaveManager.Instance.LoadPlayerDataBinary();
         int savedCoins = SaveManager.Instance.PlayerData.Coins;
         int savedXp = SaveManager.Instance.PlayerData.XP;
+        // Settings changes go to a throwaway file; the player's settings are reloaded afterwards.
+        var settings = GameSettings.Instance;
+        string realSettingsPath = settings.ConfigPath;
+        settings.ConfigPath = TestSettingsPath;
         TreeExiting += () =>
         {
             SaveManager.Instance.PlayerData.Coins = savedCoins;
             SaveManager.Instance.PlayerData.XP = savedXp;
+            DirAccess.RemoveAbsolute(ProjectSettings.GlobalizePath(TestSettingsPath));
+            settings.ConfigPath = realSettingsPath;
+            settings.Load();
+            settings.ApplyAll();
         };
         try
         {
@@ -92,16 +101,42 @@ public partial class InputValidation : Node3D
             "pause menu has faded in and the focused button pops");
         Button(JoyButton.DpadDown, false);
         await Tap(JoyButton.DpadDown);
-        Check(Focused()?.Name == "Controls" && ui.LastSound == "ui_move", "D-pad moves focus in the pause menu with a tick");
+        Check(Focused()?.Name == "Settings" && ui.LastSound == "ui_move", "D-pad moves focus in the pause menu with a tick");
         await Frames(10);
         Check(Mathf.IsEqualApprox(resume.Scale.X, 1f), "the previous button shrinks back");
+
+        // Settings from the pause menu: tabs, a volume slider, saving, B back.
+        var panel = GetNode<SettingsPanel>("/root/PauseMenu/SettingsPanel");
         await Tap(JoyButton.A);
         await Frames(2);
-        Check(GetNode<Control>("/root/PauseMenu/Center/Panel/Margin/ControlsPage").Visible && Focused()?.Name == "Back"
-            && ui.LastSound == "ui_confirm", "A opens the controls page with a confirm sound");
+        Check(panel.Visible && Focused()?.Name == "Graphics" && ui.LastSound == "ui_confirm",
+            "A opens settings on the Graphics tab with a confirm sound");
+        await Tap(JoyButton.RightShoulder);
+        await Frames(2);
+        Check(Focused()?.Name == "Audio" && panel.GetNode<Control>("Center/Panel/Margin/VBox/Pages/AudioPage").Visible,
+            "RB switches to the Audio tab");
+        await Tap(JoyButton.DpadDown);
+        Check(Focused()?.Name == "Master", "D-pad down reaches the first option");
+        var masterRow = panel.GetNode<PanelContainer>("Center/Panel/Margin/VBox/Pages/AudioPage/MasterRow");
+        Check(masterRow.ThemeTypeVariation == "SettingsRowFocused", "the focused option's row is highlighted");
+        float masterBefore = GameSettings.Instance.MasterVolume;
+        await Tap(JoyButton.DpadLeft);
+        float expected = Mathf.Max(masterBefore - 0.05f, 0f);
+        int masterBus = AudioServer.GetBusIndex("Master");
+        Check(Mathf.IsEqualApprox(GameSettings.Instance.MasterVolume, expected, 0.001f)
+            && Mathf.IsEqualApprox(AudioServer.GetBusVolumeDb(masterBus), Mathf.LinearToDb(expected), 0.01f),
+            "D-pad left lowers master volume by 5% and applies it to the bus");
+        var saved = new ConfigFile();
+        Check(saved.Load(TestSettingsPath) == Error.Ok && Mathf.IsEqualApprox((float)saved.GetValue("audio", "master"), expected, 0.001f),
+            "the change is saved (to the test settings file)");
+        await Tap(JoyButton.LeftShoulder);
+        await Tap(JoyButton.LeftShoulder);
+        Check(Focused()?.Name == "Controls" && panel.GetNode<Control>("Center/Panel/Margin/VBox/Pages/ControlsPage").Visible,
+            "LB wraps round to the Controls tab");
         await Tap(JoyButton.B);
         await Frames(2);
-        Check(pause.IsOpen && Focused()?.Name == "Controls" && ui.LastSound == "ui_back", "B returns from the controls page with a back sound");
+        Check(pause.IsOpen && !panel.Visible && Focused()?.Name == "Settings" && ui.LastSound == "ui_back",
+            "B leaves settings back to the pause menu with a back sound");
         await Tap(JoyButton.B);
         Check(!pause.IsOpen && !GetTree().Paused, "B closes the pause menu");
 
@@ -204,15 +239,20 @@ public partial class InputValidation : Node3D
         Check(Focused()?.Name == "Settings Button", "D-pad moves through the main menu");
         await Tap(JoyButton.A);
         await Frames(2);
-        Check(menu.GetNode<Control>("SettingsMenu").Visible && Focused()?.Name == "Graphics", "A opens settings with focus inside");
+        var panel = menu.GetNode<SettingsPanel>("SettingsPanel");
+        Check(panel.Visible && Focused()?.Name == "Graphics" && !menu.GetNode<Control>("MainButtons/ColorRect").Visible,
+            "A opens the shared settings panel in place of the main buttons");
+        await Tap(JoyButton.DpadDown);
+        Check(Focused()?.Name == "DisplayMode", "D-pad down reaches Display Mode");
+        Check(menu.GetNode<AudioStreamPlayer>("MenuMusic").Bus == "Music", "menu music player is routed to the Music bus");
         await Tap(JoyButton.B);
         await Frames(2);
-        Check(!menu.GetNode<Control>("SettingsMenu").Visible && Focused()?.Name == "Settings Button", "B closes settings");
+        Check(!panel.Visible && Focused()?.Name == "Settings Button", "B closes settings");
     }
 
     // ---------------- helpers ----------------
     private static void Button(JoyButton button, bool pressed) =>
-        Input.ParseInputEvent(new InputEventJoypadButton { Device = 0, ButtonIndex = button, Pressed = pressed, Pressure = pressed ? 1 : 0 });
+        Input.ParseInputEvent(new InputEventJoypadButton { Device = 0, ButtonIndex = button, Pressed = pressed });
 
     private static void Axis(JoyAxis axis, float value) =>
         Input.ParseInputEvent(new InputEventJoypadMotion { Device = 0, Axis = axis, AxisValue = value });

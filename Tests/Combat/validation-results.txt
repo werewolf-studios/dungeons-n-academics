@@ -12,7 +12,7 @@ PASS sword in hand during the swing
 PASS hidden sister does not swing
 PASS no damage before the blade connects
 PASS swing reaches its contact frame
-PASS hit fires on SwordSlash frame 19 (0.75 s), got 0.757
+PASS hit fires on SwordSlash frame 19 (0.75 s), got 0.753
 PASS enemy takes player damage on the hit
 PASS brother returns to Idle after the swing
 PASS sword put away back in Idle

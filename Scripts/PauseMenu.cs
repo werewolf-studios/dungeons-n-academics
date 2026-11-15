@@ -3,7 +3,8 @@ using Godot;
 /// <summary>
 /// Autoloaded pause menu (Scenes/UI/pause_menu.tscn). Lives outside the level so
 /// SceneManager's battle idle logic never changes its process mode. Runs while the
-/// tree is paused (ProcessMode Always on the scene root).
+/// tree is paused (ProcessMode Always on the scene root). Settings opens the shared
+/// SettingsPanel, which handles its own B/Esc.
 /// </summary>
 public partial class PauseMenu : CanvasLayer
 {
@@ -12,25 +13,31 @@ public partial class PauseMenu : CanvasLayer
 	public bool IsOpen => Visible;
 
 	private ColorRect dim;
-	private Control mainPage;
-	private Control controlsPage;
+	private Control center;
 	private Button resumeButton;
-	private Button controlsButton;
+	private Button settingsButton;
+	private SettingsPanel settings;
 	private Control focusBeforePause;
+	private Tween fade;
 
 	public override void _Ready()
 	{
 		dim = GetNode<ColorRect>("Dim");
-		mainPage = GetNode<Control>("Center/Panel/Margin/MainPage");
-		controlsPage = GetNode<Control>("Center/Panel/Margin/ControlsPage");
+		center = GetNode<Control>("Center");
+		var mainPage = center.GetNode<Control>("Panel/Margin/MainPage");
 		resumeButton = mainPage.GetNode<Button>("Resume");
-		controlsButton = mainPage.GetNode<Button>("Controls");
+		settingsButton = mainPage.GetNode<Button>("Settings");
+		settings = GetNode<SettingsPanel>("SettingsPanel");
 
 		resumeButton.Pressed += Close;
-		controlsButton.Pressed += ShowControls;
+		settingsButton.Pressed += OpenSettings;
 		mainPage.GetNode<Button>("MainMenu").Pressed += GoToMainMenu;
 		mainPage.GetNode<Button>("Quit").Pressed += () => GetTree().Quit();
-		controlsPage.GetNode<Button>("Back").Pressed += ShowMain;
+		settings.Closed += () =>
+		{
+			center.Visible = true;
+			settingsButton.CallDeferred(Control.MethodName.GrabFocus);
+		};
 
 		Visible = false;
 	}
@@ -39,13 +46,13 @@ public partial class PauseMenu : CanvasLayer
 	{
 		if (IsOpen)
 		{
-			// Start/Esc closes; B goes back from the controls page, otherwise closes.
+			// Start always closes everything. B/Esc closes the pause menu; while the
+			// settings panel is open it handles B/Esc itself (it receives input first).
 			bool pause = @event.IsActionPressed("Pause");
-			if (pause || @event.IsActionPressed("ui_cancel"))
+			if (pause || (!settings.Visible && @event.IsActionPressed("ui_cancel")))
 			{
 				UiFeedback.Instance?.Back();
-				if (!pause && controlsPage.Visible) ShowMain();
-				else Close();
+				Close();
 				GetViewport().SetInputAsHandled();
 			}
 		}
@@ -62,13 +69,14 @@ public partial class PauseMenu : CanvasLayer
 		focusBeforePause = GetViewport().GuiGetFocusOwner();
 		// Cover an active quiz completely so pausing can't buy thinking time.
 		float dimAlpha = QuizIsVisible(GetTree().Root) ? 1.0f : 0.75f;
-		ShowMain();
+		settings.Visible = false;
+		center.Visible = true;
 		Visible = true;
 		GetTree().Paused = true;
 		UiFeedback.Instance?.Pause();
+		resumeButton.CallDeferred(Control.MethodName.GrabFocus);
 
 		// Quick fade in; the menu is usable immediately.
-		var center = GetNode<Control>("Center");
 		dim.Color = new Color(0, 0, 0, 0);
 		center.Modulate = new Color(1, 1, 1, 0);
 		fade?.Kill();
@@ -77,12 +85,11 @@ public partial class PauseMenu : CanvasLayer
 		fade.TweenProperty(center, "modulate:a", 1.0f, 0.15);
 	}
 
-	private Tween fade;
-
 	public void Close()
 	{
 		if (!IsOpen) return;
 		fade?.Kill();
+		settings.Visible = false;
 		Visible = false;
 		GetTree().Paused = false;
 		// The A press that chose Resume must not count as an interact when play resumes.
@@ -94,31 +101,22 @@ public partial class PauseMenu : CanvasLayer
 		focusBeforePause = null;
 	}
 
+	private void OpenSettings()
+	{
+		center.Visible = false;
+		settings.Open();
+	}
+
 	private bool CanPause()
 	{
 		Node scene = GetTree().CurrentScene;
 		return scene != null && scene.SceneFilePath != MainMenuScene;
 	}
 
-	// Opening focuses Resume; coming back from the controls page focuses Controls.
-	private void ShowMain()
-	{
-		bool fromControls = controlsPage.Visible;
-		controlsPage.Visible = false;
-		mainPage.Visible = true;
-		(fromControls ? controlsButton : resumeButton).CallDeferred(Control.MethodName.GrabFocus);
-	}
-
-	private void ShowControls()
-	{
-		mainPage.Visible = false;
-		controlsPage.Visible = true;
-		controlsPage.GetNode<Button>("Back").CallDeferred(Control.MethodName.GrabFocus);
-	}
-
 	private void GoToMainMenu()
 	{
 		Visible = false;
+		settings.Visible = false;
 		GetTree().Paused = false;
 		focusBeforePause = null;
 		GetTree().ChangeSceneToFile(MainMenuScene);

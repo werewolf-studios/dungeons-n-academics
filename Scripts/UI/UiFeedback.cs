@@ -38,6 +38,8 @@ public partial class UiFeedback : Node
 
 	public void Back() => Play(back);
 	public void Pause() => Play(pause);
+	/// <summary>The move tick, for menus that change selection without moving focus (tabs, sliders).</summary>
+	public void Tick() => Play(move);
 
 	private void Play(AudioStreamPlayer player)
 	{
@@ -58,7 +60,7 @@ public partial class UiFeedback : Node
 
 	private AudioStreamPlayer AddPlayer(string name)
 	{
-		var player = new AudioStreamPlayer { Name = name, VolumeDb = VolumeDb, MaxPolyphony = 2 };
+		var player = new AudioStreamPlayer { Name = name, VolumeDb = VolumeDb, MaxPolyphony = 2, Bus = "SFX" };
 		string path = SoundDir + name + ".mp3";
 		if (ResourceLoader.Exists(path)) player.Stream = GD.Load<AudioStream>(path);
 		else GD.PushWarning("UiFeedback: missing " + path);

@@ -3,9 +3,7 @@
 [ext_resource type="Script" uid="uid://r74q2g0yviaq" path="res://Menu.cs" id="1_wwsa2"]
 [ext_resource type="FontFile" uid="uid://bjl4ttra3a6wb" path="res://Assets/Menu Assets/Terra Ignota Font.ttf" id="2_jsrd8"]
 [ext_resource type="PackedScene" uid="uid://bg8ytimk6fm61" path="res://Scenes/menu_room.tscn" id="2_wbdvm"]
-[ext_resource type="Texture2D" uid="uid://n607hvxd0u1f" path="res://Assets/Menu Assets/Blackboard.png" id="3_wbdvm"]
-[ext_resource type="FontFile" uid="uid://ck45s4ppm8tnj" path="res://Assets/Menu Assets/EraserRegular.ttf" id="4_q3rjx"]
-[ext_resource type="Texture2D" uid="uid://b4xwh3fa4as5a" path="res://Assets/Menu Assets/Menu_Select_Thingy.png" id="5_6swd7"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/settings_panel.tscn" id="9_settings"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mae5d"]
 
@@ -16,16 +14,6 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l48gv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ecwwl"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nrnbx"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iqepy"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h1wq0"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dwrpx"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g7jxm"]
 
 [node name="Menu" type="CanvasLayer" unique_id=1712853273]
 script = ExtResource("1_wwsa2")
@@ -138,125 +126,13 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_l48gv")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ecwwl")
 text = "Quit"
 
-[node name="SettingsMenu" type="TextureRect" parent="." unique_id=1272506308]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 62.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture = ExtResource("3_wbdvm")
-expand_mode = 1
+[node name="SettingsPanel" parent="." instance=ExtResource("9_settings")]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SettingsMenu" unique_id=277912514]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.127
-anchor_top = 0.19700001
-anchor_right = 0.87000006
-anchor_bottom = 0.19700001
-offset_left = 57.440002
-offset_top = -44.626007
-offset_right = -47.600098
-offset_bottom = 43.373993
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 58
-
-[node name="Graphics" type="Button" parent="SettingsMenu/HBoxContainer" unique_id=1194995141]
-custom_minimum_size = Vector2(274.735, 0)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_q3rjx")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_nrnbx")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_iqepy")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_h1wq0")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_dwrpx")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_g7jxm")
-text = "Graphics"
-
-[node name="GraphicsSelection" type="TextureRect" parent="SettingsMenu/HBoxContainer/Graphics" unique_id=2021353907]
-visible = false
-custom_minimum_size = Vector2(212.73, 103.64)
-layout_mode = 0
-offset_left = 28.0
-offset_top = -7.5
-offset_right = 240.73
-offset_bottom = 96.14
-size_flags_vertical = 0
-mouse_filter = 2
-texture = ExtResource("5_6swd7")
-expand_mode = 1
-
-[node name="Controls" type="Button" parent="SettingsMenu/HBoxContainer" unique_id=757659430]
-custom_minimum_size = Vector2(274.735, 0)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_q3rjx")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_nrnbx")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_iqepy")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_h1wq0")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_dwrpx")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_g7jxm")
-text = "Controls"
-
-[node name="ControlsSelection" type="TextureRect" parent="SettingsMenu/HBoxContainer/Controls" unique_id=1547149202]
-visible = false
-custom_minimum_size = Vector2(212.73, 103.64)
-layout_mode = 0
-offset_left = 24.0
-offset_top = -7.5
-offset_right = 236.73
-offset_bottom = 96.14
-size_flags_vertical = 0
-mouse_filter = 2
-texture = ExtResource("5_6swd7")
-expand_mode = 1
-
-[node name="Audio" type="Button" parent="SettingsMenu/HBoxContainer" unique_id=114266941]
-custom_minimum_size = Vector2(274.735, 0)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("4_q3rjx")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_nrnbx")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_iqepy")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_h1wq0")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_dwrpx")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_g7jxm")
-text = "Audio"
-
-[node name="AudioSelection" type="TextureRect" parent="SettingsMenu/HBoxContainer/Audio" unique_id=85643609]
-visible = false
-custom_minimum_size = Vector2(210.705, 103.64)
-layout_mode = 0
-offset_left = 29.0
-offset_top = -7.5
-offset_right = 239.705
-offset_bottom = 96.14
-size_flags_vertical = 0
-mouse_filter = 2
-texture = ExtResource("5_6swd7")
-expand_mode = 1
-
-[node name="Close" type="Button" parent="SettingsMenu" unique_id=1846472955]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.006
-anchor_bottom = 0.012
-offset_left = 1126.0
-offset_top = 40.0
-offset_right = 1168.32
-offset_bottom = 77.104004
-text = "Close"
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+autoplay = true
+bus = &"Music"
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="pressed" from="MainButtons/MarginContainer/VBoxContainer/Start Button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MainButtons/MarginContainer/VBoxContainer/Settings Button" to="." method="OnSettingsPressed"]
 [connection signal="pressed" from="MainButtons/MarginContainer/VBoxContainer/Quit Button" to="." method="OnQuitPressed"]
-[connection signal="pressed" from="SettingsMenu/HBoxContainer/Graphics" to="." method="OnGraphicsPressed"]
-[connection signal="pressed" from="SettingsMenu/HBoxContainer/Controls" to="." method="OnControlsPressed"]
-[connection signal="pressed" from="SettingsMenu/HBoxContainer/Audio" to="." method="OnAudioPressed"]
-[connection signal="pressed" from="SettingsMenu/Close" to="." method="OnClosePressed"]

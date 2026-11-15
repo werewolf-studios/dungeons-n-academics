@@ -1,0 +1,399 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/UI/SettingsPanel.cs" id="1_script"]
+[ext_resource type="Theme" path="res://Scenes/UI/menu_theme.tres" id="2_theme"]
+[ext_resource type="FontFile" uid="uid://bjl4ttra3a6wb" path="res://Assets/Menu Assets/Terra Ignota Font.ttf" id="3_font"]
+
+[node name="SettingsPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+script = ExtResource("1_script")
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Center"]
+custom_minimum_size = Vector2(860, 0)
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="Center/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 28
+
+[node name="VBox" type="VBoxContainer" parent="Center/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="Center/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 54
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Tabs" type="HBoxContainer" parent="Center/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 28
+alignment = 1
+
+[node name="Graphics" type="Button" parent="Center/Panel/Margin/VBox/Tabs"]
+layout_mode = 2
+theme_type_variation = &"MenuTab"
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 34
+toggle_mode = true
+text = "Graphics"
+
+[node name="Audio" type="Button" parent="Center/Panel/Margin/VBox/Tabs"]
+layout_mode = 2
+theme_type_variation = &"MenuTab"
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 34
+toggle_mode = true
+text = "Audio"
+
+[node name="Controls" type="Button" parent="Center/Panel/Margin/VBox/Tabs"]
+layout_mode = 2
+theme_type_variation = &"MenuTab"
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 34
+toggle_mode = true
+text = "Controls"
+
+[node name="Rule" type="ColorRect" parent="Center/Panel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+color = Color(0.2, 0.24, 0.42, 1)
+
+[node name="Pages" type="MarginContainer" parent="Center/Panel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+
+[node name="GraphicsPage" type="VBoxContainer" parent="Center/Panel/Margin/VBox/Pages"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="DisplayModeRow" type="PanelContainer" parent="Center/Panel/Margin/VBox/Pages/GraphicsPage"]
+layout_mode = 2
+theme_type_variation = &"SettingsRow"
+
+[node name="Row" type="HBoxContainer" parent="Center/Panel/Margin/VBox/Pages/GraphicsPage/DisplayModeRow"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Center/Panel/Margin/VBox/Pages/GraphicsPage/DisplayModeRow/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Display Mode"
+
+[node name="DisplayMode" type="OptionButton" parent="Center/Panel/Margin/VBox/Pages/GraphicsPage/DisplayModeRow/Row"]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+
+[node name="ResolutionRow" type="PanelContainer" parent="Center/Panel/Margin/VBox/Pages/GraphicsPage"]
+layout_mode = 2
+theme_type_variation = &"SettingsRow"
+
+[node name="Row" type="HBoxContainer" parent="Center/Panel/Margin/VBox/Pages/GraphicsPage/ResolutionRow"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Center/Panel/Margin/VBox/Pages/GraphicsPage/ResolutionRow/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Resolution"
+
+[node name="Resolution" type="OptionButton" parent="Center/Panel/Margin/VBox/Pages/GraphicsPage/ResolutionRow/Row"]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 2
+
+[node name="VSyncRow" type="PanelContainer" parent="Center/Panel/Margin/VBox/Pages/GraphicsPage"]
+layout_mode = 2
+theme_type_variation = &"SettingsRow"
+
+[node name="Row" type="HBoxContainer" parent="Center/Panel/Margin/VBox/Pages/GraphicsPage/VSyncRow"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Center/Panel/Margin/VBox/Pages/GraphicsPage/VSyncRow/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "VSync"
+
+[node name="VSync" type="CheckButton" parent="Center/Panel/Margin/VBox/Pages/GraphicsPage/VSyncRow/Row"]
+layout_mode = 2
+text = "On"
+
+[node name="RenderScaleRow" type="PanelContainer" parent="Center/Panel/Margin/VBox/Pages/GraphicsPage"]
+layout_mode = 2
+theme_type_variation = &"SettingsRow"
+
+[node name="Row" type="HBoxContainer" parent="Center/Panel/Margin/VBox/Pages/GraphicsPage/RenderScaleRow"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Center/Panel/Margin/VBox/Pages/GraphicsPage/RenderScaleRow/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Render Scale"
+
+[node name="RenderScale" type="HSlider" parent="Center/Panel/Margin/VBox/Pages/GraphicsPage/RenderScaleRow/Row"]
+custom_minimum_size = Vector2(260, 30)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 50.0
+max_value = 100.0
+step = 5.0
+custom_step = 5.0
+value = 100.0
+
+[node name="Value" type="Label" parent="Center/Panel/Margin/VBox/Pages/GraphicsPage/RenderScaleRow/Row"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "100%"
+horizontal_alignment = 2
+
+[node name="AudioPage" type="VBoxContainer" parent="Center/Panel/Margin/VBox/Pages"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MasterRow" type="PanelContainer" parent="Center/Panel/Margin/VBox/Pages/AudioPage"]
+layout_mode = 2
+theme_type_variation = &"SettingsRow"
+
+[node name="Row" type="HBoxContainer" parent="Center/Panel/Margin/VBox/Pages/AudioPage/MasterRow"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Center/Panel/Margin/VBox/Pages/AudioPage/MasterRow/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Master Volume"
+
+[node name="Master" type="HSlider" parent="Center/Panel/Margin/VBox/Pages/AudioPage/MasterRow/Row"]
+custom_minimum_size = Vector2(260, 30)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 0.0
+max_value = 100.0
+step = 5.0
+custom_step = 5.0
+value = 100.0
+
+[node name="Value" type="Label" parent="Center/Panel/Margin/VBox/Pages/AudioPage/MasterRow/Row"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "100%"
+horizontal_alignment = 2
+
+[node name="MusicRow" type="PanelContainer" parent="Center/Panel/Margin/VBox/Pages/AudioPage"]
+layout_mode = 2
+theme_type_variation = &"SettingsRow"
+
+[node name="Row" type="HBoxContainer" parent="Center/Panel/Margin/VBox/Pages/AudioPage/MusicRow"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Center/Panel/Margin/VBox/Pages/AudioPage/MusicRow/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music Volume"
+
+[node name="Music" type="HSlider" parent="Center/Panel/Margin/VBox/Pages/AudioPage/MusicRow/Row"]
+custom_minimum_size = Vector2(260, 30)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 0.0
+max_value = 100.0
+step = 5.0
+custom_step = 5.0
+value = 100.0
+
+[node name="Value" type="Label" parent="Center/Panel/Margin/VBox/Pages/AudioPage/MusicRow/Row"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "100%"
+horizontal_alignment = 2
+
+[node name="SfxRow" type="PanelContainer" parent="Center/Panel/Margin/VBox/Pages/AudioPage"]
+layout_mode = 2
+theme_type_variation = &"SettingsRow"
+
+[node name="Row" type="HBoxContainer" parent="Center/Panel/Margin/VBox/Pages/AudioPage/SfxRow"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Center/Panel/Margin/VBox/Pages/AudioPage/SfxRow/Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sound Effects"
+
+[node name="Sfx" type="HSlider" parent="Center/Panel/Margin/VBox/Pages/AudioPage/SfxRow/Row"]
+custom_minimum_size = Vector2(260, 30)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 0.0
+max_value = 100.0
+step = 5.0
+custom_step = 5.0
+value = 100.0
+
+[node name="Value" type="Label" parent="Center/Panel/Margin/VBox/Pages/AudioPage/SfxRow/Row"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "100%"
+horizontal_alignment = 2
+
+[node name="ControlsPage" type="VBoxContainer" parent="Center/Panel/Margin/VBox/Pages"]
+visible = false
+layout_mode = 2
+
+[node name="Table" type="GridContainer" parent="Center/Panel/Margin/VBox/Pages/ControlsPage"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 6
+columns = 3
+
+[node name="Head1" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.78, 0.62, 1, 1)
+text = "Action"
+
+[node name="Head2" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.78, 0.62, 1, 1)
+text = "Keyboard / Mouse"
+
+[node name="Head3" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.78, 0.62, 1, 1)
+text = "Gamepad"
+
+[node name="MoveA" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Move"
+
+[node name="MoveK" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "W A S D"
+
+[node name="MoveG" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Left stick / D-pad"
+
+[node name="WalkA" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Walk"
+
+[node name="WalkK" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Hold Shift"
+
+[node name="WalkG" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Light tilt / hold LB"
+
+[node name="InteractA" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Interact / Attack"
+
+[node name="InteractK" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Left click"
+
+[node name="InteractG" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "A  (or X)"
+
+[node name="SwapA" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Swap character"
+
+[node name="SwapK" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "C"
+
+[node name="SwapG" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Y"
+
+[node name="PauseA" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Pause"
+
+[node name="PauseK" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Esc"
+
+[node name="PauseG" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Start"
+
+[node name="MenuA" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Menus"
+
+[node name="MenuK" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Arrows, Enter, Esc"
+
+[node name="MenuG" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "D-pad / stick, A, B"
+
+[node name="TabsA" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Switch tabs"
+
+[node name="TabsK" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Q / E"
+
+[node name="TabsG" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "LB / RB"
+
+[node name="Back" type="Button" parent="Center/Panel/Margin/VBox"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"

@@ -1,16 +1,27 @@
 using Godot;
-using System.Text.RegularExpressions;
 
 public partial class Menu : CanvasLayer
 {
 	[Export]
 	public string levelPath = "res://Scenes/player_controller_test.tscn";
-	
+
+	private const string MainButtonsBox = "MainButtons/MarginContainer/VBoxContainer";
+
+	private SettingsPanel settings;
+
+	public override void _Ready()
+	{
+		// The shared settings panel (also used by the pause menu) handles its own
+		// tabs and B/Esc; when it closes, bring the main buttons back.
+		settings = GetNode<SettingsPanel>("SettingsPanel");
+		settings.Closed += OnSettingsClosed;
+	}
+
 	// Connected to this node's ready signal in menu.tscn. Gamepad navigation needs a
 	// focused button to start from.
 	public void _on_ready()
 	{
-		GetNode<Button>("MainButtons/MarginContainer/VBoxContainer/Start Button").CallDeferred(Control.MethodName.GrabFocus);
+		GetNode<Button>(MainButtonsBox + "/Start Button").CallDeferred(Control.MethodName.GrabFocus);
 	}
 
 	public void _on_start_button_pressed()
@@ -20,22 +31,14 @@ public partial class Menu : CanvasLayer
 
 	private void OnSettingsPressed()
 	{
-		GetNode<VBoxContainer>("MainButtons/MarginContainer/VBoxContainer").Visible = false;
-		//Change this later to texture rect for scroll design
-		GetNode<ColorRect>("MainButtons/ColorRect").Visible = false;
-		GetNode<TextureRect>("SettingsMenu").Visible = true;
-		GetNode<Button>("SettingsMenu/HBoxContainer/Graphics").GrabFocus();
+		SetMainButtonsVisible(false);
+		settings.Open();
 	}
 
-	// B / Esc closes the settings screen.
-	public override void _UnhandledInput(InputEvent @event)
+	private void OnSettingsClosed()
 	{
-		if (@event.IsActionPressed("ui_cancel") && GetNode<TextureRect>("SettingsMenu").Visible)
-		{
-			UiFeedback.Instance?.Back();
-			OnClosePressed();
-			GetViewport().SetInputAsHandled();
-		}
+		SetMainButtonsVisible(true);
+		GetNode<Button>(MainButtonsBox + "/Settings Button").GrabFocus();
 	}
 
 	private void OnQuitPressed()
@@ -43,52 +46,9 @@ public partial class Menu : CanvasLayer
 		GetTree().Quit();
 	}
 
-	private void OnGraphicsPressed()
+	private void SetMainButtonsVisible(bool visible)
 	{
-		GetNode<TextureRect>("SettingsMenu/HBoxContainer/Graphics/GraphicsSelection").Visible = true;
-		if (GetNode<TextureRect>("SettingsMenu/HBoxContainer/Audio/AudioSelection").Visible == true)
-		{
-			GetNode<TextureRect>("SettingsMenu/HBoxContainer/Audio/AudioSelection").Visible = false;
-		}
-		if (GetNode<TextureRect>("SettingsMenu/HBoxContainer/Controls/ControlsSelection").Visible == true)
-		{
-			GetNode<TextureRect>("SettingsMenu/HBoxContainer/Controls/ControlsSelection").Visible = false;
-		}
+		GetNode<Control>(MainButtonsBox).Visible = visible;
+		GetNode<ColorRect>("MainButtons/ColorRect").Visible = visible;
 	}
-
-	private void OnControlsPressed()
-	{
-		GetNode<TextureRect>("SettingsMenu/HBoxContainer/Controls/ControlsSelection").Visible = true;
-		if (GetNode<TextureRect>("SettingsMenu/HBoxContainer/Audio/AudioSelection").Visible == true)
-		{
-			GetNode<TextureRect>("SettingsMenu/HBoxContainer/Audio/AudioSelection").Visible = false;
-		}
-		if (GetNode<TextureRect>("SettingsMenu/HBoxContainer/Graphics/GraphicsSelection").Visible == true)
-		{
-			GetNode<TextureRect>("SettingsMenu/HBoxContainer/Graphics/GraphicsSelection").Visible = false;
-		}
-	}
-
-	private void OnAudioPressed()
-	{
-		GetNode<TextureRect>("SettingsMenu/HBoxContainer/Audio/AudioSelection").Visible = true;
-		if (GetNode<TextureRect>("SettingsMenu/HBoxContainer/Controls/ControlsSelection").Visible == true)
-		{
-			GetNode<TextureRect>("SettingsMenu/HBoxContainer/Controls/ControlsSelection").Visible = false;
-		}
-		if (GetNode<TextureRect>("SettingsMenu/HBoxContainer/Graphics/GraphicsSelection").Visible == true)
-		{
-			GetNode<TextureRect>("SettingsMenu/HBoxContainer/Graphics/GraphicsSelection").Visible = false;
-		}
-	}
-
-	private void OnClosePressed()
-	{
-		GetNode<TextureRect>("SettingsMenu").Visible = false;
-		GetNode<VBoxContainer>("MainButtons/MarginContainer/VBoxContainer").Visible = true;
-		//Change this later to texture rect for scroll design
-		GetNode<ColorRect>("MainButtons/ColorRect").Visible = true;
-		GetNode<Button>("MainButtons/MarginContainer/VBoxContainer/Settings Button").GrabFocus();
-	}
-
 }
