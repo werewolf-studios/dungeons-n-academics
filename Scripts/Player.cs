@@ -228,7 +228,12 @@ public partial class Player : CharacterBody3D
     /// <param name="motion"></param>
     public void CheckBoxCollision(Vector3 motion)
     {
-        if (Math.Abs(motion.X) + Math.Abs(motion.Z) > 1)
+        // Only push when moving roughly along one axis. Analog sticks are never exactly
+        // cardinal, so allow up to ~22 degrees off-axis (PushBlock snaps the push to the
+        // dominant axis); clear diagonals, like two keys held at once, still don't push.
+        float along = Math.Max(Math.Abs(motion.X), Math.Abs(motion.Z));
+        float across = Math.Min(Math.Abs(motion.X), Math.Abs(motion.Z));
+        if (along < 0.0001f || across > along * 0.414f)
         {
             return;
         }

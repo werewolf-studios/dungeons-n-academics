@@ -7,7 +7,8 @@ public partial class TilePlate : InteractionTest, MathSignal
     [Export]
     private TilePickUp heldTile;
 
-    public string GetValue() { return heldTile.GetValue(); }
+    // Null while the plate is empty; MathSystem treats that as an unfinished equation.
+    public string GetValue() { return heldTile?.GetValue(); }
 
     // Called when the node enters the scene tree for the first time.
     //Makes sure any objects on tile are placed above it

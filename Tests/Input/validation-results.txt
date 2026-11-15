@@ -26,6 +26,8 @@ PASS the A press that resumed does not trigger an interaction
 PASS A interacts in the overworld
 PASS X still interacts
 PASS Y swaps character
+PASS a 7-degree off-axis stick pushes a block
+PASS a clear diagonal stick does not push a block
 PASS player turn starts with focus on Attack
 PASS a menu taking focus on its own makes no sound
 PASS A on Attack opens the quiz

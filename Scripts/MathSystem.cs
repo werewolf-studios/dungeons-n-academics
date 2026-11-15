@@ -27,7 +27,14 @@ public partial class MathSystem : Node
             GD.Print("Checking");
             if (symbol is MathSignal transmitter)
             {
-                equation += transmitter.GetValue();
+                // An empty plate or an unpressed button means the equation isn't finished yet.
+                string value = transmitter.GetValue();
+                if (string.IsNullOrEmpty(value))
+                {
+                    GD.Print("Equation incomplete");
+                    return;
+                }
+                equation += value;
                 GD.Print(equation);
             }
         }

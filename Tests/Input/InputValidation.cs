@@ -172,6 +172,31 @@ public partial class InputValidation : Node3D
         await Physics(3);
         Check(!player.IsCharacterMale, "Y swaps character");
         await Tap(JoyButton.Y);
+
+        // Push blocks with a stick that is slightly off-axis (real sticks never read exactly cardinal).
+        foreach (var (x, label, shouldPush) in new[] { (0.12f, "a 7-degree off-axis stick pushes a block", true),
+                                                         (0.7f, "a clear diagonal stick does not push a block", false) })
+        {
+            var grid = new GridMap();
+            AddChild(grid);
+            var block = GD.Load<PackedScene>("res://Scenes/push_block.tscn").Instantiate<PushBlock>();
+            block.Position = new Vector3(1, 1, 1);
+            grid.AddChild(block);
+            block.SetValue(0);
+            block.Initialize(grid);
+            player.Position = new Vector3(1, 0, 3);
+            await Physics(3);
+            Vector3 blockStart = block.Position;
+            Axis(JoyAxis.LeftX, x);
+            Axis(JoyAxis.LeftY, shouldPush ? 0.99f : 0.7f);
+            await Physics(35);
+            Axis(JoyAxis.LeftX, 0f);
+            Axis(JoyAxis.LeftY, 0f);
+            await Physics(25);
+            Check((block.Position.Z < blockStart.Z - 1) == shouldPush, label);
+            grid.QueueFree();
+            await Physics(3);
+        }
         player.QueueFree();
         floor.QueueFree();
         await Physics(3);
