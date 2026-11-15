@@ -19,7 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://dwl1au8so3fdi" path="res://Models/Numbers/Part4.fbx" id="20_bijy0"]
 [ext_resource type="PackedScene" uid="uid://1ej2arg6cdu4" path="res://Models/Numbers/PartDiv.fbx" id="21_hrye0"]
 [ext_resource type="PackedScene" uid="uid://0l41fxib1ugi" path="res://Scenes/enemy_x.tscn" id="22_bijy0"]
+[ext_resource type="PackedScene" path="res://Scenes/Props/chest.tscn" id="23_hrye0"]
 [ext_resource type="PackedScene" path="res://Scenes/Props/stone_wall.tscn" id="23_stonewall"]
+[ext_resource type="PackedScene" path="res://Scenes/Props/stone_fireplace.tscn" id="24_bmcyk"]
 [ext_resource type="PackedScene" path="res://Scenes/Props/stone_wall_variant_1.tscn" id="24_stonewall_v1"]
 [ext_resource type="PackedScene" path="res://Scenes/Props/stone_wall_variant_2.tscn" id="25_stonewall_v2"]
 
@@ -408,7 +410,7 @@ newPlayerLocation = Vector3(-31, 1, 82)
 newCameraLocation = Vector3(-31, 1, 80)
 
 [node name="Fire" parent="." unique_id=217483579 instance=ExtResource("13_8b84w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1888871, -0.40276957, 0.99546623)
+transform = Transform3D(0.056864522, 0, -0.4967559, 0, 0.5, 0, 0.4967559, 0, 0.056864522, 4.3575664, -0.40276957, 7.8331766)
 
 [node name="Floor" type="Node3D" parent="." unique_id=143192997]
 
@@ -3828,44 +3830,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3827267, -0.43361777, 22.9
 
 [node name="Wall" type="Node3D" parent="." unique_id=1751351471]
 
-[node name="StoneWall1" parent="Wall" unique_id=1057069091 instance=ExtResource("25_stonewall_v2")]
-transform = Transform3D(0, 0, -1, 0, 1.9998596, 0, 2.1941953, 0, 0, 9.373904, -0.9295759, -8.128844)
-
-[node name="StoneWall2" parent="Wall" unique_id=802417906 instance=ExtResource("25_stonewall_v2")]
-transform = Transform3D(-1.9182264e-07, 0, 1, 0, 1.9998596, 0, -2.1941953, 0, -8.742278e-08, 9.373904, -0.9295759, -3.1260786)
-
-[node name="StoneWall3" parent="Wall" unique_id=1262116593 instance=ExtResource("25_stonewall_v2")]
-transform = Transform3D(0, 0, -1, 0, 1.9998596, 0, 2.1941953, 0, 0, 9.373904, -0.9295759, 1.876687)
-
-[node name="StoneWall4" parent="Wall" unique_id=434646007 instance=ExtResource("24_stonewall_v1")]
-transform = Transform3D(-1.9182264e-07, 0, 1, 0, 1.9998596, 0, -2.1941953, 0, -8.742278e-08, 9.373904, -0.9295759, 6.8794527)
-
-[node name="StoneWall5" parent="Wall" unique_id=1298636127 instance=ExtResource("25_stonewall_v2")]
-transform = Transform3D(-8.525451e-08, 0, 1, 0, 0.9999298, 0, -0.975198, 0, -8.742278e-08, 9.373904, 1.8777469, -9.5185)
-
 [node name="StoneWall6" parent="Wall" unique_id=1010816243 instance=ExtResource("23_stonewall")]
-transform = Transform3D(0, 0, -1, 0, 0.9999298, 0, 0.975198, 0, 0, 9.373904, 1.8777469, -7.2950497)
+transform = Transform3D(-1.09278474e-07, 0, -1, 0, 2.625, 0, 2.5, 0, -4.371139e-08, 9.394471, -0.45040762, -6.6228275)
+
+[node name="StoneWall8" parent="Wall" unique_id=1947278013 instance=ExtResource("23_stonewall")]
+transform = Transform3D(-1.3113416e-07, 0, -1, 0, 2.625, 0, 3, 0, -4.371139e-08, 9.394471, -0.45040762, 5.98741)
 
 [node name="StoneWall7" parent="Wall" unique_id=530518762 instance=ExtResource("24_stonewall_v1")]
-transform = Transform3D(-8.525451e-08, 0, 1, 0, 0.9999298, 0, -0.975198, 0, -8.742278e-08, 9.373904, 1.8777469, -5.071598)
-
-[node name="StoneWall8" parent="Wall" unique_id=1309632837 instance=ExtResource("23_stonewall")]
-transform = Transform3D(-8.525451e-08, 0, 1, 0, 0.9999298, 0, -0.975198, 0, -8.742278e-08, 9.373904, 1.8777469, -2.8481472)
-
-[node name="StoneWall9" parent="Wall" unique_id=1091426434 instance=ExtResource("25_stonewall_v2")]
-transform = Transform3D(-8.525451e-08, 0, 1, 0, 0.9999298, 0, -0.975198, 0, -8.742278e-08, 9.373904, 1.8777469, -0.6246958)
-
-[node name="StoneWall10" parent="Wall" unique_id=1437667469 instance=ExtResource("23_stonewall")]
-transform = Transform3D(-8.525451e-08, 0, 1, 0, 0.9999298, 0, -0.975198, 0, -8.742278e-08, 9.373904, 1.8777469, 1.5987556)
-
-[node name="StoneWall11" parent="Wall" unique_id=402081785 instance=ExtResource("24_stonewall_v1")]
-transform = Transform3D(0, 0, -1, 0, 0.9999298, 0, 0.975198, 0, 0, 9.373904, 1.8777469, 3.8222067)
-
-[node name="StoneWall12" parent="Wall" unique_id=324111263 instance=ExtResource("25_stonewall_v2")]
-transform = Transform3D(0, 0, -1, 0, 0.9999298, 0, 0.975198, 0, 0, 9.373904, 1.8777469, 6.045658)
-
-[node name="StoneWall13" parent="Wall" unique_id=1612491440 instance=ExtResource("23_stonewall")]
-transform = Transform3D(-8.525451e-08, 0, 1, 0, 0.9999298, 0, -0.975198, 0, -8.742278e-08, 9.373904, 1.8777469, 8.26911)
+transform = Transform3D(-1.3113416e-07, 0, -0.99999994, 0, 2.65, 0, 3, 0, -4.3711385e-08, 9.374212, -0.5273595, -0.68069804)
 
 [node name="StoneWall14" parent="Wall" unique_id=205544606 instance=ExtResource("25_stonewall_v2")]
 transform = Transform3D(-1.048174, 0, -0.008412339, 0, 0.9999298, 0, 0.0088179065, 0, -0.99996465, 3.244908, -0.9295759, 9.441037)
@@ -3961,43 +3933,16 @@ transform = Transform3D(1.7050903e-07, 0, -1, 0, 0.9999298, 0, 0.975198, 0, 1.74
 transform = Transform3D(1.7050903e-07, 0, -1, 0, 0.9999298, 0, 0.975198, 0, 1.7484555e-07, -9.664275, 1.8777469, 8.634026)
 
 [node name="StoneWall45" parent="Wall" unique_id=375856286 instance=ExtResource("23_stonewall")]
-transform = Transform3D(-2.1941357, 0, -0.0073654107, 0, 1.9998596, 0, 0.01616115, 0, -0.9999729, -7.158633, -0.9295759, -9.286399)
+transform = Transform3D(-2.4999323, 0, -0.007365311, 0, 2.65, 0, 0.018413277, 0, -0.9999729, -6.855299, -0.45072228, -9.286399)
 
 [node name="StoneWall46" parent="Wall" unique_id=1043325650 instance=ExtResource("24_stonewall_v1")]
-transform = Transform3D(-2.1941357, 0, -0.0073654107, 0, 1.9998596, 0, 0.01616115, 0, -0.9999729, -2.1560044, -0.9295759, -9.323246)
+transform = Transform3D(-2.4999323, 0, -0.007365311, 0, 2.65, 0, 0.018413277, 0, -0.9999729, -1.1777687, -0.3992039, -9.323246)
 
-[node name="StoneWall47" parent="Wall" unique_id=2117547304 instance=ExtResource("25_stonewall_v2")]
-transform = Transform3D(2.1941357, 0, 0.007365323, 0, 1.9998596, 0, -0.016160958, 0, 0.9999729, 2.8466249, -0.9295759, -9.360092)
+[node name="StoneWall47" parent="Wall" unique_id=2008348125 instance=ExtResource("24_stonewall_v1")]
+transform = Transform3D(-2.4999323, 0, -0.007365311, 0, 2.65, 0, 0.018413277, 0, -0.9999729, 10.016557, -0.3992039, -9.323246)
 
 [node name="StoneWall48" parent="Wall" unique_id=1588290275 instance=ExtResource("23_stonewall")]
-transform = Transform3D(2.1941357, 0, 0.007365323, 0, 1.9998596, 0, -0.016160958, 0, 0.9999729, 7.8492546, -0.9295759, -9.396939)
-
-[node name="StoneWall49" parent="Wall" unique_id=79351976 instance=ExtResource("23_stonewall")]
-transform = Transform3D(0.9751714, 0, 0.007365323, 0, 0.9999298, 0, -0.0071826475, 0, 0.9999729, -8.548253, 1.8777469, -9.276163)
-
-[node name="StoneWall50" parent="Wall" unique_id=2019116487 instance=ExtResource("24_stonewall_v1")]
-transform = Transform3D(0.9751714, 0, 0.007365323, 0, 0.9999298, 0, -0.0071826475, 0, 0.9999729, -6.324862, 1.8777469, -9.29254)
-
-[node name="StoneWall51" parent="Wall" unique_id=481040613 instance=ExtResource("25_stonewall_v2")]
-transform = Transform3D(-0.9751714, 0, -0.0073654107, 0, 0.9999298, 0, 0.0071827327, 0, -0.9999729, -4.101471, 1.8777469, -9.308916)
-
-[node name="StoneWall52" parent="Wall" unique_id=500213177 instance=ExtResource("24_stonewall_v1")]
-transform = Transform3D(-0.9751714, 0, -0.0073654107, 0, 0.9999298, 0, 0.0071827327, 0, -0.9999729, -1.8780802, 1.8777469, -9.325293)
-
-[node name="StoneWall53" parent="Wall" unique_id=1079013898 instance=ExtResource("24_stonewall_v1")]
-transform = Transform3D(0.9751714, 0, 0.007365323, 0, 0.9999298, 0, -0.0071826475, 0, 0.9999729, 0.34531036, 1.8777469, -9.341669)
-
-[node name="StoneWall54" parent="Wall" unique_id=2142597317 instance=ExtResource("23_stonewall")]
-transform = Transform3D(0.9751714, 0, 0.007365323, 0, 0.9999298, 0, -0.0071826475, 0, 0.9999729, 2.5687013, 1.8777469, -9.358046)
-
-[node name="StoneWall55" parent="Wall" unique_id=594164653 instance=ExtResource("25_stonewall_v2")]
-transform = Transform3D(-0.9751714, 0, -0.0073654107, 0, 0.9999298, 0, 0.0071827327, 0, -0.9999729, 4.7920923, 1.8777469, -9.374422)
-
-[node name="StoneWall56" parent="Wall" unique_id=952155536 instance=ExtResource("23_stonewall")]
-transform = Transform3D(-0.9751714, 0, -0.0073654107, 0, 0.9999298, 0, 0.0071827327, 0, -0.9999729, 7.015483, 1.8777469, -9.390799)
-
-[node name="StoneWall57" parent="Wall" unique_id=1866478092 instance=ExtResource("23_stonewall")]
-transform = Transform3D(0.9751714, 0, 0.007365323, 0, 0.9999298, 0, -0.0071826475, 0, 0.9999729, 9.238874, 1.8777469, -9.407175)
+transform = Transform3D(2.4999323, 0, 0.0073653236, 0, 2.65, 0, -0.018413309, 0, 0.9999729, 4.467996, -0.33978295, -9.396939)
 
 [node name="Wall3" type="Node3D" parent="." unique_id=1867288885]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.3316, 0, 30.832306)
@@ -5210,6 +5155,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.763657, 1.751143, 67.0553
 
 [node name="Part6" parent="." unique_id=455662703 instance=ExtResource("20_bijy0")]
 transform = Transform3D(-200, 0, -1.7484555e-05, 0, 200, 0, 1.7484555e-05, 0, -200, -32, 1, 35)
+
+[node name="Chest" parent="." unique_id=101544479 instance=ExtResource("23_hrye0")]
+transform = Transform3D(-0.99999905, 0, 0.0013981173, 0, 1, 0, -0.0013981173, 0, -0.99999905, -5.942414, -0.5, 8.779587)
+
+[node name="Chest2" parent="." unique_id=1211679571 instance=ExtResource("23_hrye0")]
+transform = Transform3D(-0.99999845, 0, 0.00177613, 0, 1, 0, -0.00177613, 0, -0.99999845, -37.642094, -0.5, 39.855526)
+
+[node name="Chest3" parent="." unique_id=354361875 instance=ExtResource("23_hrye0")]
+transform = Transform3D(-0.99999666, 0, 0.0025767377, 0, 1, 0, -0.0025767377, 0, -0.99999666, -27.393187, -0.5, 71.477455)
+
+[node name="StoneFireplace" parent="." unique_id=81530587 instance=ExtResource("24_bmcyk")]
+transform = Transform3D(-1.4999928, 0, 0.004634003, 0, 1.5, 0, -0.004634003, 0, -1.4999928, 4.146825, -0.5, 7.589571)
 
 [editable path="MathSystem/GridMap"]
 [editable path="MathSystemTest2/GridMap"]
