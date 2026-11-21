@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c5ri2po57uo7n"]
+
+[ext_resource type="PackedScene" uid="uid://b7iditl7ceu1n" path="res://Scenes/Props/purple_stonewall_pbr.glb" id="1_6ovr3"]
+
+[node name="PurpleStoneWall" type="Node3D" unique_id=296082786]
+
+[node name="purple_stonewall_pbr" parent="." unique_id=1923748630 instance=ExtResource("1_6ovr3")]
+transform = Transform3D(4.2, 0, 0, 0, 3.8, 0, 0, 0, 1, 0, 0, 0)

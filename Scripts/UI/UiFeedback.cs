@@ -38,6 +38,8 @@ public partial class UiFeedback : Node
 
 	public void Back() => Play(back);
 	public void Pause() => Play(pause);
+	/// <summary>The confirm tick, for menus whose controls opt out of the automatic hook.</summary>
+	public void Confirm() => Play(confirm);
 	/// <summary>The move tick, for menus that change selection without moving focus (tabs, sliders).</summary>
 	public void Tick() => Play(move);
 

@@ -68,8 +68,28 @@ public partial class GrowingEquationManager : Node
         GD.Print("Input: " + value);
         if (CheckAnswer().ToString() != value)
         {
+            // A wrong pillar restarts the whole chain. Continuing from the wrong
+            // value corrupted the running total for the rest of the sequence.
             GD.Print("Break");
             streak = false;
+
+            Label3D text = GetNode<Label3D>("Text");
+            text.Text = "Incorrect";
+            text.Modulate = new Color(1.0f, 0.0f, 0.0f, 1.0f);
+
+            ResetRun();
+
+            SceneTreeTimer timer = GetTree().CreateTimer(1.0);
+            timer.Timeout += () =>
+            {
+                if (!IsInstanceValid(this) || IsSolved)
+                {
+                    return;
+                }
+                text.Text = equation;
+                text.Modulate = Colors.White;
+            };
+            return;
         }
         // Increment progress
         statuesHit++;
@@ -93,14 +113,8 @@ public partial class GrowingEquationManager : Node
             }
 
             // Reset sequence
-            equation = startNumber + equations[0];
-            statuesHit = 0;
+            ResetRun();
             GD.Print("Reset");
-
-            foreach (GrowingEquationPart child in children)
-            {
-                child.Reset();
-            }
         }
         else
         {
@@ -161,5 +175,22 @@ public partial class GrowingEquationManager : Node
         }
 
         EmitSignal(SignalName.Solved);
+    }
+
+    /// <summary>Returns the chain to its first equation and phase-0 statue numbers.</summary>
+    private void ResetRun()
+    {
+        equation = startNumber + equations[0];
+        statuesHit = 0;
+        streak = true;
+
+        if (children == null)
+        {
+            return;
+        }
+        foreach (GrowingEquationPart child in children)
+        {
+            child.Reset();
+        }
     }
 }

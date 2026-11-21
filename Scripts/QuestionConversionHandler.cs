@@ -782,11 +782,17 @@ public partial class QuestionConversionHandler : Node
 	private static (int, int) GenerateWrongRootAnswer(int rangeOfUnsimplifiedInsides, int unsimplifiedAnswer, (int, int)[] existingOptions)
 	{
 		(int, int) randomNum = (0, 0);
+		int attempts = 0;
 
 		do
 		{
+			// Small answers (like √2) only have a couple of valid roots close by,
+			// so widen the search every 20 misses instead of looping forever.
+			int widen = attempts / 20 * 2;
+			attempts++;
+
 			// Genearate a random root Num
-			randomNum = SimplifyRoot(rand.Next(unsimplifiedAnswer - rangeOfUnsimplifiedInsides/2, unsimplifiedAnswer + rangeOfUnsimplifiedInsides/2));
+			randomNum = SimplifyRoot(rand.Next(unsimplifiedAnswer - rangeOfUnsimplifiedInsides/2 - widen, unsimplifiedAnswer + rangeOfUnsimplifiedInsides/2 + widen));
 			
 			// Make sure its not one of the other options and the Num is not negative
 		} while (existingOptions.Contains<(int, int)>(randomNum) || randomNum.Item1 <= 0 || randomNum.Item2 <= 0);
@@ -798,14 +804,19 @@ public partial class QuestionConversionHandler : Node
 	private static (int, int) GenerateWrongRemainderAnswers(int rangeOfQuotients, int rangeOfRemainders, (int, int) answer, (int,int)[] existingOptions)
 	{
 		(int, int) randomNum = (0,0);
+		int attempts = 0;
 
 		do
 		{
+			// Widen the search every 20 misses so small answers can't loop forever.
+			int widen = attempts / 20 * 2;
+			attempts++;
+
 			// Generate a random num the first being the quotient and the second being the remainder
 			randomNum = 
 			(
-				rand.Next(answer.Item1 - rangeOfQuotients / 2, answer.Item1 + rangeOfQuotients / 2), 
-				rand.Next(answer.Item2 - rangeOfRemainders / 2, answer.Item2 + rangeOfRemainders / 2)
+				rand.Next(answer.Item1 - rangeOfQuotients / 2 - widen, answer.Item1 + rangeOfQuotients / 2 + widen), 
+				rand.Next(answer.Item2 - rangeOfRemainders / 2 - widen, answer.Item2 + rangeOfRemainders / 2 + widen)
 			);
 
 			// Make sure its not one of the other options and the Num is not negative
@@ -817,16 +828,22 @@ public partial class QuestionConversionHandler : Node
 	private static (int, int) GenerateWrongFractionAnswer(int rangeOfWrongNumerators, int rangeOfWrongDenominators, (int, int) answer, (int, int)[] existingOptions)
 	{
 		(int, int) randomNum = (0, 0);
+		int attempts = 0;
 
 		do
 		{
+			// Small answers (like 1 or 1/2) only have a couple of valid fractions close by,
+			// so widen the search every 20 misses instead of looping forever.
+			int widen = attempts / 20 * 2;
+			attempts++;
+
 			// Generate a random fraction
 			// The first being the numerator and the second being the denominator
 
 			randomNum =
 			(
-				rand.Next(answer.Item1 - rangeOfWrongNumerators / 2, answer.Item1 + rangeOfWrongNumerators / 2),
-				rand.Next(answer.Item2 - rangeOfWrongDenominators / 2, answer.Item2 + rangeOfWrongDenominators / 2)
+				rand.Next(answer.Item1 - rangeOfWrongNumerators / 2 - widen, answer.Item1 + rangeOfWrongNumerators / 2 + widen),
+				rand.Next(answer.Item2 - rangeOfWrongDenominators / 2 - widen, answer.Item2 + rangeOfWrongDenominators / 2 + widen)
 			);
 
 			// We simplify the fraction to make sure we don't have duplicates cuz fractions can be simplified to the same fraction
@@ -934,7 +951,13 @@ public partial class QuestionConversionHandler : Node
 		}
 
 		int gcd = Math.Abs(a);
-		
+
+		// 0/0 has no gcd; return it unchanged (callers reject it) instead of dividing by zero.
+		if (gcd == 0)
+		{
+			return unsimplifiedFraction;
+		}
+
 		return (unsimplifiedFraction.Item1 / gcd, unsimplifiedFraction.Item2 / gcd);
 	}
 

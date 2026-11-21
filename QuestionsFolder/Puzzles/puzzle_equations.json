@@ -1,0 +1,12 @@
+{
+  "wall_sum": [
+    { "text": "6 + 2 = ?", "answer": 8 },
+    { "text": "4 + 5 = ?", "answer": 9 },
+    { "text": "6 + 4 = ?", "answer": 10 },
+    { "text": "2 + 4 = ?", "answer": 6 },
+    { "text": "5 + 2 = ?", "answer": 7 },
+    { "text": "6 + 5 = ?", "answer": 11 },
+    { "text": "2 + 4 + 5 = ?", "answer": 11 },
+    { "text": "10 - 2 = ?", "answer": 8 }
+  ]
+}

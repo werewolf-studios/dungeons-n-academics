@@ -1,8 +1,7 @@
 using Godot;
+using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.Net.Mail;
-// READ THE COMMENT AT THE FUNCTIONS SECTION
 
 public partial class EnemyManager : Node
 {
@@ -11,53 +10,67 @@ public partial class EnemyManager : Node
 	[Export]
 	public CombatPlayer player { get; set; }
 
-	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		enemies = GetChildren().OfType<CombatEnemy>().ToList();
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 		// Remove any null nodes from the enemies list.
 		enemies.RemoveAll(node => !GodotObject.IsInstanceValid(node));
 	}
 
-	// Code will need to be refactored for when a battle has multiple enemies.
-	// The player will need to be able to select enemies and actions will be
-	// dealt only to that enemy. Enemies will also have to attack separately
-	// from each other. The code here was from a simple prototype to get the
-	// absolute basics done.
-
-	public void DamageEnemies()
+	/// <summary>True while at least one enemy still has hit points.</summary>
+	public bool AnyEnemyAlive()
 	{
-		if (enemies.Count == 1)
+		foreach (var enemy in enemies)
 		{
-			enemies[0].TakeDamage(player.Damage);
+			if (GodotObject.IsInstanceValid(enemy) && enemy.health > 0)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/// <summary>
+	/// A dead enemy stays in the list while its death animation plays, so victory
+	/// must be decided by health, not by node count.
+	/// </summary>
+	public bool AllEnemiesDead() => !AnyEnemyAlive();
+
+	public bool IsEnemyDead(int index)
+	{
+		return index < 0 || index >= enemies.Count
+			|| !GodotObject.IsInstanceValid(enemies[index])
+			|| enemies[index].health <= 0;
+	}
+
+	public void DamageEnemies() => DamageEnemies(player.Damage);
+
+	/// <summary>Applies an explicit damage amount (used by the spear Special).</summary>
+	public void DamageEnemies(int damage)
+	{
+		if (enemies.Count == 1 && !IsEnemyDead(0))
+		{
+			enemies[0].TakeDamage(damage);
 		}
 	}
 
 	public void CheckIfEnemiesDead()
 	{
-		if (enemies.Count == 1)
+		// CheckIfDead itself ignores live/already-dying enemies; this guard only
+		// filters an invalid node, so a 0-HP enemy still plays its Death animation.
+		if (enemies.Count == 1 && GodotObject.IsInstanceValid(enemies[0]))
 		{
 			enemies[0].CheckIfDead();
 		}
 	}
 
-	public bool AllEnemiesDead()
-	{
-		if (enemies.Count == 0)
-		{
-			return true;
-		}
-		else return false;
-	}
-
 	public void DealDamage()
 	{
-		if (enemies.Count == 1)
+		if (enemies.Count == 1 && !IsEnemyDead(0))
 		{
 			player.TakeDamage(enemies[0].Damage);
 		}
@@ -65,12 +78,9 @@ public partial class EnemyManager : Node
 
 	// -------- Animation Managing --------
 
-	// With multiple enemies, animation playing will need to be
-	// reworked as each enemy takes its turn attacking. Animation
-	// names will need to be renamed.
 	public void PlayAttackAnim()
 	{
-		if (enemies.Count == 1)
+		if (enemies.Count == 1 && !IsEnemyDead(0))
 		{
 			enemies[0].PlayAnim("Shoot");
 		}
@@ -78,14 +88,19 @@ public partial class EnemyManager : Node
 
 	public void PlayIdleAnim()
 	{
-		if (enemies.Count == 1)
+		if (enemies.Count == 1 && GodotObject.IsInstanceValid(enemies[0]))
 		{
 			enemies[0].PlayAnim("Idle_Float");
 		}
 	}
 
+	/// <summary>Health for the HUD; 0 when the enemy is already gone.</summary>
 	public int getEnemyHealth(int index)
 	{
-		return enemies[index].health;
+		if (index < 0 || index >= enemies.Count || !GodotObject.IsInstanceValid(enemies[index]))
+		{
+			return 0;
+		}
+		return Math.Max(0, enemies[index].health);
 	}
 }

@@ -9,6 +9,9 @@ public partial class CombatState : Node
 
 	public CombatStateMachine csm;
 
+	/// <summary>The scene root that owns this state (CombatMain in combat_main.tscn).</summary>
+	protected CombatMain Combat => GetOwner() as CombatMain;
+
 	public virtual void Enter(){}
 
 	public virtual void Exit(){}

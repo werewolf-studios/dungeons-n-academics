@@ -45,8 +45,10 @@ public partial class PlayerAttackState : CombatState
 
 		EnemyManager.CheckIfEnemiesDead();
 
+		// A killing hit gets the death animation's full length before victory;
+		// a surviving enemy gets the normal pacing.
+		PAttkEndTimer.WaitTime = EnemyManager.AllEnemiesDead() ? 4.0 : 2.0;
 		PAttkEndTimer.Start();
-		GD.Print("PAttkEndTimer started");
 	}
 
     private void OnPAttkEndTimerTimeout()

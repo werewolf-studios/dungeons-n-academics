@@ -3,9 +3,6 @@ using System;
 
 public partial class EnemyAttackState : CombatState
 {
-	// READ ME!! Timers will need to be reworked and possibly moved elsewhere.
-	// As EnemyManager reads, this was a prototype to just get the absolute
-	// basics down. Yes the names are quite bad.
 	[Export]
 	public EnemyManager EnemyManager { get; set; }
 
@@ -23,14 +20,20 @@ public partial class EnemyAttackState : CombatState
 
 	[Export]
 	public Timer EAttkEndTimer { get; set; }
+
     public override void Enter()
     {
+        // The enemy may already be dead (killing blow this turn, or a corpse
+        // whose node is still animating). Never let a dead enemy act.
+        if (!EnemyManager.AnyEnemyAlive())
+        {
+            csm.TransitionTo("VictoryState");
+            return;
+        }
+
 		enemyHealthBar.Value = EnemyManager.getEnemyHealth(0);
 		GD.Print("Entered EnemyAttackState");
         EAttkStartTimer.Start();
-		GD.Print("EAttkStartTimer started");
-
-		// enemy.PlayAnim("Shoot");
 		EnemyManager.PlayAttackAnim();
     }
 
@@ -41,8 +44,12 @@ public partial class EnemyAttackState : CombatState
 
 	private void OnEAttkStartTimerTimeout()
 	{
-		GD.Print("EAttkStartTimer timedout");
-		// player.TakeDamage(enemy.Damage);
+		if (!EnemyManager.AnyEnemyAlive())
+		{
+			csm.TransitionTo("VictoryState");
+			return;
+		}
+
 		EnemyManager.DealDamage();
 		playerHealthBar.Value = player.health;
 
@@ -57,18 +64,20 @@ public partial class EnemyAttackState : CombatState
 		}
 
 		EAttkEndTimer.Start();
-		GD.Print("EAttkEndTimer started");
-		// enemy.PlayAnim("Idle_Float");
 		EnemyManager.PlayIdleAnim();
 	}
 
 	private void OnEAttkEndTimerTimeout()
 	{
-		GD.Print("EAttkEndTimer timedout");
-
 		if (player.health <= 0)
 		{
 			csm.TransitionTo("DefeatedState");
+			return;
+		}
+
+		if (!EnemyManager.AnyEnemyAlive())
+		{
+			csm.TransitionTo("VictoryState");
 			return;
 		}
 

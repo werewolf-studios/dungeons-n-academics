@@ -1,3 +1,6 @@
+PASS Geometry difficulty 0: 3 formats x 3000 rolls give 4 distinct choices
+PASS Geometry difficulty 1: 3 formats x 3000 rolls give 4 distinct choices
+PASS Geometry difficulty 2: 3 formats x 3000 rolls give 4 distinct choices
 PASS brother selected from overworld choice
 PASS temporary meshes replaced by animated v10 siblings
 PASS brother starts in Idle
@@ -12,7 +15,7 @@ PASS sword in hand during the swing
 PASS hidden sister does not swing
 PASS no damage before the blade connects
 PASS swing reaches its contact frame
-PASS hit fires on SwordSlash frame 19 (0.75 s), got 0.753
+PASS hit fires on SwordSlash frame 19 (0.75 s), got 0.756
 PASS enemy takes player damage on the hit
 PASS brother returns to Idle after the swing
 PASS sword put away back in Idle

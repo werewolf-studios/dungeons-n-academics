@@ -48,6 +48,7 @@ public partial class Door : Node3D
 
     private Node3D hinge;
     private Area3D trigger;
+    private StaticBody3D leafBody;
     private AudioStreamPlayer3D unlockAudio;
     private AudioStreamPlayer3D openAudio;
     private Tween tween;
@@ -56,6 +57,7 @@ public partial class Door : Node3D
     {
         hinge = GetNode<Node3D>("Model/DoorHinge");
         trigger = GetNode<Area3D>("Trigger");
+        leafBody = GetNodeOrNull<StaticBody3D>("Model/DoorHinge/LeafBody");
         unlockAudio = GetNodeOrNull<AudioStreamPlayer3D>("UnlockAudio");
         openAudio = GetNodeOrNull<AudioStreamPlayer3D>("OpenAudio");
 
@@ -105,6 +107,9 @@ public partial class Door : Node3D
             .SetEase(Tween.EaseType.InOut);
         // The doorway only becomes walkable once the leaf has swung clear.
         tween.TweenCallback(Callable.From(() => trigger.SetDeferred(Area3D.PropertyName.Monitoring, true)));
+        // The open leaf still has a collision box; clear it so the swung door
+        // never blocks the passage the player is meant to walk through.
+        tween.TweenCallback(Callable.From(() => SetLeafBlocking(false)));
         tween.TweenCallback(Callable.From(() => EmitSignal(SignalName.Opened)));
     }
 
@@ -119,6 +124,7 @@ public partial class Door : Node3D
         IsOpen = false;
         hinge.RotationDegrees = new Vector3(0, 0, 0);
         trigger.Monitoring = false;
+        SetLeafBlocking(true);
     }
 
     private void SetOpenImmediately()
@@ -126,5 +132,15 @@ public partial class Door : Node3D
         IsOpen = true;
         hinge.RotationDegrees = new Vector3(0, OpenAngle, 0);
         trigger.Monitoring = true;
+        SetLeafBlocking(false);
+    }
+
+    private void SetLeafBlocking(bool blocking)
+    {
+        if (leafBody == null || !IsInstanceValid(leafBody))
+        {
+            return;
+        }
+        leafBody.SetDeferred("collision_layer", blocking ? 1u : 0u);
     }
 }

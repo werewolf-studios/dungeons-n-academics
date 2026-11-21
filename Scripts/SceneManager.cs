@@ -69,6 +69,8 @@ public partial class SceneManager : Node
 
 	private void ExitBattle(bool playerWon)
 	{
+		bool lost = !playerWon;
+
 		if (combatInstance is CombatMain combatMain)
 		{
 			combatMain.BattleFinished -= ExitBattle;
@@ -77,16 +79,35 @@ public partial class SceneManager : Node
 		combatInstance?.QueueFree();
 		combatInstance = null;
 
-		if (GodotObject.IsInstanceValid(encounterEnemy))
-		{
-			encounterEnemy.QueueFree();
-		}
+		EnemyWander enemy = encounterEnemy;
 		encounterEnemy = null;
 
+		// Wake the overworld first so door swings and sounds play as the player returns.
 		SetOverworldIdle(false);
 		Camera3D camera = OverworldCamera ?? GetNodeOrNull<Camera3D>("CameraFollower/CameraPivot/Camera");
 		camera?.MakeCurrent();
 		inBattle = false;
+
+		if (!GodotObject.IsInstanceValid(enemy))
+		{
+			if (lost)
+			{
+				GameOverScreen.Instance?.Open();
+			}
+			return;
+		}
+
+		if (playerWon)
+		{
+			enemy.OnBattleWon();
+			enemy.QueueFree();
+		}
+		else
+		{
+			// A lost battle leaves the enemy in place, so the doors it guards stay locked.
+			enemy.OnBattleLost();
+			GameOverScreen.Instance?.Open();
+		}
 	}
 
 	private void SetOverworldIdle(bool idle)

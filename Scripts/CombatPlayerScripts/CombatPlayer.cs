@@ -7,11 +7,34 @@ public partial class CombatPlayer : Node3D
 	[Signal]
 	public delegate void AttackHitEventHandler();
 
-	public int health = 30;
+	/// <summary>Emitted when the active sibling's spear thrust connects.</summary>
+	[Signal]
+	public delegate void SpecialHitEventHandler();
+
+	public const int MaxHealth = PlayerSaveData.MaxHealth;
+
+	public int health = MaxHealth;
 	private int damage = 10;
 
 	private CombatCharacterVisual male;
 	private CombatCharacterVisual female;
+
+	/// <summary>
+	/// Start from the persistent pool before any state reads health. _EnterTree runs
+	/// before sibling nodes' _Ready, so PlayerTurnState sees the saved value.
+	/// </summary>
+	public override void _EnterTree()
+	{
+		var data = SaveManager.Instance?.PlayerData;
+		if (data == null) return;
+		health = data.Health;
+		if (health <= 0)
+		{
+			// A previous defeat should never force the next battle to start dead.
+			health = MaxHealth;
+			data.Health = MaxHealth;
+		}
+	}
 
 	public int Damage
 	{
@@ -31,6 +54,7 @@ public partial class CombatPlayer : Node3D
 			if (visual != null)
 			{
 				visual.AttackHit += () => EmitSignal(SignalName.AttackHit);
+				visual.SpecialHit += () => EmitSignal(SignalName.SpecialHit);
 			}
 		}
 	}
@@ -60,6 +84,16 @@ public partial class CombatPlayer : Node3D
 		ActiveVisual.PlayAttack();
 	}
 
+	public void PlaySpecial()
+	{
+		if (ActiveVisual == null)
+		{
+			CallDeferred(GodotObject.MethodName.EmitSignal, SignalName.SpecialHit);
+			return;
+		}
+		ActiveVisual.PlaySpecial();
+	}
+
 	public void PlayHurt()
 	{
 		ActiveVisual?.PlayHurt();
@@ -78,6 +112,26 @@ public partial class CombatPlayer : Node3D
 	public void TakeDamage(int damage)
 	{
 		health -= damage;
+		SyncToSave();
+	}
+
+	/// <summary>Restores hit points up to MaxHealth and returns the amount actually healed.</summary>
+	public int Heal(int amount)
+	{
+		int before = health;
+		health = Math.Min(MaxHealth, health + Math.Max(0, amount));
+		SyncToSave();
+		return health - before;
+	}
+
+	/// <summary>Mirrors combat damage/healing into the persistent exploration pool.</summary>
+	private void SyncToSave()
+	{
+		var data = SaveManager.Instance?.PlayerData;
+		if (data != null)
+		{
+			data.Health = health;
+		}
 	}
 
 	public void RemoveSelf()

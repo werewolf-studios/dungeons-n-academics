@@ -1,9 +1,9 @@
-[gd_resource type="AnimationNodeStateMachine" format=3]
+[gd_resource type="AnimationNodeStateMachine" format=3 uid="uid://d87gpvyyixvc"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ta6x7"]
 animation = &"TakeDamage"
 use_custom_timeline = true
-timeline_length = 0.20833333333333334
+timeline_length = 0.20833333333333337
 stretch_time_scale = false
 start_offset = 0.0
 loop_mode = 0
@@ -15,6 +15,9 @@ timeline_length = 3.0
 stretch_time_scale = false
 start_offset = 0.0
 loop_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_spear1"]
+animation = &"SpearThrust"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i2hqk"]
 animation = &"SwordSlash"
@@ -55,13 +58,25 @@ xfade_time = 0.1
 advance_mode = 2
 advance_condition = &"defeated"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_specialin"]
+xfade_time = 0.15
+advance_mode = 2
+advance_condition = &"special"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_specialout"]
+xfade_time = 0.2
+switch_mode = 2
+advance_mode = 2
+
 [resource]
 states/Defeated/node = SubResource("AnimationNodeAnimation_ta6x7")
 states/Defeated/position = Vector2(320, 320)
 states/Idle/node = SubResource("AnimationNodeAnimation_c5ff5")
 states/Idle/position = Vector2(320, 100)
+states/SpearThrust/node = SubResource("AnimationNodeAnimation_spear1")
+states/SpearThrust/position = Vector2(600, 320)
 states/SwordSlash/node = SubResource("AnimationNodeAnimation_i2hqk")
 states/SwordSlash/position = Vector2(600, 0)
 states/TakeDamage/node = SubResource("AnimationNodeAnimation_vjk3h")
 states/TakeDamage/position = Vector2(600, 200)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_frwyp"), "Idle", "SwordSlash", SubResource("AnimationNodeStateMachineTransition_77chn"), "SwordSlash", "Idle", SubResource("AnimationNodeStateMachineTransition_u1mk4"), "Idle", "TakeDamage", SubResource("AnimationNodeStateMachineTransition_eda1r"), "TakeDamage", "Idle", SubResource("AnimationNodeStateMachineTransition_8uuj0"), "Idle", "Defeated", SubResource("AnimationNodeStateMachineTransition_1p4ah"), "TakeDamage", "Defeated", SubResource("AnimationNodeStateMachineTransition_13f6x")]
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_frwyp"), "Idle", "SwordSlash", SubResource("AnimationNodeStateMachineTransition_77chn"), "SwordSlash", "Idle", SubResource("AnimationNodeStateMachineTransition_u1mk4"), "Idle", "TakeDamage", SubResource("AnimationNodeStateMachineTransition_eda1r"), "TakeDamage", "Idle", SubResource("AnimationNodeStateMachineTransition_8uuj0"), "Idle", "Defeated", SubResource("AnimationNodeStateMachineTransition_1p4ah"), "TakeDamage", "Defeated", SubResource("AnimationNodeStateMachineTransition_13f6x"), "Idle", "SpearThrust", SubResource("AnimationNodeStateMachineTransition_specialin"), "SpearThrust", "Idle", SubResource("AnimationNodeStateMachineTransition_specialout")]

@@ -25,6 +25,16 @@ public partial class SaveManager : Node
 	string SavePathJson = "user://savegame.json";
 	string SavePathBinary = "user://savegame.save"; // can be any extension for binary
 
+	public override void _EnterTree()
+	{
+		// Load before any scene's _EnterTree/_Ready reads PlayerData (the combat
+		// player seeds its health in _EnterTree, which runs before autoload _Ready).
+		if (FileAccess.FileExists(SavePathBinary))
+		{
+			LoadPlayerDataBinary();
+		}
+	}
+
 	// Question file locations
 	string mathQuestionsThirdGradePathJson = "res://QuestionsFolder/ThirdGrade/math_questions.json";
 	string mathQuestionsEighthGradePathJson = "res://QuestionsFolder/EighthGrade/math_questions.json";

@@ -19,6 +19,7 @@ CharacterId = "brother"
 tree_root = ExtResource("5_states")
 anim_player = NodePath("../Model/AnimationPlayer")
 parameters/conditions/attack = false
+parameters/conditions/special = false
 parameters/conditions/hurt = false
 parameters/conditions/defeated = false
 
@@ -33,5 +34,6 @@ CharacterId = "sister"
 tree_root = ExtResource("5_states")
 anim_player = NodePath("../Model/AnimationPlayer")
 parameters/conditions/attack = false
+parameters/conditions/special = false
 parameters/conditions/hurt = false
 parameters/conditions/defeated = false

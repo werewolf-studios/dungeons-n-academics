@@ -25,7 +25,12 @@ public partial class GrowingEquationPart : InteractionTest
 
     public void IncrementQuestion()
     {
-        // Next array element
+        // Clamp at the last authored option; the manager resets the run instead
+        // of letting the index run past the array.
+        if (answers == null || currentValue + 1 >= answers.Length)
+        {
+            return;
+        }
         currentValue++;
         GetNode<Label3D>("Text").Text = answers[currentValue].ToString();
     }

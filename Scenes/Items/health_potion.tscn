@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Items/ItemPickup.cs" id="1_pickup"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pickup"]
+radius = 0.55
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_body"]
+top_radius = 0.16
+bottom_radius = 0.22
+height = 0.42
+radial_segments = 12
+
+[sub_resource type="StandardMaterial3D" id="Material_potion"]
+albedo_color = Color(0.85, 0.12, 0.18, 1)
+emission_enabled = true
+emission = Color(0.6, 0.05, 0.08, 1)
+emission_energy_multiplier = 1.6
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_neck"]
+top_radius = 0.07
+bottom_radius = 0.09
+height = 0.12
+radial_segments = 10
+
+[node name="HealthPotion" type="Area3D"]
+collision_mask = 1
+script = ExtResource("1_pickup")
+ItemId = "health_potion"
+
+[node name="Body" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_body")
+surface_material_override/0 = SubResource("Material_potion")
+
+[node name="Neck" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27, 0)
+mesh = SubResource("CylinderMesh_neck")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_pickup")

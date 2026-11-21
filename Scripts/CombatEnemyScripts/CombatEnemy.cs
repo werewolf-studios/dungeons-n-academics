@@ -5,6 +5,9 @@ public partial class CombatEnemy : Node3D
 {
 	public int health = 20;
 	private int damage = 5;
+	private bool dying;
+
+	public bool IsDying => dying;
 
 	public int Damage
 	{
@@ -12,13 +15,11 @@ public partial class CombatEnemy : Node3D
 		private set { damage = value; }
 	}
 
-	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		GetNode<CharacterBody3D>("EnemyX").GetNode<AnimationPlayer>("AnimationPlayer").AnimationFinished += OnAnimationFinished;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 	}
@@ -46,14 +47,19 @@ public partial class CombatEnemy : Node3D
 		}
     }
 
+	/// <summary>
+	/// Starts the death animation once. The owning attack state decides how long
+	/// to wait before victory, so this method no longer reaches into its timer.
+	/// </summary>
 	public void CheckIfDead()
 	{
-		if (health <= 0)
+		if (dying || health > 0)
 		{
-			StopAnim();
-			PlayAnim("Death");
-			GetNode<Timer>("%PAttkEndTimer").WaitTime = 4.0;
+			return;
 		}
+		dying = true;
+		StopAnim();
+		PlayAnim("Death");
 	}
 
 	public void RemoveSelf()

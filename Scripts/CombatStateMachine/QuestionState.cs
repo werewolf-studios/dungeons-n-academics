@@ -18,6 +18,8 @@ public partial class QuestionState : CombatState
     {
 		GD.Print("Entered QuestionState");
 
+		// Each question starts unanswered; a skipped question must not reuse the last result.
+		answerCorrect = false;
 		PlayerStatsUI.Visible = true;
 		QuestionManager.StartQuestionSequence(Grade.Eighth, QuestionType.Math, Topic.Geometry, currentDifficulty, 1, 20);
     }
@@ -29,9 +31,13 @@ public partial class QuestionState : CombatState
 
 	private void OnQuestionsUIQuestionSequenceEnded()
 	{
+		bool special = Combat != null && Combat.PendingAction == CombatMain.TurnAction.Special;
+		// Reset for the next turn before leaving; the next command sets it again.
+		if (Combat != null) Combat.PendingAction = CombatMain.TurnAction.Attack;
+
 		if (answerCorrect)
 		{
-			csm.TransitionTo("PlayerAttackState");
+			csm.TransitionTo(special ? "SpecialAttackState" : "PlayerAttackState");
 		}
 		else
 		{

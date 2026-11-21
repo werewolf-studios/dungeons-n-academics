@@ -138,12 +138,26 @@ public partial class QuestionManager : CanvasLayer
 
 		timer.WaitTime = time;
 
+		// A sequence that never starts would leave combat waiting forever, so start clean.
+		currentQuestionQueue.Clear();
+
 		// Get some random questions from the list
 		for(int i = 0; i < numOfQuestions; i++)
 		{
-			// Add the question to the queue
-			Question randomQuestion = QuestionConversionHandler.ConvertIntoQuestion(currentQuestionFormatList[random.Next(currentQuestionFormatList.Count)], topic);
-			currentQuestionQueue.Enqueue(randomQuestion);
+			Question randomQuestion = GenerateQuestion(currentQuestionFormatList, topic);
+			if (randomQuestion != null)
+			{
+				// Add the question to the queue
+				currentQuestionQueue.Enqueue(randomQuestion);
+			}
+		}
+
+		if (currentQuestionQueue.Count == 0)
+		{
+			// Nothing could be generated. End the sequence so combat moves on instead of soft-locking.
+			GD.PushError($"QuestionManager: no {topic} question could be generated; skipping the question.");
+			CallDeferred(GodotObject.MethodName.EmitSignal, SignalName.QuestionSequenceEnded);
+			return;
 		}
 
 		DisplayNextQuestion();
@@ -151,6 +165,29 @@ public partial class QuestionManager : CanvasLayer
 		this.Visible = true;
 	}
 	
+	/// <summary>
+	/// Builds one random question. A generator bug on one random roll must not stall combat,
+	/// so a failed roll is logged and retried with a fresh random question.
+	/// </summary>
+	private Question GenerateQuestion(List<QuestionFormat> formats, Topic topic)
+	{
+		const int maxAttempts = 10;
+		for (int attempt = 0; attempt < maxAttempts; attempt++)
+		{
+			QuestionFormat format = formats[random.Next(formats.Count)];
+			try
+			{
+				return QuestionConversionHandler.ConvertIntoQuestion(format, topic);
+			}
+			catch (Exception e)
+			{
+				GD.PushError($"QuestionManager: failed to build \"{format.ProblemFormat}\" ({e.GetType().Name}: {e.Message}); retrying.");
+			}
+		}
+
+		return null;
+	}
+
 	private string correctAnswer;
 	private bool didPlayerAnswer;
 

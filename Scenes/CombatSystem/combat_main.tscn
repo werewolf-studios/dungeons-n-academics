@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bydeivn00di27" path="res://Scenes/healthBar.tscn" id="13_f2y4d"]
 [ext_resource type="Texture2D" uid="uid://b6ua536y3t51j" path="res://Models/Health Assets/UI.png" id="14_djp57"]
 [ext_resource type="PackedScene" uid="uid://c7na4426cw7ug" path="res://Scenes/question_system.tscn" id="14_rpsqt"]
+[ext_resource type="Script" path="res://Scripts/CombatStateMachine/SpecialAttackState.cs" id="15_special"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_k5tp8"]
 
@@ -91,6 +92,17 @@ PAttkEndTimer = NodePath("PAttkEndTimer")
 
 [node name="PAttkEndTimer" type="Timer" parent="CombatStateMachine/PlayerAttackState" unique_id=1158799479]
 unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
+[node name="SpecialAttackState" type="Node" parent="CombatStateMachine" node_paths=PackedStringArray("EnemyManager", "player", "enemyHealthBar", "PAttkEndTimer")]
+script = ExtResource("15_special")
+EnemyManager = NodePath("../../EnemyManager")
+enemyHealthBar = NodePath("../../CombatUI/EnemyHealthBar")
+player = NodePath("../../CombatPlayer")
+PAttkEndTimer = NodePath("PAttkEndTimer")
+
+[node name="PAttkEndTimer" type="Timer" parent="CombatStateMachine/SpecialAttackState" unique_id=1758799479]
 wait_time = 2.0
 one_shot = true
 
@@ -322,5 +334,8 @@ visible = false
 [connection signal="CorrectAnswer" from="Main/QuestionsUI" to="CombatStateMachine/QuestionState" method="OnQuestionsUICorrectAnswer"]
 [connection signal="QuestionSequenceEnded" from="Main/QuestionsUI" to="CombatStateMachine/QuestionState" method="OnQuestionsUIQuestionSequenceEnded"]
 [connection signal="WrongAnswer" from="Main/QuestionsUI" to="CombatStateMachine/QuestionState" method="OnQuestionsUIWrongAnswer"]
+[connection signal="pressed" from="CombatUI/SpecialButton" to="CombatStateMachine/PlayerTurnState" method="OnSpecialButtonPressed"]
+[connection signal="pressed" from="CombatUI/ItemsButton" to="CombatStateMachine/PlayerTurnState" method="OnItemsButtonPressed"]
+[connection signal="timeout" from="CombatStateMachine/SpecialAttackState/PAttkEndTimer" to="CombatStateMachine/SpecialAttackState" method="OnPAttkEndTimerTimeout"]
 
 [editable path="Main"]

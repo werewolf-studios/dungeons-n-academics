@@ -332,6 +332,21 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "A  (or X)"
 
+[node name="ItemsA" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Items"
+
+[node name="ItemsK" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Tab"
+
+[node name="ItemsG" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "D-pad Up"
+
 [node name="SwapA" type="Label" parent="Center/Panel/Margin/VBox/Pages/ControlsPage/Table"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 22

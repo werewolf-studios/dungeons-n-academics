@@ -3,6 +3,20 @@ using System.Collections.Generic;
 
 public partial class EnemyWander : CharacterBody3D
 {
+	// Fired when the player wins the battle against this enemy.
+	[Signal]
+	public delegate void DefeatedEventHandler();
+
+	// Doors opened when this enemy is defeated.
+	[Export]
+	public Door[] doorsToUnlock = new Door[0];
+
+	// After the player loses, the enemy waits this long before it can start another battle.
+	[Export]
+	public float reengageDelay = 3.0f;
+
+	private ulong encounterBlockedUntilMs;
+
 	private Node3D pivot;
 	private RandomNumberGenerator rng = new RandomNumberGenerator();
 	private SceneManager sceneManager;
@@ -56,8 +70,36 @@ public partial class EnemyWander : CharacterBody3D
 		}
 	}
 
+	/// <summary>
+	/// Called by SceneManager after the player wins. Opens this enemy's doors.
+	/// </summary>
+	public void OnBattleWon()
+	{
+		foreach (Door door in doorsToUnlock)
+		{
+			door?.Unlock();
+		}
+
+		EmitSignal(SignalName.Defeated);
+	}
+
+	/// <summary>
+	/// Called by SceneManager after the player loses. The enemy stays (so its doors stay
+	/// locked) and backs off briefly so the player can step away and retry.
+	/// </summary>
+	public void OnBattleLost()
+	{
+		encounterBlockedUntilMs = Time.GetTicksMsec() + (ulong)(reengageDelay * 1000.0f);
+		StartIdle();
+	}
+
 	private void TryStartBattle()
 	{
+		if (Time.GetTicksMsec() < encounterBlockedUntilMs)
+		{
+			return;
+		}
+
 		StopMotion();
 
 		if (!GodotObject.IsInstanceValid(sceneManager))

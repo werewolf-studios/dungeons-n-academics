@@ -18,6 +18,11 @@ public partial class CombatValidation : Node
         {
             capture = DisplayServer.GetName() != "headless";
 
+            // ---- Questions: every geometry format must always build a full question ----
+            // Regression: tiny triangle areas rolled a 0/0 wrong answer (divide by zero), so the
+            // question UI never appeared after pressing Attack and the battle soft-locked.
+            CheckQuestionGeneration(Topic.Geometry, rollsPerFormat: 3000);
+
             // ---- Brother: idle, sword swing, flinch ----
             var (combat, player, csm, enemy) = await SpawnBattle(isMale: true);
             var brother = player.GetNode<CombatCharacterVisual>("Male-Character");
@@ -111,6 +116,37 @@ public partial class CombatValidation : Node
         await Seconds(.2);
         return (combat, combat.GetNode<CombatPlayer>("%CombatPlayer"), combat.GetNode<CombatStateMachine>("CombatStateMachine"),
             combat.GetNode<CombatEnemy>("%CombatEnemy"));
+    }
+
+    private void CheckQuestionGeneration(Topic topic, int rollsPerFormat)
+    {
+        SaveManager.Instance.LoadQuestionDataJson();
+        var difficulties = SaveManager.Instance.MathQuestionsEighthGrade[topic.ToString().ToLower()];
+        for (int difficulty = 0; difficulty < difficulties.Count; difficulty++)
+        {
+            foreach (QuestionFormat format in difficulties[difficulty])
+            {
+                for (int roll = 0; roll < rollsPerFormat; roll++)
+                {
+                    Question question;
+                    try
+                    {
+                        question = QuestionConversionHandler.ConvertIntoQuestion(format, topic);
+                    }
+                    catch (Exception error)
+                    {
+                        throw new Exception($"\"{format.ProblemFormat}\" threw {error.GetType().Name} on roll {roll}");
+                    }
+
+                    var options = new HashSet<string>(question.Wrong) { question.Answer };
+                    if (question.Wrong.Length != 3 || options.Count != 4 || options.Contains(null) || options.Contains(""))
+                    {
+                        throw new Exception($"\"{format.ProblemFormat}\" built bad choices: {question}");
+                    }
+                }
+            }
+            Check(true, $"{topic} difficulty {difficulty}: {difficulties[difficulty].Count} formats x {rollsPerFormat} rolls give 4 distinct choices");
+        }
     }
 
     private static AnimationNodeStateMachinePlayback Playback(CombatCharacterVisual actor) =>
